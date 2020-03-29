@@ -15,7 +15,7 @@ namespace home5
         public List<OrderItem> itemlist;
         public int Orderprice
         {
-            get
+            get 
             {
                 int p = 0;
                 foreach (OrderItem or in this.itemlist)
@@ -24,7 +24,7 @@ namespace home5
                 }
                 return p;
             }
-            set { }
+            set{}
         }
 
         public int Getorderprice()
@@ -127,7 +127,7 @@ namespace home5
             var toCompareWith = other as OrderItem;
             if (toCompareWith == null)
                 return false;
-            return this.itemName == toCompareWith.itemName &&
+            return this.itemName == toCompareWith.itemName&&
                 this.itemPrice == toCompareWith.itemPrice &&
                 this.itemNum == toCompareWith.itemNum;
         }
@@ -152,11 +152,28 @@ namespace home5
                 return h2.Orderprice.CompareTo(h1.Orderprice);
             });
         }
+        public void Export()
+        {
+            XmlSerializer xmlserializer = new XmlSerializer(typeof(List<Order>));
+            using (FileStream fs = new FileStream("order.xml", FileMode.Create))
+            {
+                xmlserializer.Serialize(fs, this.orderList);
+            }
+            Console.WriteLine(File.ReadAllText("order.xml"));
+        }
+        public void Import()
+        {
+            using (FileStream fs = new FileStream("order.xml", FileMode.Open))
+            {
+                XmlSerializer xmlserializer = new XmlSerializer(typeof(List<Order>));
+                List<Order> transorder = (List<Order>)xmlserializer.Deserialize(fs);
+            }
+        }
         public OrderService(List<Order> orderlist)
         {
             this.orderList = orderlist;
         }
-        public void ItemAdd(Order order, string name, int price, int num)
+        public void ItemAdd(Order order,string name, int price, int num)
         {
             OrderItem item = new OrderItem(name, price, num);
             order.itemlist.Add(item);
@@ -168,7 +185,7 @@ namespace home5
                 where s.Equals(itemname)
                 select s;
             OrderItem orderitem = query.First();
-            Console.WriteLine("删除成功：" + "【订单号" + order.orderNumber + "】" + orderitem.itemName + " 价格: " + orderitem.itemPrice);
+            Console.WriteLine("删除成功：" + "【订单号"+order.orderNumber+"】"+ orderitem.itemName + " 价格: " + orderitem.itemPrice);
             Console.WriteLine();
             order.itemlist.Remove(orderitem);
             orderList.Sort((Order h1, Order h2) =>                   //按订单总值进行降序排列
@@ -184,21 +201,21 @@ namespace home5
                 select s;
             OrderItem orderitem = query.First();
             orderitem.SetItemnum(num);
-            Console.WriteLine("修改成功：" + "【订单号" + order.orderNumber + "】" + orderitem.itemName + " 价格: " + orderitem.itemPrice + " 数量：" + orderitem.itemNum);
+            Console.WriteLine("修改成功：" + "【订单号" + order.orderNumber + "】"+ orderitem.itemName + " 价格: " + orderitem.itemPrice + " 数量：" + orderitem.itemNum);
             Console.WriteLine();
             orderList.Sort((Order h1, Order h2) =>                   //按订单总值进行降序排列
             {
                 return h2.Orderprice.CompareTo(h1.Orderprice);
             });
         }
-        public OrderItem SerchName(Order order, string itemname)//根据名字查询物品
+        public OrderItem SerchName(Order order,string itemname)//根据名字查询物品
         {
             IEnumerable<OrderItem> query =
                 from s in order.itemlist
                 where s.Equals(itemname)
                 select s;
             OrderItem orderitem = query.FirstOrDefault();
-            if (orderitem == null) { Console.WriteLine("查询失败！"); return null; }
+            if (orderitem == null) { Console.WriteLine("查询失败！");return null; }
             Console.WriteLine("查询成功：" + "【订单号" + order.orderNumber + "】" + orderitem.itemName + " 价格: " + orderitem.itemPrice + " 数量：" + orderitem.itemNum);
             return orderitem;
         }
@@ -212,7 +229,7 @@ namespace home5
                 select s;
             OrderItem orderitem = query.FirstOrDefault();
             if (orderitem == null) { Console.WriteLine("查询失败！"); }
-            foreach (OrderItem or in query)
+            foreach(OrderItem or in query)
             {
                 Console.WriteLine("查询成功：" + "【订单号" + order.orderNumber + "】" + or.itemName + " 价格: " + or.itemPrice + " 数量：" + or.itemNum);
                 list.Add(or);
@@ -236,13 +253,13 @@ namespace home5
         }
         public override string ToString()
         {
-            string ot = "";
+            string ot="";
             foreach (Order or in this.orderList)
             {
                 ot = ot + "  订单 [订单编号=" + or.orderNumber + ", 用户名称=" + or.buyerName + ", 订单总价=" + or.Orderprice + "]" + "\n";
                 foreach (OrderItem it in or.itemlist)
                 {
-                    ot = ot + "物品 [物品名称=" + it.itemName + ", 物品单价=" + it.itemPrice + ", 物品数量=" + it.itemNum + "]" + "\n";
+                    ot = ot + "物品 [物品名称=" + it.itemName + ", 物品单价=" + it.itemPrice + ", 物品数量=" + it.itemNum + "]"+"\n";
                 }
             }
             return ot;
@@ -281,13 +298,15 @@ namespace home5
             orderlist.Add(order2);
             OrderService service1 = new OrderService(orderlist);
             service1.Init();
-            service1.ItemAdd(order1, "吹风机", 99, 1);
+            service1.ItemAdd(order1,"吹风机", 99, 1);
             Console.WriteLine(service1);
-            service1.Delete(order1, "剃须刀");
-            service1.ItemChange(order1, "小米9", 3);
+            service1.Delete(order1,"剃须刀");
+            service1.ItemChange(order1,"小米9", 3);
             Console.WriteLine(service1);
-            service1.SerchName(order1, "剃须刀");
-            service1.SerchPrice(order2, 1288);
+            service1.SerchName(order1,"剃须刀");
+            service1.SerchPrice(order2,1288);
+            service1.Export();
+            service1.Import();
         }
     }
 }

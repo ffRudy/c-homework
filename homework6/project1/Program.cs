@@ -152,6 +152,23 @@ namespace home5
                 return h2.Orderprice.CompareTo(h1.Orderprice);
             });
         }
+        public void Export()
+        {
+            XmlSerializer xmlserializer = new XmlSerializer(typeof(List<Order>));
+            using (FileStream fs = new FileStream("order.xml", FileMode.Create))
+            {
+                xmlserializer.Serialize(fs, this.orderList);
+            }
+            Console.WriteLine(File.ReadAllText("order.xml"));
+        }
+        public void Import()
+        {
+            using (FileStream fs = new FileStream("order.xml", FileMode.Open))
+            {
+                XmlSerializer xmlserializer = new XmlSerializer(typeof(List<Order>));
+                List<Order> transorder = (List<Order>)xmlserializer.Deserialize(fs);
+            }
+        }
         public OrderService(List<Order> orderlist)
         {
             this.orderList = orderlist;
@@ -288,6 +305,8 @@ namespace home5
             Console.WriteLine(service1);
             service1.SerchName(order1, "剃须刀");
             service1.SerchPrice(order2, 1288);
+            service1.Export();
+            service1.Import();
         }
     }
 }
