@@ -1,0 +1,16 @@
+D:\Csharp\Homework8_1\Homework8_1\bin\Debug\Homework8_1.exe.config
+D:\Csharp\Homework8_1\Homework8_1\bin\Debug\Homework8_1.exe
+D:\Csharp\Homework8_1\Homework8_1\bin\Debug\Homework8_1.pdb
+D:\Csharp\Homework8_1\Homework8_1\bin\Debug\home5.exe
+D:\Csharp\Homework8_1\Homework8_1\bin\Debug\home5.pdb
+D:\Csharp\Homework8_1\Homework8_1\bin\Debug\home5.exe.config
+D:\Csharp\Homework8_1\Homework8_1\obj\Debug\Homework8_1.csprojAssemblyReference.cache
+D:\Csharp\Homework8_1\Homework8_1\obj\Debug\Homework8_1.Form1.resources
+D:\Csharp\Homework8_1\Homework8_1\obj\Debug\Homework8_1.Properties.Resources.resources
+D:\Csharp\Homework8_1\Homework8_1\obj\Debug\Homework8_1.csproj.GenerateResource.cache
+D:\Csharp\Homework8_1\Homework8_1\obj\Debug\Homework8_1.csproj.CoreCompileInputs.cache
+D:\Csharp\Homework8_1\Homework8_1\obj\Debug\Homework8_1.csproj.CopyComplete
+D:\Csharp\Homework8_1\Homework8_1\obj\Debug\Homework8_1.exe
+D:\Csharp\Homework8_1\Homework8_1\obj\Debug\Homework8_1.pdb
+D:\Csharp\Homework8_1\Homework8_1\obj\Debug\Homework8_1.Form2.resources
+D:\Csharp\Homework8_1\Homework8_1\obj\Debug\Homework8_1.Form3.resources
