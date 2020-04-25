@@ -1,0 +1,297 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="经过漫长的等待，儿子终于出生了。欣喜之余，就是各种手足无措，顾此失彼。因为不懂，心里总是慌慌的，有点小毛病，恨不得一步就到医院。婆媳育儿观念的差异，让心乱如麻的我，又成了风箱里的老鼠，两个不服软的女人" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>CPU使用率终于正常了——记一次订餐系统事故处理 - 2J - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=-oFz8B4m7JhHaZzdTkzPza2oLZNDRR8obnCz6w7OHbU" />
+    <link id="MainCss" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd.min.css?v=gS0FloTY-RBJQcN3GCAKG6fAr6HHKtDMTw60VxjN79c" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/jijunjian/custom.css?v=WI3eRo7midbwNzmh7EMewRylXm0=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd-mobile.min.css?v=VacchHeVg6bp3gCO8NqMH8D8fhA8iyRbb0JgoDUvn4o" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/jijunjian/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/jijunjian/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/jijunjian/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=uk-as-QYRHtjaAbeEigAktvhwf01NRrnle-6exg65Ak"></script>
+    <script>
+        var currentBlogId = 139716;
+        var currentBlogApp = 'jijunjian';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'iMetro_HD';
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/jijunjian/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/jijunjian/">成为一名优秀的程序员</a>
+</h1>
+<h2>
+
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/jijunjian/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/2J">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/jijunjian/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+25&nbsp; </span>
+<span id="stats_article_count">文章 - 
+0&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+424</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/jijunjian/p/6000887.html">CPU使用率终于正常了——记一次订餐系统事故处理</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+    <div id="cnblogs_post_description" style="display: none">
+        经过漫长的等待，儿子终于出生了。欣喜之余，就是各种手足无措，顾此失彼。因为不懂，心里总是慌慌的，有点小毛病，恨不得一步就到医院。婆媳育儿观念的差异，让心乱如麻的我，又成了风箱里的老鼠，两个不服软的女人都在考验我的智慧，虽是极力从中斡旋，还是免不了爆发了一场婆媳冲突。还是智慧少了，估计四大名著还得再读一遍（估计还是可以唬一下人的:-D）。不过话说回来了，虽然苦点累点，但抱着娃，看他那惹人爱的脸，时不是还会 喔喔冲你回应，偶尔还会咧嘴微笑，啥苦，累，烦劳通通都没有了。至今两月有余，总算是平稳了，各个操作都熟练了，婆媳有了她们的相处模式，虽也要不时开解，矛盾常有，冲突不在。也蛮好了。啰嗦了两句，咱言归正传一次订单系统CPU使用率过高处理。
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <h1 class="postTitle">引子</h1>
+<p>　　 经过漫长的等待，儿子终于出生了。欣喜之余，就是各种手足无措，顾此失彼了。因为不懂，心里总是慌慌的，有点小毛病，恨不得一步就到医院。</p>
+<p>　　 婆媳育儿观念的差异，让心乱如麻的我，又成了风箱里的老鼠，两个不服软的女人都在考验我的智慧，虽是极力从中斡旋，还是免不了爆发了一场婆媳冲突。</p>
+<p>　　 还是智慧少了，估计四大名著还得再读一遍（唬一下人应该还是可以的:-D）。</p>
+<p>　　 不过话说回来了，虽然苦点，累点（当然了，主要还是媳妇和妈累，媳妇放弃工作，放弃辣椒，放弃方便面，也蛮拼了，我也就打打酱油），但抱着娃，看他那惹人爱的脸，时不是还会 喔喔冲你回应，偶尔还会咧嘴微笑...,啥苦，累，烦劳通通都没有了。</p>
+<p>　　 至今已两月有余，总算是平稳了，各个操作都熟练了，婆媳有了她们的相处模式，也亏得二位都是深明大义的人，虽也要不时开解，矛盾常有，冲突不在。也蛮好了。</p>
+<p>　　 啰嗦了两句，咱言归正传--记录一次订单系统CPU使用率过高处理。</p>
+<p>&nbsp;</p>
+<p>　　&nbsp;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;开场完毕，回归主题&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</p>
+<p>&nbsp;</p>
+<h1 class="postTitle">事故回放</h1>
+<p>　　当时的情况是那个样子的：</p>
+<p>　　1，正值饭点，客户电话说系统慢，几乎无法完成订单调度，有时还显示内存不足。当时心里的第一个声音就是，服务器配置太低了，远程一看，2核4G内存，cpu平均60%以上，内存70%以上，果然是配置低了，word哥厉害了，</p>
+<p>不用看就知道了，果断让用户增加了配置，嘿，你别说增加了配置果然，快了不少，立竿见影，钱还真是万能。然后，欣欣然吃饭去了。</p>
+<p>　　2，过了半月，又值饭点，客户电话又说最近系统慢，再让客户增加配置吧，也不合适，为了避免打脸，我又盲目的临时增加了服务器带宽，但是然并卵。我已经知道我必须要为自己当初的草率还债了。</p>
+<p>&nbsp; &nbsp; &nbsp; 这些年，只知埋头写程序，这方面的东西几乎没有积累。然已经兵临城下，会不会都得上，即使前路是如一重山，两重山，山高天远还是山。&nbsp;　　</p>
+<p>　　　</p>
+<h1 class="postTitle">确认带宽</h1>
+<p>　　我们打开一个网站慢，我们首先想到的是服务器带宽问题，但是如何确认服务器的带宽是否足够呢，我学到了两个方法：看阿里云网络监控，看服务器联网情况。本来是两个天天看到的东西，愣是今天才明白，都不好意思是说自己是计算机专业毕业的了。懂的就飘过，权当我做个笔记吧，有错的欢迎斧正，不能误了别人哩。</p>
+<p>　　 &nbsp;1，以下是阿里云网络监控数据图，服务器使用&nbsp;5Mbps&nbsp;带宽，说明我们的出网理论可以达到 5*1024kbps，服务器出网峰值4700多，说明够用。</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201610/88102-20161026224716468-1479453355.jpg" alt="" /></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 2，也有说这个数据不是特别准确，我们也可以登录服务器远程查看联网信息，下图网络使用大概等于 0.05%*1Gbps &asymp;&nbsp;500kbps;</p>
+<p>&nbsp;</p>
+<p>　　　　<img src="https://images2015.cnblogs.com/blog/88102/201610/88102-20161026225212250-1024776378.jpg" alt="" /></p>
+<p>　　 &nbsp;&nbsp;</p>
+<p>　　观察了两边的数据，我确定了带宽基本够用的，再不用自己去临时升级带宽了，知识比钱还万能，解决问题还能省钱。~~^_^~~~</p>
+<p>　　</p>
+<h1 class="postTitle">搞定内存</h1>
+<p>　　内存从的来的4G，升级到8G，还是会提示内存不足，你说一天就2000多个子订单，再让别人加配置，怎么好意思呢。监控进程，发现w3wp.exe,sqlserver.exe 点的内存多，且在不断增加，直到最后程序提示内存不足时，依然还在吃内存。</p>
+<p>　　w3wp.exe 是iis的进程，一个站点会生成一个进程，也许是程序中有bug，导致内存不断增加，但是要去发现他，真不是简单的事儿。那这个进程还能无法无天了么，当然，不是！。应用程序池可以设置内存限制，这就是他的天了。如下图。</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201610/88102-20161026232229656-357348410.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>　　sqlserver.exe 是数据库有进程，这不是费话么，看名称就知道了。他也会一直吃内存，吃到没有为止（话说他自己不把自己吃了呢），程序固然有问题，不知道他自己有没有bug呢，不管了，给他划一片天，让他插翅难飞。</p>
+<p>当然了，这终非治标之事，权宜之计了。</p>
+<p><img src="https://images2015.cnblogs.com/blog/88102/201610/88102-20161027001606359-764646190.jpg" alt="" /></p>
+<p>　　</p>
+<p>　　内存就暂时这样处理了，近期不影响使用了，要治标还是得好好查代码哩。上面的都是简单设置就Ok了，接下来才是重头戏。</p>
+<h1 class="postTitle">降温CPU</h1>
+<p>　　CPU常年在60%以上，经常还会飚到80%多，服务器自己都照顾不过来了，怎么还有心情响应别人呢。所以嘛，就慢了。（这么简单的道理，怎么现在才想明白呢。）再细看，占CPU的全是&nbsp;sqlserver.exe，好吧，哪哪都少不了你的，十处打鼓，九回在。不过话又说回来，&nbsp;sqlserver.exe成了泼妇骂街，哪哪在，还不是你们这个帮程序员逼的么。 好吧，大哥莫说二哥，脸上麻子一样多，咱还是来相互理解吧。先上一张优化前的CPU使用率情况图，完事儿再上一个优化后的图，放一起怕是有了对比，就有了伤害。看了下图，真是惨不忍睹，平均估计得有60好几吧。</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201610/88102-20161026235209687-1070840390.jpg" alt="" /></p>
+<p>&nbsp;　　sqlserver.exe 经常占很高CPU，肯定不是一处两处的问题，所以肯定不是如大海捞针一般在代码里找了，好吧，大家都知道是&nbsp;数据库引擎优化顾问，具体使用就不说了吧。直接优化建议，按里创建索引之类的，这也太简单了吧，确实简单，因为也没有太大的效果。</p>
+<p>　　于是，继续看查看报告一栏，毕竟这里是真实的数据统计，每个报告都略微看了下，当看到表报告时，word哥，当时真傻眼了，管理员表居然成了引用数最多的表，这太不能接受了。真是不看不知道，一看笑一笑。笑啥呢，找到部分问题了还不让笑了么，哈哈哈。原来页面中几乎都会用到当前登录用户的信息，但每次又都是根据cookie中的id去查数据库，我说呢，果断缓存登录的账号信息（这多年了，还是这么陈旧的方式，还望有园友可以指点一二）。</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201610/88102-20161028205948046-1768935437.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>　　经过上一步后，CPU由原来常年飚高，变成经常升高，检查访问频率高的界面，结合优化报告，发现查询条件 &nbsp;DATEDIFF(day,OrderDateTime,GETDATE()) =0 非常可疑，这个字段本已经添加了到了非聚集索引里，但这样写后，执行计划变得</p>
+<p>非常复杂，如果我修改成&nbsp;&nbsp;OrderDateTime &gt; '2016-10-26' 执行计划就简单多了。几个高频页面计划都是这样写的，以前觉得这样写非常牛，还为经常记不住函数写法而懊恼，没文化真可怕。</p>
+<p>　　再把优化报告，详情看了后，完成了一系列优化，主要也是就索引，sql语句写法等。索引吧，我是天天嚷嚷着学习，但是老是只知皮毛，悲伤中。</p>
+<p>　　把上面优化部署后，还是会偶尔突然升高CPU，猜可能是某个不是特别高频率的界面引起的，最后猜可能是后台首页，有一些统计信息。果不其然，我每刷新一次，CPU就升高了，这些统计又不能没有，怎么办呢，对了，还是缓存，这些数据也没有必要实时统计。如下图。到这里CPU终于降温了。</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201610/88102-20161027004338468-1669209872.jpg" alt="" /></p>
+<p>　　好吧，完事儿了，好吧，还少一张优化后的使用率，安静多了吧。</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201610/88102-20161027004941093-1986976320.jpg" alt="" /></p>
+<p>　　</p>
+<h1 class="postTitle">结语</h1>
+<p>　　以上就是这次优化的大概过程了（个中心酸，着实也不少），网站是个小网站（，好吧，大网站也轮不到我哩），啥都在一个服务器上，也许这些个三脚猫的东西入不了很多人的法眼哩。不过，对我来说还是一次满难得的经历了。</p>
+<p>我相信我就是我，一定能火。如果能对你有帮助，十分荣幸，方便的话点个赞呗，让我也高兴下；写得不对，你能吐个槽，我也十分荣幸，如果能再指点一二，那就万分感激了。</p>
+<p>　　最后，媳妇希望把儿子的名字，写在博客里，将来他要是搜索自己的名字（别说你没干过这事儿哦），能看到这篇博客，那也是美事儿一件了。</p>
+<p>　　好吧，当妈首先还是想到的自己的娃；其实媳妇从怀孕开始，为了娃，管住了嘴，迈开了腿；爬楼梯，转公园，只为能顺产，有利于娃（虽说最后也没能顺产，付出也是蛮多）；生了娃，事就更多了。这就是养儿方知父母恩了。好吧，打住了，再说下次去就是秀恩爱了。儿子名叫：戢雨泽，媳妇取的，希望将来程序比我写得好。</p>
+<p>&nbsp;</p>
+<p>　　&nbsp;成为一名优秀的程序员！</p>
+<p>&nbsp;</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2016-10-27 08:53</span>&nbsp;
+<a href="https://www.cnblogs.com/jijunjian/">2J</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=6000887" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(6000887);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 139716, cb_blogApp = 'jijunjian', cb_blogUserGuid = '3f24f67b-fea0-de11-ba8f-001cf0cd104b';
+    var cb_entryId = 6000887, cb_entryCreatedDate = '2016-10-27 08:53', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 2J
+<br /><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+</body>
+</html>

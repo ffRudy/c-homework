@@ -1,0 +1,632 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta property="og:description" content="上周六，写了第一篇博客《订餐系统之权限设计》，在此感谢那些鼓励、关注我的园友们，更要感谢那些提出宝贵建议的朋友们。看了你们的评论，才真切的感受到：朋友们的评论往往会让文章更有看点。上篇文章中 郑明、人" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>订餐系统之按距离[根据经纬度]排序、搜索 - 2J - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=-oFz8B4m7JhHaZzdTkzPza2oLZNDRR8obnCz6w7OHbU" />
+    <link id="MainCss" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd.min.css?v=gS0FloTY-RBJQcN3GCAKG6fAr6HHKtDMTw60VxjN79c" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/jijunjian/custom.css?v=WI3eRo7midbwNzmh7EMewRylXm0=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd-mobile.min.css?v=VacchHeVg6bp3gCO8NqMH8D8fhA8iyRbb0JgoDUvn4o" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/jijunjian/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/jijunjian/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/jijunjian/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=uk-as-QYRHtjaAbeEigAktvhwf01NRrnle-6exg65Ak"></script>
+    <script>
+        var currentBlogId = 139716;
+        var currentBlogApp = 'jijunjian';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'iMetro_HD';
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/jijunjian/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/jijunjian/">成为一名优秀的程序员</a>
+</h1>
+<h2>
+
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/jijunjian/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/2J">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/jijunjian/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+25&nbsp; </span>
+<span id="stats_article_count">文章 - 
+0&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+424</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/jijunjian/archive/2013/05/23/3086520.html">订餐系统之按距离[根据经纬度]排序、搜索</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p style="line-height: 24px;">　　上周六，写了第一篇博客《<a id="cb_post_title_url" href="http://www.cnblogs.com/jijunjian/archive/2013/05/11/3072391.html" target="_blank">订餐系统之权限设计</a>》，在此感谢那些鼓励、关注我的园友们，更要感谢那些提出宝贵建议的朋友们。看了你们的评论，才真切的感受到：<span style="color: #0000ff;">朋友们的评论往往会让文章更有看点</span>。上篇文章中 <a id="a_comment_author_2678355" href="http://www.cnblogs.com/zhengming/" target="_blank">郑明</a>、<a id="a_comment_author_2678569" href="http://www.cnblogs.com/lyyxjc/" target="_blank">人生就是赌 </a>&nbsp;等几个园友的留言让我对我们系统的权限优化有了方向。当然，这样的优化肯定不是一天两天的事，做技术的朋友应该都知道：一个难题经常啃啃，某天也许就有了好的方案了（近段时间啃掉了几个2、3年前未处理好的的问题，才想起初中数学老师让我们经常啃一些竞赛题的良苦用心），今天的文章说的就是一个从2010年就想优化，但一直未优化好的功能，也从 <a id="a_comment_author_2678237" href="http://www.cnblogs.com/happyframework/" target="_blank">幸福框架</a>的评论中，看到了他的博客，更是从他博客的留言中，找到了处理：<span style="color: #0000ff;">按日期+6位顺序号生成订单编号（主要处理并发的情况）</span>的方案，之前有客户要这样生成订单编号，我只能回复实现不了，因为当时只知道，每次获取最大的订单编号，处理不了并发的情况，惭愧。</p>
+<p style="line-height: 24px;">　　关于这个标题，我还是交代下背景吧。这个问题从2010年第一次实现时，就觉得当时那种方案太差了，自己都看不去，只因没有别的办法，从那以后，每每得空，就拿出来琢磨下，现在这个方案也许还有不少问题，也希望各位指点下。我们是做订餐系统的，主要实体就是商家（有坐标）和用户（有坐标）。所以就有这么个需求，返回距离N公里内的商家，按距离从近到远排序。先看下，数据库设计吧，如图（1）：</p>
+<p style="line-height: 24px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="data:image/png;base64,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" alt="" /></p>
+<p style="line-height: 24px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #0000ff;"><strong>图（1）</strong></span></p>
+<p style="line-height: 24px;">&nbsp;　　下面我先介绍下这几个表的关系吧：</p>
+<p style="line-height: 24px;">　　&nbsp; ETogo ：商家表，dataid表示商家编号，togoname表示商家名称。</p>
+<p style="line-height: 24px;">　　&nbsp; ETogoLocalInfo：商家定位表，togoid对应etogo.dataid,lat表示商家纬度，lng表示商家经度（经纬度在地图上标注所得）</p>
+<p style="line-height: 24px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EAddress ：用户地址表，保存用户的经纬度，lat表示用户纬度，lng表示用户经度（经纬度在地图上标注所得）</p>
+<p style="line-height: 24px;">　　 生活的经验告诉我们：一条成功的路，背后总有数不完的错误的路。下面我把那些曾经错误的路也写下来，以作对比。</p>
+<div class="cnblogs_code" style="background-color: #c0deed;"><span class="cnblogs_code_collapse">2010年方案</span></div>
+<p style="line-height: 24px;">&nbsp;　　当时年少，对sql基本只会简单的select，更多的东西依赖于应用程序，于是有了下面的代码，由于对第二页的处理不了，所以用了方法：getDistancetogoid获取前N页的id然后再处理，里面关于距离的语句每次同事用到都抱怨，如果再加的N公里内的，这个语句就麻烦了。</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('f425eef4-294c-4cea-b9b1-9e6bd0760bd6')"><img id="code_img_closed_f425eef4-294c-4cea-b9b1-9e6bd0760bd6" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_f425eef4-294c-4cea-b9b1-9e6bd0760bd6" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('f425eef4-294c-4cea-b9b1-9e6bd0760bd6',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_f425eef4-294c-4cea-b9b1-9e6bd0760bd6" class="cnblogs_code_hide">
+<pre>        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 获取列表，返回距离排序(出现商家重复的现象目前不采用)
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="pagesize"&gt;</span><span style="color: #008000;">每页大小</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="pageindex"&gt;</span><span style="color: #008000;">当前页数</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="strWhere"&gt;</span><span style="color: #008000;">搜索条件</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="orderName"&gt;</span><span style="color: #008000;">排序字段</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="orderType"&gt;</span><span style="color: #008000;">排序类型</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="mylat"&gt;</span><span style="color: #008000;">用户纬度</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="mylng"&gt;</span><span style="color: #008000;">用户经度</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+        <span style="color: #0000ff;">public</span> IList&lt;TogoInfo&gt; GetDistanceList(<span style="color: #0000ff;">int</span> pagesize, <span style="color: #0000ff;">int</span> pageindex, <span style="color: #0000ff;">string</span> strWhere, <span style="color: #0000ff;">string</span> orderName, <span style="color: #0000ff;">int</span> orderType, <span style="color: #0000ff;">string</span> mylat, <span style="color: #0000ff;">string</span><span style="color: #000000;"> mylng)
+        {
+            IList</span>&lt;TogoInfo&gt; infos = <span style="color: #0000ff;">new</span> List&lt;TogoInfo&gt;<span style="color: #000000;">();
+            </span><span style="color: #0000ff;">string</span> ids = <span style="color: #800000;">""</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">if</span> (pageindex &gt; <span style="color: #800080;">1</span><span style="color: #000000;">)
+            {
+                ids </span>=<span style="color: #000000;"> getDistancetogoid(pagesize, pageindex, strWhere, orderName, orderType, mylat, mylng);
+                </span><span style="color: #0000ff;">if</span> (ids == <span style="color: #800000;">""</span><span style="color: #000000;">)
+                {
+                    </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> infos;
+                }
+            }
+            SqlParameter[] parameters </span>=<span style="color: #000000;"> 
+            {
+                </span><span style="color: #0000ff;">new</span> SqlParameter(<span style="color: #800000;">"</span><span style="color: #800000;">@tblName</span><span style="color: #800000;">"</span>, SqlDbType.VarChar,<span style="color: #800080;">255</span><span style="color: #000000;">),
+                </span><span style="color: #0000ff;">new</span> SqlParameter(<span style="color: #800000;">"</span><span style="color: #800000;">@strGetFields</span><span style="color: #800000;">"</span>, SqlDbType.VarChar,<span style="color: #800080;">2000</span><span style="color: #000000;">),
+                </span><span style="color: #0000ff;">new</span> SqlParameter(<span style="color: #800000;">"</span><span style="color: #800000;">@primary</span><span style="color: #800000;">"</span>, SqlDbType.VarChar,<span style="color: #800080;">255</span><span style="color: #000000;">),
+                </span><span style="color: #0000ff;">new</span> SqlParameter(<span style="color: #800000;">"</span><span style="color: #800000;">@orderName</span><span style="color: #800000;">"</span>, SqlDbType.VarChar,<span style="color: #800080;">255</span><span style="color: #000000;">),
+                </span><span style="color: #0000ff;">new</span> SqlParameter(<span style="color: #800000;">"</span><span style="color: #800000;">@PageSize</span><span style="color: #800000;">"</span><span style="color: #000000;">, SqlDbType.Int),
+                </span><span style="color: #0000ff;">new</span> SqlParameter(<span style="color: #800000;">"</span><span style="color: #800000;">@PageIndex</span><span style="color: #800000;">"</span><span style="color: #000000;">, SqlDbType.Int),
+                </span><span style="color: #0000ff;">new</span> SqlParameter(<span style="color: #800000;">"</span><span style="color: #800000;">@OrderType</span><span style="color: #800000;">"</span><span style="color: #000000;">, SqlDbType.Bit),
+                </span><span style="color: #0000ff;">new</span> SqlParameter(<span style="color: #800000;">"</span><span style="color: #800000;">@strWhere</span><span style="color: #800000;">"</span>, SqlDbType.VarChar,<span style="color: #800080;">4500</span><span style="color: #000000;">),
+                </span><span style="color: #0000ff;">new</span> SqlParameter(<span style="color: #800000;">"</span><span style="color: #800000;">@ids</span><span style="color: #800000;">"</span>, SqlDbType.VarChar,<span style="color: #800080;">2000</span><span style="color: #000000;">)
+            };
+            </span><span style="color: #0000ff;">string</span> orderstr = orderType &gt; <span style="color: #800080;">0</span> ? <span style="color: #800000;">"</span><span style="color: #800000;">desc</span><span style="color: #800000;">"</span> : <span style="color: #800000;">"</span><span style="color: #800000;">asc</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            parameters[</span><span style="color: #800080;">0</span>].Value = <span style="color: #800000;">"</span><span style="color: #800000;">etogo</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">string</span> field = <span style="color: #800000;">"</span><span style="color: #800000;">*, (select Lat from ETogoLocalInfo where togoid = etogo.dataid) as lat ,(select lng from ETogoLocalInfo where togoid = etogo.dataid) as lng, (select lastlogindate from ETogoPrinter where ETogoPrinter.togoid =  etogo.dataid ) lastlogindate,(select (Case when DateDiff(mi,LastLoginDate,getdate()) &lt; 5 then 1 else 0 end) from etogoprinter where ETogoPrinter.togoid =  etogo.dataid)  as online</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            field </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">,(( 6371 * acos( cos( radians(</span><span style="color: #800000;">"</span> + mylat + <span style="color: #800000;">"</span><span style="color: #800000;">) ) * cos( radians( (select Lat from ETogoLocalInfo where togoid = etogo.dataid) )) * cos( radians( (select lng from ETogoLocalInfo where togoid = etogo.dataid) ) - radians(</span><span style="color: #800000;">"</span> + mylng + <span style="color: #800000;">"</span><span style="color: #800000;">) ) + sin( radians(</span><span style="color: #800000;">"</span> + mylat + <span style="color: #800000;">"</span><span style="color: #800000;">) ) * sin( radians( (select Lat from ETogoLocalInfo where togoid = etogo.dataid) ) ) ) )) as Distance </span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            field </span>+= <span style="color: #800000;">"</span><span style="color: #800000;"> ,CASE WHEN( ( CONVERT(varchar(12) , Time1Start, 114 ) &lt; CONVERT(varchar(12) , getdate(), 114 )</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            field </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">and CONVERT(varchar(12) , Time1End, 114 ) &gt; CONVERT(varchar(12) , getdate(), 114 )</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            field </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">) or  ( CONVERT(varchar(12) , Time2Start, 114 ) &lt; CONVERT(varchar(12) , getdate(), 114 )</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            field </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">and CONVERT(varchar(12) , Time2End, 114 ) &gt; CONVERT(varchar(12) , getdate(), 114 )</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            field </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">) )THEN 1 ELSE 0 END AS havenew </span><span style="color: #800000;">"</span><span style="color: #000000;">;
+
+            parameters[</span><span style="color: #800080;">1</span>].Value =<span style="color: #000000;"> field;
+            parameters[</span><span style="color: #800080;">2</span>].Value = <span style="color: #800000;">"</span><span style="color: #800000;">DataID</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            parameters[</span><span style="color: #800080;">3</span>].Value =<span style="color: #000000;"> orderName;
+            parameters[</span><span style="color: #800080;">4</span>].Value =<span style="color: #000000;"> pagesize;
+            parameters[</span><span style="color: #800080;">5</span>].Value =<span style="color: #000000;"> pageindex;
+            parameters[</span><span style="color: #800080;">6</span>].Value =<span style="color: #000000;"> orderType;
+            parameters[</span><span style="color: #800080;">7</span>].Value =<span style="color: #000000;"> strWhere;
+            parameters[</span><span style="color: #800080;">8</span>].Value =<span style="color: #000000;"> ids;
+            </span><span style="color: #0000ff;">using</span> (SqlDataReader dr = SQLHelper.ExecuteReader(CommandType.StoredProcedure, <span style="color: #800000;">"</span><span style="color: #800000;">pageselectpri_togo</span><span style="color: #800000;">"</span><span style="color: #000000;">, parameters))
+            {
+                </span><span style="color: #0000ff;">while</span><span style="color: #000000;"> (dr.Read())
+                {
+                    TogoInfo info </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> TogoInfo();
+                    info.DataID </span>= HJConvert.ToInt32(dr[<span style="color: #800000;">"</span><span style="color: #800000;">DataID</span><span style="color: #800000;">"</span><span style="color: #000000;">]);
+                    info.Picture </span>= HJConvert.ToString(dr[<span style="color: #800000;">"</span><span style="color: #800000;">Picture</span><span style="color: #800000;">"</span><span style="color: #000000;">]);
+                    info.TogoName </span>= HJConvert.ToString(dr[<span style="color: #800000;">"</span><span style="color: #800000;">TogoName</span><span style="color: #800000;">"</span><span style="color: #000000;">]);
+                    </span><span style="color: #0000ff;">int</span> isonline = HJConvert.ToInt32(dr[<span style="color: #800000;">"</span><span style="color: #800000;">havenew</span><span style="color: #800000;">"</span><span style="color: #000000;">]);
+
+                    </span><span style="color: #0000ff;">if</span> (togostatus == <span style="color: #800080;">1</span> &amp;&amp; isonline == <span style="color: #800080;">1</span><span style="color: #000000;">)
+                    {
+                        info.Status </span>= <span style="color: #800080;">1</span><span style="color: #000000;">;
+                    }
+                    </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+                    {
+                        info.Status </span>= <span style="color: #800080;">0</span><span style="color: #000000;">;
+                    }
+                    </span><span style="color: #0000ff;">string</span> _distance = HJConvert.ToString(dr[<span style="color: #800000;">"</span><span style="color: #800000;">Distance</span><span style="color: #800000;">"</span><span style="color: #000000;">]);
+
+                    </span><span style="color: #0000ff;">if</span> (mylat == <span style="color: #800000;">"</span><span style="color: #800000;">0</span><span style="color: #800000;">"</span> || _distance == <span style="color: #800000;">""</span><span style="color: #000000;">)
+                    {
+                        info.mydistance </span>= <span style="color: #800000;">"</span><span style="color: #800000;">0</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+                    }
+                    </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+                    {
+                        info.mydistance </span>= Convert.ToString(Convert.ToInt32(Convert.ToDecimal(_distance) * <span style="color: #800080;">1000</span><span style="color: #000000;">));
+                    }
+
+                    info.Lat </span>= HJConvert.ToString(dr[<span style="color: #800000;">"</span><span style="color: #800000;">Lat</span><span style="color: #800000;">"</span><span style="color: #000000;">]);
+                    </span><span style="color: #0000ff;">if</span> (info.Lat == <span style="color: #800000;">""</span><span style="color: #000000;">)
+                    {
+                        info.Lat </span>= <span style="color: #800000;">"</span><span style="color: #800000;">0</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+                    }
+                    info.Lng </span>= HJConvert.ToString(dr[<span style="color: #800000;">"</span><span style="color: #800000;">Lng</span><span style="color: #800000;">"</span><span style="color: #000000;">]);
+                    </span><span style="color: #0000ff;">if</span> (info.Lng == <span style="color: #800000;">""</span><span style="color: #000000;">)
+                    {
+                        info.Lng </span>= <span style="color: #800000;">"</span><span style="color: #800000;">0</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+                    }
+
+                    infos.Add(info);
+                }
+            }
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> infos;
+        }
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 获取所有商家的名称和对应的编号
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="pagesize"&gt;</span><span style="color: #008000;">每页大小</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="pageindex"&gt;</span><span style="color: #008000;">当前页数</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="strWhere"&gt;</span><span style="color: #008000;">搜索条件</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="orderName"&gt;</span><span style="color: #008000;">排序字段</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="orderType"&gt;</span><span style="color: #008000;">排序类型</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="mylat"&gt;</span><span style="color: #008000;">用户纬度</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="mylng"&gt;</span><span style="color: #008000;">用户经度</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> getDistancetogoid(<span style="color: #0000ff;">int</span> pagesize, <span style="color: #0000ff;">int</span> pageindex, <span style="color: #0000ff;">string</span> sqlwhere, <span style="color: #0000ff;">string</span> sortname, <span style="color: #0000ff;">int</span> ordertype, <span style="color: #0000ff;">string</span> mylat, <span style="color: #0000ff;">string</span><span style="color: #000000;"> mylng)
+        {
+            </span><span style="color: #0000ff;">string</span> ids = <span style="color: #800000;">""</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">string</span> orderstr = ordertype &gt; <span style="color: #800080;">0</span> ? <span style="color: #800000;">"</span><span style="color: #800000;">desc</span><span style="color: #800000;">"</span> : <span style="color: #800000;">"</span><span style="color: #800000;">asc</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">int</span> top = (pageindex - <span style="color: #800080;">1</span>) *<span style="color: #000000;"> pagesize;
+            </span><span style="color: #0000ff;">string</span> field = <span style="color: #800000;">"</span><span style="color: #800000;">select top </span><span style="color: #800000;">"</span> + top + <span style="color: #800000;">"</span><span style="color: #800000;"> dataid</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            field </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">,(( 6371 * acos( cos( radians(</span><span style="color: #800000;">"</span> + mylat + <span style="color: #800000;">"</span><span style="color: #800000;">) ) * cos( radians( (select Lat from ETogoLocalInfo where togoid = etogo.dataid) )) * cos( radians( (select lng from ETogoLocalInfo where togoid = etogo.dataid) ) - radians(</span><span style="color: #800000;">"</span> + mylng + <span style="color: #800000;">"</span><span style="color: #800000;">) ) + sin( radians(</span><span style="color: #800000;">"</span> + mylat + <span style="color: #800000;">"</span><span style="color: #800000;">) ) * sin( radians( (select Lat from ETogoLocalInfo where togoid = etogo.dataid) ) ) ) )) as Distance </span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            field </span>+= <span style="color: #800000;">"</span><span style="color: #800000;"> from etogo where </span><span style="color: #800000;">"</span> + sqlwhere + <span style="color: #800000;">"</span><span style="color: #800000;"> order by </span><span style="color: #800000;">"</span> + sortname + <span style="color: #800000;">"</span> <span style="color: #800000;">"</span> + orderstr + <span style="color: #800000;">"</span><span style="color: #800000;"> , dataid desc</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">using</span> (SqlDataReader dr = SQLHelper.ExecuteReader(CommandType.Text, field, <span style="color: #0000ff;">null</span><span style="color: #000000;">))
+            {
+                </span><span style="color: #0000ff;">while</span><span style="color: #000000;"> (dr.Read())
+                {
+                    ids </span>+= dr[<span style="color: #800000;">"</span><span style="color: #800000;">dataid</span><span style="color: #800000;">"</span>] + <span style="color: #800000;">"</span><span style="color: #800000;">,</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+                }
+            }
+            ids </span>= System.Text.RegularExpressions.Regex.Replace(ids, <span style="color: #800000;">@"</span><span style="color: #800000;">,$</span><span style="color: #800000;">"</span>, <span style="color: #800000;">""</span><span style="color: #000000;">);
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> ids;
+        }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">dal层代码</span></div>
+<p>&nbsp;以下是代码中用到的分页存储过程：pageselectpri_togo</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('fd396724-2788-4026-a9f5-e5913b2b7e19')"><img id="code_img_closed_fd396724-2788-4026-a9f5-e5913b2b7e19" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_fd396724-2788-4026-a9f5-e5913b2b7e19" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('fd396724-2788-4026-a9f5-e5913b2b7e19',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_fd396724-2788-4026-a9f5-e5913b2b7e19" class="cnblogs_code_hide">
+<pre><span style="color: #000000;">CREATE   PROCEDURE [dbo].[pageselectpri_togo]
+
+@tblName varchar(</span><span style="color: #800080;">255</span>),       --<span style="color: #000000;"> 表名
+
+@strGetFields varchar(</span><span style="color: #800080;">1000</span>) = <span style="color: #800000;">'</span><span style="color: #800000;">*</span><span style="color: #800000;">'</span>,  --<span style="color: #000000;"> 需要返回的列 
+
+@primary varchar(</span><span style="color: #800080;">255</span>)=<span style="color: #800000;">''</span>,      --<span style="color: #000000;"> 主键的字段名
+
+@orderName varchar(</span><span style="color: #800080;">255</span>)=<span style="color: #800000;">''</span>,        --<span style="color: #000000;">要排序的字段名
+
+@PageSize   </span><span style="color: #0000ff;">int</span> = <span style="color: #800080;">10</span>,          --<span style="color: #000000;"> 页尺寸
+
+@PageIndex  </span><span style="color: #0000ff;">int</span> = <span style="color: #800080;">1</span>,           --<span style="color: #000000;"> 页码
+
+@OrderType bit </span>= <span style="color: #800080;">0</span>,  -- 设置排序类型, 非 <span style="color: #800080;">0</span><span style="color: #000000;"> 值则降序
+
+@strWhere  varchar(</span><span style="color: #800080;">1500</span>) = <span style="color: #800000;">''</span>,  -- 查询条件 (注意: 不要加 <span style="color: #0000ff;">where</span><span style="color: #000000;">)
+@ids varchar(</span><span style="color: #800080;">2000</span><span style="color: #000000;">) 
+
+AS
+
+declare @strSQL   varchar(</span><span style="color: #800080;">5000</span>)       --<span style="color: #000000;"> 主语句
+
+declare @strTmp   varchar(</span><span style="color: #800080;">110</span>)        --<span style="color: #000000;"> 临时变量
+
+declare @strOrder varchar(</span><span style="color: #800080;">400</span>)        --<span style="color: #000000;"> 排序类型
+
+
+
+</span><span style="color: #0000ff;">if</span> @OrderType != <span style="color: #800080;">0</span><span style="color: #000000;">
+    
+begin
+    
+    </span><span style="color: #0000ff;">set</span> @strTmp = <span style="color: #800000;">'</span><span style="color: #800000;"> not in (select </span><span style="color: #800000;">'</span>
+    
+    <span style="color: #0000ff;">set</span> @strOrder = <span style="color: #800000;">'</span><span style="color: #800000;"> order by </span><span style="color: #800000;">'</span> + @orderName +<span style="color: #800000;">'</span><span style="color: #800000;"> desc</span><span style="color: #800000;">'</span>
+    
+    <span style="color: #0000ff;">if</span> @orderName &lt;&gt;<span style="color: #000000;"> @primary
+    begin
+        </span><span style="color: #0000ff;">set</span> @strOrder = @strOrder + <span style="color: #800000;">'</span><span style="color: #800000;">,[</span><span style="color: #800000;">'</span> + @primary +<span style="color: #800000;">'</span><span style="color: #800000;">] desc</span><span style="color: #800000;">'</span><span style="color: #000000;">
+    end
+    </span>--<span style="color: #000000;">如果@OrderType不是0，就执行降序，这句很重要！
+    
+end
+    
+</span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+    
+begin
+    
+    </span><span style="color: #0000ff;">set</span> @strTmp = <span style="color: #800000;">'</span><span style="color: #800000;"> not in (select </span><span style="color: #800000;">'</span>
+    
+    <span style="color: #0000ff;">set</span> @strOrder = <span style="color: #800000;">'</span><span style="color: #800000;"> order by </span><span style="color: #800000;">'</span> + @orderName +<span style="color: #800000;">'</span><span style="color: #800000;"> asc</span><span style="color: #800000;">'</span>
+
+    <span style="color: #0000ff;">if</span> @orderName &lt;&gt;<span style="color: #000000;"> @primary
+    begin
+        </span><span style="color: #0000ff;">set</span> @strOrder = @strOrder + <span style="color: #800000;">'</span><span style="color: #800000;">,[</span><span style="color: #800000;">'</span> + @primary +<span style="color: #800000;">'</span><span style="color: #800000;">] asc</span><span style="color: #800000;">'</span><span style="color: #000000;">
+    end
+
+end
+
+ 
+
+</span><span style="color: #0000ff;">if</span> @PageIndex = <span style="color: #800080;">1</span><span style="color: #000000;">
+
+begin
+
+    </span><span style="color: #0000ff;">if</span> @strWhere != <span style="color: #800000;">''</span>   
+
+    <span style="color: #0000ff;">set</span> @strSQL = <span style="color: #800000;">'</span><span style="color: #800000;">select top </span><span style="color: #800000;">'</span> + str(@PageSize) +<span style="color: #800000;">'</span> <span style="color: #800000;">'</span>+@strGetFields+ <span style="color: #800000;">'</span><span style="color: #800000;">  from [</span><span style="color: #800000;">'</span> + @tblName + <span style="color: #800000;">'</span><span style="color: #800000;">] where </span><span style="color: #800000;">'</span> + @strWhere + <span style="color: #800000;">'</span> <span style="color: #800000;">'</span> +<span style="color: #000000;"> @strOrder
+    
+     </span><span style="color: #0000ff;">else</span>
+
+     <span style="color: #0000ff;">set</span> @strSQL = <span style="color: #800000;">'</span><span style="color: #800000;">select top </span><span style="color: #800000;">'</span> + str(@PageSize) +<span style="color: #800000;">'</span> <span style="color: #800000;">'</span>+@strGetFields+ <span style="color: #800000;">'</span><span style="color: #800000;">  from [</span><span style="color: #800000;">'</span>+ @tblName + <span style="color: #800000;">'</span><span style="color: #800000;">] </span><span style="color: #800000;">'</span>+<span style="color: #000000;"> @strOrder
+
+</span>--<span style="color: #000000;">如果是第一页就执行以上代码，这样会加快执行速度
+
+end
+
+</span><span style="color: #0000ff;">else</span>--<span style="color: #000000;">后面的页数
+
+begin
+
+</span>--<span style="color: #000000;">以下代码赋予了@strSQL以真正执行的SQL代码
+
+</span><span style="color: #0000ff;">set</span> @strSQL = <span style="color: #800000;">'</span><span style="color: #800000;">select top </span><span style="color: #800000;">'</span> + str(@PageSize) +<span style="color: #800000;">'</span> <span style="color: #800000;">'</span>+@strGetFields+ <span style="color: #800000;">'</span><span style="color: #800000;">  from [</span><span style="color: #800000;">'</span>
+
+    + @tblName + <span style="color: #800000;">'</span><span style="color: #800000;">] where [</span><span style="color: #800000;">'</span> + @primary + <span style="color: #800000;">'</span><span style="color: #800000;">]</span><span style="color: #800000;">'</span> + @strTmp + <span style="color: #800000;">'</span><span style="color: #800000;">[</span><span style="color: #800000;">'</span>+ @primary + <span style="color: #800000;">'</span><span style="color: #800000;">] from (select top </span><span style="color: #800000;">'</span> 
+    
+    + str((@PageIndex-<span style="color: #800080;">1</span>)*@PageSize) + <span style="color: #800000;">'</span><span style="color: #800000;"> [</span><span style="color: #800000;">'</span>+ @primary + <span style="color: #800000;">'</span><span style="color: #800000;">] from [</span><span style="color: #800000;">'</span> + @tblName + <span style="color: #800000;">'</span><span style="color: #800000;">]) as tblTmp)</span><span style="color: #800000;">'</span>+<span style="color: #000000;"> @strOrder
+
+ 
+
+</span><span style="color: #0000ff;">if</span> @strWhere != <span style="color: #800000;">''</span>
+
+    <span style="color: #0000ff;">set</span> @strSQL = <span style="color: #800000;">'</span><span style="color: #800000;">select top </span><span style="color: #800000;">'</span> + str(@PageSize) +<span style="color: #800000;">'</span> <span style="color: #800000;">'</span>+@strGetFields+ <span style="color: #800000;">'</span><span style="color: #800000;">  from [</span><span style="color: #800000;">'</span>
+
+        + @tblName + <span style="color: #800000;">'</span><span style="color: #800000;">] where [</span><span style="color: #800000;">'</span> + @primary + <span style="color: #800000;">'</span><span style="color: #800000;">] not in ( </span><span style="color: #800000;">'</span>+@ids+<span style="color: #800000;">'</span><span style="color: #800000;"> ) and </span><span style="color: #800000;">'</span> + @strWhere + <span style="color: #800000;">'</span> <span style="color: #800000;">'</span> +<span style="color: #000000;"> @strOrder
+
+end 
+
+
+exec (@strSQL)</span></pre>
+</div>
+<span class="cnblogs_code_collapse">分页存储过程</span></div>
+<p>&nbsp;&nbsp;&nbsp; 此方案用时基本没有问题，但是就是太麻烦了，一个不留神，sql语句就拼错了。</p>
+<div class="cnblogs_code" style="background-color: #c0deed;"><span class="cnblogs_code_collapse">2011年方案</span></div>
+<p style="line-height: 24px;">&nbsp;　　从那时实现了之前的方案后，后面的项目都沿用，每每用起时，心中总会不痛快，于是开始经常关注这个，一次机会看到了下面的代码（之前一篇博客中看到的，已太久了，记不起出处了，哪位看到别介意），这个方案中也是大量拼接sql，很容易就出错了，另外，对最后一页还要做特别的处理，只因可以用一个方法（2010年方案要用两个方法，查两次数据库）实现，就放到项目中了，后来，经常有重复的商家，或者有些未显示出来，于是部分项目又用了2010年的方案，那个是麻烦，但至少没有错误。</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('d962ac7e-2bc5-4a46-b3c5-97d5308770c6')"><img id="code_img_closed_d962ac7e-2bc5-4a46-b3c5-97d5308770c6" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_d962ac7e-2bc5-4a46-b3c5-97d5308770c6" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('d962ac7e-2bc5-4a46-b3c5-97d5308770c6',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_d962ac7e-2bc5-4a46-b3c5-97d5308770c6" class="cnblogs_code_hide">
+<pre>        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 获取列表，返回距离排序
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="pagesize"&gt;</span><span style="color: #008000;">每页大小</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="pageindex"&gt;</span><span style="color: #008000;">当前页数</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="strWhere"&gt;</span><span style="color: #008000;">搜索条件</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="orderName"&gt;</span><span style="color: #008000;">排序名称</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="orderType"&gt;</span><span style="color: #008000;">排序类型</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="mylat"&gt;</span><span style="color: #008000;">用户纬度</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="mylng"&gt;</span><span style="color: #008000;">用户经度</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+        <span style="color: #0000ff;">public</span> IList&lt;TogoInfo&gt; GetDistanceList(<span style="color: #0000ff;">int</span> pagesize, <span style="color: #0000ff;">int</span> pageindex, <span style="color: #0000ff;">string</span> strWhere, <span style="color: #0000ff;">string</span> orderName, <span style="color: #0000ff;">int</span> orderType, <span style="color: #0000ff;">string</span> mylat, <span style="color: #0000ff;">string</span><span style="color: #000000;"> mylng)
+        {
+            IList</span>&lt;TogoInfo&gt; infos = <span style="color: #0000ff;">new</span> List&lt;TogoInfo&gt;<span style="color: #000000;">();
+
+            StringBuilder sb </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> StringBuilder();
+
+            </span><span style="color: #0000ff;">string</span> distancepstr = <span style="color: #800000;">"</span><span style="color: #800000;">(( 6371 * acos( cos( radians(</span><span style="color: #800000;">"</span> + mylat + <span style="color: #800000;">"</span><span style="color: #800000;">) ) * cos( radians( (b.lat) )) * cos( radians( (b.lng) ) - radians(</span><span style="color: #800000;">"</span> + mylng + <span style="color: #800000;">"</span><span style="color: #800000;">) ) + sin( radians(</span><span style="color: #800000;">"</span> + mylat + <span style="color: #800000;">"</span><span style="color: #800000;">) ) * sin( radians( ( b.Lat) ) ) ) )) as Distance </span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">int</span> endrow = pagesize *<span style="color: #000000;"> pageindex;
+
+            </span><span style="color: #0000ff;">string</span> ordertype = orderType == <span style="color: #800080;">1</span> ? <span style="color: #800000;">"</span><span style="color: #800000;">desc</span><span style="color: #800000;">"</span> : <span style="color: #800000;">"</span><span style="color: #800000;">asc</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">string</span> _ordertype = orderType == <span style="color: #800080;">0</span> ? <span style="color: #800000;">"</span><span style="color: #800000;">desc</span><span style="color: #800000;">"</span> : <span style="color: #800000;">"</span><span style="color: #800000;">asc</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+
+            sb.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;">select a.* ,b.* ,</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            sb.Append(distancepstr);
+            </span><span style="color: #0000ff;">string</span> field = <span style="color: #800000;">"</span><span style="color: #800000;"> CASE WHEN( ( CONVERT(varchar(12) , Time1Start, 114 ) &lt; CONVERT(varchar(12) , getdate(), 114 )</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            field </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">and CONVERT(varchar(12) , Time1End, 114 ) &gt; CONVERT(varchar(12) , getdate(), 114 )</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            field </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">) or  ( CONVERT(varchar(12) , Time2Start, 114 ) &lt; CONVERT(varchar(12) , getdate(), 114 )</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            field </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">and CONVERT(varchar(12) , Time2End, 114 ) &gt; CONVERT(varchar(12) , getdate(), 114 )</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            field </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">) )THEN 1 ELSE 0 END AS havenew</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            sb.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;"> , </span><span style="color: #800000;">"</span>+<span style="color: #000000;"> field);
+            sb.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;"> from etogo as a left join  ETogoLocalInfo as b  on a.dataid = b.togoid </span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            sb.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;">  where  a.dataid in </span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            sb.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;"> ( select top </span><span style="color: #800000;">"</span> + pagesize + <span style="color: #800000;">"</span><span style="color: #800000;"> dataid from  </span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            sb.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;"> (select top </span><span style="color: #800000;">"</span> + endrow + <span style="color: #800000;">"</span><span style="color: #800000;"> a.dataid , </span><span style="color: #800000;">"</span> + distancepstr + <span style="color: #800000;">"</span><span style="color: #800000;">,sortnum  from  etogo as a left join  ETogoLocalInfo as b  on a.dataid = b.togoid where </span><span style="color: #800000;">"</span> +<span style="color: #000000;"> strWhere);
+            sb.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;">  order by  </span><span style="color: #800000;">"</span> + orderName + <span style="color: #800000;">"</span> <span style="color: #800000;">"</span> + ordertype + <span style="color: #800000;">""</span> + <span style="color: #800000;">"</span><span style="color: #800000;"> ,a.dataid  desc ) as mytepm </span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            sb.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;">  order by  </span><span style="color: #800000;">"</span> + orderName + <span style="color: #800000;">"</span> <span style="color: #800000;">"</span> + _ordertype + <span style="color: #800000;">""</span> + <span style="color: #800000;">"</span><span style="color: #800000;">, dataid asc )</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            sb.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;"> order by  </span><span style="color: #800000;">"</span> + orderName + <span style="color: #800000;">"</span> <span style="color: #800000;">"</span> + ordertype + <span style="color: #800000;">""</span> + <span style="color: #800000;">"</span><span style="color: #800000;">,    a.dataid desc </span><span style="color: #800000;">"</span><span style="color: #000000;">);
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">Hangjing.Common.HJlog.toLog(sb.ToString());</span>
+
+            <span style="color: #0000ff;">using</span> (SqlDataReader dr = SQLHelper.ExecuteReader(CommandType.Text,sb.ToString(), <span style="color: #0000ff;">null</span><span style="color: #000000;">))
+            {
+                </span><span style="color: #0000ff;">while</span><span style="color: #000000;"> (dr.Read())
+                {
+                    TogoInfo info </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> TogoInfo();
+                    info.DataID </span>= HJConvert.ToInt32(dr[<span style="color: #800000;">"</span><span style="color: #800000;">DataID</span><span style="color: #800000;">"</span><span style="color: #000000;">]);
+                    info.Picture </span>= HJConvert.ToString(dr[<span style="color: #800000;">"</span><span style="color: #800000;">Picture</span><span style="color: #800000;">"</span><span style="color: #000000;">]);
+                    info.TogoName </span>= HJConvert.ToString(dr[<span style="color: #800000;">"</span><span style="color: #800000;">TogoName</span><span style="color: #800000;">"</span><span style="color: #000000;">]);
+                    </span><span style="color: #0000ff;">int</span> togostatus = HJConvert.ToInt32(dr[<span style="color: #800000;">"</span><span style="color: #800000;">Status</span><span style="color: #800000;">"</span><span style="color: #000000;">]);
+                    </span><span style="color: #0000ff;">int</span> isonline = HJConvert.ToInt32(dr[<span style="color: #800000;">"</span><span style="color: #800000;">havenew</span><span style="color: #800000;">"</span><span style="color: #000000;">]);
+
+                    </span><span style="color: #0000ff;">if</span> (togostatus == <span style="color: #800080;">1</span> &amp;&amp; isonline == <span style="color: #800080;">1</span><span style="color: #000000;">)
+                    {
+                        info.Status </span>= <span style="color: #800080;">1</span><span style="color: #000000;">;
+                    }
+                    </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+                    {
+                        info.Status </span>= <span style="color: #800080;">0</span><span style="color: #000000;">;
+                    }
+                    info.mydistance </span>= HJConvert.ToString(dr[<span style="color: #800000;">"</span><span style="color: #800000;">Distance</span><span style="color: #800000;">"</span><span style="color: #000000;">]);
+
+                    </span><span style="color: #0000ff;">if</span> (info.mydistance == <span style="color: #800000;">""</span><span style="color: #000000;">)
+                    {
+                        info.mydistance </span>= <span style="color: #800000;">"</span><span style="color: #800000;">-1</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+                    }
+                    info.Lat </span>= HJConvert.ToString(dr[<span style="color: #800000;">"</span><span style="color: #800000;">Lat</span><span style="color: #800000;">"</span><span style="color: #000000;">]);
+                    info.Lng </span>= HJConvert.ToString(dr[<span style="color: #800000;">"</span><span style="color: #800000;">Lng</span><span style="color: #800000;">"</span><span style="color: #000000;">]);
+
+                    infos.Add(info);
+                }
+            }
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> infos;
+        }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">dal层代码</span></div>
+<p>&nbsp;</p>
+<div class="cnblogs_code" style="background-color: #c0deed;"><span class="cnblogs_code_collapse">2013年方案</span></div>
+<p style="line-height: 24px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 终于有一次再也忍受不了了，于是下定决心要优化（当然，就我目前的水平，想到的更多还是方便书写）了，当前就想了一点，不在程序中拼接距离的sql语句。经过多次修改，于是有了下面的代码：</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('7009c7e2-275b-4788-bad3-2ce3cafb9b3a')"><img id="code_img_closed_7009c7e2-275b-4788-bad3-2ce3cafb9b3a" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_7009c7e2-275b-4788-bad3-2ce3cafb9b3a" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('7009c7e2-275b-4788-bad3-2ce3cafb9b3a',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_7009c7e2-275b-4788-bad3-2ce3cafb9b3a" class="cnblogs_code_hide">
+<pre>-- =============================================
+--<span style="color: #000000;"> Author:        jijunjian
+</span>-- Create date: <span style="color: #800080;">2013</span>-<span style="color: #800080;">5</span>-<span style="color: #800080;">7</span>
+--<span style="color: #000000;"> Description:    获取商家列表（含坐标，按距离排序）
+</span>-- 调用 EXEC ETogo_GetShopListWithDistance <span style="color: #800080;">10</span>,<span style="color: #800080;">1</span>,<span style="color: #800000;">'</span><span style="color: #800000;">distance</span><span style="color: #800000;">'</span>,<span style="color: #800000;">'</span><span style="color: #800000;">asc</span><span style="color: #800000;">'</span>,<span style="color: #800000;">'</span><span style="color: #800000;">1=1</span><span style="color: #800000;">'</span>,<span style="color: #800000;">'</span><span style="color: #800000;">30.313035</span><span style="color: #800000;">'</span>,<span style="color: #800000;">'</span><span style="color: #800000;">120.390998</span><span style="color: #800000;">'</span>,<span style="color: #800000;">'</span><span style="color: #800000;">distance&lt;1</span><span style="color: #800000;">'</span>
+-- =============================================<span style="color: #000000;">
+CREATE PROCEDURE [dbo].[ETogo_GetShopListWithDistance]
+@pagesize </span><span style="color: #0000ff;">int</span>,          --<span style="color: #000000;">分页大小
+@pageindex </span><span style="color: #0000ff;">int</span>,         --<span style="color: #000000;">页码
+@orderfield varchar(</span><span style="color: #800080;">20</span>),--<span style="color: #000000;">排序字段名称
+@ordertype varchar(</span><span style="color: #800080;">5</span>),  --<span style="color: #000000;">排序类别 desc asc
+@where varchar(</span><span style="color: #800080;">2000</span>),     --<span style="color: #000000;">查询条件
+@lat VARCHAR(</span><span style="color: #800080;">50</span>),--<span style="color: #000000;">用户纬度
+@lng VARCHAR(</span><span style="color: #800080;">50</span>),--<span style="color: #000000;">用户经度,
+@otherwhere VARCHAR(</span><span style="color: #800080;">2000</span>)--<span style="color: #000000;">这个条件是用来判断距离，及根据营业时间的状态条件
+AS
+DECLARE @startRow </span><span style="color: #0000ff;">int</span><span style="color: #000000;">,
+        @endRow    </span><span style="color: #0000ff;">int</span><span style="color: #000000;">,
+        @sql varchar(</span><span style="color: #800080;">4000</span><span style="color: #000000;">),
+        @ordername varchar(</span><span style="color: #800080;">200</span>)--<span style="color: #000000;">排序字段
+
+
+SET    @ordername </span>= <span style="color: #800000;">'</span><span style="color: #800000;">( 6371 * acos( cos( radians(</span><span style="color: #800000;">'</span> + @lat + <span style="color: #800000;">'</span><span style="color: #800000;">) ) * cos( radians( Lat )) * cos( radians( lng ) - radians(</span><span style="color: #800000;">'</span> + @lng + <span style="color: #800000;">'</span><span style="color: #800000;">) ) + sin( radians(</span><span style="color: #800000;">'</span> + @lat + <span style="color: #800000;">'</span><span style="color: #800000;">) ) * sin( radians( Lat ) ) ) )</span><span style="color: #800000;">'</span><span style="color: #000000;">
+
+  
+IF @otherwhere </span>= <span style="color: #800000;">''</span><span style="color: #000000;">
+    SET @otherwhere </span>= <span style="color: #800000;">'</span><span style="color: #800000;">1=1</span><span style="color: #800000;">'</span><span style="color: #000000;">
+
+SET @startRow </span>= (@pageindex - <span style="color: #800080;">1</span>) * @pagesize + <span style="color: #800080;">1</span><span style="color: #000000;">
+SET @endRow </span>= @startRow + @pagesize - <span style="color: #800080;">1</span><span style="color: #000000;">
+SET @sql </span>= <span style="color: #800000;">'
+</span>  SELECT *<span style="color: #000000;"> FROM
+  (
+    </span><span style="color: #0000ff;">select</span> *,row_number() over(order by  <span style="color: #800000;">'</span><span style="color: #800000;">+@orderfield+</span><span style="color: #800000;">'</span> <span style="color: #800000;">'</span><span style="color: #800000;">+@ordertype+</span><span style="color: #800000;">'</span>) <span style="color: #0000ff;">as</span> [rowid] <span style="color: #0000ff;">from</span><span style="color: #000000;">
+    (    
+        </span><span style="color: #0000ff;">select</span> <span style="color: #800000;">'</span><span style="color: #800000;">+@ordername+</span><span style="color: #800000;">'</span> <span style="color: #0000ff;">as</span> distance,dbo.ETogo.*<span style="color: #000000;">,ETogoLocalInfo.Lat,ETogoLocalInfo.Lng,  
+        
+        CASE WHEN( ( CONVERT(varchar(</span><span style="color: #800080;">12</span>) , Time1Start, <span style="color: #800080;">114</span> ) &lt; CONVERT(varchar(<span style="color: #800080;">12</span>) , getdate(), <span style="color: #800080;">114</span><span style="color: #000000;"> )
+                and CONVERT(varchar(</span><span style="color: #800080;">12</span>) , Time1End, <span style="color: #800080;">114</span> ) &gt; CONVERT(varchar(<span style="color: #800080;">12</span>) , getdate(), <span style="color: #800080;">114</span><span style="color: #000000;"> )
+                ) or  ( CONVERT(varchar(</span><span style="color: #800080;">12</span>) , Time2Start, <span style="color: #800080;">114</span> ) &lt; CONVERT(varchar(<span style="color: #800080;">12</span>) , getdate(), <span style="color: #800080;">114</span><span style="color: #000000;"> )
+                and CONVERT(varchar(</span><span style="color: #800080;">12</span>) , Time2End, <span style="color: #800080;">114</span> ) &gt; CONVERT(varchar(<span style="color: #800080;">12</span>) , getdate(), <span style="color: #800080;">114</span><span style="color: #000000;"> )
+                ) )THEN </span><span style="color: #800080;">1</span> ELSE <span style="color: #800080;">0</span><span style="color: #000000;"> END AS havenew
+        
+        </span><span style="color: #0000ff;">from</span><span style="color: #000000;">  etogo
+        LEFT JOIN ETogoLocalInfo ON etogo.dataid</span>=ETogoLocalInfo.togoid WHERE  <span style="color: #800000;">'</span><span style="color: #800000;">+ @where +</span><span style="color: #800000;">'</span><span style="color: #000000;"> 
+    ) m </span><span style="color: #0000ff;">where</span> <span style="color: #800000;">'</span><span style="color: #800000;">+ @otherwhere +</span><span style="color: #800000;">'</span><span style="color: #000000;"> 
+    
+  )m2
+  
+ WHERE ROWID BETWEEN </span><span style="color: #800000;">'</span><span style="color: #800000;">+convert(varchar(5), @startRow) +</span><span style="color: #800000;">'</span> AND <span style="color: #800000;">'</span><span style="color: #800000;">+ convert(varchar(5), @endRow)+ </span><span style="color: #800000;">'</span> 
+<span style="color: #800000;">'
+</span><span style="color: #000000;">print @sql
+EXEC(@sql)</span></pre>
+</div>
+<span class="cnblogs_code_collapse">存储过程</span></div>
+<p>&nbsp;</p>
+<p style="line-height: 24px;">　　 这个方案让我们搜索N公里内的代码变得简单了 ：@otherwhere 参数 设置成 ：distance &lt; n 即可了。按距离排序只用：@orderfield=&lsquo;distance&rsquo;就可以了。程序中再也不用出现距离两点距离的sql语句，另一个意外收获就是让我搜索营业中的商家也变得简单了（我们营业根据商家设置的两个时间段（如：8:00-12:00 16:00-20:00）及一个状态值而定）.</p>
+<p style="line-height: 24px;">　　以上便是此问题这几年的优化历程，当然，可能很多人对我们行业不了解，也可能我只是抽出了代码片段，很多人看了可能还是会不知所云，不过我想真正想研究这个问题的人看了，就应该能明白了。2013年的方案，可能还有不少问题，或者可以再进一步优化。希望有部分人能用到的同时 ，也能对此方案提出更多更好的意见或建议。</p>
+<p style="line-height: 24px;">&nbsp;</p>
+<p style="line-height: 24px;">　　<span style="color: #0000ff;"><span style="color: #000000;">成为一名优秀的程序员！</span></span></p>
+<p style="line-height: 24px;">&nbsp;</p>
+<p style="line-height: 24px;">&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p style="line-height: 24px;">　　&nbsp;</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2013-05-23 07:09</span>&nbsp;
+<a href="https://www.cnblogs.com/jijunjian/">2J</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=3086520" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(3086520);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 139716, cb_blogApp = 'jijunjian', cb_blogUserGuid = '3f24f67b-fea0-de11-ba8f-001cf0cd104b';
+    var cb_entryId = 3086520, cb_entryCreatedDate = '2013-05-23 07:09', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 2J
+<br /><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+</body>
+</html>

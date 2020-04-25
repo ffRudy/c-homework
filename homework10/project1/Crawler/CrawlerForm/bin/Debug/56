@@ -1,0 +1,713 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="离上一篇博客已经是1月有余了，这中间清楚的认识到自己几年的编程下来（大学4年，入行3载），能拿出手的东西真的屈指可数，也许真的是，一直以来都是为实现功能来写代码，所以终无大的突破！每每得空便思考自己到" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>订餐系统之地图订餐 - 2J - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=-oFz8B4m7JhHaZzdTkzPza2oLZNDRR8obnCz6w7OHbU" />
+    <link id="MainCss" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd.min.css?v=gS0FloTY-RBJQcN3GCAKG6fAr6HHKtDMTw60VxjN79c" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/jijunjian/custom.css?v=WI3eRo7midbwNzmh7EMewRylXm0=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd-mobile.min.css?v=VacchHeVg6bp3gCO8NqMH8D8fhA8iyRbb0JgoDUvn4o" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/jijunjian/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/jijunjian/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/jijunjian/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=uk-as-QYRHtjaAbeEigAktvhwf01NRrnle-6exg65Ak"></script>
+    <script>
+        var currentBlogId = 139716;
+        var currentBlogApp = 'jijunjian';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'iMetro_HD';
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/jijunjian/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/jijunjian/">成为一名优秀的程序员</a>
+</h1>
+<h2>
+
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/jijunjian/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/2J">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/jijunjian/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+25&nbsp; </span>
+<span id="stats_article_count">文章 - 
+0&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+424</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/jijunjian/p/3165917.html">订餐系统之地图订餐</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+    <div id="cnblogs_post_description" style="display: none">
+        离上一篇博客已经是1月有余了，这中间清楚的认识到自己几年的编程下来（大学4年，入行3载），能拿出手的东西真的屈指可数，也许真的是，一直以来都是为实现功能来写代码，所以终无大的突破！每每得空便思考自己到底差在哪？是不了解框架？于是学习EF；是不了解node.js？安装后，写了些demo; 是没学习新知识？于是学了下WFP... 然而，了解这些东西并没让自己有所收获，反而越发不知所措了。思考还在继续，”探索“还在继续... 于是有一天看到了设计模式，看到《大话设计模式》 才明白自己差在哪，差在对面向对象的理解！于是才开始正式的去了解什么是面向对象，为了加深理解，又细细看了《你必须知道的.net(第二版)》中的OO大原则，OO大智慧，OO之美...而后，再一次对《大话设计模式》中内容细细品味...这时，我觉得自己才开始真正的沉淀了！罗嗦了半天，下面开始今天的正文吧！
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>　　离上一篇博客已经是1月有余了，这中间清楚的认识到自己几年的编程下来（大学4年，入行3载），能拿出手的东西真的屈指可数，也许真的是，一直以来都是为实现功能来写代码，所以终无大的突破！每每得空便思考自己到底差在哪？是不了解框架？于是学习EF；是不了解node.js？安装后，写了些demo; 是没学习新知识？于是学了下WFP... 然而，了解这些东西并没让自己有所收获，反而越发不知所措了。思考还在继续，&rdquo;探索&ldquo;还在继续... 于是有一天看到了设计模式，看到《大话设计模式》 才明白自己差在哪，差在对面向对象的理解！于是才开始正式的去了解什么是面向对象，为了加深理解，又细细看了《你必须知道的.net(第二版)》中的OO大原则，OO大智慧，OO之美...而后，再一次对《大话设计模式》中内容细细品味...这时，我觉得自己才开始真正的沉淀了！罗嗦了半天，下面开始今天的正文吧！</p>
+<p>　　所谓地图订餐就用户直接在地图上确定自己的位置后，搜索出附近商家后，直接选择商家开始订餐。目前市面上也有很多这样的功能，下面我就把自己实现方式介绍下吧。上篇博客《<a href="http://www.cnblogs.com/jijunjian/archive/2013/05/23/3086520.html" target="_blank">订餐系统之按距离[根据经纬度]排序、搜索</a>》中所提到的功能，在地图订餐中就是一个应用。</p>
+<p>　　注：以下代码都是<span style="color: #0000ff;"><a href="http://developer.baidu.com/map/jshome.htm" target="_blank"><span style="color: #0000ff;">百度地图的API</span></a></span>。google API变成3.0后，语法变了太多了，大部分项目都变成百度地图了。</p>
+<div class="cnblogs_code" style="background-color: #c0deed;"><span class="cnblogs_code_collapse">商家定位</span></div>
+<p>&nbsp;　　所谓定位，就是在地图上标注商家的位置，成为用户搜索的来源，如图1：</p>
+<p><img src="https://images0.cnblogs.com/blog/88102/201307/02212627-9a442aa2f49a4d15bf462ef4dcb9303e.x-png" alt="" width="981" height="449" /></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">&nbsp;<strong> 图1</strong></span></p>
+<p>&nbsp;　　定们代码比较简单，js部分代码如下：</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('0f812e72-de8d-4999-bf1c-34dabed62e1a')"><img id="code_img_closed_0f812e72-de8d-4999-bf1c-34dabed62e1a" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_0f812e72-de8d-4999-bf1c-34dabed62e1a" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('0f812e72-de8d-4999-bf1c-34dabed62e1a',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_0f812e72-de8d-4999-bf1c-34dabed62e1a" class="cnblogs_code_hide">
+<pre>&lt;script type=<span style="color: #800000;">"</span><span style="color: #800000;">text/javascript</span><span style="color: #800000;">"</span>&gt;
+    <span style="color: #0000ff;">var</span> gzoom = <span style="color: #800080;">15</span><span style="color: #000000;">;
+    </span><span style="color: #0000ff;">var</span> marker = <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+    </span><span style="color: #0000ff;">var</span> map = <span style="color: #0000ff;">new</span> BMap.Map(<span style="color: #800000;">"</span><span style="color: #800000;">map_canvas</span><span style="color: #800000;">"</span>); <span style="color: #008000;">//</span><span style="color: #008000;"> 创建地图实例</span>
+<span style="color: #000000;">    map.enableScrollWheelZoom();
+    </span><span style="color: #0000ff;">var</span> myGeo = <span style="color: #0000ff;">new</span><span style="color: #000000;"> BMap.Geocoder();
+    </span><span style="color: #0000ff;">var</span> _lat = parseFloat($(<span style="color: #800000;">"</span><span style="color: #800000;">#hidLat</span><span style="color: #800000;">"</span><span style="color: #000000;">).val());
+    </span><span style="color: #0000ff;">var</span> _lng = parseFloat($(<span style="color: #800000;">"</span><span style="color: #800000;">#hidLng</span><span style="color: #800000;">"</span><span style="color: #000000;">).val());
+    </span><span style="color: #0000ff;">var</span> initpoint = <span style="color: #0000ff;">new</span> BMap.Point(_lng, _lat); <span style="color: #008000;">//</span><span style="color: #008000;"> 创建点坐标
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">图标</span>
+    <span style="color: #0000ff;">var</span> myIcon = <span style="color: #0000ff;">new</span> BMap.Icon(<span style="color: #800000;">"</span><span style="color: #800000;">http://www.ihangjing.com/images/marker50.png</span><span style="color: #800000;">"</span>, <span style="color: #0000ff;">new</span> BMap.Size(<span style="color: #800080;">20</span>, <span style="color: #800080;">34</span>), { anchor: <span style="color: #0000ff;">new</span> BMap.Size(<span style="color: #800080;">10</span>, <span style="color: #800080;">0</span><span style="color: #000000;">) });
+    marker </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> BMap.Marker(initpoint, { icon: myIcon });
+    map.addOverlay(marker);
+    marker.enableDragging();
+    marker.setTitle(</span><span style="color: #800000;">"</span><span style="color: #800000;">拖动修改位置</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+    map.centerAndZoom(initpoint, gzoom); </span><span style="color: #008000;">//</span><span style="color: #008000;"> 初始化地图，设置中心点坐标和地图级别</span>
+    map.addControl(<span style="color: #0000ff;">new</span> BMap.NavigationControl());  <span style="color: #008000;">//</span><span style="color: #008000;">缩放工具</span>
+<span style="color: #000000;">
+    EventWrapper.addListener(map, </span><span style="color: #800000;">"</span><span style="color: #800000;">click</span><span style="color: #800000;">"</span><span style="color: #000000;">, function(e) {
+        map.clearOverlays();
+        initpoint </span>=<span style="color: #000000;"> e.point;
+        map.removeOverlay(marker);
+        marker </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> BMap.Marker(initpoint, { icon: myIcon });
+        map.addOverlay(marker);
+        marker.enableDragging();
+        marker.openInfoWindow(infoWindow);
+        setLatLng(initpoint);
+
+        marker.addEventListener(</span><span style="color: #800000;">"</span><span style="color: #800000;">dragend</span><span style="color: #800000;">"</span><span style="color: #000000;">, function(e) {
+            initpoint </span>=<span style="color: #000000;"> e.point;
+            marker </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> BMap.Marker(initpoint);
+            </span><span style="color: #0000ff;">this</span><span style="color: #000000;">.openInfoWindow(infoWindow);
+            setLatLng(initpoint);
+        });
+        marker.addEventListener(</span><span style="color: #800000;">"</span><span style="color: #800000;">dragstart</span><span style="color: #800000;">"</span><span style="color: #000000;">, function(e) {
+            map.closeInfoWindow()
+        });
+    });
+
+    marker.addEventListener(</span><span style="color: #800000;">"</span><span style="color: #800000;">dragend</span><span style="color: #800000;">"</span><span style="color: #000000;">, function(e) {
+        initpoint </span>=<span style="color: #000000;"> e.point;
+        marker </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> BMap.Marker(initpoint);
+        </span><span style="color: #0000ff;">this</span><span style="color: #000000;">.openInfoWindow(infoWindow);
+        setLatLng(initpoint);
+    });
+
+    marker.addEventListener(</span><span style="color: #800000;">"</span><span style="color: #800000;">dragstart</span><span style="color: #800000;">"</span><span style="color: #000000;">, function(e) {
+        map.closeInfoWindow()
+    });
+
+    </span><span style="color: #0000ff;">var</span> opts =<span style="color: #000000;"> {
+        width: </span><span style="color: #800080;">250</span>,     <span style="color: #008000;">//</span><span style="color: #008000;"> 信息窗口宽度  </span>
+        height: <span style="color: #800080;">50</span>    <span style="color: #008000;">//</span><span style="color: #008000;"> 信息窗口高度</span>
+<span style="color: #000000;">    }
+
+    </span><span style="color: #0000ff;">var</span> winhtml = <span style="color: #800000;">"</span><span style="color: #800000;"> &lt;div&gt;&lt;p&gt;确定地图位置后，点击按钮&ldquo;确认位置&rdquo;进行保存&lt;/p&gt;</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+    winhtml </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&lt;p style=\" float:right; padding-right:10px;\"&gt;&lt;input type=\"button\" value=\"确认位置\" onclick='map.closeInfoWindow()' /&gt;&lt;/p&gt;&lt;/div&gt;</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+
+    </span><span style="color: #0000ff;">var</span> infoWindow = <span style="color: #0000ff;">new</span> BMap.InfoWindow(winhtml, opts);  <span style="color: #008000;">//</span><span style="color: #008000;"> 创建信息窗口对象</span>
+<span style="color: #000000;">
+    function setLatLng(point) {
+        document.getElementById(</span><span style="color: #800000;">"</span><span style="color: #800000;">hidLat</span><span style="color: #800000;">"</span>).value =<span style="color: #000000;"> point.lat;
+        document.getElementById(</span><span style="color: #800000;">"</span><span style="color: #800000;">hidLng</span><span style="color: #800000;">"</span>).value =<span style="color: #000000;"> point.lng;
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+    }
+
+    function setPlace() {
+        </span><span style="color: #0000ff;">var</span> hfcity = $(<span style="color: #800000;">"</span><span style="color: #800000;">#hfcity</span><span style="color: #800000;">"</span><span style="color: #000000;">).val();
+        </span><span style="color: #0000ff;">var</span> address = document.getElementById(<span style="color: #800000;">"</span><span style="color: #800000;">keyaddress</span><span style="color: #800000;">"</span><span style="color: #000000;">).value.trim();
+        </span><span style="color: #0000ff;">var</span> local = <span style="color: #0000ff;">new</span><span style="color: #000000;"> BMap.LocalSearch(hfcity, {
+            renderOptions: {
+                map: map,
+                autoViewport: </span><span style="color: #0000ff;">true</span><span style="color: #000000;">,
+                selectFirstResult: </span><span style="color: #0000ff;">false</span><span style="color: #000000;">
+            }
+        });
+        local.search(address);
+    }
+</span>&lt;/script&gt;</pre>
+</div>
+<span class="cnblogs_code_collapse">View Code </span></div>
+<p>&nbsp;</p>
+<div class="cnblogs_code" style="background-color: #c0deed;"><span class="cnblogs_code_collapse">商家设置配送范围</span></div>
+<p>&nbsp;　　所谓设置配送范围，就在地图上通过标注，绘制出一个多边形区域，如图2：</p>
+<p><img src="https://images0.cnblogs.com/blog/88102/201307/02213358-b5eea4b1229f41cdae1b2a4201124a0a.x-png" alt="" width="961" height="457" /></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">&nbsp;　　　　　　　　　　　　　　　　　　　　　　　　　　<strong> 图2</strong></span></p>
+<p><span style="color: #0000ff;"><strong>　　</strong><span style="color: #000000;">以下为绘制多边形，js部分代码。页面中只多了几个HiddenField，用来保存坐标、原多边形信息以及一个用于放地图的div。</span></span></p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('93fa183e-dd93-492b-aafe-98344bebeefe')"><img id="code_img_closed_93fa183e-dd93-492b-aafe-98344bebeefe" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_93fa183e-dd93-492b-aafe-98344bebeefe" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('93fa183e-dd93-492b-aafe-98344bebeefe',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_93fa183e-dd93-492b-aafe-98344bebeefe" class="cnblogs_code_hide">
+<pre>&lt;script type=<span style="color: #800000;">"</span><span style="color: #800000;">text/javascript</span><span style="color: #800000;">"</span>&gt;
+    <span style="color: #0000ff;">var</span> gzoom = <span style="color: #800080;">15</span><span style="color: #000000;">;
+    </span><span style="color: #0000ff;">var</span> points = <span style="color: #0000ff;">new</span><span style="color: #000000;"> Array();
+    </span><span style="color: #0000ff;">var</span> markers = <span style="color: #0000ff;">new</span><span style="color: #000000;"> Array();
+    </span><span style="color: #0000ff;">var</span> map = <span style="color: #0000ff;">new</span> BMap.Map(<span style="color: #800000;">"</span><span style="color: #800000;">map</span><span style="color: #800000;">"</span>); <span style="color: #008000;">//</span><span style="color: #008000;"> 创建地图实例</span>
+<span style="color: #000000;">    map.enableScrollWheelZoom();     
+    </span><span style="color: #0000ff;">var</span> myPolygon = <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+    </span><span style="color: #0000ff;">var</span> count = <span style="color: #800080;">0</span><span style="color: #000000;">;
+    </span><span style="color: #0000ff;">var</span> _lat = parseFloat($(<span style="color: #800000;">"</span><span style="color: #800000;">#hidLat</span><span style="color: #800000;">"</span><span style="color: #000000;">).val());
+    </span><span style="color: #0000ff;">var</span> _lng = parseFloat($(<span style="color: #800000;">"</span><span style="color: #800000;">#hidLng</span><span style="color: #800000;">"</span><span style="color: #000000;">).val());
+    </span><span style="color: #0000ff;">var</span> initpoint = <span style="color: #0000ff;">new</span> BMap.Point(_lng, _lat);  <span style="color: #008000;">//</span><span style="color: #008000;"> 创建点坐标</span>
+<span style="color: #000000;">
+    map.centerAndZoom(initpoint, gzoom); </span><span style="color: #008000;">//</span><span style="color: #008000;"> 初始化地图，设置中心点坐标和地图级别</span>
+    map.addControl(<span style="color: #0000ff;">new</span> BMap.NavigationControl());  <span style="color: #008000;">//</span><span style="color: #008000;">缩放工具</span>
+
+    <span style="color: #0000ff;">var</span> myIcon = <span style="color: #0000ff;">new</span> BMap.Icon(<span style="color: #800000;">"</span><span style="color: #800000;">http://www.ihangjing.com/images/marker50.png</span><span style="color: #800000;">"</span>, <span style="color: #0000ff;">new</span> BMap.Size(<span style="color: #800080;">20</span>, <span style="color: #800080;">34</span>), { anchor: <span style="color: #0000ff;">new</span> BMap.Size(<span style="color: #800080;">10</span>, <span style="color: #800080;">0</span><span style="color: #000000;">) });
+    marker </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> BMap.Marker(initpoint, { icon: myIcon });
+    map.addOverlay(marker);
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">map.addEventListener("click", mapclick);</span>
+    EventWrapper.addListener(map, <span style="color: #800000;">"</span><span style="color: #800000;">click</span><span style="color: #800000;">"</span><span style="color: #000000;">, mapclick);
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">绘制多边形</span>
+<span style="color: #000000;">    function drawPolygon() {
+        </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (myPolygon) {
+            map.removeOverlay(myPolygon);
+        }
+        points.length </span>= <span style="color: #800080;">0</span><span style="color: #000000;">;
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">从marksers填充pints数组</span>
+        <span style="color: #0000ff;">for</span> (i = <span style="color: #800080;">0</span>; i &lt; markers.length; i++<span style="color: #000000;">) {
+            points.push(markers[i].getPosition());
+        }
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">  points.push(markers[0].getPosition());</span>
+<span style="color: #000000;">
+        myPolygon </span>= <span style="color: #0000ff;">new</span> BMap.Polygon(points, { strokeColor: <span style="color: #800000;">"</span><span style="color: #800000;">red</span><span style="color: #800000;">"</span>, strokeWeight: <span style="color: #800080;">1</span>, strokeOpacity: <span style="color: #800080;">1</span><span style="color: #000000;"> });
+        map.addOverlay(myPolygon);
+    }
+
+    function mapclick(target) {
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">flag == 0表示点击的是标注
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">flag &gt; 0表示点击的是地图</span>
+        <span style="color: #0000ff;">var</span> flag =<span style="color: #000000;"> target.pixel.x;
+        </span><span style="color: #0000ff;">if</span> (target &amp;&amp; flag &gt; <span style="color: #800080;">0</span><span style="color: #000000;">) {
+            count</span>++
+            <span style="color: #0000ff;">var</span> myIcon = <span style="color: #0000ff;">new</span> BMap.Icon(<span style="color: #800000;">"</span><span style="color: #800000;">http://www.ihangjing.com/images/mm_20_red.png</span><span style="color: #800000;">"</span>, <span style="color: #0000ff;">new</span> BMap.Size(<span style="color: #800080;">14</span>, <span style="color: #800080;">22</span>), { anchor: <span style="color: #0000ff;">new</span> BMap.Size(<span style="color: #800080;">7</span>, <span style="color: #800080;">22</span><span style="color: #000000;">) });
+            </span><span style="color: #0000ff;">var</span> _marker = <span style="color: #0000ff;">new</span><span style="color: #000000;"> BMap.Marker(target.point, { icon: myIcon });
+            map.addOverlay(_marker);
+            markers.push(_marker);
+            _marker.enableDragging();
+            _marker.setTitle(</span><span style="color: #800000;">"</span><span style="color: #800000;">point</span><span style="color: #800000;">"</span> + count + <span style="color: #800000;">"</span><span style="color: #800000;"> lat:</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> target.point.lat);
+
+            _marker.addEventListener(</span><span style="color: #800000;">"</span><span style="color: #800000;">dragging</span><span style="color: #800000;">"</span><span style="color: #000000;">, function(e) {
+                drawOverlay();
+            });
+            _marker.addEventListener(</span><span style="color: #800000;">"</span><span style="color: #800000;">dragend</span><span style="color: #800000;">"</span><span style="color: #000000;">, function(e) {
+                drawOverlay();
+            });
+            _marker.addEventListener(</span><span style="color: #800000;">"</span><span style="color: #800000;">dragstart</span><span style="color: #800000;">"</span><span style="color: #000000;">, function(e) {
+                drawOverlay();
+            });
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> Click listener to remove a marker</span>
+            _marker.addEventListener(<span style="color: #800000;">"</span><span style="color: #800000;">click</span><span style="color: #800000;">"</span><span style="color: #000000;">, function() {
+                </span><span style="color: #0000ff;">var</span> n = <span style="color: #800080;">0</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">for</span> (n = <span style="color: #800080;">0</span>; n &lt; markers.length; n++<span style="color: #000000;">) {
+                    </span><span style="color: #0000ff;">if</span> (markers[n] ==<span style="color: #000000;"> _marker) {
+                        map.removeOverlay(markers[n]);
+                        </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+                    }
+                }
+                </span><span style="color: #008000;">//</span><span style="color: #008000;"> 指定从数组中移除元素的开始位置，这个位置是从 0 开始计算的。 
+                </span><span style="color: #008000;">//</span><span style="color: #008000;"> 删除从标n开始的，一个元素</span>
+                markers.splice(n, <span style="color: #800080;">1</span><span style="color: #000000;">);
+                </span><span style="color: #0000ff;">if</span> (markers.length == <span style="color: #800080;">0</span><span style="color: #000000;">) {
+                    count </span>= <span style="color: #800080;">0</span><span style="color: #000000;">;
+                }
+                </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+                    count </span>=<span style="color: #000000;"> markers.length;
+                    drawOverlay();
+                }
+            });
+            drawPolygon();
+        }
+    }
+
+    function drawOverlay() {
+
+        drawPolygon();
+    }
+    
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">获取每个点的坐标,以: lat1,lng1|lat2,lng2..保存</span>
+<span style="color: #000000;">    function GetPolygon() {
+        </span><span style="color: #0000ff;">var</span> html = <span style="color: #800000;">""</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">var</span> i = <span style="color: #800080;">0</span>; i &lt; points.length; i++<span style="color: #000000;">) {
+            html </span>+=  points[i].lat + <span style="color: #800000;">"</span><span style="color: #800000;">,</span><span style="color: #800000;">"</span> + points[i].lng + <span style="color: #800000;">"</span><span style="color: #800000;">|</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">var</span> temp = html.replace(/\|$/, <span style="color: #800000;">""</span><span style="color: #000000;">);
+        $(</span><span style="color: #800000;">"</span><span style="color: #800000;">#hidPolygon</span><span style="color: #800000;">"</span><span style="color: #000000;">).val(temp);
+        </span><span style="color: #0000ff;">if</span> (html == <span style="color: #800000;">""</span><span style="color: #000000;">) {
+            alert(</span><span style="color: #800000;">"</span><span style="color: #800000;">请设定配置范围</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">初始化多边形</span>
+<span style="color: #000000;">    function initPolygon() {
+        </span><span style="color: #0000ff;">var</span> hidPolygon = $(<span style="color: #800000;">"</span><span style="color: #800000;">#hidPolygon</span><span style="color: #800000;">"</span><span style="color: #000000;">).val();
+        </span><span style="color: #0000ff;">if</span> (hidPolygon == <span style="color: #800000;">""</span><span style="color: #000000;">) {
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">var</span> oldPolygon = hidPolygon.split(<span style="color: #800000;">'</span><span style="color: #800000;">|</span><span style="color: #800000;">'</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">var</span> i = <span style="color: #800080;">0</span>; i &lt; oldPolygon.length; i++<span style="color: #000000;">) {
+            count</span>++<span style="color: #000000;">;
+            </span><span style="color: #0000ff;">var</span> latlng = oldPolygon[i].split(<span style="color: #800000;">'</span><span style="color: #800000;">,</span><span style="color: #800000;">'</span><span style="color: #000000;">);
+            </span><span style="color: #0000ff;">var</span> _mypoint = <span style="color: #0000ff;">new</span> BMap.Point(latlng[<span style="color: #800080;">1</span>], latlng[<span style="color: #800080;">0</span><span style="color: #000000;">]);
+            </span><span style="color: #0000ff;">var</span> myIcon = <span style="color: #0000ff;">new</span> BMap.Icon(<span style="color: #800000;">"</span><span style="color: #800000;">http://www.ihangjing.com/images/mm_20_red.png</span><span style="color: #800000;">"</span>, <span style="color: #0000ff;">new</span> BMap.Size(<span style="color: #800080;">14</span>, <span style="color: #800080;">22</span>), { anchor: <span style="color: #0000ff;">new</span> BMap.Size(<span style="color: #800080;">7</span>, <span style="color: #800080;">22</span><span style="color: #000000;">) });
+            </span><span style="color: #0000ff;">var</span> _marker = <span style="color: #0000ff;">new</span><span style="color: #000000;"> BMap.Marker(_mypoint, { icon: myIcon });
+            map.addOverlay(_marker);
+            markers.push(_marker);
+            _marker.enableDragging();
+            _marker.setTitle(</span><span style="color: #800000;">"</span><span style="color: #800000;">point</span><span style="color: #800000;">"</span> + count + <span style="color: #800000;">"</span><span style="color: #800000;"> lat:</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> _mypoint.lat);
+
+            count</span>++<span style="color: #000000;">;
+            addinitmarker(_marker);
+        }
+        drawPolygon();
+    }
+
+
+    function addinitmarker(_marker_init) {
+
+        _marker_init.addEventListener(</span><span style="color: #800000;">"</span><span style="color: #800000;">dragging</span><span style="color: #800000;">"</span><span style="color: #000000;">, function(e) {
+            drawOverlay();
+        });
+        _marker_init.addEventListener(</span><span style="color: #800000;">"</span><span style="color: #800000;">dragend</span><span style="color: #800000;">"</span><span style="color: #000000;">, function(e) {
+            drawOverlay();
+        });
+
+        _marker_init.addEventListener(</span><span style="color: #800000;">"</span><span style="color: #800000;">dragstart</span><span style="color: #800000;">"</span><span style="color: #000000;">, function(e) {
+            drawOverlay();
+        });
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> Click listener to remove a marker</span>
+        EventWrapper.addListener(_marker_init, <span style="color: #800000;">"</span><span style="color: #800000;">click</span><span style="color: #800000;">"</span><span style="color: #000000;">, function() {
+            </span><span style="color: #0000ff;">var</span> n = <span style="color: #800080;">0</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">for</span> (n = <span style="color: #800080;">0</span>; n &lt; markers.length; n++<span style="color: #000000;">) {
+                </span><span style="color: #0000ff;">if</span> (markers[n] ==<span style="color: #000000;"> _marker_init) {
+                    map.removeOverlay(markers[n]);
+                    </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+                }
+            }
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 指定从数组中移除元素的开始位置，这个位置是从 0 开始计算的。 
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 删除从标n开始的，一个元素</span>
+            markers.splice(n, <span style="color: #800080;">1</span><span style="color: #000000;">);
+            </span><span style="color: #0000ff;">if</span> (markers.length == <span style="color: #800080;">0</span><span style="color: #000000;">) {
+                count </span>= <span style="color: #800080;">0</span><span style="color: #000000;">;
+            }
+            </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+                count </span>=<span style="color: #000000;"> markers.length;
+                drawOverlay();
+            }
+        });
+    }
+    initPolygon();;
+
+</span>&lt;/script&gt;</pre>
+</div>
+<span class="cnblogs_code_collapse">View Code </span></div>
+<p>&nbsp;</p>
+<p>　　设置好商家的位置，范围后，用户就可以在地图上定好自己的位置，开始搜索商家。搜索分两种方式：1.以当前用户地址为中心，搜索N公里内的商家；2.搜索当前坐标在商家设置的多边形内的商家。以下的地图拉框搜索以及按配送范围搜索就分别是用这种方式来实现的。</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code" style="background-color: #c0deed;"><span class="cnblogs_code_collapse">地图拉框搜索</span></div>
+<p>&nbsp;　　所谓拉框搜索，就是在地图上拉出一个框，只搜索这个框内的商家。当然拉出的是一个长方形，搜索是转换成一个圆，按半径搜索。如图3：</p>
+<p><img src="https://images0.cnblogs.com/blog/88102/201307/03155735-23f9e0d728ef4f61b9cc2f602047ded6.png" alt="" width="957" height="640" /></p>
+<p><span style="color: #0000ff;">　　<strong> 　　　　　　　　　　　　　　　　　　　　　　　　图3</strong></span></p>
+<p><span style="color: #0000ff;"><strong>　　<br /></strong><span style="color: #000000;">　　拉框部分主要用了api之RectangleZoom.js 只是修改了完成时的事件，这个是从一个论坛中认识的朋友那得来的---程序员真是大多数是好人呐！在548行左右，代码如下：<br /></span></span></p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('e0631a57-858a-454d-83ac-9f7cdb993ba3')"><img id="code_img_closed_e0631a57-858a-454d-83ac-9f7cdb993ba3" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_e0631a57-858a-454d-83ac-9f7cdb993ba3" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('e0631a57-858a-454d-83ac-9f7cdb993ba3',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_e0631a57-858a-454d-83ac-9f7cdb993ba3" class="cnblogs_code_hide">
+<pre> <span style="color: #0000ff;">var</span> startlng =<span style="color: #000000;"> Math.min(northEastPoint.lng,southWestPoint.lng);
+                  </span><span style="color: #0000ff;">var</span> endlng =<span style="color: #000000;"> Math.max(northEastPoint.lng,southWestPoint.lng);
+                  </span><span style="color: #0000ff;">var</span> startlat =<span style="color: #000000;"> Math.min(northEastPoint.lat,southWestPoint.lat);
+                  </span><span style="color: #0000ff;">var</span> endlat =<span style="color: #000000;"> Math.max(northEastPoint.lat,southWestPoint.lat);
+                  </span><span style="color: #0000ff;">var</span> startlgt = endlng - (endlng - startlng)/<span style="color: #800080;">2</span><span style="color: #000000;">;
+                  </span><span style="color: #0000ff;">var</span> startlat = endlat - (endlat - startlat)/<span style="color: #800080;">2</span><span style="color: #000000;">;
+                  </span><span style="color: #0000ff;">var</span> radius = Math.max((endlng - startlng)/<span style="color: #800080;">2</span>,(endlat - startlat)/<span style="color: #800080;">2</span>)*<span style="color: #800080;">111</span><span style="color: #000000;">;
+                  GetMapInfo(</span><span style="color: #800000;">'</span><span style="color: #800000;">1</span><span style="color: #800000;">'</span>,startlgt,startlat,radius);<span style="color: #008000;">//</span><span style="color: #008000;">这里调用自己获取数据方法</span></pre>
+</div>
+<span class="cnblogs_code_collapse">修改部分代码</span></div>
+<p>&nbsp;　　然后再加上API之RichMarker_min.js，这个使用比较简单，基本代码如下：</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('12df1132-af02-40e0-ab08-723579d5bdba')"><img id="code_img_closed_12df1132-af02-40e0-ab08-723579d5bdba" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_12df1132-af02-40e0-ab08-723579d5bdba" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('12df1132-af02-40e0-ab08-723579d5bdba',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_12df1132-af02-40e0-ab08-723579d5bdba" class="cnblogs_code_hide">
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">地图上添加marker
+</span><span style="color: #008000;">//</span><span style="color: #008000;">参数说明：togoname , picture,address,reviewcont,BookPercapita(人均).shopid</span>
+<span style="color: #000000;">function createMarker(index, togoname, picture, address, reviewcont, BookPercapita, shopid, point) {
+    </span><span style="color: #0000ff;">var</span> infohtml = <span style="color: #800000;">""</span><span style="color: #000000;">;
+
+    </span><span style="color: #0000ff;">var</span> htm1 = <span style="color: #800000;">"</span><span style="color: #800000;">&lt;div class='RichmarkerContainer'  title=\"</span><span style="color: #800000;">"</span> + togoname + <span style="color: #800000;">"</span><span style="color: #800000;">\"&gt;&lt;h4 class='Richmarker' id=\"h4_</span><span style="color: #800000;">"</span> + parseInt(index) + <span style="color: #800000;">"</span><span style="color: #800000;">\"&gt;&lt;span class=\"numberL\"&gt;</span><span style="color: #800000;">"</span> + parseInt(index) + <span style="color: #800000;">"</span><span style="color: #800000;">&lt;/span&gt;&lt;/h4&gt;&lt;lable id=\"name_</span><span style="color: #800000;">"</span> + parseInt(index) + <span style="color: #800000;">"</span><span style="color: #800000;">\" class='markerlabel'&gt;&lt;/lable&gt;&lt;/div&gt;</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+    </span><span style="color: #0000ff;">var</span> shopmarker = <span style="color: #0000ff;">new</span><span style="color: #000000;"> BMapLib.RichMarker(htm1, point);
+
+    </span><span style="color: #0000ff;">var</span> temptipinfo =<span style="color: #000000;"> getInfohtml(index, togoname, picture, address, reviewcont, BookPercapita, shopid);
+    $(</span><span style="color: #800000;">"</span><span style="color: #800000;">#tipcontainer</span><span style="color: #800000;">"</span>).append(<span style="color: #800000;">"</span><span style="color: #800000;">&lt;div id=\"click_list_infohtml_</span><span style="color: #800000;">"</span> + index + <span style="color: #800000;">"</span><span style="color: #800000;">\"&gt;</span><span style="color: #800000;">"</span> + temptipinfo + <span style="color: #800000;">"</span><span style="color: #800000;">&lt;/div&gt;</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+
+    shopmarker.addEventListener(</span><span style="color: #800000;">"</span><span style="color: #800000;">click</span><span style="color: #800000;">"</span><span style="color: #000000;">, function(e) {
+        </span><span style="color: #0000ff;">var</span> shopinfohtml =<span style="color: #000000;"> getInfohtml(index, togoname, picture, address, reviewcont, BookPercapita, shopid);
+        </span><span style="color: #0000ff;">var</span> shopinfoWindow = <span style="color: #0000ff;">new</span><span style="color: #000000;"> BMap.InfoWindow(shopinfohtml);
+        map.openInfoWindow(shopinfoWindow,point);
+    });
+    allmarkers.push(shopmarker);
+    points.push(point);
+
+    </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> shopmarker;
+}</span></pre>
+</div>
+<span class="cnblogs_code_collapse">生成图标代码</span></div>
+<p>　　最终形成了，现在的界面</p>
+<div class="cnblogs_code" style="background-color: #c0deed;"><span class="cnblogs_code_collapse">按配送范围搜索</span></div>
+<p>　　这部分其实主要就是用一个射线法，判断点是否在多边形内，这是我头头写的，不过不怎么准确，在这里我也帖下代码，也希望哪个朋友有更精确的方法提出来。</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('3e949181-c3b0-4a31-aa4c-055121ab458a')"><img id="code_img_closed_3e949181-c3b0-4a31-aa4c-055121ab458a" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_3e949181-c3b0-4a31-aa4c-055121ab458a" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('3e949181-c3b0-4a31-aa4c-055121ab458a',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_3e949181-c3b0-4a31-aa4c-055121ab458a" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff;">using</span><span style="color: #000000;"> System;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Generic;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Configuration;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Data;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Linq;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Web;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Web.Security;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Web.UI;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Web.UI.HtmlControls;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Web.UI.WebControls;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Web.UI.WebControls.WebParts;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Xml.Linq;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Reflection;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Text;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Drawing;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Drawing.Drawing2D;
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> hjmap
+{
+    </span><span style="color: #0000ff;">const</span> <span style="color: #0000ff;">double</span> INFINITY =<span style="color: #000000;"> 1e10;
+    </span><span style="color: #0000ff;">const</span> <span style="color: #0000ff;">double</span> ESP = 1e-<span style="color: #800080;">5</span><span style="color: #000000;">;
+    </span><span style="color: #0000ff;">const</span> <span style="color: #0000ff;">int</span> MAX_N = <span style="color: #800080;">1000</span><span style="color: #000000;">;
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">struct</span><span style="color: #000000;"> XPoint
+    {
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">double</span><span style="color: #000000;"> x, y;
+
+        </span><span style="color: #0000ff;">public</span> XPoint(<span style="color: #0000ff;">double</span> _x, <span style="color: #0000ff;">double</span><span style="color: #000000;"> _y)
+        {
+            x </span>=<span style="color: #000000;"> _x;
+            y </span>=<span style="color: #000000;"> _y;
+        }
+    };
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">struct</span><span style="color: #000000;"> LineSegment
+    {
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> XPoint pt1, pt2;
+    };
+
+    </span><span style="color: #808080;">///</span><span style="color: #008000;"> 判断点在多边形内
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 如果点在多边形内： 返回0
+    </span><span style="color: #808080;">///</span><span style="color: #008000;"> 如果点在多边形边上： 返回1
+    </span><span style="color: #808080;">///</span><span style="color: #008000;"> 如果点在多边形外： 返回2
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="polygon"&gt;</span><span style="color: #008000;">多边形顶点</span><span style="color: #808080;">&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="point"&gt;</span><span style="color: #008000;">当前点</span><span style="color: #808080;">&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> InPolygon(XPoint[] polygon, XPoint point)
+    {
+        </span><span style="color: #0000ff;">int</span> n =<span style="color: #000000;"> polygon.Length;
+        </span><span style="color: #0000ff;">int</span> count = <span style="color: #800080;">0</span><span style="color: #000000;">;
+        LineSegment line;
+        line.pt1 </span>=<span style="color: #000000;"> point;
+        line.pt2.y </span>=<span style="color: #000000;"> point.y;
+        line.pt2.x </span>= -<span style="color: #000000;">INFINITY;
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; n; i++<span style="color: #000000;">)
+        {
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">得到多边形的一条边</span>
+<span style="color: #000000;">            LineSegment side;
+            side.pt1 </span>=<span style="color: #000000;"> polygon[i];
+            side.pt2 </span>= polygon[(i + <span style="color: #800080;">1</span>) %<span style="color: #000000;"> n];
+            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (IsOnline(point, side))
+            {
+                </span><span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span><span style="color: #000000;">;
+            }
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 如果side平行x轴则不作考虑</span>
+            <span style="color: #0000ff;">if</span> (Math.Abs(side.pt1.y - side.pt2.y) &lt;<span style="color: #000000;"> ESP)
+            {
+                </span><span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+            }
+            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (IsOnline(side.pt1, line))
+            {
+                </span><span style="color: #0000ff;">if</span> (side.pt1.y &gt;<span style="color: #000000;"> side.pt2.y)
+                    count</span>++<span style="color: #000000;">;
+            }
+            </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span><span style="color: #000000;"> (IsOnline(side.pt2, line))
+            {
+                </span><span style="color: #0000ff;">if</span> (side.pt2.y &gt;<span style="color: #000000;"> side.pt1.y)
+                    count</span>++<span style="color: #000000;">;
+            }
+            </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span><span style="color: #000000;"> (Intersect(line, side))
+            {
+                count</span>++<span style="color: #000000;">;
+            }
+        }
+        </span><span style="color: #0000ff;">if</span> (count % <span style="color: #800080;">2</span> == <span style="color: #800080;">1</span><span style="color: #000000;">)
+        {
+            </span><span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+        {
+            </span><span style="color: #0000ff;">return</span> <span style="color: #800080;">2</span><span style="color: #000000;">;
+        }
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 计算叉乘 |P0P1| &times; |P0P2|</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">double</span><span style="color: #000000;"> Multiply(XPoint p1, XPoint p2, XPoint p0)
+    {
+        </span><span style="color: #0000ff;">return</span> ((p1.x - p0.x) * (p2.y - p0.y) - (p2.x - p0.x) * (p1.y -<span style="color: #000000;"> p0.y));
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 判断线段是否包含点point</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">bool</span><span style="color: #000000;"> IsOnline(XPoint point, LineSegment line)
+    {
+        </span><span style="color: #0000ff;">return</span> ((Math.Abs(Multiply(line.pt1, line.pt2, point)) &lt; ESP) &amp;&amp;<span style="color: #000000;">
+        ((point.x </span>- line.pt1.x) * (point.x - line.pt2.x) &lt;= <span style="color: #800080;">0</span>) &amp;&amp;<span style="color: #000000;">
+        ((point.y </span>- line.pt1.y) * (point.y - line.pt2.y) &lt;= <span style="color: #800080;">0</span><span style="color: #000000;">));
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 判断线段相交</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">bool</span><span style="color: #000000;"> Intersect(LineSegment L1, LineSegment L2)
+    {
+        </span><span style="color: #0000ff;">return</span> ((Math.Max(L1.pt1.x, L1.pt2.x) &gt;= Math.Min(L2.pt1.x, L2.pt2.x)) &amp;&amp;<span style="color: #000000;">
+        (Math.Max(L2.pt1.x, L2.pt2.x) </span>&gt;= Math.Min(L1.pt1.x, L1.pt2.x)) &amp;&amp;<span style="color: #000000;">
+        (Math.Max(L1.pt1.y, L1.pt2.y) </span>&gt;= Math.Min(L2.pt1.y, L2.pt2.y)) &amp;&amp;<span style="color: #000000;">
+        (Math.Max(L2.pt1.y, L2.pt2.y) </span>&gt;= Math.Min(L1.pt1.y, L1.pt2.y)) &amp;&amp;<span style="color: #000000;">
+        (Multiply(L2.pt1, L1.pt2, L1.pt1) </span>* Multiply(L1.pt2, L2.pt2, L1.pt1) &gt;= <span style="color: #800080;">0</span>) &amp;&amp;<span style="color: #000000;">
+        (Multiply(L1.pt1, L2.pt2, L2.pt1) </span>* Multiply(L2.pt2, L1.pt2, L2.pt1) &gt;= <span style="color: #800080;">0</span><span style="color: #000000;">));
+    }
+
+    </span><span style="color: #808080;">///</span><span style="color: #008000;"> 判断点在多边形内
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 如果点在多边形内： 返回0
+    </span><span style="color: #808080;">///</span><span style="color: #008000;"> 如果点在多边形边上： 返回1
+    </span><span style="color: #808080;">///</span><span style="color: #008000;"> 如果点在多边形外： 返回2
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="polygon"&gt;</span><span style="color: #008000;">定点集合，以30.192353,120.164766|30.192712,120.175851|30.189668,120.170192的方式存在</span><span style="color: #808080;">&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="point"&gt;</span><span style="color: #008000;">当前点</span><span style="color: #808080;">&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">int</span> InPolygon(<span style="color: #0000ff;">string</span> _lat, <span style="color: #0000ff;">string</span> _lng, <span style="color: #0000ff;">string</span><span style="color: #000000;"> _polygon)
+    {
+        XPoint mypoint </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> XPoint();
+        mypoint.x </span>=<span style="color: #000000;"> Convert.ToDouble(_lat);
+        mypoint.y </span>=<span style="color: #000000;"> Convert.ToDouble(_lng);
+
+        </span><span style="color: #0000ff;">string</span> Polygon =<span style="color: #000000;"> _polygon;
+
+        </span><span style="color: #0000ff;">string</span>[] PolygonArray = Polygon.Split(<span style="color: #800000;">'</span><span style="color: #800000;">|</span><span style="color: #800000;">'</span><span style="color: #000000;">);
+        hjmap.XPoint[] curvePoints </span>= <span style="color: #0000ff;">new</span> hjmap.XPoint[PolygonArray.Length - <span style="color: #800080;">1</span><span style="color: #000000;">];
+
+        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; PolygonArray.Length - <span style="color: #800080;">1</span>; i++<span style="color: #000000;">)
+        {
+            </span><span style="color: #0000ff;">string</span>[] point_value = PolygonArray[i].Split(<span style="color: #800000;">'</span><span style="color: #800000;">,</span><span style="color: #800000;">'</span><span style="color: #000000;">);
+            curvePoints[i] </span>= <span style="color: #0000ff;">new</span> hjmap.XPoint((Convert.ToDouble(point_value[<span style="color: #800080;">0</span>])), (Convert.ToDouble(point_value[<span style="color: #800080;">1</span><span style="color: #000000;">])));
+        }
+
+        </span><span style="color: #0000ff;">int</span> rs =<span style="color: #000000;"> InPolygon(curvePoints, mypoint);
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> rs;
+    }
+}</span></pre>
+</div>
+<span class="cnblogs_code_collapse">判断点是否在多边形内</span></div>
+<p>&nbsp;　&nbsp; 以上便是我们系统中地图订餐部分的内容了，也有做这块的朋友，大家可以交流下。</p>
+<p>　　<span style="color: #0000ff;"><span style="color: #000000;">成为一名优秀的程序员！</span></span></p>
+<p>&nbsp;</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2013-07-03 20:28</span>&nbsp;
+<a href="https://www.cnblogs.com/jijunjian/">2J</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=3165917" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(3165917);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 139716, cb_blogApp = 'jijunjian', cb_blogUserGuid = '3f24f67b-fea0-de11-ba8f-001cf0cd104b';
+    var cb_entryId = 3165917, cb_entryCreatedDate = '2013-07-03 20:28', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 2J
+<br /><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+</body>
+</html>

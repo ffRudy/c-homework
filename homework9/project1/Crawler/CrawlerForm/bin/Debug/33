@@ -1,0 +1,757 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="在上一篇文章《基于mina框架的GPS设备与服务器之间的交互》中，提到之前一直使用superwebsocket框架做为IIS和APP通信的媒介，经常出现无法通信的问题，必须一天几次的手动回收程序池，甚" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>基于SuperSocket的IIS主动推送消息给android客户端 - 2J - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=-oFz8B4m7JhHaZzdTkzPza2oLZNDRR8obnCz6w7OHbU" />
+    <link id="MainCss" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd.min.css?v=gS0FloTY-RBJQcN3GCAKG6fAr6HHKtDMTw60VxjN79c" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/jijunjian/custom.css?v=WI3eRo7midbwNzmh7EMewRylXm0=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd-mobile.min.css?v=VacchHeVg6bp3gCO8NqMH8D8fhA8iyRbb0JgoDUvn4o" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/jijunjian/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/jijunjian/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/jijunjian/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=uk-as-QYRHtjaAbeEigAktvhwf01NRrnle-6exg65Ak"></script>
+    <script>
+        var currentBlogId = 139716;
+        var currentBlogApp = 'jijunjian';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'iMetro_HD';
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/jijunjian/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/jijunjian/">成为一名优秀的程序员</a>
+</h1>
+<h2>
+
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/jijunjian/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/2J">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/jijunjian/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+25&nbsp; </span>
+<span id="stats_article_count">文章 - 
+0&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+424</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/jijunjian/p/4049203.html">基于SuperSocket的IIS主动推送消息给android客户端</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+    <div id="cnblogs_post_description" style="display: none">
+        在上一篇文章《基于mina框架的GPS设备与服务器之间的交互》中，提到之前一直使用superwebsocket框架做为IIS和APP通信的媒介，经常出现无法通信的问题，必须一天几次的手动回收程序池，甚至重起服务器，通常周末接到一个陌生电话，就是说客户端无法登录了，说多了都是泪。痛定思痛，开始找解决方案，其实superwebsocket以IIS做为宿主，就注定他可能不稳定了，当然，它部署非常方便；为了稳定，我开始尝试使用SuperSocket，当然，这也注定了后期部署会麻烦些；生活就是这样哈，鱼和熊掌难兼得。学习一个新东西，就如同一个打怪升级做任务的历程，其中有数不清的陷阱，当然也有绚丽景色。
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在上一篇文章《<a title="http://www.cnblogs.com/jijunjian/p/3930606.html" href="http://www.cnblogs.com/基于mina框架的GPS设备与服务器之间的交互" target="_blank">基于mina框架的GPS设备与服务器之间的交互</a>》中，提到之前一直使用superwebsocket框架做为IIS和APP通信的媒介，经常出现无法通信的问题，必须一天几次的手动回收程序池，甚至重起服务器，通常周末接到一个陌生电话，就是说客户端无法登录了，说多了都是泪。痛定思痛，开始找解决方案，其实superwebsocket以IIS做为宿主，就注定他可能不稳定了，当然，它部署非常方便；为了稳定，我开始尝试使用SuperSocket，当然，这也注定了后期部署会麻烦些；生活就是这样哈，鱼和熊掌难兼得。学习一个新东西，就如同一个打怪升级做任务的历程，其中有数不清的陷阱，当然也有绚丽景色。关于服务，WCF等几乎都是第一次运用，其中肯定有很多不对的地方，还请了解的朋友们指出来，以免误了别人。对于SuperSocket之前也只是听说过，本次也只是简单的应用，如有应用不对，或者说得不对的地方，还请江大渔同学指出。另外，江大牛做的事让我的开发变得简单了，在此，对其表示由衷的感谢和敬佩！</p>
+<h1 class="postTitle"><span>消息传递流程</span></h1>
+<p><span>　　消息传递流程如图1所示，创建一个Windows Service，并启动superSocket，发布一个WCF，以Windows Service做为宿主，随服务启动与关闭。 IIS通过WCF传递消息给Windows Service，然后再传给superSocket，再传递给android客户端；客户端上传坐标处理给superSocket，再保存于数据库。<br /></span></p>
+<p><span><img src="https://images0.cnblogs.com/blog/88102/201410/242117078089009.png" alt="" /></span></p>
+<p>　　　　　　　　　　　　　　　　<strong>（图1）</strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h1 class="postTitle"><span>SuperSocket</span></h1>
+<p><span>　　以下内容是摘自其官网，大家可以自行查看：SuperSocket 是一个轻量级, 跨平台而且可扩展的 .Net/Mono Socket 服务器程序框架。你无须了解如何使用 Socket, 如何维护 Socket 连接和 Socket 如何工作，但是你却可以使用 SuperSocket 很容易的开发出一款 Socket 服务器端软件，例如游戏服务器，GPS 服务器, 工业控制服务和数据采集服务器等等。-- <a title="SuperSocket" href="http://www.supersocket.net/" target="_blank">http://www.supersocket.net/</a></span></p>
+<p>&nbsp;</p>
+<h1 class="postTitle"><span>实现自己的AppSession，AppServer</span></h1>
+<p>　　 下载最新版源码，目前最新版应该是1.6.3，好像是马上要发布1.6.4了吧。解决方案如图2，目前我只是简单的应用，源码就没细看了，其实也看不懂，哈哈。</p>
+<p>　　　　<img src="https://images0.cnblogs.com/blog/88102/201410/271945112225240.png" alt="" /></p>
+<p>　　　　　　　　　　（图2）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其文档中如下描述：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AppSession 代表一个和客户端的逻辑连接，基于连接的操作应该定于在该类之中。你可以用该类的实例发送数据到客户端，接收客户端发送的数据或者关闭连接。</p>
+<p>　　 &nbsp; AppServer 代表了监听客户端连接，承载TCP连接的服务器实例。理想情况下，我们可以通过AppServer实例获取任何你想要的客户端连接，服务器级别的操作和逻辑应该定义在此类之中。</p>
+<p>　　 所以，通常情况要根据自己的业务来实现自己的AppSession，AppServer。如，我需求在session断开时，修改app状态；或者我的AppSession有自己特殊的属性。<br />下面是我实现的自己的AppSession（NoticeSession），AppServer（NoticeServer），有兴趣可以瞥下。</p>
+<p>NoticeSession代码如下：</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('0b26f990-37dd-4f8c-a6ed-0938c29a4be4')"><img id="code_img_closed_0b26f990-37dd-4f8c-a6ed-0938c29a4be4" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_0b26f990-37dd-4f8c-a6ed-0938c29a4be4" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('0b26f990-37dd-4f8c-a6ed-0938c29a4be4',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_0b26f990-37dd-4f8c-a6ed-0938c29a4be4" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff;">using</span><span style="color: #000000;"> System;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Generic;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Specialized;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Linq;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Text;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> SuperSocket.Common;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> SuperSocket.SocketBase;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> SuperSocket.SocketBase.Protocol;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Threading;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.SQLServerDAL.serverinterface;
+
+
+</span><span style="color: #0000ff;">namespace</span><span style="color: #000000;"> SuperSocket.SocketService
+{
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> MESSAGETYPE
+    {
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 1表示消息
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">uint</span> MSG = <span style="color: #800080;">1</span><span style="color: #000000;">;
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 0表示订单
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">uint</span> ORDER = <span style="color: #800080;">0</span><span style="color: #000000;">;
+    }
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 自定义连接类MySession，继承AppSession，并传入到AppSession  
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> NoticeSession : AppSession&lt;NoticeSession&gt;<span style="color: #000000;">
+    {
+        </span><span style="color: #0000ff;">bool</span> isSendMessage = <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">public</span> StringDictionary Cookies { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 数据编号，配送员，或者商家编号等
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> DataID
+        {
+            </span><span style="color: #0000ff;">get</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">set</span><span style="color: #000000;">;
+        }
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 类型：1表示骑士，2表示商家
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> Type
+        {
+            </span><span style="color: #0000ff;">set</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">get</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 用户名;
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #0000ff;">public</span><span style="color: #000000;"> String UserName
+        {
+            </span><span style="color: #0000ff;">get</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">set</span><span style="color: #000000;">;
+        }
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 密码
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #0000ff;">public</span><span style="color: #000000;"> String Password
+        {
+            </span><span style="color: #0000ff;">get</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">set</span><span style="color: #000000;">;
+        }
+
+        </span><span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> OnSessionStarted()
+        {
+
+        }
+
+        </span><span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> HandleUnknownRequest(StringRequestInfo requestInfo)
+        {
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">Logger.Debug("NoticeSession.OnSessionStarted:Unknow request");</span>
+<span style="color: #000000;">        }
+
+        </span><span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> HandleException(Exception e)
+        {
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">Logger.Debug("NoticeSession.OnSessionStarted:Unknow request");</span>
+<span style="color: #000000;">        }
+
+        </span><span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> OnSessionClosed(CloseReason reason)
+        {
+            Logout();
+            </span><span style="color: #0000ff;">base</span><span style="color: #000000;">.OnSessionClosed(reason);
+        }
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 根据登录的参数，保存cookie ,并设置属性
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> SetCookie(<span style="color: #0000ff;">string</span><span style="color: #000000;"> cookieValue)
+        {
+            </span><span style="color: #0000ff;">var</span> cookies = <span style="color: #0000ff;">new</span><span style="color: #000000;"> StringDictionary();
+
+            </span><span style="color: #0000ff;">if</span> (!<span style="color: #0000ff;">string</span><span style="color: #000000;">.IsNullOrEmpty(cookieValue))
+            {
+                </span><span style="color: #0000ff;">string</span>[] pairs = cookieValue.Split(<span style="color: #800000;">'</span><span style="color: #800000;">;</span><span style="color: #800000;">'</span><span style="color: #000000;">);
+
+                </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> pos;
+                </span><span style="color: #0000ff;">string</span><span style="color: #000000;"> key, value;
+
+                </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> p <span style="color: #0000ff;">in</span><span style="color: #000000;"> pairs)
+                {
+                    pos </span>= p.IndexOf(<span style="color: #800000;">'</span><span style="color: #800000;">=</span><span style="color: #800000;">'</span><span style="color: #000000;">);
+                    </span><span style="color: #0000ff;">if</span> (pos &gt; <span style="color: #800080;">0</span><span style="color: #000000;">)
+                    {
+                        key </span>= p.Substring(<span style="color: #800080;">0</span><span style="color: #000000;">, pos).Trim();
+                        pos </span>+= <span style="color: #800080;">1</span><span style="color: #000000;">;
+                        </span><span style="color: #0000ff;">if</span> (pos &lt;<span style="color: #000000;"> p.Length)
+                            value </span>=<span style="color: #000000;"> p.Substring(pos).Trim();
+                        </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+                            value </span>= <span style="color: #0000ff;">string</span><span style="color: #000000;">.Empty;
+
+                        cookies[key] </span>=<span style="color: #000000;"> Uri.UnescapeDataString(value);
+                    }
+                }
+            }
+
+            </span><span style="color: #0000ff;">this</span>.Cookies =<span style="color: #000000;"> cookies;
+
+            </span><span style="color: #0000ff;">this</span>.UserName = Cookies[<span style="color: #800000;">"</span><span style="color: #800000;">name</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+            </span><span style="color: #0000ff;">this</span>.Password = Cookies[<span style="color: #800000;">"</span><span style="color: #800000;">password</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+            </span><span style="color: #0000ff;">this</span>.Type = Convert.ToInt32(Cookies[<span style="color: #800000;">"</span><span style="color: #800000;">type</span><span style="color: #800000;">"</span><span style="color: #000000;">]);
+        }
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 向客户端发送消息（0 表示订单 ，1表示消息）
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="type"&gt;</span><span style="color: #008000;">（0 表示订单 ，1表示消息）</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="message"&gt;</span><span style="color: #008000;">消息内容（json）</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> SendMessage(<span style="color: #0000ff;">uint</span><span style="color: #000000;"> type, String message)
+        {
+            </span><span style="color: #0000ff;">while</span><span style="color: #000000;"> (isSendMessage)
+            {
+                Thread.Sleep(</span><span style="color: #800080;">1</span><span style="color: #000000;">);
+            }
+            isSendMessage </span>= <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+            String value </span>= <span style="color: #800000;">""</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">switch</span><span style="color: #000000;"> (type)
+            {
+                </span><span style="color: #0000ff;">case</span><span style="color: #000000;"> MESSAGETYPE.ORDER:
+                    value </span>= <span style="color: #800000;">"</span><span style="color: #800000;">ORDER::</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> message;
+                    </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">case</span><span style="color: #000000;"> MESSAGETYPE.MSG:
+                    value </span>= <span style="color: #800000;">"</span><span style="color: #800000;">MSG::</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> message;
+                    </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+            }
+            </span><span style="color: #0000ff;">this</span><span style="color: #000000;">.Send(value);
+            isSendMessage </span>= <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        }
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> session退出，对应骑士下线
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Logout()
+        {
+            </span><span style="color: #0000ff;">if</span> (DataID != <span style="color: #800080;">0</span> &amp;&amp; Type == <span style="color: #800080;">1</span><span style="color: #000000;">)
+            {
+                APPUser user </span>= <span style="color: #0000ff;">new</span> APPUser(<span style="color: #0000ff;">this</span>.UserName, <span style="color: #0000ff;">this</span>.Password, <span style="color: #0000ff;">this</span>.SessionID, <span style="color: #0000ff;">this</span><span style="color: #000000;">.Type);
+                </span><span style="color: #0000ff;">if</span> (user.app != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+                {
+                    user.app.UpdateLoginState(</span><span style="color: #0000ff;">this</span>.SessionID, <span style="color: #800080;">0</span><span style="color: #000000;">);
+                }
+            }
+        }
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 根据编号为类型获取session
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="id"&gt;&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="type"&gt;&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+        <span style="color: #0000ff;">public</span> NoticeSession GetSession(<span style="color: #0000ff;">int</span> id, <span style="color: #0000ff;">int</span><span style="color: #000000;"> type)
+        {
+            NoticeSession session </span>= <span style="color: #0000ff;">this</span>.AppServer.GetAllSessions().Where(a =&gt; a.DataID == id &amp;&amp; a.Type ==<span style="color: #000000;"> type).FirstOrDefault();
+            </span><span style="color: #0000ff;">if</span> (session != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+            {
+                </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> session;
+            }
+            </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+            {
+                </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+            }
+
+        }
+    }
+}</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p>&nbsp;</p>
+<p>NoticeServer代码如下：</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('7b43a8c9-4f5a-47f0-b1fb-dd9f3ce7cd48')"><img id="code_img_closed_7b43a8c9-4f5a-47f0-b1fb-dd9f3ce7cd48" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_7b43a8c9-4f5a-47f0-b1fb-dd9f3ce7cd48" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('7b43a8c9-4f5a-47f0-b1fb-dd9f3ce7cd48',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_7b43a8c9-4f5a-47f0-b1fb-dd9f3ce7cd48" class="cnblogs_code_hide">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System;
+</span><span style="color: #008080;"> 2</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Generic;
+</span><span style="color: #008080;"> 3</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Linq;
+</span><span style="color: #008080;"> 4</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Text;
+</span><span style="color: #008080;"> 5</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> SuperSocket.SocketBase;
+</span><span style="color: #008080;"> 6</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> SuperSocket.SocketBase.Config;
+</span><span style="color: #008080;"> 7</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> SuperSocket.SocketBase.Protocol;
+</span><span style="color: #008080;"> 8</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.SQLServerDAL.serverinterface;
+</span><span style="color: #008080;"> 9</span> 
+<span style="color: #008080;">10</span> <span style="color: #0000ff;">namespace</span><span style="color: #000000;"> SuperSocket.SocketService
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">12</span>     <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+<span style="color: #008080;">13</span>     <span style="color: #808080;">///</span><span style="color: #008000;"> 自定义服务器类MyServer，继承AppServer，并传入自定义连接类MySession 
+</span><span style="color: #008080;">14</span>     <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+<span style="color: #008080;">15</span>     <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> NoticeServer : AppServer&lt;NoticeSession&gt;
+<span style="color: #008080;">16</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;">17</span>         <span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">bool</span><span style="color: #000000;"> Setup(IRootConfig rootConfig, IServerConfig config)
+</span><span style="color: #008080;">18</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">19</span>             <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">base</span><span style="color: #000000;">.Setup(rootConfig, config);
+</span><span style="color: #008080;">20</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">21</span> 
+<span style="color: #008080;">22</span>         <span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> OnStarted()
+</span><span style="color: #008080;">23</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">24</span>             <span style="color: #0000ff;">base</span><span style="color: #000000;">.OnStarted();
+</span><span style="color: #008080;">25</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">26</span> 
+<span style="color: #008080;">27</span>         <span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> OnStopped()
+</span><span style="color: #008080;">28</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">29</span>             <span style="color: #0000ff;">base</span><span style="color: #000000;">.OnStopped();
+</span><span style="color: #008080;">30</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">31</span> 
+<span style="color: #008080;">32</span>         <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>  
+<span style="color: #008080;">33</span>         <span style="color: #808080;">///</span><span style="color: #008000;"> 输出新连接信息  
+</span><span style="color: #008080;">34</span>         <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>  
+<span style="color: #008080;">35</span>         <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="session"&gt;&lt;/param&gt;</span>  
+<span style="color: #008080;">36</span>         <span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> OnNewSessionConnected(NoticeSession session)
+</span><span style="color: #008080;">37</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">38</span>             <span style="color: #0000ff;">base</span><span style="color: #000000;">.OnNewSessionConnected(session);
+</span><span style="color: #008080;">39</span>             <span style="color: #008000;">//</span><span style="color: #008000;">输出客户端IP地址  
+</span><span style="color: #008080;">40</span>             <span style="color: #008000;">//</span><span style="color: #008000;">session.Logger.Debug("\r\n NoticeServer.OnNewSessionConnected-&gt;" + session.LocalEndPoint.Address.ToString() + ":连接");</span>
+<span style="color: #008080;">41</span> 
+<span style="color: #008080;">42</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">43</span> 
+<span style="color: #008080;">44</span>         <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>  
+<span style="color: #008080;">45</span>         <span style="color: #808080;">///</span><span style="color: #008000;"> 输出断开连接信息  
+</span><span style="color: #008080;">46</span>         <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>  
+<span style="color: #008080;">47</span>         <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="session"&gt;&lt;/param&gt;</span>  
+<span style="color: #008080;">48</span>         <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="reason"&gt;&lt;/param&gt;</span>  
+<span style="color: #008080;">49</span>         <span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> OnSessionClosed(NoticeSession session, CloseReason reason)
+</span><span style="color: #008080;">50</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">51</span>             <span style="color: #008000;">//</span><span style="color: #008000;">输出客户端IP地址&lt;/span&gt;  
+</span><span style="color: #008080;">52</span>             <span style="color: #008000;">//</span><span style="color: #008000;">session.Logger.Debug("\r\n NoticeServer.OnSessionClosed-&gt;" + session.LocalEndPoint.Address.ToString() + ":断开 dataid=" + session.DataID + "&amp;Type=" + session.Type);
+</span><span style="color: #008080;">53</span>             <span style="color: #008000;">//</span><span style="color: #008000;">退出</span>
+<span style="color: #008080;">54</span>             <span style="color: #0000ff;">if</span> (session.DataID != <span style="color: #800080;">0</span><span style="color: #000000;">)
+</span><span style="color: #008080;">55</span> <span style="color: #000000;">            {
+</span><span style="color: #008080;">56</span>                 APPUser user = <span style="color: #0000ff;">new</span><span style="color: #000000;"> APPUser(session.UserName, session.Password, session.SessionID, session.Type);
+</span><span style="color: #008080;">57</span>                 <span style="color: #0000ff;">if</span> (user.app != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+</span><span style="color: #008080;">58</span> <span style="color: #000000;">                {
+</span><span style="color: #008080;">59</span>                     user.app.UpdateLoginState(session.SessionID, <span style="color: #800080;">0</span><span style="color: #000000;">);
+</span><span style="color: #008080;">60</span> <span style="color: #000000;">                }
+</span><span style="color: #008080;">61</span> <span style="color: #000000;">            }
+</span><span style="color: #008080;">62</span>             <span style="color: #0000ff;">base</span><span style="color: #000000;">.OnSessionClosed(session, reason);
+</span><span style="color: #008080;">63</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">64</span> 
+<span style="color: #008080;">65</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">66</span> }</pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p>&nbsp;</p>
+<h1 class="postTitle">实现自己的消息处理机制</h1>
+<p>&nbsp;　　消息都会进到MainService.NewRequestReceived 方法中，所以我在这里处理自己的消息。默认消息机制里，会把消息序列化为&nbsp;StringRequestInfo，这个对像包含Key和Body，默认是用空格分隔的。我主要实现app登录（建立链接），和app上传坐标等两个消息，NewRequestReceived 方法代码如下</p>
+<p>　　</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('4a58c0f6-0294-4218-93d0-ecc87616a619')"><img id="code_img_closed_4a58c0f6-0294-4218-93d0-ecc87616a619" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_4a58c0f6-0294-4218-93d0-ecc87616a619" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('4a58c0f6-0294-4218-93d0-ecc87616a619',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_4a58c0f6-0294-4218-93d0-ecc87616a619" class="cnblogs_code_hide">
+<pre><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 收到新的消息
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="session"&gt;&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="requestInfo"&gt;&lt;/param&gt;</span>
+        <span style="color: #0000ff;">void</span><span style="color: #000000;"> NewRequestReceived(NoticeSession session, StringRequestInfo requestInfo)
+        {
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">session.Logger.Debug("Key=" + requestInfo.Key + "|body=" + requestInfo.Body);</span>
+
+            <span style="color: #0000ff;">switch</span><span style="color: #000000;"> (requestInfo.Key)
+            {
+                </span><span style="color: #0000ff;">case</span> <span style="color: #800000;">"</span><span style="color: #800000;">Cookie:</span><span style="color: #800000;">"</span>:<span style="color: #008000;">//</span><span style="color: #008000;">这里为了兼容原来的app登录发送的数据</span>
+<span style="color: #000000;">                    {
+                        session.SetCookie(requestInfo.Body);
+                        User user </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> User(session);
+                        Thread thdProcess </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Thread(user.LoginThread);
+                        thdProcess.Start();
+                    }
+                    </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">case</span> <span style="color: #800000;">"</span><span style="color: #800000;">GPS</span><span style="color: #800000;">"</span><span style="color: #000000;">:
+                    {
+                         </span><span style="color: #0000ff;">string</span> json =<span style="color: #000000;"> requestInfo.Body;
+                        </span><span style="color: #0000ff;">if</span> (session.DataID == <span style="color: #800080;">0</span> &amp;&amp; json == <span style="color: #800000;">""</span><span style="color: #000000;">)
+                        {
+                            </span><span style="color: #0000ff;">return</span><span style="color: #000000;">;
+                        }
+                       
+                        User user </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> User(session,json);
+                        Thread thdProcess </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Thread(user.UploadGPS);
+                        thdProcess.Start();
+                    }
+                    </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+            }
+
+        }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p>&nbsp;</p>
+<p>　LoginThread 主要实现验证用户名，密码后，返回用户相关信息，具体代码如下：</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('4e57f9e2-4dd1-47d3-b345-cae1b0e83722')"><img id="code_img_closed_4e57f9e2-4dd1-47d3-b345-cae1b0e83722" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_4e57f9e2-4dd1-47d3-b345-cae1b0e83722" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('4e57f9e2-4dd1-47d3-b345-cae1b0e83722',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_4e57f9e2-4dd1-47d3-b345-cae1b0e83722" class="cnblogs_code_hide">
+<pre> <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 登录函数
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> LoginThread()
+        {
+            String state </span>= <span style="color: #800000;">""</span><span style="color: #000000;">;
+            String message </span>= <span style="color: #800000;">""</span><span style="color: #000000;">;
+            APPUser user </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> APPUser(session.UserName, session.Password, session.SessionID, session.Type);
+            </span><span style="color: #0000ff;">if</span> (user.app == <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+            {
+                session.Logger.Debug(</span><span style="color: #800000;">"</span><span style="color: #800000;">登录：</span><span style="color: #800000;">"</span> + session.UserName + <span style="color: #800000;">"</span><span style="color: #800000;"> type=</span><span style="color: #800000;">"</span> + session.Type+<span style="color: #800000;">"</span><span style="color: #800000;">  对像为空</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                </span><span style="color: #0000ff;">return</span><span style="color: #000000;">;
+            }
+
+            </span><span style="color: #0000ff;">int</span> userid =<span style="color: #000000;"> user.app.APPLogin(session.UserName, session.Password, session.SessionID);
+
+            </span><span style="color: #0000ff;">if</span> (userid &gt; <span style="color: #800080;">0</span><span style="color: #000000;">)
+            {
+                NoticeSession ol </span>=<span style="color: #000000;"> session.GetSession(userid, session.Type);
+                </span><span style="color: #0000ff;">if</span> (ol != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+                {
+                    state </span>= <span style="color: #800000;">"</span><span style="color: #800000;">-2</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+                    message </span>= <span style="color: #800000;">"</span><span style="color: #800000;">Login::{\"userid\":\"</span><span style="color: #800000;">"</span> + session.DataID.ToString() + <span style="color: #800000;">"</span><span style="color: #800000;">\",\"state\":\"</span><span style="color: #800000;">"</span> + state + <span style="color: #800000;">"</span><span style="color: #800000;">\"}</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+                    ol.Send(message);
+                    Thread.Sleep(</span><span style="color: #800080;">2</span><span style="color: #000000;">);
+                    ol.Close();
+                }
+                session.DataID </span>=<span style="color: #000000;"> userid;
+                state </span>= <span style="color: #800000;">"</span><span style="color: #800000;">1</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+                message </span>=<span style="color: #000000;"> user.app.getLoginJSON(userid,state);
+                message </span>=<span style="color: #000000;"> Utils.ToUTF8(message);
+                session.Send(message);
+                </span><span style="color: #0000ff;">return</span><span style="color: #000000;">;
+            }
+            </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+            {
+                state </span>= <span style="color: #800000;">"</span><span style="color: #800000;">-1</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+                message </span>= <span style="color: #800000;">"</span><span style="color: #800000;">Login::{\"userid\":\"</span><span style="color: #800000;">"</span> + session.DataID.ToString() + <span style="color: #800000;">"</span><span style="color: #800000;">\",\"state\":\"</span><span style="color: #800000;">"</span> + state + <span style="color: #800000;">"</span><span style="color: #800000;">\"}</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            }
+         
+            session.Send(message);
+            Thread.Sleep(</span><span style="color: #800080;">2</span><span style="color: #000000;">);
+            session.Close();
+
+        }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p>&nbsp; 考虑到可能会有骑士，商家，取餐员等对像同时存在，为了保证服务程序的通用性，抽象出每个对像的相同操作。面向接口进行编程，如下图</p>
+<p><img src="https://images0.cnblogs.com/blog/88102/201410/272140015348942.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>　</p>
+<p>　　经过，以上简单步骤，运行InstallService.bat，即可创建服务，监听指定端口了。可用TCP&amp;UDP测试工具，简单测试下，看效果，如下图：</p>
+<p>　　<img src="https://images0.cnblogs.com/blog/88102/201410/272029207224069.jpg" alt="" /></p>
+<p>　　</p>
+<p>　　android客户端方面，是我同事基于mina实现的，这里我就不介绍了，其实我也不太懂，我只是简单的把他原来以websocket协议实现的，修改成了纯数据的了。</p>
+<h1 class="postTitle"><span>创建WCF服务库</span></h1>
+<p><span>　　当时在考虑如果把消息（如把订单调度给某个配送员了）传给Windows Service时，考虑了多个方法：想过用数据库，想过用消息队列；但是都觉得不太好，当WCF飘过脑海时，一下子觉得这个可行，其实在此之前，我也只是听过说而已，也许就是因为不熟悉，觉得神奇，才让我觉得稀奇吧。说干就干，看了几篇文章，实现了一个简单的WCF。UserNoticeService.cs实现代码如下，只有一个简单的方法</span></p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('515a05d8-7ddb-4e56-8380-8afb608d766e')"><img id="code_img_closed_515a05d8-7ddb-4e56-8380-8afb608d766e" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_515a05d8-7ddb-4e56-8380-8afb608d766e" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('515a05d8-7ddb-4e56-8380-8afb608d766e',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_515a05d8-7ddb-4e56-8380-8afb608d766e" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff;">using</span><span style="color: #000000;"> System;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Generic;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Linq;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Runtime.Serialization;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.ServiceModel;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Text;
+
+</span><span style="color: #0000ff;">namespace</span><span style="color: #000000;"> Hangjing.WCFService
+{
+    [ServiceBehavior(InstanceContextMode </span>=<span style="color: #000000;"> InstanceContextMode.Single)]
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> UserNoticeService : IUserNoticeService
+    {
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 添加消息
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="userid"&gt;</span><span style="color: #008000;">用户编号</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="usertype"&gt;</span><span style="color: #008000;">用户类型 1表示骑士，2表示商家</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="messagetype"&gt;</span><span style="color: #008000;">消息类型 消息类型：0表示订单，1表示纯消息。</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="message"&gt;</span><span style="color: #008000;">消息json</span><span style="color: #808080;">&lt;/param&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> AddMessage(<span style="color: #0000ff;">int</span> userid, <span style="color: #0000ff;">int</span> usertype, <span style="color: #0000ff;">int</span> messagetype, <span style="color: #0000ff;">string</span><span style="color: #000000;"> message)
+        {
+            NoticeInfo model </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> NoticeInfo();
+            model.UserId </span>=<span style="color: #000000;"> userid;
+            model.UserType </span>=<span style="color: #000000;"> usertype;
+            model.MessageType </span>=<span style="color: #000000;"> messagetype;
+            model.Message </span>=<span style="color: #000000;"> message;
+
+            NoticeManager nm </span>=<span style="color: #000000;"> NoticeManager.GetInstance();
+            nm.Add(model);
+        }
+    }
+}</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p>&nbsp;</p>
+<h1 class="postTitle"><span>使用委托及时传递消息</span></h1>
+<p><span>　 当UserNoticeService.AddMessage 接收到消息后，如何传递给&nbsp;Windows Service时，也纠结了好久，直到就快放弃思考，准备用消息队列来实现时，才想到委托。这个东西吧，一直觉得很多神奇，之前也花了很多时间去理解，一直觉得似懂非懂的感觉，原来是没有真正的应用。代码部分就比较简单了，以下是NoticeManager.cs相关代码，在UserNoticeService.AddMessage中执行添加的方法。</span></p>
+<p>&nbsp;&nbsp;&nbsp;</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('22373594-ed42-435f-971c-24afdb1b8127')"><img id="code_img_closed_22373594-ed42-435f-971c-24afdb1b8127" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_22373594-ed42-435f-971c-24afdb1b8127" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('22373594-ed42-435f-971c-24afdb1b8127',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_22373594-ed42-435f-971c-24afdb1b8127" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff;">using</span><span style="color: #000000;"> System;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Generic;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Linq;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Text;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Threading;
+
+</span><span style="color: #0000ff;">namespace</span><span style="color: #000000;"> Hangjing.WCFService
+{
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 对消息的管理
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> NoticeManager
+    {
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> List&lt;NoticeInfo&gt; NoticeList = <span style="color: #0000ff;">new</span> List&lt;NoticeInfo&gt;<span style="color: #000000;">();
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">object</span> m_SessionSyncRoot = <span style="color: #0000ff;">new</span> <span style="color: #0000ff;">object</span><span style="color: #000000;">();
+
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">event</span> AddHandler AddEvent = <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+
+        </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">static</span><span style="color: #000000;"> NoticeManager instance;
+
+        </span><span style="color: #0000ff;">static</span> NoticeManager()  <span style="color: #008000;">//</span><span style="color: #008000;">类型构造器，确保线程安全</span>
+<span style="color: #000000;">        {
+            instance </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> NoticeManager();
+        }
+
+        </span><span style="color: #0000ff;">private</span> NoticeManager() <span style="color: #008000;">//</span><span style="color: #008000;">构造方法为private,这就堵死了外界利用new创建此类型实例的可能</span>
+<span style="color: #000000;">        {
+            Thread.Sleep(</span><span style="color: #800080;">50</span>);<span style="color: #008000;">//</span><span style="color: #008000;">此处模拟创建对象耗时</span>
+<span style="color: #000000;">        }
+
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> NoticeManager GetInstance() <span style="color: #008000;">//</span><span style="color: #008000;">次方法是获得本类实例的唯一全局访问点</span>
+<span style="color: #000000;">        {
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> instance;
+        }
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 添加方法
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="notice"&gt;&lt;/param&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Add(NoticeInfo model)
+        {
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">后期再考虑消息的存储
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">foreach (var item in NoticeManager.NoticeList)
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">{
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">    if (item.UserId == model.UserId &amp;&amp; item.UserType == model.UserType)
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">    {
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">        lock (NoticeManager.m_SessionSyncRoot)
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">        {
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">            NoticeManager.NoticeList.Remove(item);
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">        }
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">    }
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">}
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">lock (NoticeManager.m_SessionSyncRoot)
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">{
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">    NoticeManager.NoticeList.Add(model);
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">}</span>
+
+            <span style="color: #0000ff;">if</span> (<span style="color: #0000ff;">this</span>.AddEvent != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+            {
+                </span><span style="color: #0000ff;">this</span><span style="color: #000000;">.AddEvent(model);
+            }
+
+        }
+
+    }
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">delegate</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> AddHandler(NoticeInfo notice);
+
+
+}</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p>&nbsp;</p>
+<p>在MainService中注册委托</p>
+<p>&nbsp;&nbsp;&nbsp; NoticeManager nm = NoticeManager.GetInstance();<br />&nbsp;&nbsp;&nbsp; nm.AddEvent += nm_AddEvent;</p>
+<h1 class="postTitle"><span>IIS通过WCF发送消息</span></h1>
+<p><span>　　网站中引用WCF，比较方便，VS&nbsp;<span style="font-family: 宋体;">中网站右键，添加</span><span style="font-family: Times New Roman;">-</span><span style="font-family: 宋体;">》服务引用</span>，如下图，</span></p>
+<p><span><img src="https://images0.cnblogs.com/blog/88102/201410/272128002376338.png" alt="" /></span></p>
+<p><img src="https://images0.cnblogs.com/blog/88102/201410/272132190194045.png" alt="" /></p>
+<p><span>&nbsp;&nbsp; </span></p>
+<p><span>&nbsp;&nbsp;&nbsp; 调用也非常简单，两行代码：</span></p>
+<p><span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; wcfnotice.UserNoticeServiceClient unsc = new wcfnotice.UserNoticeServiceClient();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ///发订单<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; unsc.AddMessage(id, se, type, msg);</span></p>
+<p>&nbsp;</p>
+<h1 class="postTitle">感谢</h1>
+<p>　 这篇文章，写到一半时，特别纠结，觉得自己做的事件，好像没有什么技术含量，只是基于superSocket框架，做了简单的应用，一度想放弃这篇文章，但转念一想，我用这个程序替换原来的 SuperWebSocket后，确实稳定了，app任何时间都可以登录了，也许能对那些正在和我们一样用SuperWebSocket的有所帮助，也希望能共同交流。当然，还有一个原因让我坚持写完了，那就是对江大牛的感谢和敬佩，也希望他能继续完善这个框架。</p>
+<p>&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #0000ff;"><span style="color: #000000;">成为一名优秀的程序员！</span></span></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2014-10-28 08:43</span>&nbsp;
+<a href="https://www.cnblogs.com/jijunjian/">2J</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=4049203" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(4049203);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 139716, cb_blogApp = 'jijunjian', cb_blogUserGuid = '3f24f67b-fea0-de11-ba8f-001cf0cd104b';
+    var cb_entryId = 4049203, cb_entryCreatedDate = '2014-10-28 08:43', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 2J
+<br /><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+</body>
+</html>

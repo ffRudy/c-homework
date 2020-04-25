@@ -1,0 +1,410 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="每每遇到多条件搜索商家时，总要编写一大堆“闻者伤心，见者流泪”的代码，而且不同条件代码还不能通用，终于痛定思痛，“重构”了所有代码，虽不能全部通用，倒也是进步了些。特以此文，怀念下那些“白费”的时光，" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>订餐系统之组合捜索 - 2J - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=-oFz8B4m7JhHaZzdTkzPza2oLZNDRR8obnCz6w7OHbU" />
+    <link id="MainCss" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd.min.css?v=gS0FloTY-RBJQcN3GCAKG6fAr6HHKtDMTw60VxjN79c" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/jijunjian/custom.css?v=WI3eRo7midbwNzmh7EMewRylXm0=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd-mobile.min.css?v=VacchHeVg6bp3gCO8NqMH8D8fhA8iyRbb0JgoDUvn4o" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/jijunjian/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/jijunjian/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/jijunjian/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=uk-as-QYRHtjaAbeEigAktvhwf01NRrnle-6exg65Ak"></script>
+    <script>
+        var currentBlogId = 139716;
+        var currentBlogApp = 'jijunjian';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'iMetro_HD';
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/jijunjian/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/jijunjian/">成为一名优秀的程序员</a>
+</h1>
+<h2>
+
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/jijunjian/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/2J">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/jijunjian/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+25&nbsp; </span>
+<span id="stats_article_count">文章 - 
+0&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+424</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/jijunjian/p/3390055.html">订餐系统之组合捜索</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+    <div id="cnblogs_post_description" style="display: none">
+        每每遇到多条件搜索商家时，总要编写一大堆“闻者伤心，见者流泪”的代码，而且不同条件代码还不能通用，终于痛定思痛，“重构”了所有代码，虽不能全部通用，倒也是进步了些。特以此文，怀念下那些“白费”的时光，也希望借此让有经验的同学们指点一二。
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>　　每每遇到多条件搜索商家时，总要编写一大堆&ldquo;闻者伤心，见者流泪&rdquo;的代码，而且不同条件代码还不能通用，终于痛定思痛，&ldquo;重构&rdquo;了所有代码，虽不能全部通用，倒也是进步了些。特以此文，怀念下那些&ldquo;白费&rdquo;的时光，也希望借此让有经验的同学们指点一二！</p>
+<p>　　先上两张图，一看就明白了：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.下图中根据多种条件（有的可以多选）来搜索商家。</p>
+<p>　　<img src="https://images0.cnblogs.com/blog/88102/201311/04091331-f007465b35cb4161a6f452b42058ada8.png" alt="" /></p>
+<p>　　2.下图中根据多种条件（有的可以多选）来搜索商家。</p>
+<p>　　<img src="https://images0.cnblogs.com/blog/88102/201311/04091340-7a45946991444276b8d14609916355c1.png" alt="" /></p>
+<p>　　我想，这样的需求应该是常伴大家左右吧。对于我们做点餐网站的来说，更是每个系统都避免不了，搜索条件还不同，每个都是一大堆重复、难以维护的代码。一个不喜欢偷懒的程序员不是个好程序员，为了成为一个好程序员，于是开始了偷懒历程。</p>
+<div class="cnblogs_code" style="background-color: #008000;"><span class="cnblogs_code_collapse">偷懒前的代码<br /></span></div>
+<p>&nbsp;　　由于每个筛选项目，及选中的条件都要根据当前条件来生成相应的链接，当时年轻，于是有了下面的代码，如果要增加一个筛选项目，这个改动将是巨大的，因为每个筛选项目的方法都要修改。<span style="color: #0000ff;">按理：加个筛选项目是一个简单的需求，但是我们面对这样简单的需求变化时，却是这样的措手不及、狼狈不堪！</span>如果是他人来维护这个代码时，第一句话一定是：前人挖坑，后人扑通！当然，我相信大部分优秀的程序员都是在这周而复始的&ldquo;挖坑-扑通&rdquo;的过程中历练出来的。</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('6ee4b921-68f1-42e0-b69e-f203c5a5d0e0')"><img id="code_img_closed_6ee4b921-68f1-42e0-b69e-f203c5a5d0e0" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_6ee4b921-68f1-42e0-b69e-f203c5a5d0e0" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('6ee4b921-68f1-42e0-b69e-f203c5a5d0e0',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_6ee4b921-68f1-42e0-b69e-f203c5a5d0e0" class="cnblogs_code_hide">
+<pre><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 生成区域标签URL
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="bid"&gt;&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="id"&gt;&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+    <span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">string</span> getsectionUrl(<span style="color: #0000ff;">object</span><span style="color: #000000;"> id)
+    {
+        </span><span style="color: #0000ff;">string</span> url = <span style="color: #800000;">"</span><span style="color: #800000;">FindEat.aspx?a=1</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (id.ToString() != <span style="color: #800000;">"</span><span style="color: #800000;">0</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+        {
+            url </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&amp;sid=</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> id;
+        }
+        </span><span style="color: #0000ff;">if</span> (HjNetHelper.GetQueryString(<span style="color: #800000;">"</span><span style="color: #800000;">keyword</span><span style="color: #800000;">"</span>) != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            url </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&amp;keyword=</span><span style="color: #800000;">"</span> + Request[<span style="color: #800000;">"</span><span style="color: #800000;">keyword</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+        }
+        </span><span style="color: #0000ff;">if</span> (HjNetHelper.GetQueryString(<span style="color: #800000;">"</span><span style="color: #800000;">mid</span><span style="color: #800000;">"</span>) != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            url </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&amp;mid=</span><span style="color: #800000;">"</span> + Request[<span style="color: #800000;">"</span><span style="color: #800000;">mid</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+        }
+        </span><span style="color: #0000ff;">if</span> (HjNetHelper.GetQueryString(<span style="color: #800000;">"</span><span style="color: #800000;">typeid</span><span style="color: #800000;">"</span>) != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            url </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&amp;typeid=</span><span style="color: #800000;">"</span> + Request[<span style="color: #800000;">"</span><span style="color: #800000;">typeid</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+        }
+        </span><span style="color: #0000ff;">if</span> (HjNetHelper.GetQueryString(<span style="color: #800000;">"</span><span style="color: #800000;">on</span><span style="color: #800000;">"</span>) != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            url </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&amp;on=</span><span style="color: #800000;">"</span> + Request[<span style="color: #800000;">"</span><span style="color: #800000;">on</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+        }
+        </span><span style="color: #0000ff;">if</span> (HjNetHelper.GetQueryString(<span style="color: #800000;">"</span><span style="color: #800000;">ot</span><span style="color: #800000;">"</span>) != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            url </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&amp;ot=</span><span style="color: #800000;">"</span> + Request[<span style="color: #800000;">"</span><span style="color: #800000;">ot</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+        }
+        </span><span style="color: #0000ff;">if</span> (HjNetHelper.GetQueryString(<span style="color: #800000;">"</span><span style="color: #800000;">sortid</span><span style="color: #800000;">"</span>) != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            url </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&amp;sortid=</span><span style="color: #800000;">"</span> + Request[<span style="color: #800000;">"</span><span style="color: #800000;">sortid</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+        }
+        </span><span style="color: #0000ff;">if</span> (HjNetHelper.GetQueryString(<span style="color: #800000;">"</span><span style="color: #800000;">subsortid</span><span style="color: #800000;">"</span>) != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            url </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&amp;subsortid=</span><span style="color: #800000;">"</span> + Request[<span style="color: #800000;">"</span><span style="color: #800000;">subsortid</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+        }
+        </span><span style="color: #0000ff;">if</span> (HjNetHelper.GetQueryString(<span style="color: #800000;">"</span><span style="color: #800000;">rem</span><span style="color: #800000;">"</span>) != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            url </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&amp;rem=</span><span style="color: #800000;">"</span> + Request[<span style="color: #800000;">"</span><span style="color: #800000;">rem</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> url;
+    }
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 生成特色标签URL
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="bid"&gt;&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="id"&gt;&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+    <span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">string</span> getwantUrl(<span style="color: #0000ff;">object</span><span style="color: #000000;"> id)
+    {
+        </span><span style="color: #0000ff;">string</span> url = <span style="color: #800000;">"</span><span style="color: #800000;">FindEat.aspx?a=1</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (id.ToString() != <span style="color: #800000;">"</span><span style="color: #800000;">0</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+        {
+            url </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&amp;mid=</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> id;
+        }
+        </span><span style="color: #0000ff;">if</span> (HjNetHelper.GetQueryString(<span style="color: #800000;">"</span><span style="color: #800000;">id</span><span style="color: #800000;">"</span>) != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            url </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&amp;id=</span><span style="color: #800000;">"</span> + Request[<span style="color: #800000;">"</span><span style="color: #800000;">id</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+        }
+        </span><span style="color: #0000ff;">if</span> (HjNetHelper.GetQueryString(<span style="color: #800000;">"</span><span style="color: #800000;">keyword</span><span style="color: #800000;">"</span>) != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            url </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&amp;keyword=</span><span style="color: #800000;">"</span> + Request[<span style="color: #800000;">"</span><span style="color: #800000;">keyword</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+        }
+        </span><span style="color: #0000ff;">if</span> (HjNetHelper.GetQueryString(<span style="color: #800000;">"</span><span style="color: #800000;">sid</span><span style="color: #800000;">"</span>) != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            url </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&amp;sid=</span><span style="color: #800000;">"</span> + Request[<span style="color: #800000;">"</span><span style="color: #800000;">sid</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+        }
+        </span><span style="color: #0000ff;">if</span> (HjNetHelper.GetQueryString(<span style="color: #800000;">"</span><span style="color: #800000;">typeid</span><span style="color: #800000;">"</span>) != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            url </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&amp;typeid=</span><span style="color: #800000;">"</span> + Request[<span style="color: #800000;">"</span><span style="color: #800000;">typeid</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+        }
+        </span><span style="color: #0000ff;">if</span> (HjNetHelper.GetQueryString(<span style="color: #800000;">"</span><span style="color: #800000;">on</span><span style="color: #800000;">"</span>) != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            url </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&amp;on=</span><span style="color: #800000;">"</span> + Request[<span style="color: #800000;">"</span><span style="color: #800000;">on</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+        }
+        </span><span style="color: #0000ff;">if</span> (HjNetHelper.GetQueryString(<span style="color: #800000;">"</span><span style="color: #800000;">ot</span><span style="color: #800000;">"</span>) != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            url </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&amp;ot=</span><span style="color: #800000;">"</span> + Request[<span style="color: #800000;">"</span><span style="color: #800000;">ot</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+        }
+        </span><span style="color: #0000ff;">if</span> (HjNetHelper.GetQueryString(<span style="color: #800000;">"</span><span style="color: #800000;">sortid</span><span style="color: #800000;">"</span>) != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            url </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&amp;sortid=</span><span style="color: #800000;">"</span> + Request[<span style="color: #800000;">"</span><span style="color: #800000;">sortid</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+        }
+        </span><span style="color: #0000ff;">if</span> (HjNetHelper.GetQueryString(<span style="color: #800000;">"</span><span style="color: #800000;">subsortid</span><span style="color: #800000;">"</span>) != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            url </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&amp;subsortid=</span><span style="color: #800000;">"</span> + Request[<span style="color: #800000;">"</span><span style="color: #800000;">subsortid</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+        }
+        </span><span style="color: #0000ff;">if</span> (HjNetHelper.GetQueryString(<span style="color: #800000;">"</span><span style="color: #800000;">rem</span><span style="color: #800000;">"</span>) != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            url </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">&amp;rem=</span><span style="color: #800000;">"</span> + Request[<span style="color: #800000;">"</span><span style="color: #800000;">rem</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> url;
+    }
+    。。。</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code </span></div>
+<p>&nbsp;</p>
+<div class="cnblogs_code" style="background-color: #008000;"><span class="cnblogs_code_collapse">偷懒后的代码<br /></span></div>
+<p>　　坑就在那里，只增不减，我们便一而再，再而三的扑通，直到北京某订餐网站时，得到的需求：&ldquo;筛选项目现在不太确定，可能会变&rdquo;。这样的需求开始让我思考了：继续原来的方案，直接上手，不过以后不是自己骂自己，就是别人骂自己；亦或是重构之前的代码，付出时间的代价，但是以后不是自己受益，就是别人的受益。似乎，不用怎么权衡，于是开始偷懒之路了。</p>
+<p>　　首先，之前每个筛选项目编写不同的方法生成对应URL，是因为参数不确定，于是，声明一个变量Dictionary&lt;string, string&gt; mypara 保存所有参数（键，值对），参数以这样的形式出现searchshop.aspx?para1=sp304/s299/r644/a312/</p>
+<p>再通过伪静态生成这样的链接：<span style="color: #0000ff;"><span style="color: #000000;">http://localhost:801/search/sp304/s299/r644/a312/</span> 【这是客户想看到有形式，我也只是根据<span style="color: #0000ff;"><a href="http://bj.xiaomishu.com/shop/search/" target="_blank">订餐小秘书</a></span>的形式，变向实现了】</span></p>
+<p><span style="color: #0000ff;">　　<span style="color: #000000;">有了前面的基础，生成筛选项目的链接及删除某条件的链接，方法就统一了。虽然根据条件生成查询条件的代码量没有变化，当然，这部分代码也不能有通用的，但是生成相应URL的方法从原来的N变成了1，增加一个筛选项目时，变化的代码也只是增量部分。我想很多看到这里的同学会说，这是一个很简单的处理方案，应该是第一时间想到的，并对此噗之以鼻，当然，简单的东西，想到就是理所当然，没相到就是一脸茫然，就如知道按重起键和会<span style="color: #0000ff;"><span style="color: #000000;">按重起键的差距是999美元一样。</span></span></span></span></p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('2618cf3c-6778-4145-9960-86db22c89d30')"><img id="code_img_closed_2618cf3c-6778-4145-9960-86db22c89d30" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_2618cf3c-6778-4145-9960-86db22c89d30" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('2618cf3c-6778-4145-9960-86db22c89d30',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_2618cf3c-6778-4145-9960-86db22c89d30" class="cnblogs_code_hide">
+<pre><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 获取每个链接的url
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="tag"&gt;&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="id"&gt;&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="depth"&gt;</span><span style="color: #008000;">1表示第一级，2表示第二级，...</span><span style="color: #808080;">&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+    <span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">string</span> GetMyUrl(<span style="color: #0000ff;">string</span> tag, <span style="color: #0000ff;">object</span> id, <span style="color: #0000ff;">int</span><span style="color: #000000;"> depth)
+    {
+        </span><span style="color: #0000ff;">string</span> url = <span style="color: #800000;">"</span><span style="color: #800000;">weddingsearch.aspx?para1=</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+
+        </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> item <span style="color: #0000ff;">in</span><span style="color: #000000;"> mypara)
+        {
+            </span><span style="color: #0000ff;">if</span> (item.Key !=<span style="color: #000000;"> tag)
+            {
+                url </span>+= item.Key + item.Value + <span style="color: #800000;">"</span><span style="color: #800000;">/</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            }
+        }
+        url </span>+= tag + id + <span style="color: #800000;">"</span><span style="color: #800000;">/</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> url;
+    }
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 获取每个链接的url(已经选择的条件那里使用，传入的参数表示要删除的)
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="tag"&gt;</span><span style="color: #008000;">要删除标签</span><span style="color: #808080;">&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+    <span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">string</span> deleteTag(<span style="color: #0000ff;">string</span><span style="color: #000000;"> tag)
+    {
+        </span><span style="color: #0000ff;">string</span> url = <span style="color: #800000;">"</span><span style="color: #800000;">weddingsearch.aspx?para1=</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+
+        </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> item <span style="color: #0000ff;">in</span><span style="color: #000000;"> mypara)
+        {
+            </span><span style="color: #0000ff;">if</span> (item.Key !=<span style="color: #000000;"> tag)
+            {
+                url </span>+= item.Key + item.Value + <span style="color: #800000;">"</span><span style="color: #800000;">/</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            }
+        }
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> url;
+    }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code </span></div>
+<p>　　不知道大家有注意到多选择的搜索没，如图中餐厅服务、场地类型、场地特色等，多选择后，查询语句的写法不知您们是怎么写的。我也是根据<span style="color: #0000ff;"><span style="color: #0000ff;"><a href="http://bj.xiaomishu.com/shop/search/" target="_blank">订餐小秘书</a></span></span>的参数值猜出一种方法：每个项目的值都是2<sup>n ，</sup>后台保存时，保存了所有选择项目的和，前台查询时sql 语句的写法为：</p>
+<p>　　SqlWhere += " and&nbsp; (MyService &amp; " + mystatus+" &gt; 0)";</p>
+<div class="cnblogs_code" style="background-color: #008000;"><span class="cnblogs_code_collapse">结语</span></div>
+<p>　　之前有个需求：为数据库中每个备注为空的字段添加备注为&ldquo;扩展字段&rdquo;，在企业管理器中处理了50张表后，才发现一条sql 语句就可完成，还好，后面还剩100张表呢！</p>
+<p>　　之前有个需求：把excel 中的表结构，生成到数据库中，当时纳闷了，对方为什么不直接提供sql 语句。纳闷完了，还得继续操作，慢慢的加完一张表，确认几次保证字段没错后，忍无可忍才发现用PowerDesigner+一个vb 脚本就可以生成表。</p>
+<p>　　。。。</p>
+<p>　　文章总会有结束的时候，但是偷懒之路永无止境！</p>
+<p>&nbsp;&nbsp;&nbsp; &nbsp; <span style="color: #0000ff;"><span style="color: #000000;">成为一名优秀的程序员！</span></span></p>
+<p>　　</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2013-11-02 09:09</span>&nbsp;
+<a href="https://www.cnblogs.com/jijunjian/">2J</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=3390055" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(3390055);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 139716, cb_blogApp = 'jijunjian', cb_blogUserGuid = '3f24f67b-fea0-de11-ba8f-001cf0cd104b';
+    var cb_entryId = 3390055, cb_entryCreatedDate = '2013-11-02 09:09', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 2J
+<br /><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+</body>
+</html>

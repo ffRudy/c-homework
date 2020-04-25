@@ -1,0 +1,596 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="早上和往常一样去工商大学打球，除了今天三分比较准外，一切都还是那样的循规蹈矩。&#xD;&#xA;也许股子里还有那么一些不甘平庸，总想着能改变一下如此无趣的按部就班。&#xD;&#xA;转过行政楼，一波一波的学生在谈笑风生。哦，是了" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>订餐系统之同步美团商家订单 - 2J - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=-oFz8B4m7JhHaZzdTkzPza2oLZNDRR8obnCz6w7OHbU" />
+    <link id="MainCss" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd.min.css?v=gS0FloTY-RBJQcN3GCAKG6fAr6HHKtDMTw60VxjN79c" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/jijunjian/custom.css?v=WI3eRo7midbwNzmh7EMewRylXm0=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd-mobile.min.css?v=VacchHeVg6bp3gCO8NqMH8D8fhA8iyRbb0JgoDUvn4o" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/jijunjian/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/jijunjian/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/jijunjian/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=uk-as-QYRHtjaAbeEigAktvhwf01NRrnle-6exg65Ak"></script>
+    <script>
+        var currentBlogId = 139716;
+        var currentBlogApp = 'jijunjian';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'iMetro_HD';
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/jijunjian/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/jijunjian/">成为一名优秀的程序员</a>
+</h1>
+<h2>
+
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/jijunjian/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/2J">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/jijunjian/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+25&nbsp; </span>
+<span id="stats_article_count">文章 - 
+0&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+424</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/jijunjian/p/6875909.html">订餐系统之同步美团商家订单</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+    <div id="cnblogs_post_description" style="display: none">
+        早上和往常一样去工商大学打球，除了今天三分比较准外，一切都还是那样的循规蹈矩。
+也许股子里还有那么一些不甘平庸，总想着能改变一下如此无趣的按部就班。
+转过行政楼，一波一波的学生在谈笑风生。哦，是了，又到拍毕业照片的时间了。
+又是一年过去了（也不知从何时起，开始以毕业来计年了），弹指一挥间，已经在这里工作7年半了。
+一份工作越是做得久，反到越觉得羞。也许是羞于现状，也是羞于未来的我吧。说不清，道不明，有点乱...
+脚步也随着不安的思绪加快了频率，迅速的穿过了人群...未来还需多努力，希望明年此时，能多一份从容。
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <h1 class="postTitle">引子　　　</h1>
+<p>　 &nbsp; &nbsp;早上和往常一样去工商大学打球，除了今天三分比较准外，一切都还是那样的循规蹈矩。</p>
+<p>　　 也许股子里还有那么一些不甘平庸，总想着能改变一下如此无趣的按部就班。</p>
+<p>　　 转过行政楼，一波一波的学生在谈笑风生。哦，是了，又到拍毕业照片的时间了。</p>
+<p>　　 又是一年过去了（也不知从何时起，开始以毕业来计年了），弹指一挥间，已经在这里工作7年半了。</p>
+<p>　　 一份工作越是做得久，反到越羞于提起。也许是羞于现状，也是羞于未来的我吧。说不清，道不明，有点乱...</p>
+<p>　　 脚步也随着不安的思绪加快了频率，迅速的穿过了人群...未来还需多努力，希望明年此时，能多一份从容。</p>
+<p>&nbsp;</p>
+<p>　　&nbsp;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;触景生情，些许伤感，回归主题&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</p>
+<p>&nbsp;</p>
+<h1 class="postTitle">背景</h1>
+<p>　　之前写过一篇关于同步饿了么订单的文章<a href="http://www.cnblogs.com/jijunjian/p/5492786.html" target="_blank">《订餐系统之同步饿了么商家订单》</a>，有不少人加我咨询，感觉有这方面需求的人还是满多的，毕竟现在2家几乎瓜分了市场，再做平台已然机会渺茫了，但是商户毕竟需要服务，订单还得配送出去。然后饿了</p>
+<p>么，美团外卖都提供了面向供应商的api的权限的申请，这对我们做配送系统的说，真是一大利好。以前都是让商户手动录入其他平台的订单，费力还容易出错。还得在多个app之间来回切换，商户也是抱怨满天。有了这些接口，商户可以选择自动接单，</p>
+<p>自动同步订单，再也不用几个app来回切换了。饿了么同步订单，在上面的文章中已经介绍了，虽然接口现在变成2.0了。有了一些变化，总的来说还是 万变不离其宗。本篇就来详细接受下同步美团订单的相关步奏。写得不对地方，欢迎指正 :）</p>
+<p>　　具体流程，下图中写得比较详细。</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170518230349041-1841861608.png" alt="" /></p>
+<p>　　　</p>
+<h1 class="postTitle">申请</h1>
+<p>　　去年过年，因娃太小，没能回家，闲在杭州，发现可以申请美团外卖相关接口，欣喜若狂，撸起袖子就动了起了，登录申请网站地址<a href="http://developer.meituan.com/home" target="_blank">《美团点评 | 聚宝盆餐饮开放平台</a>》，填写相关信息。记得，当时是2月5号，再2天就过年了，想着如果能年前审核好...，当然，后来是想多了，过了一个月都没有审核通过，也不能进行下一步。到时那个心呀，难过，没有还好，现在是看得见，不让用。经过漫长的煎熬，终于在一个不起眼的地方，发现一个邮箱，怀着死马当活马医的想法，发过去了，想不到，还真给回复了，说是过年漏掉了申请。好嘛，审核通过了总是好的，过程是复杂了些。</p>
+<p>　　这里通过了，他们会加你QQ，确认相关信息，还会快递一份文件，签字盖章，按说明快递回去就OK了。</p>
+<p>　　审核通过，开放平台里有相关信息了。关键的东西就是&nbsp;developerId，与SignKey 。调用接口会用到</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170518230029025-1401421620.jpg" alt="" /></p>
+<p>　 &nbsp;&nbsp;</p>
+<p>　　开入平台文档地址：<a href="http://developer.meituan.com/openapi#1" target="_blank">《文档中心》</a>，也许你看了文档，都不用看下面的：）。</p>
+<h1 class="postTitle">回调接口设置</h1>
+<p>　　开始开发前，先要设置好回调，通知接口。美团外卖会根据在开放平台设置的通知地址，发送相关信息，比如新订单通知，商家确认订单通知，及绑定，解绑商家通知等。这里每个通知一个接口，这样程序蛮方便的，可以一个通知，一个url。不用去判断到底是什么通知。</p>
+<p>&nbsp; &nbsp; &nbsp; 在下图中设置</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170518230820494-1430859359.jpg" alt="" /></p>
+<p>　</p>
+<h1 class="postTitle">门店映射</h1>
+<p>　　所谓映射，就是把你系统的商家编号，与美团商家绑定起来，以后推送都是自己系统的商家编号推送过来。方便操作</p>
+<p>　　对接第一步，还是绑定商家，并保存Token(后面的操作都会用到)。</p>
+<p>　 &nbsp; 绑定操作就是访问连接&nbsp;<a href="https://open-erp.meituan.com/storemap?developerId=100019&amp;businessId=1&amp;ePoiId=8859&amp;signKey=8bl1g62omy2m5ywp&amp;ePoiName=%E6%B9%98%E5%8C%97%E4%BA%BA%E5%AE%B6&amp;netStore=1">https://open-erp.meituan.com/storemap?developerId=100019&amp;businessId=2&amp;ePoiId=8859&amp;signKey=8bl1g62omy2m5ywp&amp;ePoiName=湘北人家&amp;netStore=1</a></p>
+<p>　　输入商家账号，密码选择商家授权即可完成映射</p>
+<p>&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; 具体参数可以参考<a href="http://developer.meituan.com/openapi#4.1.2" target="_blank">文档</a>， 其中&nbsp;ePoiId 为自己系统的商家编号，像我就直接用自动编号，这个方便记录，后台绑定也方便，订单通知过来也方便。比如，我们最后的效果就是在商家详情中增加相关设置。</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170518232022744-2119474328.jpg" alt="" /></p>
+<p>　　</p>
+<p>　 在回调接口设置中，设置了url后，会收到通知，处理通知的代码如下。</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('cf5dc483-a997-4428-81f3-c0a25d1dbb1d')"><img id="code_img_closed_cf5dc483-a997-4428-81f3-c0a25d1dbb1d" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_cf5dc483-a997-4428-81f3-c0a25d1dbb1d" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('cf5dc483-a997-4428-81f3-c0a25d1dbb1d',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_cf5dc483-a997-4428-81f3-c0a25d1dbb1d" class="cnblogs_code_hide">
+<pre><span style="color: #000000;"> Response.Clear();
+        Response.Write(</span><span style="color: #800000;">"</span><span style="color: #800000;">{\"data\":\"success\"}</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+        Hangjing.AppLog.AppLog.Info(</span><span style="color: #800000;">"</span><span style="color: #800000;">美团门店与ERP绑定接收token回调URL</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+
+        System.IO.Stream stream </span>= Request.InputStream;<span style="color: #008000;">//</span><span style="color: #008000;">这是你获得的流</span>
+        <span style="color: #0000ff;">if</span> (stream != <span style="color: #0000ff;">null</span> &amp;&amp; stream.Length &gt; <span style="color: #800080;">10</span><span style="color: #000000;">)
+        {
+
+            Hangjing.AppLog.AppLog.Info(</span><span style="color: #800000;">"</span><span style="color: #800000;">stream.Length ：</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> stream.Length);
+            </span><span style="color: #0000ff;">string</span> jsondata = <span style="color: #800000;">""</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">using</span> (StreamReader reader = <span style="color: #0000ff;">new</span><span style="color: #000000;"> StreamReader(stream))
+            {
+                jsondata </span>=<span style="color: #000000;"> reader.ReadToEnd(); ;
+            }
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">保存 appAuthToken </span>
+            Hangjing.AppLog.AppLog.Info(<span style="color: #800000;">"</span><span style="color: #800000;">回调URL信息：</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> jsondata);
+
+        }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p>&nbsp;</p>
+<p>　　</p>
+<p>　　既然有映射商家，就是有解除绑定的操作，同样，在回调接口设置中，设置了url后，会收到通知，处理通知的代码如下。　这里记录，主要是为了方便后台操作，知道当前商家是否绑定。</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('d00bc4d3-35c6-4718-a600-b0e11eda3bd7')"><img id="code_img_closed_d00bc4d3-35c6-4718-a600-b0e11eda3bd7" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_d00bc4d3-35c6-4718-a600-b0e11eda3bd7" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('d00bc4d3-35c6-4718-a600-b0e11eda3bd7',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_d00bc4d3-35c6-4718-a600-b0e11eda3bd7" class="cnblogs_code_hide">
+<pre><span style="color: #000000;">        Response.Clear();
+        Response.Write(</span><span style="color: #800000;">"</span><span style="color: #800000;">{\"data\":\"success\"}</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+        Hangjing.AppLog.AppLog.Info(</span><span style="color: #800000;">"</span><span style="color: #800000;">美团门店与ERP解除绑定token回调URL</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+
+
+        System.IO.Stream stream </span>= Request.InputStream;<span style="color: #008000;">//</span><span style="color: #008000;">这是你获得的流</span>
+        <span style="color: #0000ff;">if</span> (stream != <span style="color: #0000ff;">null</span> &amp;&amp; stream.Length &gt; <span style="color: #800080;">10</span><span style="color: #000000;">)
+        {
+
+            Hangjing.AppLog.AppLog.Info(</span><span style="color: #800000;">"</span><span style="color: #800000;">stream.Length ：</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> stream.Length);
+            </span><span style="color: #0000ff;">string</span> jsondata = <span style="color: #800000;">""</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">using</span> (StreamReader reader = <span style="color: #0000ff;">new</span><span style="color: #000000;"> StreamReader(stream))
+            {
+                jsondata </span>=<span style="color: #000000;"> reader.ReadToEnd(); ;
+            }
+            Hangjing.AppLog.AppLog.Info(</span><span style="color: #800000;">"</span><span style="color: #800000;">解除绑定回调URL信息：</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> jsondata);
+
+        }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p>&nbsp;</p>
+<p>　　</p>
+<h1 class="postTitle">新订单推送</h1>
+<p>　　 &nbsp;要推送订单，首先得要设置接收通知的url</p>
+<p>　　 &nbsp;要推送订单，其次得有商家，所以美团为我们设置了测试商家。还可以添加多个。要特别注意的就是：<span style="color: #ff0000;">测试门店为一个坐标位于南极洲、配送范围为西藏昌都的线上测试门店，开发者可使用美团外卖APP定位到西藏昌都气象局，根据测试门店名称搜索到测试门店进行下单。</span></p>
+<p><span style="color: #ff0000;">　　 <span style="color: #000000;">&nbsp;一定要App定位在西藏昌都气象局方可下订单。</span></span></p>
+<p><span style="color: #ff0000;"><span style="color: #000000;">　　 因为推送的数据格式是json，所以我的做法是：先创建好订单对应的体，收到通知后，转成实体，再做逻辑处理。接收通知，所上面的类似。<br /></span></span></p>
+<p><span style="color: #ff0000;"><span style="color: #000000;">　　</span></span></p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('00edb841-a3a5-4e66-a93a-355ac177e1d9')"><img id="code_img_closed_00edb841-a3a5-4e66-a93a-355ac177e1d9" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_00edb841-a3a5-4e66-a93a-355ac177e1d9" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('00edb841-a3a5-4e66-a93a-355ac177e1d9',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_00edb841-a3a5-4e66-a93a-355ac177e1d9" class="cnblogs_code_hide">
+<pre><span style="color: #000000;">Response.Clear();
+        </span><span style="color: #0000ff;">string</span> order = Server.UrlDecode(Request[<span style="color: #800000;">"</span><span style="color: #800000;">order</span><span style="color: #800000;">"</span><span style="color: #000000;">]);
+
+        Hangjing.AppLog.AppLog.Info(</span><span style="color: #800000;">"</span><span style="color: #800000;">美团订单来了.美团订单内容：</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> order);
+
+        apiResultInfo rs </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> apiResultInfo();
+        System.IO.Stream stream </span>= Request.InputStream;<span style="color: #008000;">//</span><span style="color: #008000;">这是你获得的流</span>
+        <span style="color: #0000ff;">if</span> (stream != <span style="color: #0000ff;">null</span> &amp;&amp; stream.Length &gt; <span style="color: #800080;">10</span><span style="color: #000000;">)
+        {
+
+            Hangjing.AppLog.AppLog.Info(</span><span style="color: #800000;">"</span><span style="color: #800000;">stream.Length ：</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> stream.Length);
+            </span><span style="color: #0000ff;">string</span> jsondata = <span style="color: #800000;">""</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">using</span> (StreamReader reader = <span style="color: #0000ff;">new</span><span style="color: #000000;"> StreamReader(stream))
+            {
+                jsondata </span>=<span style="color: #000000;"> reader.ReadToEnd(); ;
+            }
+
+            Hangjing.AppLog.AppLog.Info(</span><span style="color: #800000;">"</span><span style="color: #800000;">美团订单信息：</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> jsondata);
+
+            mtorderInfo model </span>= JsonConvert.DeserializeObject&lt;mtorderInfo&gt;<span style="color: #000000;">(order);
+
+            </span><span style="color: #0000ff;">if</span> (model.ePoiId == <span style="color: #800000;">"</span><span style="color: #800000;">1015</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+            {
+                mthelper mt </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> mthelper(Context);
+                apiResultInfo retuls </span>=<span style="color: #000000;"> mt.confirmOrder(model.orderId, Convert.ToInt32(model.ePoiId));
+            }
+
+        }
+        </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+        {
+            rs.state </span>= <span style="color: #800080;">0</span><span style="color: #000000;">;
+            rs.msg </span>= <span style="color: #800000;">"</span><span style="color: #800000;">参数错误</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+        }
+
+        Response.Write(</span><span style="color: #800000;">"</span><span style="color: #800000;">{\"data\":\"OK\"}</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+        Response.End();</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p>&nbsp;</p>
+<p>　　　</p>
+<h1 class="postTitle">确认订单</h1>
+<p>　　我们收到新订单通知时，可以调用api直接确认订单，也就是商户接单。到这里，我们才正式去调用api，前面都是美团来调用我们，要调用api，首先要做的就是实现签名。这是我对接这么多系统，签名算法最简单的。直接上代码。</p>
+<p>　　签名：<span style="color: #ff0000;">首先将<code>GET</code>、<code>POST</code>参数除去sign本身以及值为空的参数以及=号和&amp;号，按参数自然排序，（例如a=&amp;c=3&amp;b=1，变为b1c3）然后按参数1值1参数2值2...参数n值n的方式拼接成新字符串，再跟字符串前面加上signKey，做sha1散列，最后将得出字符串转成小写即为sign。</span></p>
+<p>　　签名代码</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('b095f7a5-57b4-45d7-a051-6968edb23e09')"><img id="code_img_closed_b095f7a5-57b4-45d7-a051-6968edb23e09" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_b095f7a5-57b4-45d7-a051-6968edb23e09" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('b095f7a5-57b4-45d7-a051-6968edb23e09',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_b095f7a5-57b4-45d7-a051-6968edb23e09" class="cnblogs_code_hide">
+<pre>        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> sha1签名
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span><span style="color: #000000;"> createSHA1Sign()
+        {
+            StringBuilder sb </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> StringBuilder();
+            ArrayList akeys </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> ArrayList(parameters.Keys);
+            akeys.Sort();
+
+            </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">string</span> k <span style="color: #0000ff;">in</span><span style="color: #000000;"> akeys)
+            {
+                </span><span style="color: #0000ff;">string</span> v = HttpUtility.UrlEncode((<span style="color: #0000ff;">string</span><span style="color: #000000;">)parameters[k], Encoding.UTF8);
+                </span><span style="color: #0000ff;">if</span> (<span style="color: #0000ff;">null</span> != v &amp;&amp; <span style="color: #800000;">""</span>.CompareTo(v) != <span style="color: #800080;">0</span>
+                       &amp;&amp; <span style="color: #800000;">"</span><span style="color: #800000;">sign</span><span style="color: #800000;">"</span>.CompareTo(k) != <span style="color: #800080;">0</span><span style="color: #000000;">)
+                {
+
+                    sb.Append(k</span>+<span style="color: #000000;"> v);
+
+                }
+            }
+
+
+            </span><span style="color: #0000ff;">string</span> signstep2 = Constant.mt_SignKey +<span style="color: #000000;"> sb.ToString();
+
+            </span><span style="color: #0000ff;">string</span> sig =<span style="color: #000000;"> Utils.SHA1_Hash(signstep2).ToLower();
+
+
+            AppLog.AppLog.Info(</span><span style="color: #800000;">"</span><span style="color: #800000;">美团签名=</span><span style="color: #800000;">"</span> + <span style="color: #800000;">"</span><span style="color: #800000;">signstep1=</span><span style="color: #800000;">"</span> + sb.ToString() + <span style="color: #800000;">"</span><span style="color: #800000;">\r\nsignstep2=</span><span style="color: #800000;">"</span> + signstep2 + <span style="color: #800000;">"</span><span style="color: #800000;">\r\n =&gt; sign:</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> sig);
+
+
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> sig;
+        }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p>　　&nbsp; &nbsp;&nbsp;</p>
+<p>　　录入所有参数，得到签名，初始化post参数，调用指定api，即可完成确认。大概代码如下，代码都比较文明，大家一看变懂了。</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('3a687868-b811-4d9a-916e-ea4623d57e08')"><img id="code_img_closed_3a687868-b811-4d9a-916e-ea4623d57e08" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_3a687868-b811-4d9a-916e-ea4623d57e08" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('3a687868-b811-4d9a-916e-ea4623d57e08',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_3a687868-b811-4d9a-916e-ea4623d57e08" class="cnblogs_code_hide">
+<pre>        <span style="color: #0000ff;">public</span> apiResultInfo confirmOrder(<span style="color: #0000ff;">string</span> orderId, <span style="color: #0000ff;">int</span><span style="color: #000000;"> shopid)
+        {
+            apiResultInfo rs </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> apiResultInfo();
+
+            meituanbindlogInfo record </span>= <span style="color: #0000ff;">new</span> meituanbindlog().GetList(<span style="color: #800080;">1</span>, <span style="color: #800080;">1</span>, <span style="color: #800000;">"</span><span style="color: #800000;">ePoiId=</span><span style="color: #800000;">"</span> + shopid + <span style="color: #800000;">"</span><span style="color: #800000;"> and mtype=1</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">mid</span><span style="color: #800000;">"</span>, <span style="color: #800080;">1</span><span style="color: #000000;">).FirstOrDefault();
+            </span><span style="color: #0000ff;">if</span> (record == <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+            {
+                OperationLog.Warn(</span><span style="color: #800000;">"</span><span style="color: #800000;">商家：</span><span style="color: #800000;">"</span> + shopid + <span style="color: #800000;">"</span><span style="color: #800000;">未找到绑定token</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                rs.msg </span>= <span style="color: #800000;">"</span><span style="color: #800000;">商家：</span><span style="color: #800000;">"</span> + shopid + <span style="color: #800000;">"</span><span style="color: #800000;">未找到绑定token</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> rs;
+            }
+
+            parameters </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Hashtable();
+            parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">charset</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">UTF-8</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">version</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">1</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">timestamp</span><span style="color: #800000;">"</span><span style="color: #000000;">, Utils.getTimestamp());
+            parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">appAuthToken</span><span style="color: #800000;">"</span><span style="color: #000000;">, record.appAuthToken);
+            parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">orderId</span><span style="color: #800000;">"</span>, orderId.Replace(<span style="color: #800000;">"</span><span style="color: #800000;">m</span><span style="color: #800000;">"</span>, <span style="color: #800000;">""</span><span style="color: #000000;">));
+
+            createSHA1Sign();
+
+
+            HttpItem objHttpItem </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> HttpItem()
+            {
+                Encoding </span>= <span style="color: #800000;">"</span><span style="color: #800000;">utf-8</span><span style="color: #800000;">"</span><span style="color: #000000;">,
+                Method </span>= <span style="color: #800000;">"</span><span style="color: #800000;">POST</span><span style="color: #800000;">"</span><span style="color: #000000;">
+            };
+
+
+            </span><span style="color: #0000ff;">string</span> url = <span style="color: #800000;">"</span><span style="color: #800000;">http://api.open.cater.meituan.com/waimai/order/confirm</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">string</span> returnmsg =<span style="color: #000000;"> queryData(objHttpItem, url);
+
+            mtresult result </span>= Newtonsoft.Json.JsonConvert.DeserializeObject&lt;mtresult&gt;<span style="color: #000000;">(returnmsg);
+
+            </span><span style="color: #0000ff;">if</span> (result.data != <span style="color: #0000ff;">null</span> &amp;&amp; result.data.ToLower() == <span style="color: #800000;">"</span><span style="color: #800000;">ok</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+            {
+                rs.state </span>= <span style="color: #800080;">1</span><span style="color: #000000;">;
+
+            }
+            </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+            {
+
+
+                rs.msg </span>= <span style="color: #800000;">"</span><span style="color: #800000;">确认订单失败</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            }
+
+
+
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> rs;
+        }
+
+
+
+ </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> queryData(HttpItem objHttpItem, <span style="color: #0000ff;">string</span><span style="color: #000000;"> url)
+        {
+            </span><span style="color: #0000ff;">string</span> sig =<span style="color: #000000;"> createSHA1Sign();
+            parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">sign</span><span style="color: #800000;">"</span><span style="color: #000000;">, sig);
+
+            serverurl </span>=<span style="color: #000000;"> url;
+            ArrayList akeys </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> ArrayList(parameters.Keys);
+
+            StringBuilder sb </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> StringBuilder();
+            </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">string</span> k <span style="color: #0000ff;">in</span><span style="color: #000000;"> akeys)
+            {
+                </span><span style="color: #0000ff;">string</span> v = context.Server.UrlEncode((<span style="color: #0000ff;">string</span><span style="color: #000000;">)parameters[k]);
+                v </span>=<span style="color: #000000;"> HttpUtility.UrlEncode(v, Encoding.UTF8);
+                </span><span style="color: #0000ff;">if</span> (<span style="color: #0000ff;">null</span> != v &amp;&amp; <span style="color: #800000;">""</span>.CompareTo(v) != <span style="color: #800080;">0</span><span style="color: #000000;">)
+                {
+                    </span><span style="color: #0000ff;">if</span> (sb.Length == <span style="color: #800080;">0</span><span style="color: #000000;">)
+                    {
+                        sb.Append(k </span>+ <span style="color: #800000;">"</span><span style="color: #800000;">=</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> v);
+                    }
+                    </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+                    {
+                        sb.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;">&amp;</span><span style="color: #800000;">"</span> + k + <span style="color: #800000;">"</span><span style="color: #800000;">=</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> v);
+                    }
+                }
+            }
+
+
+            </span><span style="color: #0000ff;">if</span> (objHttpItem.Method.ToLower() == <span style="color: #800000;">"</span><span style="color: #800000;">get</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+            {
+                serverurl </span>+= <span style="color: #800000;">"</span><span style="color: #800000;">?</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> sb.ToString();
+            }
+            </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+            {
+                objHttpItem.Postdata </span>=<span style="color: #000000;"> sb.ToString();
+            }
+
+
+            HttpHelper objhttp </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> HttpHelper();
+            objHttpItem.URL </span>=<span style="color: #000000;"> serverurl;
+
+
+            objhttp.isToLower </span>= <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">string</span> returnmsg =<span style="color: #000000;"> objhttp.GetHtml(objHttpItem);
+
+            Hangjing.Common.HJlog.toLog(</span><span style="color: #800000;">"</span><span style="color: #800000;">returnmsg=</span><span style="color: #800000;">"</span> + returnmsg + <span style="color: #800000;">"</span><span style="color: #800000;">\r\n url=</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> serverurl);
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">  HJlog.toLog(this.getDebugInfo());</span>
+
+            <span style="color: #0000ff;">return</span><span style="color: #000000;"> returnmsg;
+        }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p>&nbsp;</p>
+<p>　　确认订单后，我们设置的订单确认通知接口，也有收到相应的通知，具体代码与新订单通知是一样的，只是你可以根据自己业务处理，比如，商家确认订单后，订单直接进入系统，自动调度，或者人工派单。</p>
+<h1 class="postTitle">设置商家营业状态</h1>
+<p>　　这个接口也是经常用到的，因为测试账号，不能登录美团外卖商户后台，如果商家有一个订单没接，商家就会自动休息，影响我们测试。所以实现这个接口后，可方便修改商家状态。</p>
+<p>　　这个接口与确认订单接口都是类似的，只是参数不同，url不同而已。由于调用api，我们都是封装在方法：queryData了，我们只用设置好参数即可。代码如下：</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('e736e02d-c6d6-4f8d-811f-cbde9e6530e5')"><img id="code_img_closed_e736e02d-c6d6-4f8d-811f-cbde9e6530e5" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_e736e02d-c6d6-4f8d-811f-cbde9e6530e5" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('e736e02d-c6d6-4f8d-811f-cbde9e6530e5',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_e736e02d-c6d6-4f8d-811f-cbde9e6530e5" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff;">public</span> apiResultInfo shopOnline(<span style="color: #0000ff;">int</span><span style="color: #000000;"> shopid)
+        {
+            apiResultInfo rs </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> apiResultInfo();
+
+            meituanbindlogInfo record </span>= <span style="color: #0000ff;">new</span> meituanbindlog().GetList(<span style="color: #800080;">1</span>, <span style="color: #800080;">1</span>, <span style="color: #800000;">"</span><span style="color: #800000;">ePoiId=</span><span style="color: #800000;">"</span> + shopid + <span style="color: #800000;">"</span><span style="color: #800000;"> and mtype=1</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">mid</span><span style="color: #800000;">"</span>, <span style="color: #800080;">1</span><span style="color: #000000;">).FirstOrDefault();
+            </span><span style="color: #0000ff;">if</span> (record == <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+            {
+                OperationLog.Warn(</span><span style="color: #800000;">"</span><span style="color: #800000;">商家：</span><span style="color: #800000;">"</span> + shopid + <span style="color: #800000;">"</span><span style="color: #800000;">未找到绑定token</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                rs.msg </span>= <span style="color: #800000;">"</span><span style="color: #800000;">商家：</span><span style="color: #800000;">"</span> + shopid + <span style="color: #800000;">"</span><span style="color: #800000;">未找到绑定token</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> rs;
+            }
+
+            parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">appAuthToken</span><span style="color: #800000;">"</span><span style="color: #000000;">, record.appAuthToken);
+
+            createSHA1Sign();
+
+
+            HttpItem objHttpItem </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> HttpItem()
+            {
+                Encoding </span>= <span style="color: #800000;">"</span><span style="color: #800000;">utf-8</span><span style="color: #800000;">"</span><span style="color: #000000;">,
+                Method </span>= <span style="color: #800000;">"</span><span style="color: #800000;">POST</span><span style="color: #800000;">"</span><span style="color: #000000;">
+            };
+
+
+            </span><span style="color: #0000ff;">string</span> url = <span style="color: #800000;">"</span><span style="color: #800000;">http://api.open.cater.meituan.com/waimai/poi/open</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">string</span> returnmsg =<span style="color: #000000;"> queryData(objHttpItem, url);
+
+            mtresult result </span>= Newtonsoft.Json.JsonConvert.DeserializeObject&lt;mtresult&gt;<span style="color: #000000;">(returnmsg);
+
+            </span><span style="color: #0000ff;">if</span> (result.data != <span style="color: #0000ff;">null</span> &amp;&amp; result.data.ToLower() == <span style="color: #800000;">"</span><span style="color: #800000;">ok</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+            {
+                rs.state </span>= <span style="color: #800080;">1</span><span style="color: #000000;">;
+
+            }
+            </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+            {
+                rs.msg </span>= <span style="color: #800000;">"</span><span style="color: #800000;">商家上线失败</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            }
+
+
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> rs;
+        }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">设置商家上线</span></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h1 class="postTitle">上线</h1>
+<p>　　其他还有很多接口可以按需对接，比如商口数据，评论数据。目前我们用不上，暂未对接。最后一步就上线操作了。</p>
+<p>　　未上线之前，最多能接5个商家，上线后就没有限制了。</p>
+<p>　　目前上线要先写一个《<a href="https://jinshuju.net/f/rxGhvu" target="_blank">上线申请</a>》，然后在开放平台，里点击上线，会有美团人员联系你，确认相关信息就OK了。</p>
+<p>　　</p>
+<p>　　最后效果图如下：</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170519002144666-1459823391.jpg" alt="" />&nbsp; &nbsp;&nbsp;<img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170519002403791-467998673.jpg" alt="" />&nbsp;</p>
+<h1 class="postTitle">结语</h1>
+<p>　　对接美团外卖，除了提交审核时间不好，导致审核时间长了些外，其他还是蛮顺利的，他们也蛮配合的，根据接口文档几乎可以完整大部分操作。</p>
+<p>　　就代码上而言，确定没有太多可以说的，对接过程还是有些曲折的。希望这个文章能给那个正在对接的，想对接的人提供一些帮助，如果真有帮助了，有个赞最好了。</p>
+<p>　　如果有同在做这个的，欢迎交流哈。</p>
+<p>　　最后，呼应下开头，7年半，真不是一个短时间，我们能写多少个7年的代码呢。也想借此，听听诸位的心声。</p>
+<p>&nbsp;</p>
+<p>　　&nbsp;成为一名优秀的程序员！</p>
+<p>&nbsp;</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2017-05-19 08:34</span>&nbsp;
+<a href="https://www.cnblogs.com/jijunjian/">2J</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=6875909" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(6875909);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 139716, cb_blogApp = 'jijunjian', cb_blogUserGuid = '3f24f67b-fea0-de11-ba8f-001cf0cd104b';
+    var cb_entryId = 6875909, cb_entryCreatedDate = '2017-05-19 08:34', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 2J
+<br /><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+</body>
+</html>

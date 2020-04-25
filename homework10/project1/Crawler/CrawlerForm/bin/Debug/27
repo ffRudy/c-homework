@@ -1,0 +1,356 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>随笔列表第3页 - 2J - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=-oFz8B4m7JhHaZzdTkzPza2oLZNDRR8obnCz6w7OHbU" />
+    <link id="MainCss" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd.min.css?v=gS0FloTY-RBJQcN3GCAKG6fAr6HHKtDMTw60VxjN79c" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/jijunjian/custom.css?v=WI3eRo7midbwNzmh7EMewRylXm0=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd-mobile.min.css?v=VacchHeVg6bp3gCO8NqMH8D8fhA8iyRbb0JgoDUvn4o" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/jijunjian/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/jijunjian/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/jijunjian/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=uk-as-QYRHtjaAbeEigAktvhwf01NRrnle-6exg65Ak"></script>
+    <script>
+        var currentBlogId = 139716;
+        var currentBlogApp = 'jijunjian';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'iMetro_HD';
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/jijunjian/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/jijunjian/">成为一名优秀的程序员</a>
+</h1>
+<h2>
+
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/jijunjian/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/2J">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/jijunjian/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+25&nbsp; </span>
+<span id="stats_article_count">文章 - 
+0&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+424</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<!--done-->
+
+
+<div id="homepage_top_pager" class="topicListFooter">
+    
+
+<div class="pager">
+    <a href="https://www.cnblogs.com/jijunjian/default.html?page=2">上一页</a>
+    
+    
+        <a href="https://www.cnblogs.com/jijunjian/default.html?page=1">1</a>
+        <a href="https://www.cnblogs.com/jijunjian/default.html?page=2">2</a>
+    3
+    
+    
+    
+</div>
+</div>
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/jijunjian/archive/2013/08/09.html">2013年8月9日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/jijunjian/p/3246767.html">
+    订餐系统之微信点餐
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：经过几天的开发、测试微信点餐demo终于完成了，特在此分享下，不好的地方请大家多指正下哈！一开始，就想这东西出来这么久了，网上应该有很多现成的东西，于是，baidu、google了半天，基本没发现现成的东西，也许是我搜索不得其道，也有可能大家都不愿意分享吧...于是，还得自己动手，丰衣足食！            <a href="https://www.cnblogs.com/jijunjian/p/3246767.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2013-08-09 09:30 2J 阅读 (11069) 评论 (47)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=3246767" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/jijunjian/archive/2013/07/27.html">2013年7月27日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/jijunjian/p/3209892.html">
+    订餐系统之定时器Timer不定时
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：经过几天漫长的问题分析、处理、测试、验证，定时器Timer终于定时了，于是开始了这篇文章，希望对还在纠结于“定时器Timer不定时”的同学有所帮助，现在的方案，在系统日志中会有警告，如果您有更好的方案，也请不吝赐教。            <a href="https://www.cnblogs.com/jijunjian/p/3209892.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2013-07-27 09:38 2J 阅读 (2784) 评论 (32)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=3209892" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/jijunjian/archive/2013/07/03.html">2013年7月3日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/jijunjian/p/3165917.html">
+    订餐系统之地图订餐
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：离上一篇博客已经是1月有余了，这中间清楚的认识到自己几年的编程下来（大学4年，入行3载），能拿出手的东西真的屈指可数，也许真的是，一直以来都是为实现功能来写代码，所以终无大的突破！每每得空便思考自己到底差在哪？是不了解框架？于是学习EF；是不了解node.js？安装后，写了些demo; 是没学习新知识？于是学了下WFP... 然而，了解这些东西并没让自己有所收获，反而越发不知所措了。思考还在继续，”探索“还在继续... 于是有一天看到了设计模式，看到《大话设计模式》 才明白自己差在哪，差在对面向对象的理解！于是才开始正式的去了解什么是面向对象，为了加深理解，又细细看了《你必须知道的.net(第二版)》中的OO大原则，OO大智慧，OO之美...而后，再一次对《大话设计模式》中内容细细品味...这时，我觉得自己才开始真正的沉淀了！罗嗦了半天，下面开始今天的正文吧！            <a href="https://www.cnblogs.com/jijunjian/p/3165917.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2013-07-03 20:28 2J 阅读 (2936) 评论 (14)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=3165917" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/jijunjian/archive/2013/05/23.html">2013年5月23日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/jijunjian/archive/2013/05/23/3086520.html">
+    订餐系统之按距离[根据经纬度]排序、搜索
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：上周六，写了第一篇博客《订餐系统之权限设计》，在此感谢那些鼓励、关注我的园友们，更要感谢那些提出宝贵建议的朋友们。看了你们的评论，才真切的感受到：朋友们的评论往往会让文章更有看点。上篇文章中 郑明、人生就是赌 等几个园友的留言让我对我们系统的权限优化有了方向。当然，这样的优化肯定不是一天两天的事，做技术的朋友应该都知道：一个难题经常啃啃，某天也许就有了好的方案了（近段时间啃掉了几个2、3年前未处理好的的问题，才想起初中数学老师让我们经常啃一些竞赛题的良苦用心），今天的文章说的就是一个从2010年就想优化，但一直未优化好的功能，也从 幸福框架的评论中，看到了他的博客，更是从他博客的留言中，找..            <a href="https://www.cnblogs.com/jijunjian/archive/2013/05/23/3086520.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2013-05-23 07:09 2J 阅读 (3452) 评论 (14)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=3086520" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/jijunjian/archive/2013/05/11.html">2013年5月11日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/jijunjian/archive/2013/05/11/3072391.html">
+    订餐系统之权限设计
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：大约从两年前开始真正的进入园子，各位园友们的文章真让我受益匪浅，从编程思想，各类工具，代码技巧，管理心得...方方面面太多了。也不知从何时开始萌生了自己写文章的念头，但终于还是不敢写，担心自己的技术不太好，写的文章给园子摸黑了。幸好，有我家妞妞一直从旁鼓励：如果有一部分人，哪怕是一小部分人看了，觉得有益，就为园子做贡献了，当然，如果还有人提出更好的意见或建议，那对自己，对更多人就有益了。于是，借着双休，早上7点就迫不及待爬起来开始真正的“园路”了。不知道各位程序员有没有同感:平时早上总是睡不够，一到放假反倒没瞌睡了。 对于这个标题我想解释下，以免各们觉得我是在做seo,当然也许是我小人之...            <a href="https://www.cnblogs.com/jijunjian/archive/2013/05/11/3072391.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2013-05-11 14:30 2J 阅读 (4773) 评论 (52)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=3072391" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+
+<div class="topicListFooter">
+    <div id="nav_next_page">
+        
+
+    </div>    
+</div>
+
+
+<div id="homepage_bottom_pager" class="topicListFooter">
+    
+
+<div class="pager">
+    <a href="https://www.cnblogs.com/jijunjian/default.html?page=2">上一页</a>
+    
+    
+        <a href="https://www.cnblogs.com/jijunjian/default.html?page=1">1</a>
+        <a href="https://www.cnblogs.com/jijunjian/default.html?page=2">2</a>
+    3
+    
+    
+    
+</div>
+</div>
+
+
+
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 2J
+<br /><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+</body>
+</html>

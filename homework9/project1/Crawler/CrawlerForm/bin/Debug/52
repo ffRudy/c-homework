@@ -1,0 +1,527 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="经过几天的开发、测试微信点餐demo终于完成了，特在此分享下，不好的地方请大家多指正下哈！一开始，就想这东西出来这么久了，网上应该有很多现成的东西，于是，baidu、google了半天，基本没发现现成" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>订餐系统之微信点餐 - 2J - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=-oFz8B4m7JhHaZzdTkzPza2oLZNDRR8obnCz6w7OHbU" />
+    <link id="MainCss" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd.min.css?v=gS0FloTY-RBJQcN3GCAKG6fAr6HHKtDMTw60VxjN79c" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/jijunjian/custom.css?v=WI3eRo7midbwNzmh7EMewRylXm0=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd-mobile.min.css?v=VacchHeVg6bp3gCO8NqMH8D8fhA8iyRbb0JgoDUvn4o" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/jijunjian/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/jijunjian/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/jijunjian/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=uk-as-QYRHtjaAbeEigAktvhwf01NRrnle-6exg65Ak"></script>
+    <script>
+        var currentBlogId = 139716;
+        var currentBlogApp = 'jijunjian';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'iMetro_HD';
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/jijunjian/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/jijunjian/">成为一名优秀的程序员</a>
+</h1>
+<h2>
+
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/jijunjian/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/2J">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/jijunjian/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+25&nbsp; </span>
+<span id="stats_article_count">文章 - 
+0&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+424</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/jijunjian/p/3246767.html">订餐系统之微信点餐</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+    <div id="cnblogs_post_description" style="display: none">
+        经过几天的开发、测试微信点餐demo终于完成了，特在此分享下，不好的地方请大家多指正下哈！一开始，就想这东西出来这么久了，网上应该有很多现成的东西，于是，baidu、google了半天，基本没发现现成的东西，也许是我搜索不得其道，也有可能大家都不愿意分享吧...于是，还得自己动手，丰衣足食！
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>　　经过几天的开发、测试微信点餐demo终于完成了，特在此分享下，不好的地方请大家多指正下哈！一开始，就想这东西出来这么久了，网上应该有很多现成的东西，于是，baidu、google了半天，基本没发现现成的东西，也许是我搜索不得其道，也有可能大家都不愿意分享吧...于是，还得自己动手，丰衣足食！</p>
+<p>　　还是先交代下背景：所谓&ldquo;微信点餐&rdquo;，其实就是用户通过微信app，关注公众号，发送指定类型的信息，如地理位置信息，网站返回相关链接到微信上，通过这些链接进入wap或者html5网站，然后开始选择商家、点餐、提交订单等。关于微信app，与订餐网站的关系，我简单的画了一个图，比较潦草，请别喷得太厉害了！如图1，说简单点：微信app通过微信服务器，传给订餐网站（<span style="color: #0000ff;">申请公众号时，会输入一个地址，微信服务器就是通过此地址post，get消息的</span>），网站根据收到的消息，返回具体信息，再通过某些信息的链接进入wap或者html5站点。微信公众平台地址：https://mp.weixin.qq.com/ ，这几天好像升级了，不叫公众号了，叫订阅号。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://images0.cnblogs.com/blog/88102/201308/08214837-338103e437674820a4cbe0c6c3a55f67.png" alt="" /></p>
+<p>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<span style="color: #3366ff;"><strong>　　　　　（图1）</strong></span></p>
+<p><span style="color: #3366ff;"><strong>　　</strong><span style="color: #000000;">至于，如何申请、如何关注，这里就不赘述了，你懂的。要说明的是：关注后，订餐网站会收到一个用户关注的消息，网站返回一段说明文字，提示如何操作等信息，如图2：<br /></span></span></p>
+<p><span style="color: #3366ff;"><span style="color: #000000;">　　　　　　　　　　<img src="https://images0.cnblogs.com/blog/88102/201308/08221222-c13bb28bb5b84e0d9bad53feea2fe953.jpg" alt="" /></span></span></p>
+<p><span style="color: #3366ff;"><span style="color: #000000;">　　　　　　　　　　　　　　　　　　　　<span style="color: #3366ff;"><strong>　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; （图2）</strong></span></span></span></p>
+<p><span style="color: #3366ff;"><span style="color: #000000;">　　</span></span></p>
+<p>　　下面，我就把我自己设计的处理微信消息的代码介绍下吧，不好的地方，请大伙儿多给我指正指正。还是先上一张UML模型图吧，关于依赖和关联的关系，真不怎么弄得明白，所以都有依赖的关系表示了下，这张图片不是很清晰，有兴趣的可以下载源文件看下<a id="" href="http://files.cnblogs.com/jijunjian/uml.rar" target="_bank">uml.rar</a>，见图3：</p>
+<p>　　　　　　<img src="https://images0.cnblogs.com/blog/88102/201308/08223534-bdf0397ed63541c69e510c730617c7f7.png" alt="" /></p>
+<p>　　</p>
+<p>　　下面还是简单对几个类进行说明下吧，这样大家看得明白点。</p>
+<p>　　BaseNotice.cs，此类表示消息基类，因为每个消息都有几个字段是相同的，如ToUserName、FromUserName、CreateTime、MsgType等，所有抽象出一个基类，此类还有一个抽象方法LoadXml，根据xml返回类的对像的实例。其他具体消息继承此类，加上自己特定的信息。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; text.cs ，此类表示文本消息类，除了有BaseNotice中有的属性外，还有一个Content，表示文本信息内容。且实现LoadXml方法，返回一个text实例，代码如下：</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('93625bbc-bd2c-490a-af76-91e6148b6d72')"><img id="code_img_closed_93625bbc-bd2c-490a-af76-91e6148b6d72" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_93625bbc-bd2c-490a-af76-91e6148b6d72" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('93625bbc-bd2c-490a-af76-91e6148b6d72',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_93625bbc-bd2c-490a-af76-91e6148b6d72" class="cnblogs_code_hide">
+<pre><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 文本消息
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> text : BaseNotice
+    {
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 根据xml返回对像
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="xml"&gt;&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> BaseNotice LoadXml(<span style="color: #0000ff;">string</span><span style="color: #000000;"> xml)
+        {
+            text notice </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> text();
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">&lt;xml&gt;
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">&lt;ToUserName&gt;&lt;![CDATA[toUser]]&gt;&lt;/ToUserName&gt;
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">&lt;FromUserName&gt;&lt;![CDATA[fromUser]]&gt;&lt;/FromUserName&gt; 
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">&lt;CreateTime&gt;1348831860&lt;/CreateTime&gt;
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">&lt;MsgType&gt;&lt;![CDATA[text]]&gt;&lt;/MsgType&gt;
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">&lt;Content&gt;&lt;![CDATA[this is a test]]&gt;&lt;/Content&gt;
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">&lt;MsgId&gt;1234567890123456&lt;/MsgId&gt;
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">&lt;/xml&gt;</span>
+<span style="color: #000000;">
+            System.Xml.XmlDocument d </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> System.Xml.XmlDocument();
+            d.LoadXml(xml);
+            System.Xml.XmlCDataSection n </span>= d.SelectSingleNode(<span style="color: #800000;">"</span><span style="color: #800000;">/xml/ToUserName</span><span style="color: #800000;">"</span>).FirstChild <span style="color: #0000ff;">as</span><span style="color: #000000;"> System.Xml.XmlCDataSection;
+
+            notice.ToUserName </span>=<span style="color: #000000;"> n.Value;
+
+            n </span>= d.SelectSingleNode(<span style="color: #800000;">"</span><span style="color: #800000;">/xml/FromUserName</span><span style="color: #800000;">"</span>).FirstChild <span style="color: #0000ff;">as</span><span style="color: #000000;"> System.Xml.XmlCDataSection;
+            notice.FromUserName </span>=<span style="color: #000000;"> n.Value;
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">n = d.SelectSingleNode("/xml/CreateTime").FirstChild as System.Xml.XmlCDataSection;
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">notice.CreateTime = n.Value;</span>
+<span style="color: #000000;">
+            n </span>= d.SelectSingleNode(<span style="color: #800000;">"</span><span style="color: #800000;">/xml/MsgType</span><span style="color: #800000;">"</span>).FirstChild <span style="color: #0000ff;">as</span><span style="color: #000000;"> System.Xml.XmlCDataSection;
+            notice.MsgType </span>=<span style="color: #000000;"> n.Value;
+
+            n </span>= d.SelectSingleNode(<span style="color: #800000;">"</span><span style="color: #800000;">/xml/Content</span><span style="color: #800000;">"</span>).FirstChild <span style="color: #0000ff;">as</span><span style="color: #000000;"> System.Xml.XmlCDataSection;
+            notice.Content </span>=<span style="color: #000000;"> n.Value;
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">n = d.SelectSingleNode("/xml/MsgId").FirstChild as System.Xml.XmlCDataSection;
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">notice.MsgId = n.Value;</span>
+
+
+            <span style="color: #0000ff;">return</span><span style="color: #000000;"> notice;
+        }
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 消息内容  
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span><span style="color: #000000;"> Content
+        {
+            </span><span style="color: #0000ff;">get</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">set</span><span style="color: #000000;">;
+        }
+    }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code </span></div>
+<p>&nbsp;　location.cs，此类表示地理位置消息类，除了有BaseNotice中有的属性外，还有Location_X（纬度），Location_Y（经度）等信息。实现代码与text.cs差不多，这里就不再贴了。</p>
+<p>&nbsp;&nbsp;&nbsp; BaseHandler.cs，表示处理消息的基类，定义了一个抽象方法HandleNotice，由具体处理类，去实现，代码比较简单，如下：</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('8c11f927-0d7d-4ffe-a0a5-4f17ab57023a')"><img id="code_img_closed_8c11f927-0d7d-4ffe-a0a5-4f17ab57023a" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_8c11f927-0d7d-4ffe-a0a5-4f17ab57023a" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('8c11f927-0d7d-4ffe-a0a5-4f17ab57023a',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_8c11f927-0d7d-4ffe-a0a5-4f17ab57023a" class="cnblogs_code_hide">
+<pre> <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 处理消息基类
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> BaseHandler
+    {
+        </span><span style="color: #0000ff;">protected</span><span style="color: #000000;"> BaseNotice notice;
+
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> BaseHandler(BaseNotice _notice)
+        {
+            notice </span>=<span style="color: #000000;"> _notice;
+        }
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 处理消息，每个子类重写此法
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">string</span><span style="color: #000000;"> HandleNotice();
+        
+    }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code </span></div>
+<p>　　TextHandler.cs，此类表示处理文本信息的类，对用户发送的文本进行处理，然后返回相关信息。按上面的描述，发送&ldquo;d&rdquo;或者&ldquo;订单&rdquo;，返回今天的订单，其他文本，直接返回说明信息。代码如下：</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('c17abbab-73a4-4e49-8e99-8965365d18f6')"><img id="code_img_closed_c17abbab-73a4-4e49-8e99-8965365d18f6" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_c17abbab-73a4-4e49-8e99-8965365d18f6" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('c17abbab-73a4-4e49-8e99-8965365d18f6',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_c17abbab-73a4-4e49-8e99-8965365d18f6" class="cnblogs_code_hide">
+<pre><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 文本信息处理类
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> TextHandler : BaseHandler
+    {
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> TextHandler(BaseNotice _notice)
+            : </span><span style="color: #0000ff;">base</span><span style="color: #000000;">(_notice)
+        {
+
+        }
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 文本信息处理方法,如果文本信息 = d,返回今天订单
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">string</span><span style="color: #000000;"> HandleNotice()
+        {
+            StringBuilder backmsg </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> StringBuilder();
+            text model </span>= (text)<span style="color: #0000ff;">base</span><span style="color: #000000;">.notice;
+
+            backmsg.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;">&lt;xml&gt;</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            backmsg.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;">&lt;ToUserName&gt;&lt;![CDATA[</span><span style="color: #800000;">"</span> + model.FromUserName + <span style="color: #800000;">"</span><span style="color: #800000;">]]&gt;&lt;/ToUserName&gt;</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            backmsg.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;">&lt;FromUserName&gt;&lt;![CDATA[</span><span style="color: #800000;">"</span> + model.ToUserName + <span style="color: #800000;">"</span><span style="color: #800000;">]]&gt;&lt;/FromUserName&gt;</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            backmsg.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;">&lt;CreateTime&gt;</span><span style="color: #800000;">"</span> + DateTime.Now.Ticks + <span style="color: #800000;">"</span><span style="color: #800000;">&lt;/CreateTime&gt;</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+
+            </span><span style="color: #0000ff;">string</span> Content = <span style="color: #800000;">""</span><span style="color: #000000;">;
+
+            </span><span style="color: #0000ff;">if</span> (model.Content.ToLower().Trim() == <span style="color: #800000;">"</span><span style="color: #800000;">d</span><span style="color: #800000;">"</span> || model.Content.ToLower().IndexOf(<span style="color: #800000;">"</span><span style="color: #800000;">订单</span><span style="color: #800000;">"</span>) &gt;= <span style="color: #800080;">0</span><span style="color: #000000;">)
+            {
+                ETogoOrder dal </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> ETogoOrder();
+
+                StringBuilder ordermsg </span>= <span style="color: #0000ff;">new</span> StringBuilder(<span style="color: #800000;">""</span><span style="color: #000000;">);
+
+                IList</span>&lt;ETogoOrderInfo&gt; orderlist = dal.GetList(<span style="color: #800080;">3</span>, <span style="color: #800080;">1</span>, <span style="color: #800000;">"</span><span style="color: #800000;"> tempcode='</span><span style="color: #800000;">"</span> + model.ToUserName + <span style="color: #800000;">"</span><span style="color: #800000;">' and ordertime &gt; '</span><span style="color: #800000;">"</span>+DateTime.Now.ToShortDateString()+<span style="color: #800000;">"</span><span style="color: #800000;">' </span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">dataid</span><span style="color: #800000;">"</span>, <span style="color: #800080;">1</span><span style="color: #000000;">);
+                </span><span style="color: #0000ff;">if</span> (orderlist.Count &gt; <span style="color: #800080;">0</span><span style="color: #000000;">)
+                {
+                    ordermsg.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;">今日订单</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+
+                    </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> item <span style="color: #0000ff;">in</span><span style="color: #000000;"> orderlist)
+                    {
+                        ordermsg.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;">\r\n订单号：</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                        ordermsg.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;">\r\n</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> item.OrderID);
+                        ordermsg.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;">\r\n订单时间：</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> item.orderTime.ToShortTimeString());
+                        ordermsg.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;">\r\n订单状态：</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> ConfigHelper.TurnOrderState(item.State));
+
+                        IList</span>&lt;FoodInOrderInfo&gt; foodlist = <span style="color: #0000ff;">new</span><span style="color: #000000;"> EOrderFood().GetAllByOrderID(item.OrderID);
+                        </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> food <span style="color: #0000ff;">in</span><span style="color: #000000;"> foodlist)
+                        {
+                            ordermsg.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;">\r\n</span><span style="color: #800000;">"</span> + food.FoodName + <span style="color: #800000;">"</span><span style="color: #800000;">(</span><span style="color: #800000;">"</span> + food.FoodPrice + <span style="color: #800000;">"</span><span style="color: #800000;">x</span><span style="color: #800000;">"</span> + food.Num + <span style="color: #800000;">"</span><span style="color: #800000;">)</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                        }
+
+                        ordermsg.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;">\r\n==================</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                    }
+                   
+                }
+                </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+                {
+                    ordermsg.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;">您今天还没有订餐点哦</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                    ordermsg.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;">\r\n==================</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                }
+                Content </span>=<span style="color: #000000;"> ordermsg.ToString();
+
+
+            }
+            </span><span style="color: #0000ff;">else</span><span style="color: #008000;">//</span><span style="color: #008000;">其他地方返回原信息</span>
+<span style="color: #000000;">            {
+                Content </span>=<span style="color: #000000;"> ConfigHelper.GetConfigBackMsg();
+            }
+            backmsg.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;">&lt;Content&gt;&lt;![CDATA[</span><span style="color: #800000;">"</span> + Content.ToString() + <span style="color: #800000;">"</span><span style="color: #800000;">]]&gt;&lt;/Content&gt;</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            backmsg.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;"> &lt;MsgType&gt;&lt;![CDATA[text]]&gt;&lt;/MsgType&gt;</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            backmsg.Append(</span><span style="color: #800000;">"</span><span style="color: #800000;"> &lt;/xml&gt; </span><span style="color: #800000;">"</span><span style="color: #000000;">);
+
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> backmsg.ToString();
+        }
+    }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code </span></div>
+<p>&nbsp;　LocationHandler.cs，此类用于处理地理位置信息，和TextHandler.cs代码差不多，就是实现了HandleNotice方法。</p>
+<p>&nbsp;&nbsp;&nbsp; NoticeFactory.cs，此类表示根据消息类型，返回具体处理类，<strong><span style="color: #0000ff;">用了简单工厂，每次要增加具体消息处理类，这还要加个分支，有点纠结</span></strong>，代码如下：</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('f89246cc-e7ff-4c5b-a1b8-69be818f5dee')"><img id="code_img_closed_f89246cc-e7ff-4c5b-a1b8-69be818f5dee" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_f89246cc-e7ff-4c5b-a1b8-69be818f5dee" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('f89246cc-e7ff-4c5b-a1b8-69be818f5dee',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_f89246cc-e7ff-4c5b-a1b8-69be818f5dee" class="cnblogs_code_hide">
+<pre><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 根据消息类型，返回对像
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> NoticeFactory
+    {
+        </span><span style="color: #0000ff;">const</span> <span style="color: #0000ff;">string</span> AssemblyPath = <span style="color: #800000;">"</span><span style="color: #800000;">Hangjing.Weixin</span><span style="color: #800000;">"</span>;<span style="color: #008000;">//</span><span style="color: #008000;">用于反射</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> BaseHandler CreateInstance(<span style="color: #0000ff;">string</span><span style="color: #000000;"> xml)
+        {
+            BaseHandler handler </span>= <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">解析数据</span>
+            System.Xml.XmlDocument d = <span style="color: #0000ff;">new</span><span style="color: #000000;"> System.Xml.XmlDocument();
+            d.LoadXml(xml);
+            System.Xml.XmlCDataSection n </span>= d.SelectSingleNode(<span style="color: #800000;">"</span><span style="color: #800000;">/xml/MsgType</span><span style="color: #800000;">"</span>).FirstChild <span style="color: #0000ff;">as</span><span style="color: #000000;"> System.Xml.XmlCDataSection;
+            HJlog.toLog(</span><span style="color: #800000;">"</span><span style="color: #800000;">MsgType=</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> n.Value);
+
+            Type type </span>= Type.GetType(<span style="color: #0000ff;">string</span>.Format(AssemblyPath + <span style="color: #800000;">"</span><span style="color: #800000;">.{0},</span><span style="color: #800000;">"</span> + AssemblyPath, n.Value.Trim()), <span style="color: #0000ff;">false</span>, <span style="color: #0000ff;">true</span><span style="color: #000000;">);
+            BaseNotice noticemodel </span>=<span style="color: #000000;"> (BaseNotice)Activator.CreateInstance(type);
+               
+            </span><span style="color: #0000ff;">if</span> (noticemodel != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+            {
+                noticemodel </span>=<span style="color: #000000;"> noticemodel.LoadXml(xml);
+                </span><span style="color: #0000ff;">switch</span><span style="color: #000000;"> (noticemodel.MsgType)
+                {
+                    </span><span style="color: #0000ff;">case</span> <span style="color: #800000;">"</span><span style="color: #800000;">text</span><span style="color: #800000;">"</span><span style="color: #000000;">:
+                        handler </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> TextHandler(noticemodel);
+                        </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+                    </span><span style="color: #0000ff;">case</span> <span style="color: #800000;">"</span><span style="color: #800000;">event</span><span style="color: #800000;">"</span><span style="color: #000000;">:
+                        handler </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> EventHandler(noticemodel);
+                        </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+                    </span><span style="color: #0000ff;">case</span> <span style="color: #800000;">"</span><span style="color: #800000;">location</span><span style="color: #800000;">"</span><span style="color: #000000;">:
+                        handler </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> LocationHandler(noticemodel);
+                        </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+                    </span><span style="color: #0000ff;">default</span><span style="color: #000000;">:
+                        </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+                }
+            }
+            </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+            {
+                HJlog.toLog(</span><span style="color: #800000;">"</span><span style="color: #800000;">noticemodel=mull</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            }
+
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> handler;
+        }
+    }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code </span></div>
+<p>　weixinHelper.cs，此类封装了一些基本操作，如验证消息是否来来自微信服务器，获取微信服务器post来的消息，<span style="color: #0000ff;">最主要的还是处理消息的地方，不管添加多少消息类型，这里都不用修改</span>，代码如下：</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('1ebe826f-4d56-4fc1-8746-4169713f9601')"><img id="code_img_closed_1ebe826f-4d56-4fc1-8746-4169713f9601" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_1ebe826f-4d56-4fc1-8746-4169713f9601" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('1ebe826f-4d56-4fc1-8746-4169713f9601',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_1ebe826f-4d56-4fc1-8746-4169713f9601" class="cnblogs_code_hide">
+<pre> <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 根据接到的信息，返回内容
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span><span style="color: #000000;"> HandleData()
+        {
+            </span><span style="color: #0000ff;">string</span> userdata =<span style="color: #000000;"> reciveData();
+
+            </span><span style="color: #0000ff;">string</span> backmsg = <span style="color: #800000;">""</span><span style="color: #000000;">;
+
+            BaseHandler handler </span>= NoticeFactory.CreateInstance(userdata);<span style="color: #008000;">//</span><span style="color: #008000;">根据不同消息类型，返回具体处理类，</span>
+            <span style="color: #0000ff;">if</span> (handler != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+            {
+                backmsg </span>=<span style="color: #000000;"> handler.HandleNotice();
+                HJlog.toLog(</span><span style="color: #800000;">"</span><span style="color: #800000;">handler != null </span><span style="color: #800000;">"</span> +<span style="color: #000000;"> backmsg);
+            }
+            </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+            {
+                HJlog.toLog(</span><span style="color: #800000;">"</span><span style="color: #800000;">handler == null </span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            }
+
+
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> backmsg.ToString();
+        }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code </span></div>
+<p>&nbsp; 客户端（指在公众平台设置的那个链接）代码就相对简单了（<span style="color: #0000ff;"><strong>不过判断是否网站接入的不知道是什么时间调用的</strong></span>），代码如下：</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('db03f57b-91e3-42db-a8f0-68b0c14aee02')"><img id="code_img_closed_db03f57b-91e3-42db-a8f0-68b0c14aee02" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_db03f57b-91e3-42db-a8f0-68b0c14aee02" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('db03f57b-91e3-42db-a8f0-68b0c14aee02',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_db03f57b-91e3-42db-a8f0-68b0c14aee02" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">void</span> Page_Load(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, EventArgs e)
+    {
+        weixinHelper wx </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> weixinHelper(Context);
+
+        </span><span style="color: #0000ff;">if</span> (wx.isJoin())<span style="color: #008000;">//</span><span style="color: #008000;">如果是网站接入</span>
+<span style="color: #000000;">        {
+            Response.Write(wx.isValidRequest());
+            Response.End();
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">HJlog.toLog("如果是网站接入");</span>
+            <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">else</span><span style="color: #008000;">//</span><span style="color: #008000;">接收消息</span>
+<span style="color: #000000;">        {
+            Response.Write(wx.HandleData());
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">HJlog.toLog("接收消息");</span>
+<span style="color: #000000;">            Response.End();
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;">;
+        }
+
+    }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code </span></div>
+<p>&nbsp; 通过返回的链接，进入网站后，就全是html5的事儿了，第一次写，还真是用了不少时间。写得不好，代码就不贴了，上几个截图吧【html5界面为我家妞妞制作，妞妞辛苦了^_^】：</p>
+<p>&nbsp;&nbsp; <img src="https://images0.cnblogs.com/blog/88102/201308/09083541-29a6826e1be34537b1e5ac28e6340a6a.jpg" alt="" width="345" height="505" />&nbsp; <img src="https://images0.cnblogs.com/blog/88102/201308/09083556-1cb2fe72eaf04feeb9d4b627654dd4c4.jpg" alt="" width="336" height="503" />&nbsp;&nbsp; <img src="https://images0.cnblogs.com/blog/88102/201308/09083717-cfdea3f0049d4955bb7316ff8157aa24.jpg" alt="" width="336" height="503" /></p>
+<p>&nbsp; 以上就是微信点餐相关内容了，其实也就那点事儿，写得不好，见谅，有兴趣的就扫一扫吧，如果你也开发这方便的，一起交流下：</p>
+<p>　　　　　　　　　　　　　　　　　　　　　　　　<img src="https://images0.cnblogs.com/blog/88102/201402/111733347159720.jpg" alt="" /></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2013-08-09 09:30</span>&nbsp;
+<a href="https://www.cnblogs.com/jijunjian/">2J</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=3246767" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(3246767);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 139716, cb_blogApp = 'jijunjian', cb_blogUserGuid = '3f24f67b-fea0-de11-ba8f-001cf0cd104b';
+    var cb_entryId = 3246767, cb_entryCreatedDate = '2013-08-09 09:30', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 2J
+<br /><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+</body>
+</html>

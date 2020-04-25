@@ -1,0 +1,433 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="最近在研究分布式系统架构方面的知识，包括负载均衡，数据库读写分离，分布式缓存redis等。本篇先从负载均衡服务架构入手，关于负载均衡百度百科的定义如下：负载均衡，英文名称为Load Balance，其" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>nginx+iis实现负载均衡 - 焰尾迭 - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=-oFz8B4m7JhHaZzdTkzPza2oLZNDRR8obnCz6w7OHbU" />
+    <link id="MainCss" rel="stylesheet" href="/skins/nature/bundle-nature.min.css?v=OGPViv8ygSk1htOgsEILRhpv35ZKyr-flppEtpvHCA0" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/nature/bundle-nature-mobile.min.css?v=RzYS8QGQmC0gsBHSUxnpybzlR89FFui1fBHmMB-mNoc" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/yanweidie/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/yanweidie/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/yanweidie/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=uk-as-QYRHtjaAbeEigAktvhwf01NRrnle-6exg65Ak"></script>
+    <script>
+        var currentBlogId = 114902;
+        var currentBlogApp = 'yanweidie';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'nature';
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <link href="https://files.cnblogs.com/yanweidie/main.css?ver=20160929" rel="stylesheet" type="text/css">
+    </div>
+    <!--done-->
+<div id="banner"><div id="bnr_pic">
+<!--done-->
+<div class="header">
+	<div class="headerText">
+		<a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/yanweidie/">焰尾迭</a>
+<br>
+	</div><br>
+	<div class="headerDis">
+吾生也有涯，而知也无涯。以有涯随无涯，殆已。
+</div>
+</div>
+
+</div></div>
+<div id="main">
+	<!-- left starts -->
+	<div id="left">
+		<DIV id="mystats">
+			<br/>
+				<!--done-->
+<div class="blogStats">
+随笔 - 
+43&nbsp;
+文章 - 
+0&nbsp;
+评论 - 
+1159&nbsp;
+
+0
+</div>
+
+
+			
+		</DIV>
+		<div id="mylinks">
+
+<a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+&nbsp;&nbsp;
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/yanweidie/">
+首页</a>
+&nbsp;&nbsp;
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+&nbsp;&nbsp;
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E7%84%B0%E5%B0%BE%E8%BF%AD">
+联系</a>&nbsp;&nbsp;
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+&nbsp;&nbsp;
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/yanweidie/rss/">
+订阅</a>&nbsp;
+<a id="blog_nav_rss_image" href="https://www.cnblogs.com/yanweidie/rss/">
+    <img src="/skins/nature/images/xml.gif" alt="订阅" />
+</a>
+
+</div>
+		<div id="topics">
+			<div id="post_detail">
+<div class="post">
+	<div class="postTitle">
+		<h1>
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/yanweidie/p/4658136.html">nginx+iis实现负载均衡</a>
+</h1>
+	</div>
+	
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p><a name="_labelTop"></a></p>
+<p>　　最近在研究分布式系统架构方面的知识，包括负载均衡，数据库读写分离，分布式缓存redis等。本篇先从负载均衡服务架构入手，关于负载均衡百度百科的定义如下：负载均衡，英文名称为Load Balance，其意思就是分摊到多个操作单元上进行执行，例如Web服务器、FTP服务器、企业关键应用服务器和其它关键任务服务器等，从而共同完成工作任务。</p>
+<p>　　我的解释：一项任务交由一个开发人员处理总会有上限处理能力，这时可以考虑增加开发人员来共同处理这项任务，多人处理同一项任务时就会涉及到调度问题，即任务分配，这和多线程理念是一致的。nginx在这里的角色相当于任务分配者。</p>
+<p><strong>阅读目录</strong></p>
+<ul>
+<li><a href="#_label0">nginx安装</a></li>
+<li><a href="#_label1">站点搭建及配置</a>&nbsp;</li>
+<li><a href="#_label2">问题分析</a></li>
+<li><a href="#_label3">总结</a></li>
+</ul>
+<div style="text-align: right;"><a href="#_labelTop">回到顶部</a><a name="_label0"></a></div>
+<h1 class="title">nginx安装</h1>
+<p><strong>&nbsp;&nbsp;&nbsp; Nginx</strong>是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，并在一个BSD-like 协议下发行。由俄罗斯的程序设计师Igor Sysoev所开发，供俄国大型的入口网站及搜索引擎Rambler（俄文：Рамблер）使用。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、新浪、网易、腾讯等。</p>
+<p>　 最新版本的nginx版本为1.9.3，我这下载的是window版本的，一般实际场景都是安装在linux系统下的，由于linux系统目前正在摸索中这里就不介绍。官方下载地址：<a href="http://nginx.org/download/nginx-1.9.3.zip" target="_blank">nginx-1.9.3.zip</a>&nbsp;博客园下载地址：<a href="http://files.cnblogs.com/files/yanweidie/nginx-1.9.3.zip" target="_blank">nginx-1.9.3.zip</a>&nbsp;。下载完成之后解压运行nginx.exe就启动了nginx了，启动后会在进程里面看到nginx。</p>
+<p><img src="https://images0.cnblogs.com/blog2015/336693/201507/190920309544181.jpg" alt="" /><img src="https://images0.cnblogs.com/blog2015/336693/201507/190923268601907.jpg" alt="" width="186" height="206" /></p>
+<p>&nbsp;&nbsp; 要实现负载均衡需要修改conf/nginx.conf的配置信息，修改配置信息之后重新启动nginx服务，可以通过nginx -s reload指令实现。这里我们使用&nbsp;<a href="http://leleroyn.cnblogs.com" target="_blank">Ants</a>&nbsp;提供的一个批处理来操作。</p>
+<p><img src="https://images0.cnblogs.com/blog2015/336693/201507/190929078299439.jpg" alt="" /></p>
+<p>将nginx.bat文件放到nginx.exe相同文件夹下，直接运行就行了。文章结尾会提供本文用到的所有文件。</p>
+<p>&nbsp;<img src="https://images0.cnblogs.com/blog2015/336693/201507/190931505167703.jpg" alt="" /></p>
+<div style="text-align: right;"><a href="#_labelTop">回到顶部</a><a name="_label1"></a></div>
+<h1 class="title">站点搭建及配置</h1>
+<p><strong>1.搭建两个iis站点</strong></p>
+<p>&nbsp;站点下只有一个简单的index页面，用来输出当前服务器信息。由于我没有两台机器，所以将两个站点都部署到本机了，分别绑定了8082和9000两个端口。</p>
+<div class="cnblogs_code">
+<pre> <span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">void</span> Page_Load(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, EventArgs e)
+        {
+            Label0.Text </span>= <span style="color: #800000;">"</span><span style="color: #800000;">请求开始时间：</span><span style="color: #800000;">"</span>+DateTime.Now.ToString(<span style="color: #800000;">"</span><span style="color: #800000;">yyyy-MM-dd HH:mm:ss</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            Label1.Text </span>= <span style="color: #800000;">"</span><span style="color: #800000;">服务器名称：</span><span style="color: #800000;">"</span> + Server.MachineName;<span style="color: #008000;">//</span><span style="color: #008000;">服务器名称  </span>
+            Label2.Text = <span style="color: #800000;">"</span><span style="color: #800000;">服务器IP地址：</span><span style="color: #800000;">"</span> + Request.ServerVariables[<span style="color: #800000;">"</span><span style="color: #800000;">LOCAL_ADDR</span><span style="color: #800000;">"</span>];<span style="color: #008000;">//</span><span style="color: #008000;">服务器IP地址  </span>
+            Label3.Text = <span style="color: #800000;">"</span><span style="color: #800000;">HTTP访问端口：</span><span style="color: #800000;">"</span> + Request.ServerVariables[<span style="color: #800000;">"</span><span style="color: #800000;">SERVER_PORT</span><span style="color: #800000;">"</span>];<span style="color: #008000;">//</span><span style="color: #008000;">HTTP访问端口"</span>
+            Label4.Text = <span style="color: #800000;">"</span><span style="color: #800000;">.NET解释引擎版本：</span><span style="color: #800000;">"</span> + <span style="color: #800000;">"</span><span style="color: #800000;">.NET CLR</span><span style="color: #800000;">"</span> + Environment.Version.Major + <span style="color: #800000;">"</span><span style="color: #800000;">.</span><span style="color: #800000;">"</span> + Environment.Version.Minor + <span style="color: #800000;">"</span><span style="color: #800000;">.</span><span style="color: #800000;">"</span> + Environment.Version.Build + <span style="color: #800000;">"</span><span style="color: #800000;">.</span><span style="color: #800000;">"</span> + Environment.Version.Revision;<span style="color: #008000;">//</span><span style="color: #008000;">.NET解释引擎版本  </span>
+            Label5.Text = <span style="color: #800000;">"</span><span style="color: #800000;">服务器操作系统版本：</span><span style="color: #800000;">"</span> + Environment.OSVersion.ToString();<span style="color: #008000;">//</span><span style="color: #008000;">服务器操作系统版本  </span>
+            Label6.Text = <span style="color: #800000;">"</span><span style="color: #800000;">服务器IIS版本：</span><span style="color: #800000;">"</span> + Request.ServerVariables[<span style="color: #800000;">"</span><span style="color: #800000;">SERVER_SOFTWARE</span><span style="color: #800000;">"</span>];<span style="color: #008000;">//</span><span style="color: #008000;">服务器IIS版本  </span>
+            Label7.Text = <span style="color: #800000;">"</span><span style="color: #800000;">服务器域名：</span><span style="color: #800000;">"</span> + Request.ServerVariables[<span style="color: #800000;">"</span><span style="color: #800000;">SERVER_NAME</span><span style="color: #800000;">"</span>];<span style="color: #008000;">//</span><span style="color: #008000;">服务器域名  </span>
+            Label8.Text = <span style="color: #800000;">"</span><span style="color: #800000;">虚拟目录的绝对路径：</span><span style="color: #800000;">"</span> + Request.ServerVariables[<span style="color: #800000;">"</span><span style="color: #800000;">APPL_RHYSICAL_PATH</span><span style="color: #800000;">"</span>];<span style="color: #008000;">//</span><span style="color: #008000;">虚拟目录的绝对路径  </span>
+            Label9.Text = <span style="color: #800000;">"</span><span style="color: #800000;">执行文件的绝对路径：</span><span style="color: #800000;">"</span> + Request.ServerVariables[<span style="color: #800000;">"</span><span style="color: #800000;">PATH_TRANSLATED</span><span style="color: #800000;">"</span>];<span style="color: #008000;">//</span><span style="color: #008000;">执行文件的绝对路径  </span>
+            Label10.Text = <span style="color: #800000;">"</span><span style="color: #800000;">虚拟目录Session总数：</span><span style="color: #800000;">"</span> + Session.Contents.Count.ToString();<span style="color: #008000;">//</span><span style="color: #008000;">虚拟目录Session总数  </span>
+            Label11.Text = <span style="color: #800000;">"</span><span style="color: #800000;">虚拟目录Application总数：</span><span style="color: #800000;">"</span> + Application.Contents.Count.ToString();<span style="color: #008000;">//</span><span style="color: #008000;">虚拟目录Application总数  </span>
+            Label12.Text = <span style="color: #800000;">"</span><span style="color: #800000;">域名主机：</span><span style="color: #800000;">"</span> + Request.ServerVariables[<span style="color: #800000;">"</span><span style="color: #800000;">HTTP_HOST</span><span style="color: #800000;">"</span>];<span style="color: #008000;">//</span><span style="color: #008000;">域名主机  </span>
+            Label13.Text = <span style="color: #800000;">"</span><span style="color: #800000;">服务器区域语言：</span><span style="color: #800000;">"</span> + Request.ServerVariables[<span style="color: #800000;">"</span><span style="color: #800000;">HTTP_ACCEPT_LANGUAGE</span><span style="color: #800000;">"</span>];<span style="color: #008000;">//</span><span style="color: #008000;">服务器区域语言  </span>
+            Label14.Text = <span style="color: #800000;">"</span><span style="color: #800000;">用户信息：</span><span style="color: #800000;">"</span> + Request.ServerVariables[<span style="color: #800000;">"</span><span style="color: #800000;">HTTP_USER_AGENT</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+            Label14.Text </span>= <span style="color: #800000;">"</span><span style="color: #800000;">CPU个数：</span><span style="color: #800000;">"</span> + Environment.GetEnvironmentVariable(<span style="color: #800000;">"</span><span style="color: #800000;">NUMBER_OF_PROCESSORS</span><span style="color: #800000;">"</span>);<span style="color: #008000;">//</span><span style="color: #008000;">CPU个数  </span>
+            Label15.Text = <span style="color: #800000;">"</span><span style="color: #800000;">CPU类型：</span><span style="color: #800000;">"</span> + Environment.GetEnvironmentVariable(<span style="color: #800000;">"</span><span style="color: #800000;">PROCESSOR_IDENTIFIER</span><span style="color: #800000;">"</span>);<span style="color: #008000;">//</span><span style="color: #008000;">CPU类型  </span>
+            Label16.Text = <span style="color: #800000;">"</span><span style="color: #800000;">请求来源地址：</span><span style="color: #800000;">"</span> + Request.Headers[<span style="color: #800000;">"</span><span style="color: #800000;">X-Real-IP</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+        }</span></pre>
+</div>
+<p><strong>2.修改nginx配置信息</strong></p>
+<p><strong>&nbsp; </strong>修改nginx监听端口，修改http server下的listen节点值，由于本机80端口已经被占用，我改为监听8083端口。</p>
+<p>&nbsp;&nbsp; listen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8083;</p>
+<p>&nbsp; 在http节点下添加upstream（服务器集群），server设置的是集群服务器的信息，我这里搭建了两个站点，配置了两条信息。</p>
+<p>&nbsp;&nbsp;&nbsp; #服务器集群名称为Jq_one<br />&nbsp;&nbsp;&nbsp; upstream Jq_one {<br />&nbsp;　　server&nbsp; 127.0.0.1:9000;&nbsp;<br />&nbsp;　　server&nbsp; 127.0.0.1:8082; <br />&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;在http节点下找到location节点修改</p>
+<p>&nbsp; location / {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; root&nbsp;&nbsp; html;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; index&nbsp; index.aspx index.html index.htm; #修改主页为index.aspx<br />&nbsp;&nbsp;&nbsp;&nbsp; #其中jq_one&nbsp;对应着upstream设置的集群名称<br />&nbsp;&nbsp;&nbsp;&nbsp; proxy_pass&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; http://Jq_one;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp; #设置主机头和客户端真实地址，以便服务器获取客户端真实IP<br />&nbsp;&nbsp;&nbsp;&nbsp; proxy_set_header&nbsp;&nbsp; Host&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $host; <br />&nbsp;&nbsp;&nbsp;&nbsp; proxy_set_header&nbsp;&nbsp; X-Real-IP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $remote_addr; <br />&nbsp;&nbsp;&nbsp;&nbsp; proxy_set_header&nbsp;&nbsp; X-Forwarded-For&nbsp; $proxy_add_x_forwarded_for;<br />&nbsp;}</p>
+<p>修改完成配置文件以后记得重启nginx服务，最终完整配置文件信息如下</p>
+<p><img src="https://images0.cnblogs.com/blog2015/336693/201507/190958488294800.jpg" alt="" /></p>
+<p><strong>3.运行结果</strong></p>
+<p><strong>&nbsp; </strong>访问http://127.0.0.1:8083/index.aspx ，多访问几次，着重关注标红部分。</p>
+<p><img src="https://images0.cnblogs.com/blog2015/336693/201507/191013113605058.jpg" alt="" /><img src="https://images0.cnblogs.com/blog2015/336693/201507/191013542829912.jpg" alt="" /></p>
+<p>可以看到，我们的请求被分发到了8082站点和9000站点，并且第一次是8082站点第二次9000。出现这样的结果证明我们负载均衡搭建成功了。&nbsp;尝试关闭其中的9000站点，然后刷新页面发现输出的http端口一直是8082，也就是说其中一个站点挂了，只要还有一个站点是好的，我们的还是可以服务。</p>
+<div style="text-align: right;"><a href="#_labelTop">回到顶部</a><a name="_label2"></a></div>
+<h1 class="title">问题分析</h1>
+<p>&nbsp; 虽然我们搭建好了负载均衡站点，但是还存在以下问题。</p>
+<p><strong>&nbsp; 1.如果站点使用了session，请求平均分配到两个站点，那么必然存在session共享问题，该如何解决？</strong></p>
+<ul>
+<li>使用数据库保存session信息</li>
+<li>使用nginx将同一ip的请求分配到固定服务器，修改如下。ip_hash会计算ip对应hash值，然后分配到固定服务器</li>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+<p>　　upstream Jq_one{<br />&nbsp; 　　server 127.0.0.1:8082 ;<br />&nbsp;　　 server 127.0.0.1:9000 ;<br />&nbsp;&nbsp; 　　ip_hash;<br />　　}</p>
+<ul>
+<li>搭建一台Redis服务器，对session的读取都从该Redis服务器上读取。后面的文章将介绍分布式缓存Redis的使用</li>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+<p>&nbsp;<strong> 2.管理员更新站点文件，该怎么操作，现在还只有两台服务器，可以手工将文件更新到两台服务器，如果是10台呢，那么手工操作必然是不可行的</strong></p>
+<ul>
+<li>多服务器站点更新可以使用GoodSync 文件同步程序，会自动检测文件的修改新增，然后同步到其它服务器上。在linux下可以使用rsync</li>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+<p>&nbsp;<strong> 3.站点中的文件上传功能会将文件分配到不同的服务器，文件共享问题如何解决。</strong></p>
+<ul>
+<li>使用文件服务器将所有文件存储到该服务器上，文件操作读取写入都在该服务器上。这里同样会存在一个问题，文件服务器存在读写上限。</li>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+<p><strong>&nbsp; 4.负载的服务器配置不一样，有的高有的低可不可以让配置高的服务器处理请求多一些</strong></p>
+<ul>
+<li>这里讲一下，负载均衡有好几种算法 &nbsp;轮转法，散列法，&nbsp;最少连接法，最低缺失法，最快响应法，加权法。我们这里可以使用加权法来分配请求。</li>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; upstream Jq_one{<br />&nbsp; 　　server 127.0.0.1:8082 weight=4;<br />&nbsp;　　 server 127.0.0.1:9000 weight=1;<br />　　}</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过weight设置每台服务器分配请求站的权重，值越高分配的越多。</p>
+<p>&nbsp;<strong>5.由于请求是经过nginx转发过来的，可以在代码里面获取到用户请求的实际ip地址吗？</strong></p>
+<ul>
+<li>答案是肯定的，在localtion节点设置如下请求头信息</li>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+<p>&nbsp;&nbsp;&nbsp; #设置主机头和客户端真实地址，以便服务器获取客户端真实IP<br />&nbsp;&nbsp;&nbsp;&nbsp; proxy_set_header&nbsp;&nbsp; Host&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $host; <br />&nbsp;&nbsp;&nbsp;&nbsp; proxy_set_header&nbsp;&nbsp; X-Real-IP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $remote_addr; <br />&nbsp;&nbsp;&nbsp;&nbsp; proxy_set_header&nbsp;&nbsp; X-Forwarded-For&nbsp; $proxy_add_x_forwarded_for;</p>
+<p>&nbsp;&nbsp;&nbsp; 代码里面通过Request.Headers[<span style="color: #800000;">"<span style="color: #800000;">X-Real-IP<span style="color: #800000;">"<span style="color: #000000;">]，就能获取到真实ip</span></span></span></span></p>
+<p><span style="color: #800000;"><span style="color: #800000;"><span style="color: #800000;"><span style="color: #000000;">&nbsp;<strong>6.nginx实现静态文件(image,js,css)缓存</strong></span></span></span></span></p>
+<ul>
+<li><span style="color: #800000;"><span style="color: #800000;"><span style="color: #800000;"><span style="color: #000000;">在server节点下添加新的localtion</span></span></span></span></li>
+<li><span style="color: #800000;"><span style="color: #800000;"><span style="color: #800000;"><span style="color: #000000;">&nbsp;#静态资源缓存设置<br />&nbsp;location ~ \.(jpg|png|jpeg|bmp|gif|swf|css)$<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; expires 30d;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; root /nginx-1.9.3/html;#root:&nbsp; #静态文件存在地址，这里设置在/nginx-1.9.3/html下<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></span></span></span>&nbsp;</li>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+<p>&nbsp;&nbsp; &nbsp;这是index页面的代码 &lt;li&gt;&lt;img src="/images/1.jpg"/&gt;&lt;/li&gt;</p>
+<p><img src="https://images0.cnblogs.com/blog2015/336693/201507/191053133135514.jpg" alt="" /><img src="https://images0.cnblogs.com/blog2015/336693/201507/191053214071109.jpg" alt="" width="223" height="240" /></p>
+<div style="text-align: right;"><a href="#_labelTop">回到顶部</a><a name="_label3"></a></div>
+<h1 class="title">总结</h1>
+<p>　　通过nginx我们实现了一个简单的负载均衡，实际情况比这复杂很多。比如nginx服务器挂了，那我们的站点就直接挂了，正确的通过keepalived组件来搭建多台nginx服务提供服务。本篇只做为分布式系统的开篇，后续会陆续推出Redis缓存，数据库实现分布式架构的文章，敬请期待！希望能够得到博客园分布式大牛的指导。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 本篇文章用到的资源打包下载地址：<a href="http://files.cnblogs.com/files/yanweidie/nginx_iis.rar" target="_blank">nginx_iis</a>&nbsp; </p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="articleFooter">
+<p>如果，您认为阅读这篇博客让您有些收获，不妨点击一下右下角的<a id="btnRecommendMyBlog">【<strong>推荐</strong>】</a>按钮。<br />
+如果，您希望更容易地发现我的新博客，不妨点击一下绿色通道的<a onclick="c_follow();">【<strong>关注我</strong>】</a>。</p>
+<div class="blogds">如果，想给予我更多的鼓励，<span class="bold">求打</span>
+ <a id="btn_donate" class="btn_donate" style="position: absolute;" title="Donate 打赏" target="_self"></a>
+</div>
+<p>因为，我的写作热情也离不开您的肯定支持。</p>
+<p>感谢您的阅读，如果您对我的博客所讲述的内容有兴趣，请继续关注我的后续博客，我是焰尾迭 。</p>
+
+</div>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+	<div class="postDesc">posted on 
+<span id="post-date">2015-07-19 11:10</span>&nbsp;
+<a href="https://www.cnblogs.com/yanweidie/">焰尾迭</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=4658136" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(4658136);return false;">收藏</a></div>
+</div>
+
+
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 114902, cb_blogApp = 'yanweidie', cb_blogUserGuid = '91ae0150-efe9-e011-8ee0-842b2b196315';
+    var cb_entryId = 4658136, cb_entryCreatedDate = '2015-07-19 11:10', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div></div>
+
+
+		</div>
+	</div>
+	<!-- left ends -->
+	<!-- right starts -->
+	<div id="right">
+		<!-- 右侧工具部分 -->
+		<div id="right_content">
+	
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+	
+			<div id="calendar"><div id="calendar"><div id="blog-calendar" style="display:none"></div></div>                
+                    <script>loadBlogDefaultCalendar();</script></div>
+			
+				<DIV id="leftcontentcontainer">
+					<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+				</DIV>
+			
+		</div>
+		<!-- //右侧工具部分 -->
+		<div id="footer">
+			<!--done-->
+Copyright &copy; 2020 焰尾迭
+<br /><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+		</div>
+	</div>
+	<!-- right ends -->
+	<div class="clear"></div>
+	
+</div>
+
+
+    <div id="page_end_html">
+        <script type="text/javascript" src="https://files.cnblogs.com/files/yanweidie/yanweidie.js?ver=20160929"></script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=54660472" charset="UTF-8"></script>
+<div  id="layui-layer-shade"  style="position:fixed;left:0;top:0;width:100%;height:100%;z-index:9999; background-color:#000; opacity:0.3; filter:alpha(opacity=30);display: none;"></div>
+<div id="layui-layer-content" style="display: none;position: fixed;z-index:10000;height: 200px;width: 400px;left: 50%;top: 50%;margin-left: -200px;margin-top: -100px;">
+    <div align="center" ><a href="javascript:void(0)" style="padding-right: 30px;"><img width="180" height="180" class="alignnone" alt="支付宝捐赠" src="https://images2015.cnblogs.com/blog/336693/201605/336693-20160524174752163-1554089556.png"></a> <a href="javascript:void(0)"> <img width="180" height="180" class="alignnoe" alt="微信打赏" src="https://images2015.cnblogs.com/blog/336693/201605/336693-20160524174809834-1334095025.png"></a></div><div style="text-align: center;"><strong><span style="color: rgb(51, 127, 229);">欢迎资助我持续写作，</span><span style="color: rgb(255, 102, 0);">金额随意,欢迎来赏！</span></strong></div>
+</div>
+<div style="display: none;" id="rocket-to-top">
+    <div style="opacity:0;display: block;" class="level-2"></div>
+    <div class="level-3"></div>
+</div>
+    </div>
+</body>
+</html>

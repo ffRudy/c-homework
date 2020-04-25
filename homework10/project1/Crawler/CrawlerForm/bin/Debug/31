@@ -1,0 +1,1260 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="2015年饿了么，百度外卖，美团外卖，口碑外卖几家几乎分完了外卖这碗羹，让其他外卖网站几乎举步维艰了，也让那些蠢蠢欲动想进入外卖领域的人犹豫不决了（这估计是要砸我饭碗的节奏了，ヾ(＠⌒ー⌒＠)ノ）。当" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>订餐系统之同步口碑外卖商家菜单与点点送订单 - 2J - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=-oFz8B4m7JhHaZzdTkzPza2oLZNDRR8obnCz6w7OHbU" />
+    <link id="MainCss" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd.min.css?v=gS0FloTY-RBJQcN3GCAKG6fAr6HHKtDMTw60VxjN79c" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/jijunjian/custom.css?v=WI3eRo7midbwNzmh7EMewRylXm0=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd-mobile.min.css?v=VacchHeVg6bp3gCO8NqMH8D8fhA8iyRbb0JgoDUvn4o" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/jijunjian/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/jijunjian/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/jijunjian/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=uk-as-QYRHtjaAbeEigAktvhwf01NRrnle-6exg65Ak"></script>
+    <script>
+        var currentBlogId = 139716;
+        var currentBlogApp = 'jijunjian';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'iMetro_HD';
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/jijunjian/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/jijunjian/">成为一名优秀的程序员</a>
+</h1>
+<h2>
+
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/jijunjian/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/2J">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/jijunjian/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+25&nbsp; </span>
+<span id="stats_article_count">文章 - 
+0&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+424</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/jijunjian/p/5041675.html">订餐系统之同步口碑外卖商家菜单与点点送订单</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+    <div id="cnblogs_post_description" style="display: none">
+        2015年饿了么，百度外卖，美团外卖，口碑外卖几家几乎分完了外卖这碗羹，让其他外卖网站几乎举步维艰了，也让那些蠢蠢欲动想进入外卖领域的人犹豫不决了（这估计是要砸我饭碗的节奏了，ヾ(＠⌒ー⌒＠)ノ）。当然了，喝了外卖这碗羹，肯定得有“产物”，不然，还不被撑破了肚皮的么。对，这个产物就是外卖订单，是大量的外卖订单，商户的配送员能力非常有限，于是第三方的配送公司如如雨后春笋般冒了出来，当然了，市场大，竞争也非常残酷，有些刚冒出头，就被‘扼杀’在襁褓中了；估计还有不少的没找好“土壤”，压根就没冒出来；肯定还有好些隔岸观火，跃跃欲试的主儿...，反正是你方唱罢我登场，你有张良计我有过墙梯，好不热闹。热闹落尽，平淡归真，不少配送公司才发现：指望某一个平台，订单有限，壮大何其难；再则，大部分用户估计也我一样，没有忠诚度，哪家优惠大，就去哪家。于是，一方面开始发展自己的业务（开发一个自己的app），其次接口多家平台（每个平台一个app）...就这样，活下来的配送公司业务稳定了，订单也稳定了，但是问题来了：调度人员得几个平台来回切换，操作还不一样，配送员也得在几个app中切换，你要知道每个配送员身上的订
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>　　2015年饿了么、百度外卖、美团外卖、口碑外卖几家几乎分完了外卖这碗羹，让其他外卖网站几乎举步维艰，也让那些蠢蠢欲动想进入外卖领域的人犹豫不决了（这估计是要砸我饭碗的节奏啊，ヾ(＠⌒ー⌒＠)ノ）。当然了，喝了外卖这碗羹，肯定得有&ldquo;产物&rdquo;，不然，还不被撑破了肚皮么。对，这个"产物"就是外卖订单，是大量的外卖订单，商户的配送员能力非常有限，于是第三方的配送公司如雨后春笋般的冒了出来，当然了，市场大，竞争也非常残酷，有些刚冒出头，就被"扼杀"在襁褓里了；估计还有不少的没找好&ldquo;土壤&rdquo;，压根就没冒出来；肯定还有好些隔岸观火，跃跃欲试的主儿....反正是你方唱罢我登场，你有张良计我有过墙梯，好不热闹呢！！</p>
+<p>　　热闹落尽，平淡归真，不少配送公司才发现：指望某一个平台，订单有限，壮大何其难？再则，大部分用户估计也和我一样，没有忠诚度，哪家优惠大，就去哪家。于是，一方面开始发展自己的业务（开发一个自己的app），其次接口多家平台（每个平台一个app）..... 就这样，活下来的配送公司业务稳定了，订单也稳定了，但是问题来了：调度人员得几个平台来回切换，操作还不一样，配送员也得在几个app中切换，你要知道每个配送员身上的订单，还得费不小劲....于是，整合各家订单，统一调度，集中配送，让客服与配送员从其他平台解放出来，重复单一动作，效率自然就高了！但是愿望是美好的，现实是残酷的：除了口碑有完整的对配送商的接口外（之前申请还非常麻烦，不知道现在好些了没），美团外卖只对品牌商家开放了接口外，压根没有对配送商的接口；饿了么找半天也没找着相关接口....虽然现在没有，但是我估计着，不久的将来这几个肯定会有针对配送商的接口。既然现在只有口碑有相关接口，那这一系列文章就以口碑外卖接口为准。以后，如果其他平台有了相关接口，我再给大家分享下。说得不好的地方，也请大家海涵、指出哈！</p>
+<p>　　之前的文章<a href="http://www.cnblogs.com/jijunjian/p/3667608.html" target="_blank">《<span class="postTitle2">订餐系统之自动确认淘点点订单</span>》</a>已经介绍过相关应用的申请，及获取授权账号下的订单，在这里就赘述了，有兴趣的可以了解下。</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code" style="background-color: #008000;"><span class="cnblogs_code_collapse">批量上传与下载口碑商家菜单 <br /></span></div>
+<p>&nbsp;　　在口碑商家后台添加过菜单的人都知道，商品只能一个个添加，如果只有1、2个商家还好，但是配送商要生存，就得不停的开店，开了店就得上传商品，一个店少说也得有百八十个商品，如此激烈的竞争不开个三、五百家商家生存都难啊....于是，我们会看到这一幕：他们在不停的寻找店铺，到口碑上开设店铺，再一个个添加商品....然后再重复着,重复着,重复着...于是想起了我。下图为批量上传菜单的过程，同时也可以同步口碑商家已经有菜单到本地。这里面有一个注意的地方就是：先上传图片到口碑，返回图片地址，再上传菜单。如果是先上传菜单，再上传图片，特别麻烦。另外，就是接口中有些限制比如：原价不能小于现价，商品介绍不能少于5个字等等之类的，了解就可以了。</p>
+<p>&nbsp;&nbsp;&nbsp; <img src="https://images2015.cnblogs.com/blog/88102/201512/88102-20151216204911052-1297723534.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>　　代码方面都是调用TopSdk.dll封装的方法，自己在简单的封装下，方便使用和复用。我的代码结构如下图：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; baseTopAPI.cs&nbsp; 主要是初始化 appkey，appsecret，top_session几个必要的参数，方便子类调用接口。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; TopSysFoodSort.cs&nbsp; 主要是处理分类相关的接口。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; FoodTopAPI.cs&nbsp; 主要是处理商品相关接口的。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; FoodSortSync.cs&nbsp; 客户端调用，同步分类</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; FoodSync.cs &nbsp; 客户端调用，同步商品</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://images2015.cnblogs.com/blog/88102/201512/88102-20151216212409131-1766957940.png" alt="" /></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 详情代码如下，写得不好，有需要的可以看下:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('f8e40bf0-a0f3-439e-a567-671d95e64628')"><img id="code_img_closed_f8e40bf0-a0f3-439e-a567-671d95e64628" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_f8e40bf0-a0f3-439e-a567-671d95e64628" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('f8e40bf0-a0f3-439e-a567-671d95e64628',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_f8e40bf0-a0f3-439e-a567-671d95e64628" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.Model;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.SQLServerDAL;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Newtonsoft.Json;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Generic;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Linq;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Text;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Web;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Top.Api;
+
+</span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+<span style="color: #808080;">///</span><span style="color: #008000;"> 淘点点调用接口基类
+</span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> baseTopAPI
+{
+    </span><span style="color: #0000ff;">public</span> SortedList&lt;<span style="color: #0000ff;">string</span>, <span style="color: #0000ff;">string</span>&gt; parameters = <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> appkey { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> appsecret { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> top_session { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 系统商家编号
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span> shopid { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 淘宝商家编号
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">long</span> TaoBaoId { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 接口地址
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> serverurl = <span style="color: #800000;">"</span><span style="color: #800000;">http://gw.api.taobao.com/router/rest?</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+
+    </span><span style="color: #0000ff;">public</span> baseTopAPI(<span style="color: #0000ff;">int</span><span style="color: #000000;"> shopid)
+    {
+        parameters </span>= <span style="color: #0000ff;">new</span> SortedList&lt;<span style="color: #0000ff;">string</span>, <span style="color: #0000ff;">string</span>&gt;<span style="color: #000000;">();
+        IList</span>&lt;taobaoAPIAcountInfo&gt; apis =<span style="color: #000000;"> SectionProxyData.GettaobaoAPIAcountList();
+
+        TogoInfo shop </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Togo().GetModelByDataId(shopid);
+        </span><span style="color: #0000ff;">if</span> (shop.shoptype != <span style="color: #800080;">0</span> &amp;&amp; shop.ReveVar1 != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> key <span style="color: #0000ff;">in</span><span style="color: #000000;"> apis)
+            {
+                </span><span style="color: #0000ff;">if</span> (shop.shoptype ==<span style="color: #000000;"> key.ID)
+                {
+                    </span><span style="color: #0000ff;">this</span>.appkey =<span style="color: #000000;"> key.classname;
+                    </span><span style="color: #0000ff;">this</span>.appsecret =<span style="color: #000000;"> key.pic;
+                    </span><span style="color: #0000ff;">this</span>.top_session =<span style="color: #000000;"> key.hovepic;
+                    </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+                }
+            }
+        }
+        TaoBaoId </span>=<span style="color: #000000;"> Convert.ToInt64(shop.ReveVar1);
+        </span><span style="color: #0000ff;">this</span>.shopid =<span style="color: #000000;"> shopid;
+    }
+
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 用任意一个api即可
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #0000ff;">public</span><span style="color: #000000;"> baseTopAPI()
+    {
+        parameters </span>= <span style="color: #0000ff;">new</span> SortedList&lt;<span style="color: #0000ff;">string</span>, <span style="color: #0000ff;">string</span>&gt;<span style="color: #000000;">();
+        taobaoAPIAcountInfo apiconfig </span>=<span style="color: #000000;"> SectionProxyData.GettaobaoAPIAcountList().First();
+
+        </span><span style="color: #0000ff;">this</span>.appkey =<span style="color: #000000;"> apiconfig.classname;
+        </span><span style="color: #0000ff;">this</span>.appsecret =<span style="color: #000000;"> apiconfig.pic;
+        </span><span style="color: #0000ff;">this</span>.top_session =<span style="color: #000000;"> apiconfig.hovepic;
+
+    }
+
+}</span></pre>
+</div>
+<span class="cnblogs_code_collapse">baseTopAPI</span></div>
+<p>&nbsp;</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('8e0d7890-1564-4673-8489-4bdddf616dab')"><img id="code_img_closed_8e0d7890-1564-4673-8489-4bdddf616dab" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_8e0d7890-1564-4673-8489-4bdddf616dab" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('8e0d7890-1564-4673-8489-4bdddf616dab',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_8e0d7890-1564-4673-8489-4bdddf616dab" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.Common;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.Model;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.SQLServerDAL;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Newtonsoft.Json;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Generic;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Linq;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Web;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Top.Api;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Top.Api.Request;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Top.Api.Response;
+
+</span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+<span style="color: #808080;">///</span><span style="color: #008000;"> 商品分类
+</span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> FoodSortTopAPI : baseTopAPI
+{
+    </span><span style="color: #0000ff;">public</span> FoodSortTopAPI(<span style="color: #0000ff;">int</span><span style="color: #000000;"> shopid)
+        : </span><span style="color: #0000ff;">base</span><span style="color: #000000;">(shopid)
+    {
+        
+    }
+
+    </span><span style="color: #0000ff;">public</span> apiResultInfo CallServer(<span style="color: #0000ff;">int</span> operate, <span style="color: #0000ff;">string</span><span style="color: #000000;"> data)
+    {
+        apiResultInfo rs </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> apiResultInfo();
+        </span><span style="color: #0000ff;">if</span> (TaoBaoId == <span style="color: #800080;">0</span><span style="color: #000000;">)
+        {
+            rs.error_info </span>= <span style="color: #800000;">"</span><span style="color: #800000;">top_session，或者淘宝商家编号未设置未设置</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            rs.error_no </span>= <span style="color: #800000;">"</span><span style="color: #800000;">1</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> rs;
+        }
+
+        ITopClient client </span>= <span style="color: #0000ff;">new</span> DefaultTopClient(serverurl, appkey, appsecret, <span style="color: #800000;">"</span><span style="color: #800000;">json</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+        WaimaiCategoryOperateRequest req </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> WaimaiCategoryOperateRequest();
+        req.ShopId </span>=<span style="color: #000000;"> TaoBaoId;
+        req.Operate </span>=<span style="color: #000000;"> operate;
+        </span><span style="color: #0000ff;">if</span> (operate &gt; <span style="color: #800080;">0</span><span style="color: #000000;">)
+        {
+            req.Data </span>=<span style="color: #000000;"> data;
+        }
+
+        WaimaiCategoryOperateResponse response </span>=<span style="color: #000000;"> client.Execute(req, top_session);
+
+
+        </span><span style="color: #0000ff;">if</span> (response != <span style="color: #0000ff;">null</span> &amp;&amp; response.Result != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+        {
+            rs.error_info </span>= <span style="color: #800000;">""</span><span style="color: #000000;">;
+            rs.error_no </span>= <span style="color: #800000;">"</span><span style="color: #800000;">0</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            rs.data </span>=<span style="color: #000000;"> response.Result;
+        }
+        </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+        {
+            rs.error_info </span>= <span style="color: #800000;">"</span><span style="color: #800000;">接口出错:</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> response.ErrMsg;
+            rs.error_no </span>= <span style="color: #800000;">"</span><span style="color: #800000;">1</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+        }
+
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> rs;
+    }
+
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> TopFoodSort QueryFoodSort()
+    {
+        TopFoodSort model </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> TopFoodSort();
+        apiResultInfo rs </span>= CallServer(<span style="color: #800080;">0</span>, <span style="color: #800000;">""</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">if</span> (rs.error_no == <span style="color: #800000;">"</span><span style="color: #800000;">0</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+        {
+            model </span>= JsonConvert.DeserializeObject&lt;TopFoodSort&gt;<span style="color: #000000;">(rs.data.ToString());
+            </span><span style="color: #0000ff;">if</span> (model == <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+            {
+                model </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> TopFoodSort();
+                model.cates </span>= <span style="color: #0000ff;">new</span> List&lt;CatesItem&gt;<span style="color: #000000;">();
+            }
+            model.msg </span>= <span style="color: #800000;">""</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+        {
+            model.msg </span>=<span style="color: #000000;"> rs.error_info;
+        }
+
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> model;
+    }
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 删除分类
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="shopid"&gt;&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="Top_sort_cids"&gt;</span><span style="color: #008000;">多个用逗号分开</span><span style="color: #808080;">&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+    <span style="color: #0000ff;">public</span> apiResultInfo DelFoodSort(<span style="color: #0000ff;">string</span><span style="color: #000000;"> Top_sort_cids)
+    {
+        TopFoodSort add </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> TopFoodSort();
+        add.cates </span>= <span style="color: #0000ff;">new</span> List&lt;CatesItem&gt;<span style="color: #000000;">();
+        </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> sortid <span style="color: #0000ff;">in</span> Top_sort_cids.Split(<span style="color: #800000;">'</span><span style="color: #800000;">,</span><span style="color: #800000;">'</span><span style="color: #000000;">))
+        {
+            CatesItem item </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> CatesItem();
+            item.cid </span>=<span style="color: #000000;"> sortid;
+            add.cates.Add(item);
+        }
+
+        </span><span style="color: #0000ff;">string</span> data =<span style="color: #000000;"> JsonConvert.SerializeObject(add);
+        apiResultInfo rs </span>= CallServer(<span style="color: #800080;">3</span><span style="color: #000000;">, data);
+
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> rs;
+    }
+
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 添加一个分类
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="shopid"&gt;&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="addsort"&gt;&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+    <span style="color: #0000ff;">public</span><span style="color: #000000;"> apiResultInfo CreateOneFoodSort(EFoodSortInfo addsort)
+    {
+        IList</span>&lt;EFoodSortInfo&gt; addsorts = <span style="color: #0000ff;">new</span> List&lt;EFoodSortInfo&gt;<span style="color: #000000;">();
+        addsorts.Add(addsort);
+
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> CreateFoodSortS(addsorts);
+    }
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 添加一个分类
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="shopid"&gt;&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="addsort"&gt;&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+    <span style="color: #0000ff;">public</span> apiResultInfo CreateFoodSortS(IList&lt;EFoodSortInfo&gt;<span style="color: #000000;"> addsorts)
+    {
+        TopFoodSort add </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> TopFoodSort();
+        add.cates </span>= <span style="color: #0000ff;">new</span> List&lt;CatesItem&gt;<span style="color: #000000;">();
+
+        </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> addsort <span style="color: #0000ff;">in</span><span style="color: #000000;"> addsorts)
+        {
+            CatesItem item </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> CatesItem();
+            item.name </span>=<span style="color: #000000;"> addsort.SortName;
+            item.order </span>= <span style="color: #800080;">100000</span> - addsort.Jorder; <span style="color: #008000;">//</span><span style="color: #008000;">这里用10000-排序得到新的排序，是因为系统里是从降序，淘点点是升序</span>
+<span style="color: #000000;">            add.cates.Add(item);
+        }
+
+
+        </span><span style="color: #0000ff;">string</span> data =<span style="color: #000000;"> JsonConvert.SerializeObject(add);
+        apiResultInfo rs </span>= CallServer(<span style="color: #800080;">1</span><span style="color: #000000;">, data);
+
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> rs;
+    }
+
+}</span></pre>
+</div>
+<span class="cnblogs_code_collapse">FoodSortTopAPI</span></div>
+<p>&nbsp;</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('29800728-c6fd-48fc-807e-7887c7e3213d')"><img id="code_img_closed_29800728-c6fd-48fc-807e-7887c7e3213d" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_29800728-c6fd-48fc-807e-7887c7e3213d" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('29800728-c6fd-48fc-807e-7887c7e3213d',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_29800728-c6fd-48fc-807e-7887c7e3213d" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.Common;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.Model;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.SQLServerDAL;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Newtonsoft.Json;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Generic;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Linq;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Web;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Top.Api;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Top.Api.Request;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Top.Api.Response;
+
+</span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+<span style="color: #808080;">///</span><span style="color: #008000;"> 淘宝商品接口
+</span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> FoodTopAPI : baseTopAPI
+{
+    </span><span style="color: #0000ff;">public</span> FoodTopAPI(<span style="color: #0000ff;">int</span><span style="color: #000000;"> shopid)
+        : </span><span style="color: #0000ff;">base</span><span style="color: #000000;">(shopid)
+    {
+
+    }
+
+
+    </span><span style="color: #0000ff;">public</span> apiResultInfo AddFood(EFoodInfo food, <span style="color: #0000ff;">long</span> syssortid, <span style="color: #0000ff;">string</span><span style="color: #000000;"> shopsortid)
+    {
+        apiResultInfo rs </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> apiResultInfo();
+        </span><span style="color: #0000ff;">if</span> (TaoBaoId == <span style="color: #800080;">0</span><span style="color: #000000;">)
+        {
+            rs.error_info </span>= <span style="color: #800000;">"</span><span style="color: #800000;">top_session，或者淘宝商家编号未设置未设置</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            rs.error_no </span>= <span style="color: #800000;">"</span><span style="color: #800000;">1</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> rs;
+        }
+
+        ITopClient client </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> DefaultTopClient(serverurl, appkey, appsecret);
+        WaimaiItemAddRequest req </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> WaimaiItemAddRequest();
+        req.Title </span>=<span style="color: #000000;"> food.Name;
+        req.Price </span>=<span style="color: #000000;"> food.Price.ToString();
+        req.Oriprice </span>=<span style="color: #000000;"> food.Price.ToString();
+        req.Quantity </span>= <span style="color: #800080;">9999L</span><span style="color: #000000;">;
+        req.Picurl </span>= food.Picture.Length == <span style="color: #800080;">0</span> ? SectionProxyData.GetSetValue(<span style="color: #800080;">39</span><span style="color: #000000;">):food.Picture;
+        req.Goodsno </span>= <span style="color: #800000;">""</span><span style="color: #000000;">;
+        req.Auctionstatus </span>= <span style="color: #800080;">0L</span><span style="color: #000000;">;
+        req.Limitbuy </span>= <span style="color: #800080;">0L</span><span style="color: #000000;">;
+        req.Categoryid </span>=<span style="color: #000000;"> syssortid;
+        req.Auctiondesc </span>=<span style="color: #000000;"> food.Introduce;
+        req.Shopids </span>=<span style="color: #000000;"> TaoBaoId.ToString();
+        req.Categoryids </span>=<span style="color: #000000;"> shopsortid;
+
+        WaimaiItemAddResponse response </span>=<span style="color: #000000;"> client.Execute(req, top_session);
+        </span><span style="color: #0000ff;">if</span> (response != <span style="color: #0000ff;">null</span> &amp;&amp; response.Result != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+        {
+            rs.error_info </span>= <span style="color: #800000;">""</span><span style="color: #000000;">;
+            rs.error_no </span>= <span style="color: #800000;">"</span><span style="color: #800000;">0</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            rs.data </span>=<span style="color: #000000;"> response.Result;
+            rs.topFoodID </span>=<span style="color: #000000;"> response.Result.ResultData;
+
+        }
+        </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+        {
+            rs.error_info </span>= <span style="color: #800000;">"</span><span style="color: #800000;">接口出错:</span><span style="color: #800000;">"</span> + response.ErrMsg + <span style="color: #800000;">"</span><span style="color: #800000;">(</span><span style="color: #800000;">"</span> + response.ErrCode + <span style="color: #800000;">"</span><span style="color: #800000;">)</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            rs.error_no </span>= <span style="color: #800000;">"</span><span style="color: #800000;">1</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+
+            HJlog.toLog(</span><span style="color: #800000;">"</span><span style="color: #800000;">AddFood错误：</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> rs.error_info);
+        }
+
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> rs;
+    }
+
+    </span><span style="color: #0000ff;">public</span> apiResultInfo AddFood(<span style="color: #0000ff;">int</span> foodid, <span style="color: #0000ff;">long</span> syssortid, <span style="color: #0000ff;">string</span><span style="color: #000000;"> shopsortid)
+    {
+        EFoodInfo addfood </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> EFood().GetModel(foodid);
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> AddFood(addfood, syssortid, shopsortid);
+    }
+
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 操作商品
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="ids"&gt;</span><span style="color: #008000;">待操作宝贝id，多个以英文逗号分隔</span><span style="color: #808080;">&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="operate"&gt;</span><span style="color: #008000;">操作类型(1上架2下架3删除)</span><span style="color: #808080;">&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> operateFood(<span style="color: #0000ff;">string</span> ids, <span style="color: #0000ff;">int</span><span style="color: #000000;"> operate)
+    {
+        </span><span style="color: #0000ff;">int</span> maxsize = <span style="color: #800080;">20</span>;<span style="color: #008000;">//</span><span style="color: #008000;">淘点点一次能删除20个商品</span>
+
+        <span style="color: #0000ff;">string</span> reqids = <span style="color: #800000;">""</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">string</span>[] foodids = ids.Split(<span style="color: #800000;">'</span><span style="color: #800000;">,</span><span style="color: #800000;">'</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">if</span> (foodids.Length &gt;<span style="color: #000000;"> maxsize)
+        {    
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; foodids.Length; i++<span style="color: #000000;">)
+            {
+                reqids </span>+= foodids[i] + <span style="color: #800000;">"</span><span style="color: #800000;">,</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">if</span> (i % (maxsize -<span style="color: #800080;">1</span>) == <span style="color: #800080;">0</span> &amp;&amp; i &gt; <span style="color: #800080;">0</span><span style="color: #000000;">)
+                {
+                    operateFoodCallServer(WebUtility.dellast(reqids),operate);
+                    reqids </span>= <span style="color: #800000;">""</span><span style="color: #000000;">;
+                }
+            }
+        }
+        </span><span style="color: #0000ff;">if</span> (reqids != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            operateFoodCallServer(WebUtility.dellast(reqids), operate);
+        }
+
+
+
+
+    }
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 操作商品
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="ids"&gt;</span><span style="color: #008000;">待操作宝贝id，多个以英文逗号分隔</span><span style="color: #808080;">&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="operate"&gt;</span><span style="color: #008000;">操作类型(1上架2下架3删除)</span><span style="color: #808080;">&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+    <span style="color: #0000ff;">public</span> apiResultInfo operateFoodCallServer(<span style="color: #0000ff;">string</span> ids, <span style="color: #0000ff;">int</span><span style="color: #000000;"> operate)
+    {
+        apiResultInfo rs </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> apiResultInfo();
+        ITopClient client </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> DefaultTopClient(serverurl, appkey, appsecret);
+        WaimaiItemOperateRequest req </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> WaimaiItemOperateRequest();
+
+        req.Ids </span>=<span style="color: #000000;"> ids;
+        req.O </span>=<span style="color: #000000;"> operate;
+        WaimaiItemOperateResponse response </span>=<span style="color: #000000;"> client.Execute(req, top_session);
+
+        </span><span style="color: #0000ff;">if</span> (response != <span style="color: #0000ff;">null</span> &amp;&amp; response.BatchOperateResult != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+        {
+            rs.error_info </span>= <span style="color: #800000;">""</span><span style="color: #000000;">;
+            rs.error_no </span>= <span style="color: #800000;">"</span><span style="color: #800000;">0</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            rs.data </span>=<span style="color: #000000;"> response.BatchOperateResult;
+        }
+        </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+        {
+            rs.error_info </span>= <span style="color: #800000;">"</span><span style="color: #800000;">接口出错:</span><span style="color: #800000;">"</span> + response.ErrMsg + <span style="color: #800000;">"</span><span style="color: #800000;">(</span><span style="color: #800000;">"</span> + response.ErrCode + <span style="color: #800000;">"</span><span style="color: #800000;">)</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            rs.error_no </span>= <span style="color: #800000;">"</span><span style="color: #800000;">1</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+
+            HJlog.toLog(</span><span style="color: #800000;">"</span><span style="color: #800000;">operateFood错误：</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> rs.error_info);
+        }
+
+
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> rs;
+    }
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 查询商品，如果keyword为空，就不加此参数
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="keyword"&gt;&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+    <span style="color: #0000ff;">public</span> List&lt;Top.Api.Domain.TopAuction&gt; queryFood(<span style="color: #0000ff;">string</span><span style="color: #000000;"> keyword)
+    {
+        ITopClient client </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> DefaultTopClient(serverurl, appkey, appsecret);
+        WaimaiItemlistGetRequest req </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> WaimaiItemlistGetRequest();
+        req.Shopid </span>=<span style="color: #000000;"> TaoBaoId;
+        req.SalesStatus </span>= <span style="color: #800080;">0L</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">if</span> (keyword != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            req.Keyword </span>=<span style="color: #000000;"> keyword;
+        }
+
+        req.PageNo </span>= <span style="color: #800080;">1L</span><span style="color: #000000;">;
+        req.PageSize </span>= <span style="color: #800080;">200L</span><span style="color: #000000;">;
+        req.Fields </span>= <span style="color: #800000;">"</span><span style="color: #800000;">itemid,title,price,oriprice,goods_no,auction_desc,pic_url,category_id</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+        WaimaiItemlistGetResponse response </span>=<span style="color: #000000;"> client.Execute(req, top_session);
+
+        </span><span style="color: #0000ff;">if</span> (response != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+        {
+            </span><span style="color: #0000ff;">long</span> total_results =<span style="color: #000000;"> response.TotalResults;
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> response.DataList;
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+    }
+}</span></pre>
+</div>
+<span class="cnblogs_code_collapse">FoodTopAPI</span></div>
+<p>&nbsp;</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('d18d15c4-cf67-4e48-b648-f7920e211015')"><img id="code_img_closed_d18d15c4-cf67-4e48-b648-f7920e211015" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_d18d15c4-cf67-4e48-b648-f7920e211015" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('d18d15c4-cf67-4e48-b648-f7920e211015',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_d18d15c4-cf67-4e48-b648-f7920e211015" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff;">using</span><span style="color: #000000;"> System;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Generic;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Linq;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Web;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.Model;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.SQLServerDAL;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.DBUtility;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Data;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.Common;
+
+</span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+<span style="color: #808080;">///</span><span style="color: #008000;"> 商品分类同步
+</span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> FoodSortSync
+{
+    FoodSortTopAPI sortapid </span>= <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+    </span><span style="color: #0000ff;">public</span> FoodSortSync(<span style="color: #0000ff;">int</span><span style="color: #000000;"> shopid)
+    {
+        sortapid </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> FoodSortTopAPI(shopid);
+    }
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 从淘点点同步到系统
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+    <span style="color: #0000ff;">public</span><span style="color: #000000;"> apiResultInfo SyncFromTop()
+    {
+        TopFoodSort Topsorts </span>=<span style="color: #000000;"> sortapid.QueryFoodSort();
+        </span><span style="color: #0000ff;">string</span> sql = <span style="color: #800000;">"</span><span style="color: #800000;"> DELETE dbo.EFoodSort WHERE TogoNUm =  </span><span style="color: #800000;">"</span>+<span style="color: #000000;">sortapid.shopid;
+        WebUtility.excutesql(sql);
+
+        IList</span>&lt;DBEFoodSortInfo&gt; websorts = <span style="color: #0000ff;">new</span> List&lt;DBEFoodSortInfo&gt;<span style="color: #000000;">();
+
+        </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> topsort <span style="color: #0000ff;">in</span><span style="color: #000000;"> Topsorts.cates)
+        {
+            DBEFoodSortInfo websort </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> DBEFoodSortInfo();
+            websort.SortName </span>=<span style="color: #000000;"> topsort.name;
+            websort.JOrder </span>= <span style="color: #800080;">10000</span> -<span style="color: #000000;"> topsort.order;
+            websort.TogoNUm </span>=<span style="color: #000000;"> sortapid.shopid;
+            websort.topsortid </span>=<span style="color: #000000;"> topsort.cid;
+            websorts.Add(websort);
+
+        }
+
+        DataTable dt </span>= CollectionHelper.ConvertTo(websorts, <span style="color: #800000;">"</span><span style="color: #800000;">EFoodSort</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+
+        SQLHelper.SqlBulkCopyData(dt);  
+
+
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+    }
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 上传菜单到口碑
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+    <span style="color: #0000ff;">public</span><span style="color: #000000;"> apiResultInfo Upload()
+    {
+        TopFoodSort Topsorts </span>=<span style="color: #000000;"> sortapid.QueryFoodSort();
+        IList</span>&lt;EFoodSortInfo&gt; Sysorts = <span style="color: #0000ff;">new</span><span style="color: #000000;"> EFoodSort().GetListByTogoNum(sortapid.shopid);
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">1，删除系统中没有，而淘宝中有的分类</span>
+        <span style="color: #0000ff;">string</span> notinsyssortids = <span style="color: #800000;">""</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> topsort <span style="color: #0000ff;">in</span><span style="color: #000000;"> Topsorts.cates)
+        {
+            </span><span style="color: #0000ff;">if</span> (Sysorts.Where(a =&gt; a.SortName == topsort.name).ToList().Count == <span style="color: #800080;">0</span><span style="color: #000000;">)
+            {
+                notinsyssortids </span>+= topsort.cid + <span style="color: #800000;">"</span><span style="color: #800000;">,</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            }
+        }
+        notinsyssortids </span>=<span style="color: #000000;"> WebUtility.dellast(notinsyssortids);
+        </span><span style="color: #0000ff;">if</span> (notinsyssortids != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            sortapid.DelFoodSort(notinsyssortids);
+        }
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">添加系统中有，而淘宝中没有的</span>
+        IList&lt;EFoodSortInfo&gt; notintopsorts = <span style="color: #0000ff;">new</span> List&lt;EFoodSortInfo&gt;<span style="color: #000000;">();
+        </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> syssort <span style="color: #0000ff;">in</span><span style="color: #000000;"> Sysorts)
+        {
+            </span><span style="color: #0000ff;">if</span> (Topsorts.cates.Where(a =&gt; a.name == syssort.SortName).ToList().Count == <span style="color: #800080;">0</span><span style="color: #000000;">)
+            {
+                notintopsorts.Add(syssort);
+            }
+        }
+
+        </span><span style="color: #0000ff;">if</span> (notintopsorts.Count &gt; <span style="color: #800080;">0</span><span style="color: #000000;">)
+        {
+            sortapid.CreateFoodSortS(notintopsorts);
+        }
+
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+    }
+}</span></pre>
+</div>
+<span class="cnblogs_code_collapse">FoodSortSync</span></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('dc31e39d-23c8-44a4-b775-95987284e51a')"><img id="code_img_closed_dc31e39d-23c8-44a4-b775-95987284e51a" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_dc31e39d-23c8-44a4-b775-95987284e51a" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('dc31e39d-23c8-44a4-b775-95987284e51a',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_dc31e39d-23c8-44a4-b775-95987284e51a" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff;">using</span><span style="color: #000000;"> System;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Generic;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Linq;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Web;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.Model;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.SQLServerDAL;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Data;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.DBUtility;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.Common;
+
+</span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+<span style="color: #808080;">///</span><span style="color: #008000;"> 商品同步
+</span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> FoodSync
+{
+    FoodTopAPI api </span>= <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+    </span><span style="color: #0000ff;">public</span> FoodSync(<span style="color: #0000ff;">int</span><span style="color: #000000;"> shopid)
+    {
+        api </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> FoodTopAPI(shopid);
+    }
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 从淘点点同步菜单
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+    <span style="color: #0000ff;">public</span><span style="color: #000000;"> apiResultInfo SyncFromTop()
+    {
+        List</span>&lt;Top.Api.Domain.TopAuction&gt; Topfoods = api.queryFood(<span style="color: #800000;">""</span><span style="color: #000000;">);
+
+        IList</span>&lt;EFoodSortInfo&gt; websorts = <span style="color: #0000ff;">new</span><span style="color: #000000;"> EFoodSort().GetListByTogoNum(api.shopid);
+
+        </span><span style="color: #0000ff;">string</span> sql = <span style="color: #800000;">"</span><span style="color: #800000;">  DELETE dbo.EFood WHERE TogoNum = </span><span style="color: #800000;">"</span> +<span style="color: #000000;"> api.shopid;
+        WebUtility.excutesql(sql);
+
+        IList</span>&lt;DBEFoodInfo&gt; webfoods = <span style="color: #0000ff;">new</span> List&lt;DBEFoodInfo&gt;<span style="color: #000000;">();
+
+        </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> topfood <span style="color: #0000ff;">in</span><span style="color: #000000;"> Topfoods)
+        {
+            DBEFoodInfo food </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> DBEFoodInfo();
+            food.FoodID </span>= <span style="color: #800080;">0</span><span style="color: #000000;">;
+            food.Name </span>=<span style="color: #000000;"> topfood.Title;
+            food.Picture </span>=<span style="color: #000000;"> topfood.PicUrl;
+            food.FoodType </span>= <span style="color: #800080;">0</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> websort <span style="color: #0000ff;">in</span><span style="color: #000000;"> websorts)
+            {
+                </span><span style="color: #0000ff;">if</span> (topfood.CategoryId.ToString() ==<span style="color: #000000;"> websort.topsortid)
+                {
+                    food.FoodType </span>=<span style="color: #000000;"> websort.SortID;
+                    </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+                }
+            }
+
+            food.Price </span>=<span style="color: #000000;"> Convert.ToDecimal(topfood.Price);
+            food.Introduce </span>=<span style="color: #000000;"> topfood.AuctionDesc;
+            food.Discount </span>= <span style="color: #800080;">10</span><span style="color: #000000;">;
+            food.TogoNum </span>=<span style="color: #000000;"> api.shopid;
+            food.Total </span>= <span style="color: #800080;">0</span><span style="color: #000000;">;
+            food.IsDelete </span>= <span style="color: #800080;">0</span><span style="color: #000000;">;
+            food.WeekDay </span>= <span style="color: #800000;">""</span><span style="color: #000000;">;
+            food.istuan </span>= <span style="color: #800080;">0</span><span style="color: #000000;">;
+            food.nprice </span>=<span style="color: #000000;"> food.Price;
+            food.allnum </span>= <span style="color: #800080;">0</span><span style="color: #000000;">;
+            food.joinnum </span>= <span style="color: #800080;">0</span><span style="color: #000000;">;
+            food.salecount </span>= <span style="color: #800080;">0</span><span style="color: #000000;">;
+            food.PackageFree </span>= <span style="color: #800080;">0</span><span style="color: #000000;">;
+            food.IstuanInve </span>= <span style="color: #800080;">0</span><span style="color: #000000;">;
+
+            webfoods.Add(food);
+        }
+
+        DataTable dt </span>= CollectionHelper.ConvertTo(webfoods, <span style="color: #800000;">"</span><span style="color: #800000;">EFood</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+
+        SQLHelper.SqlBulkCopyData(dt);
+
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+    }
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 上传菜单 
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+    <span style="color: #0000ff;">public</span><span style="color: #000000;"> apiResultInfo Upload()
+    {
+        List</span>&lt;Top.Api.Domain.TopAuction&gt; Topfoods = api.queryFood(<span style="color: #800000;">""</span><span style="color: #000000;">);
+        IList</span>&lt;EFoodInfo&gt; Sysorts = <span style="color: #0000ff;">new</span> EFood().GetList(<span style="color: #800080;">1000</span>, <span style="color: #800080;">1</span>, <span style="color: #800000;">"</span><span style="color: #800000;"> IsDelete = 0 and TogoNum=</span><span style="color: #800000;">"</span> + api.shopid, <span style="color: #800000;">"</span><span style="color: #800000;">Total</span><span style="color: #800000;">"</span>, <span style="color: #800080;">1</span><span style="color: #000000;">);
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">1，删除系统中没有，而淘宝中有的分类</span>
+        <span style="color: #0000ff;">string</span> notinsyids = <span style="color: #800000;">""</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> topsort <span style="color: #0000ff;">in</span><span style="color: #000000;"> Topfoods)
+        {
+            </span><span style="color: #0000ff;">if</span> (Sysorts.Where(a =&gt; a.Name == topsort.Title).ToList().Count == <span style="color: #800080;">0</span><span style="color: #000000;">)
+            {
+                notinsyids </span>+= topsort.ItemId + <span style="color: #800000;">"</span><span style="color: #800000;">,</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            }
+        }
+        notinsyids </span>=<span style="color: #000000;"> WebUtility.dellast(notinsyids);
+        </span><span style="color: #0000ff;">if</span> (notinsyids != <span style="color: #800000;">""</span><span style="color: #000000;">)
+        {
+            api.operateFood(notinsyids, </span><span style="color: #800080;">3</span><span style="color: #000000;">);
+        }
+
+        FoodSortTopAPI sortapi </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> FoodSortTopAPI(api.shopid);
+        TopFoodSort Topsorts </span>=<span style="color: #000000;"> sortapi.QueryFoodSort();
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">添加系统中有，而淘宝中没有的</span>
+        <span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> syssort <span style="color: #0000ff;">in</span><span style="color: #000000;"> Sysorts)
+        {
+            </span><span style="color: #0000ff;">if</span> (Topfoods.Where(a =&gt; a.Title == syssort.Name).ToList().Count == <span style="color: #800080;">0</span><span style="color: #000000;">)
+            {
+                </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> tsort <span style="color: #0000ff;">in</span><span style="color: #000000;"> Topsorts.cates)
+                {
+                    </span><span style="color: #0000ff;">if</span> (tsort.name ==<span style="color: #000000;"> syssort.SortName)
+                    {
+                        apiResultInfo rs </span>=<span style="color: #000000;"> api.AddFood(syssort, Convert.ToInt64(syssort.Weekday), tsort.cid);
+                        </span><span style="color: #0000ff;">if</span> (rs.error_no == <span style="color: #800000;">"</span><span style="color: #800000;">0</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+                        {
+                            WebUtility.excutesql(</span><span style="color: #800000;">"</span><span style="color: #800000;">UPDATE dbo.EFood SET topFoodID = '</span><span style="color: #800000;">"</span>+rs.topFoodID+<span style="color: #800000;">"</span><span style="color: #800000;">' WHERE FoodID = </span><span style="color: #800000;">"</span>+<span style="color: #000000;"> syssort.FoodID);
+                        }
+                        </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+                    }
+                }
+            }
+        }
+
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+    }
+}</span></pre>
+</div>
+<span class="cnblogs_code_collapse">FoodSync</span></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code" style="background-color: #008000;"><span class="cnblogs_code_collapse">批量营业与歇业口碑商家 <br /></span></div>
+<p>&nbsp;　　口碑的商家有这样的一个算是要求吧：如果商家在营业中，一天内多次拒单，或者超时不接单，会让你停业整改一天；再则，口碑的商家后台没有批量营业与歇业店铺的功能（想不通是为什么....）天气晴朗，配送高效，订单自然是多多益善，少数实在不能配送的，与用户友好协商，让他取消，多数还是非常理解的；但遇到打雷、刮风、下雨....等恶劣天气时，订单肯定是一增再增，配送效率一降再降，这时，不能配送的订单可能占了很大的比重，再一个个去沟通，这个成本就非常高了，关掉部分店铺是唯一有效的方法，但等你一个个去口碑商家后台关店时，订单已经堆积成山了，投诉也一个接一个的....<span class="ask-title ">不生在其中 不知其中苦</span>，还是看代码吧，主要就是调用接口，没有太多可说的！</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('9b5493d1-1b64-42e9-bbc8-507eebf2d940')"><img id="code_img_closed_9b5493d1-1b64-42e9-bbc8-507eebf2d940" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_9b5493d1-1b64-42e9-bbc8-507eebf2d940" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('9b5493d1-1b64-42e9-bbc8-507eebf2d940',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_9b5493d1-1b64-42e9-bbc8-507eebf2d940" class="cnblogs_code_hide">
+<pre> <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 商户营业 返回：成功：0,失败：1
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> shopOpen(<span style="color: #0000ff;">string</span> shopid, <span style="color: #0000ff;">string</span><span style="color: #000000;"> sessionkey)
+    {
+        </span><span style="color: #0000ff;">string</span> appkey = <span style="color: #800000;">""</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">string</span> appsecret = <span style="color: #800000;">""</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">string</span> top_session = <span style="color: #800000;">""</span><span style="color: #000000;">;
+        IList</span>&lt;taobaoAPIAcountInfo&gt; apis =<span style="color: #000000;"> SectionProxyData.GettaobaoAPIAcountList();
+        </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> item <span style="color: #0000ff;">in</span><span style="color: #000000;"> apis)
+        {
+            </span><span style="color: #0000ff;">if</span> (item.hovepic ==<span style="color: #000000;"> sessionkey)
+            {
+                top_session </span>=<span style="color: #000000;"> item.hovepic;
+                appsecret </span>=<span style="color: #000000;"> item.pic;
+                appkey </span>=<span style="color: #000000;"> item.classname;
+                </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+            }
+        }
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">3.生成url</span>
+        <span style="color: #0000ff;">string</span> url = <span style="color: #800000;">"</span><span style="color: #800000;">http://gw.api.taobao.com/router/rest?</span><span style="color: #800000;">"</span>;<span style="color: #008000;">//</span><span style="color: #008000;">线上环境: </span><span style="color: #008000; text-decoration: underline;">http://gw.api.taobao.com/router/rest</span><span style="color: #008000;">  测试环境: </span><span style="color: #008000; text-decoration: underline;">http://gw.sandbox.taobao.com/router/rest</span>
+<span style="color: #000000;">
+
+        ITopClient client </span>= <span style="color: #0000ff;">new</span> DefaultTopClient(url, appkey, appsecret, <span style="color: #800000;">"</span><span style="color: #800000;">json</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+        WaimaiShopOpenRequest req </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> WaimaiShopOpenRequest();
+        req.Shopid </span>=<span style="color: #000000;"> Convert.ToInt64(shopid);
+        WaimaiShopOpenResponse response </span>=<span style="color: #000000;"> client.Execute(req, top_session);
+
+        </span><span style="color: #0000ff;">string</span> rs = <span style="color: #800000;">"</span><span style="color: #800000;">1</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+
+        </span><span style="color: #0000ff;">if</span> (response != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+        {
+            rs </span>=<span style="color: #000000;"> response.RetCode; ;
+        }
+
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> rs;
+    }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">shopOpen</span></div>
+<p>&nbsp;</p>
+<p>&nbsp;客户端调用如下，使用 BackgroundWorker 响应操作是否完成。</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('63078857-69ef-4ef0-9b54-a574f15af9f4')"><img id="code_img_closed_63078857-69ef-4ef0-9b54-a574f15af9f4" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_63078857-69ef-4ef0-9b54-a574f15af9f4" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('63078857-69ef-4ef0-9b54-a574f15af9f4',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_63078857-69ef-4ef0-9b54-a574f15af9f4" class="cnblogs_code_hide">
+<pre><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 歇业
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="sender"&gt;&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="e"&gt;&lt;/param&gt;</span>
+    <span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">void</span> offline_Click(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, EventArgs e)
+    {
+      
+        BackgroundWorker bgw;
+        bgw </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> BackgroundWorker();
+        bgw.WorkerSupportsCancellation </span>= <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+        bgw.WorkerReportsProgress </span>= <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+
+        bgw.DoWork </span>+= <span style="color: #0000ff;">new</span><span style="color: #000000;"> DoWorkEventHandler(offline);
+        bgw.RunWorkerCompleted </span>+= <span style="color: #0000ff;">new</span><span style="color: #000000;"> RunWorkerCompletedEventHandler(bgw_RunWorkerCompleted);
+
+        bgw.RunWorkerAsync();
+
+    }
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 歇业
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="sender"&gt;&lt;/param&gt;</span>
+    <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="e"&gt;&lt;/param&gt;</span>
+    <span style="color: #0000ff;">void</span> offline(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, DoWorkEventArgs e)
+    {
+        </span><span style="color: #0000ff;">try</span><span style="color: #000000;">
+        {
+            </span><span style="color: #0000ff;">string</span> IdList = <span style="color: #0000ff;">this</span><span style="color: #000000;">.hidDels.Value;
+            IList</span>&lt;shopserverInfo&gt; shops = dal.GetList(<span style="color: #800080;">100</span>, <span style="color: #800080;">1</span>, <span style="color: #800000;">"</span><span style="color: #800000;">id in (</span><span style="color: #800000;">"</span> + IdList + <span style="color: #800000;">"</span><span style="color: #800000;">)</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">id</span><span style="color: #800000;">"</span>, <span style="color: #800080;">0</span><span style="color: #000000;">);
+            </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> item <span style="color: #0000ff;">in</span><span style="color: #000000;"> shops)
+            {
+                </span><span style="color: #0000ff;">if</span> (<span style="color: #0000ff;">new</span> TaoBaoAPI().shopClose(item.Status.ToString(), item.Parentid) == <span style="color: #800000;">"</span><span style="color: #800000;">0</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+                {
+                    </span><span style="color: #0000ff;">string</span> sql = <span style="color: #800000;">"</span><span style="color: #800000;">UPDATE dbo.shopserver SET Depth = 0 WHERE id = </span><span style="color: #800000;">"</span>+<span style="color: #000000;"> item.ID;
+                    WebUtility.excutesql(sql);
+                }
+            }
+
+        }
+        </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (Exception ee)
+        {
+            HJlog.toLog(ee.ToString());
+        }
+
+    }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">客户端调用</span></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code" style="background-color: #008000;"><span class="cnblogs_code_collapse">接收点点送推送订单 <br /></span></div>
+<p>&nbsp;　　点点送，其实是口碑官方配送的名称，后台也是对接多个配送商，商家选择某个配送商配送后，订单就自动通知到相应配送商，也就配送家的管理系统，可以看订单，管理人员，及相关报表，和配送员app。如果直接用他们提供的，也就没有下文了，具体原因前文已有说明，这里就不多说了。</p>
+<p>　　对接主要有发下几个步骤：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1，申请应用</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2，申请点点送权限包</p>
+<p>　　3，订阅相关消息</p>
+<p>　　4，消息授权接口调用</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5，代码实现接收消息</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6，订单操作相关接口调用</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 具体可参考如下网址 <a href="http://open.taobao.com/doc2/detail.htm?articleId=101663&amp;docType=1&amp;treeId=2" target="_blank">http://open.taobao.com/doc2/detail.htm?articleId=101663&amp;docType=1&amp;treeId=2</a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 代码方面，也是简单的封装了下，接收消息程序以windows service为宿主，随服务启动。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainService.cs 创建，启动服务， 监听订单消息，</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('24c03dcd-47bf-44b1-90b3-2bdfa37b2482')"><img id="code_img_closed_24c03dcd-47bf-44b1-90b3-2bdfa37b2482" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_24c03dcd-47bf-44b1-90b3-2bdfa37b2482" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('24c03dcd-47bf-44b1-90b3-2bdfa37b2482',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_24c03dcd-47bf-44b1-90b3-2bdfa37b2482" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff;">using</span><span style="color: #000000;"> System;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Generic;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.ComponentModel;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Configuration;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Diagnostics;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.ServiceProcess;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Linq;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Text;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Specialized;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Text.RegularExpressions;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Threading;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.ServiceModel;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.Commond;
+
+</span><span style="color: #0000ff;">namespace</span><span style="color: #000000;"> Hangjing.JobServer
+{
+    </span><span style="color: #0000ff;">partial</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> MainService : ServiceBase
+    {
+        MessageListener Listener </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> MessageListener();
+
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> MainService()
+        {
+            InitializeComponent();
+           
+        }
+
+        </span><span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span> OnStart(<span style="color: #0000ff;">string</span><span style="color: #000000;">[] args)
+        {
+            </span><span style="color: #0000ff;">try</span><span style="color: #000000;">
+            {
+                Listener.Listen();
+            }
+            </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (Exception ex)
+            {
+                Hangjing.AppLog.AppLog.Info(</span><span style="color: #800000;">"</span><span style="color: #800000;">启动失败：</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> ex);
+                </span><span style="color: #0000ff;">throw</span><span style="color: #000000;">;
+            }
+
+            Hangjing.AppLog.AppLog.Info(</span><span style="color: #800000;">"</span><span style="color: #800000;">启动成功</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+        }
+
+        </span><span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> OnStop()
+        {
+            </span><span style="color: #0000ff;">base</span><span style="color: #000000;">.OnStop();
+        }
+
+        </span><span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> OnShutdown()
+        {
+            </span><span style="color: #0000ff;">base</span><span style="color: #000000;">.OnShutdown();
+        }
+
+    }
+
+
+}</span></pre>
+</div>
+<span class="cnblogs_code_collapse"> MainService.cs</span></div>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MessageListener.cs 监听订单消息</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('60c76480-9fbc-4f8a-b4dc-ec69933b35e9')"><img id="code_img_closed_60c76480-9fbc-4f8a-b4dc-ec69933b35e9" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_60c76480-9fbc-4f8a-b4dc-ec69933b35e9" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('60c76480-9fbc-4f8a-b4dc-ec69933b35e9',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_60c76480-9fbc-4f8a-b4dc-ec69933b35e9" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff;">using</span><span style="color: #000000;"> System;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Generic;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Linq;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Text;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Threading.Tasks;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Top.Tmc;
+
+</span><span style="color: #0000ff;">namespace</span><span style="color: #000000;"> Hangjing.Commond
+{
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 淘宝消息监听器
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> MessageListener
+    {
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> MessageListener()
+        {
+
+        }
+
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Listen()
+        {
+            TmcClient client </span>= <span style="color: #0000ff;">new</span> TmcClient(CacheHelper.appkey, CacheHelper.secret, <span style="color: #800000;">"</span><span style="color: #800000;">default</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            client.OnMessage </span>+= (s, e) =&gt;<span style="color: #000000;">
+            {
+                </span><span style="color: #0000ff;">try</span><span style="color: #000000;">
+                {
+                    Hangjing.AppLog.AppLog.Info(</span><span style="color: #800000;">"</span><span style="color: #800000;">msg：\r\n</span><span style="color: #800000;">"</span> + e.Message.Content + <span style="color: #800000;">"</span><span style="color: #800000;">\r\n</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> e.Message.Topic);
+
+                    MessageHandler hanlder </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> MessageHandler(e.Message.Topic, e.Message.Content);
+
+                }
+                </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (Exception exp)
+                {
+                    Hangjing.AppLog.AppLog.Info(</span><span style="color: #800000;">"</span><span style="color: #800000;">error：\r\n</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> exp);
+                    e.Fail(); </span><span style="color: #008000;">//</span><span style="color: #008000;"> 消息处理失败回滚，服务端需要重发  </span>
+<span style="color: #000000;">                }
+            };
+            client.Connect(</span><span style="color: #800000;">"</span><span style="color: #800000;">ws://mc.api.taobao.com/</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+        }
+    }
+}</span></pre>
+</div>
+<span class="cnblogs_code_collapse">MessageListener.cs</span></div>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MessageHandler.cs 反射机制处理消息报文。</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('ef225cca-2b3c-423e-b091-b99fa07e1929')"><img id="code_img_closed_ef225cca-2b3c-423e-b091-b99fa07e1929" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_ef225cca-2b3c-423e-b091-b99fa07e1929" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('ef225cca-2b3c-423e-b091-b99fa07e1929',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_ef225cca-2b3c-423e-b091-b99fa07e1929" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff;">using</span><span style="color: #000000;"> System;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Generic;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Linq;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Reflection;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Text;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Newtonsoft.Json;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Text.RegularExpressions;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.SQLServerDAL;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.Model;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Hangjing.Common;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Top.Tmc;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Top.Api;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Top.Api.Response;
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> Top.Api.Request;
+
+</span><span style="color: #0000ff;">namespace</span><span style="color: #000000;"> Hangjing.Commond
+{
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 消息处理类
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> MessageHandler
+    {
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 消息名称
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span><span style="color: #000000;"> Topic
+        {
+            </span><span style="color: #0000ff;">set</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">get</span><span style="color: #000000;">;
+        }
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 消息内容
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span><span style="color: #000000;"> Content
+        {
+            </span><span style="color: #0000ff;">set</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">get</span><span style="color: #000000;">;
+        }
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 返回信息
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span><span style="color: #000000;"> replaymsg
+        {
+            </span><span style="color: #0000ff;">set</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">get</span><span style="color: #000000;">;
+        }
+
+
+        </span><span style="color: #0000ff;">public</span> MessageHandler(<span style="color: #0000ff;">string</span> _Topic, <span style="color: #0000ff;">string</span><span style="color: #000000;"> _Content)
+        {
+            Topic </span>=<span style="color: #000000;"> _Topic;
+            Content </span>=<span style="color: #000000;"> _Content;
+
+            DynamicMethod();
+        }
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 动态调用方法
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> DynamicMethod()
+        {
+            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (CacheHelper.goodTopics.Contains(Topic))
+            {
+                </span><span style="color: #008000;">//</span><span style="color: #008000;">获取方法的实例  非静态 需要Public访问权限 忽略大小写</span>
+                MethodInfo methodInfo = <span style="color: #0000ff;">this</span>.GetType().GetMethod(Topic, BindingFlags.Instance | BindingFlags.Public |<span style="color: #000000;"> BindingFlags.IgnoreCase);
+                </span><span style="color: #0000ff;">if</span> (methodInfo != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+                {
+                    </span><span style="color: #008000;">//</span><span style="color: #008000;">调用方法</span>
+                    methodInfo.Invoke(<span style="color: #0000ff;">this</span>, <span style="color: #0000ff;">null</span><span style="color: #000000;">);
+                }
+                </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+                {
+                    Hangjing.AppLog.AppLog.Error(</span><span style="color: #0000ff;">string</span>.Format(<span style="color: #800000;">"</span><span style="color: #800000;">没有找到方法{0}</span><span style="color: #800000;">"</span><span style="color: #000000;">, Topic));
+                }
+            }
+            </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+            {
+                Hangjing.AppLog.AppLog.Error(</span><span style="color: #800000;">"</span><span style="color: #800000;">未处理的消息：</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> Topic);
+            }
+        }
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 库存变化
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> taobao_item_ItemStockChanged()
+        {
+
+        }
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 点点送订单通知消息
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> taobao_waimai_OrderDispatch()
+        {
+           
+               。。。
+
+            }
+        }
+
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 买家取消订单
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> taobao_waimai_OrderClose()
+        {
+            。。。
+        }
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 解析返回的坐标信息 [0]经度，[1]纬度
+        </span><span style="color: #808080;">///</span><span style="color: #008000;"> 坐标信息： LngLatAlt{longitude=120.02165, latitude=30.27919, altitude=NaN}
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="LngLatAlt"&gt;&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span>[] ParseLatLng(<span style="color: #0000ff;">string</span><span style="color: #000000;"> LngLatAlt)
+        {
+            </span><span style="color: #0000ff;">string</span> regexstr = <span style="color: #800000;">@"</span><span style="color: #800000;">[a-zA-Z={}]</span><span style="color: #800000;">"</span>;   <span style="color: #008000;">//</span><span style="color: #008000;">最后的结果：120.02165, 30.27919, </span>
+            <span style="color: #0000ff;">string</span> content = Regex.Replace(LngLatAlt, regexstr, <span style="color: #0000ff;">string</span><span style="color: #000000;">.Empty, RegexOptions.IgnoreCase);
+
+            </span><span style="color: #0000ff;">return</span> content.Split(<span style="color: #800000;">'</span><span style="color: #800000;">,</span><span style="color: #800000;">'</span><span style="color: #000000;">);
+        }
+
+    }
+}</span></pre>
+</div>
+<span class="cnblogs_code_collapse"> MessageHandler.cs</span></div>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp; 另外，关于订单操作，如指定配送员取件、妥投、上传坐标等，按文档，调用接口就完成了，基本没什么可说的。</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code" style="background-color: #008000;"><span class="cnblogs_code_collapse">结语 <br /></span></div>
+<p>&nbsp;　　关于口碑相关接口的介绍就到这里了，基本都是调用封装好的方法，技术上没有太多可说的，他们有很多接口，调用方法基本是一致的，如果应用的好，还是会有不少好处的，这个谁用谁知道！写得不好的地方，或者有误的地方，非常热情的欢迎大家指出，也希望能对大家有所帮助。当然了，写个文章还有一个美好的愿望：希望美团，饿了么可以推出关于团队订单的相关接口（也有可能有接口，只是不给我们申请....）订单还是您们的订单，只是多了一个地方显示，当然，这里多了数据泄露的风险，但是总是有办法降低风险的。还是那句话：大家好，才是真的好！</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <span style="color: #0000ff;"><span style="color: #000000;">成为一名优秀的程序员！</span></span></p>
+<p>&nbsp;</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2015-12-17 09:11</span>&nbsp;
+<a href="https://www.cnblogs.com/jijunjian/">2J</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=5041675" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(5041675);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 139716, cb_blogApp = 'jijunjian', cb_blogUserGuid = '3f24f67b-fea0-de11-ba8f-001cf0cd104b';
+    var cb_entryId = 5041675, cb_entryCreatedDate = '2015-12-17 09:11', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 2J
+<br /><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+</body>
+</html>

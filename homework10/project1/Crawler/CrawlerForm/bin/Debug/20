@@ -1,0 +1,497 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>芝麻麻雀 - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=-oFz8B4m7JhHaZzdTkzPza2oLZNDRR8obnCz6w7OHbU" />
+    <link id="MainCss" rel="stylesheet" href="/skins/codinglife/bundle-codinglife.min.css?v=hlpQ1CJDwwJXDxv2HNauUmW3NjyWzoMaw1uER19SLT0" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/sesametech-netcore/custom.css?v=SVGv436/oUjUJTyvRqT8JMX7nWY=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/codinglife/bundle-codinglife-mobile.min.css?v=XjHfryC9ctsatIZz1dHn7TsRIqmwz9c3aj_6SCfHSDM" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/sesametech-netcore/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/sesametech-netcore/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/sesametech-netcore/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=uk-as-QYRHtjaAbeEigAktvhwf01NRrnle-6exg65Ak"></script>
+    <script>
+        var currentBlogId = 528580;
+        var currentBlogApp = 'sesametech-netcore';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'CodingLife';
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/mzy666888"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_red_aa0000.png?resize=149%2C149" class="attachment-full size-full"  style="position: absolute; top: 0; right:0px; border: 0;" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/sesametech-netcore/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/sesametech-netcore/">芝麻麻雀</a>
+</h1>
+<h2>
+专注于 .NET Core 技术开发、推广。建设 .NET Core生态圈
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/sesametech-netcore/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E8%8A%9D%E9%BA%BB%E9%BA%BB%E9%9B%80">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/sesametech-netcore/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+22&nbsp; </span>
+<span id="stats_article_count">文章 - 
+0&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+63</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<!--done-->
+
+
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/sesametech-netcore/archive/2020/04/18.html">2020年4月18日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/12725914.html">
+    谁说.NET不适合搞大数据，机器学习、人工智能
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：SciSharp Stack SciSharp STACK: &quot;https://scisharp.github.io/SciSharp/&quot; 基于 的开源生态系统，用于数据科学、机器学习和AI。 将所有主要的ML/AI框架从 引入 . 特点 为.NET开发者 开发者使用他们所了解和喜爱的工具可以最高效            <a href="https://www.cnblogs.com/sesametech-netcore/p/12725914.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2020-04-18 14:54 芝麻麻雀 阅读 (2294) 评论 (30)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=12725914" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/sesametech-netcore/archive/2020/03/17.html">2020年3月17日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/12513810.html">
+    .NET 5 Preview 1发布
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：去年年底，我们发布了 和`3.1 ASP.NET Blazor gRPC gRPC REST API .NET Core 3 .NET`版本，并且在去年又增加了100万用户。 我们与这些版本进行了交流，以结束从 移植到 应用程序模型的过程，我们已经移植了所有最常用的应用程序模型，并引入了更新的跨平台            <a href="https://www.cnblogs.com/sesametech-netcore/p/12513810.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2020-03-17 21:57 芝麻麻雀 阅读 (328) 评论 (1)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=12513810" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/sesametech-netcore/archive/2020/03/05.html">2020年3月5日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/12418687.html">
+    在WPF（core版本）中引用外部字体不可用问题说明
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：这几天使用WPF写软件，想引用外部字体，于是下载了字体文件： 然后在 中添加了如下代码： 字体存放目录： 在 中使用上面定义的字体，代码如下： 在运行的时候，发现字体设置不起作用，运行结果如下： 红框中的内容全部使用了上面定义的字体 本来想，不起作用就不起作用吧，可以让用户自己安装一下需要的字体。将            <a href="https://www.cnblogs.com/sesametech-netcore/p/12418687.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2020-03-05 10:11 芝麻麻雀 阅读 (53) 评论 (0)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=12418687" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/sesametech-netcore/archive/2020/02/26.html">2020年2月26日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/12365896.html">
+    10个用于C＃.NET开发的基本调试工具
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：在调试软件时，工具非常重要。获取正确的工具，然后再调试时提取正确的信息。根据获取的正确的错误信息，可以找到问题的根源所在。找到问题根源所在，你就能够解决该错误了。 你将看到我认为最基本的解决在C .NET 中错误问题的工具的列表。这些将帮助你找到任何难题的根本原因并加以解决。 除了代码中的常见问题外            <a href="https://www.cnblogs.com/sesametech-netcore/p/12365896.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2020-02-26 11:29 芝麻麻雀 阅读 (4298) 评论 (29)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=12365896" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/sesametech-netcore/archive/2020/02/25.html">2020年2月25日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/12360190.html">
+    C#的静态工厂方法与构造函数对比
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：最近，在与同事进行协同编程时，我们开始讨论在C 中初始化新对象的最佳方法。我一直是使用构造函数实现，尽管他倾向于静态工程方法。这引起了关于每种类型的利弊的大量来来回回的讨论。 为了说明我所说的内容，这是两个例子： 之前我从未考虑过实现这些静态工厂方法，我并自嘲问不了解其内容。自从那以后，我改变了注意            <a href="https://www.cnblogs.com/sesametech-netcore/p/12360190.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2020-02-25 09:50 芝麻麻雀 阅读 (403) 评论 (0)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=12360190" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/sesametech-netcore/archive/2020/02/19.html">2020年2月19日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/12331958.html">
+    Xamarin.Forms 二维码扫描实践
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：开发环境： Visual Studio 2019 版本 16.4.5 公用平台nuget 1. ZXing.Net.Mobile.Forms 2.4.1 2. Plugin.Permissions 5.0.0 beta Android项目环境nuget 1. Xamarin.Forms 4.4.0.            <a href="https://www.cnblogs.com/sesametech-netcore/p/12331958.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2020-02-19 16:54 芝麻麻雀 阅读 (199) 评论 (0)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=12331958" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/sesametech-netcore/archive/2020/02/04.html">2020年2月4日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/12258838.html">
+    17个IoC 软件包和项目
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：1、Autofac GitHub：https://github.com/autofac/Autofac 描述：An addictive .NET IoC container https://autofac.org Star：2.9k Fork：677 2、Ninject GitHub：https:/            <a href="https://www.cnblogs.com/sesametech-netcore/p/12258838.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2020-02-04 11:51 芝麻麻雀 阅读 (54) 评论 (0)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=12258838" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/sesametech-netcore/archive/2020/01/09.html">2020年1月9日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/12170054.html">
+    【火坑】一切从TimeSpan说起
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：小编在编写WPF程序时，需要做一个判断：定时使用Modbus协议使用Quartz.net 定时任务读取设备中的数据，同时也使用定时任务判断是否长时间获取不到数据的情况，如果程序中超过一分钟没有获取到数据（数据没有更新），则认为已经掉线。因此在类中使用了 DateTime类型数据记录获取数据的时间。             <a href="https://www.cnblogs.com/sesametech-netcore/p/12170054.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2020-01-09 10:31 芝麻麻雀 阅读 (53) 评论 (0)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=12170054" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/12170006.html">
+    [推荐]icheck-bootstrap(漂亮的ckeckbox/radiobox)
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：适用于Twitter Bootstrap框架的纯CSS样式的复选框/单选框按钮的插件。 GitHub： &quot;https://github.com/bantikyan/icheck bootstrap&quot; 如果你在自定义HTML复选框/单选框按钮时遇到问题，选择icheck bootstrap是一个明智的            <a href="https://www.cnblogs.com/sesametech-netcore/p/12170006.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2020-01-09 10:26 芝麻麻雀 阅读 (523) 评论 (1)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=12170006" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/sesametech-netcore/archive/2019/12/05.html">2019年12月5日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/11989547.html">
+    在Asp.Net Core MVC 开发过程中遇到的问题
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：1. Q: Razor视图中怎么添加全局模型验证消息 A：使用ModelOnly 2.Q：树形表格，使用的是bootstrap table+jquery.treegrid A： 效果 参考的代码，某些地方添加了注释 给复选框添加选择的点击功能，在一个表格中选中一行时，加载与此行有关的数据信息。其他的            <a href="https://www.cnblogs.com/sesametech-netcore/p/11989547.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2019-12-05 15:12 芝麻麻雀 阅读 (170) 评论 (0)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11989547" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+
+<div class="topicListFooter">
+    <div id="nav_next_page">
+        
+    <a href="https://www.cnblogs.com/sesametech-netcore/default.html?page=2">
+        下一页
+    </a>
+
+    </div>    
+</div>
+
+
+
+
+
+
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 芝麻麻雀
+<br /><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <div>
+SesameTech
+</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="最近一个项目要增加微信支付的功能，想来这个东西出来这么久了，按微信提供的应该可以很快搞定的，结果提供的demo（ JS API网页支付）中各种坑，咨询他们客服，态度倒是非常好，就是解决不了问题，最后让" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>订餐系统之微信支付，踩了官方demo的坑 - 2J - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=-oFz8B4m7JhHaZzdTkzPza2oLZNDRR8obnCz6w7OHbU" />
+    <link id="MainCss" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd.min.css?v=gS0FloTY-RBJQcN3GCAKG6fAr6HHKtDMTw60VxjN79c" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/jijunjian/custom.css?v=WI3eRo7midbwNzmh7EMewRylXm0=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd-mobile.min.css?v=VacchHeVg6bp3gCO8NqMH8D8fhA8iyRbb0JgoDUvn4o" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/jijunjian/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/jijunjian/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/jijunjian/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=uk-as-QYRHtjaAbeEigAktvhwf01NRrnle-6exg65Ak"></script>
+    <script>
+        var currentBlogId = 139716;
+        var currentBlogApp = 'jijunjian';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'iMetro_HD';
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/jijunjian/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/jijunjian/">成为一名优秀的程序员</a>
+</h1>
+<h2>
+
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/jijunjian/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/2J">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/jijunjian/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+25&nbsp; </span>
+<span id="stats_article_count">文章 - 
+0&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+424</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/jijunjian/p/3850999.html">订餐系统之微信支付，踩了官方demo的坑</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+    <div id="cnblogs_post_description" style="display: none">
+        最近一个项目要增加微信支付的功能，想来这个东西出来这么久了，按微信提供的应该可以很快搞定的，结果提供的demo（ JS API网页支付）中各种坑，咨询他们客服，态度倒是非常好，就是解决不了问题，最后让我发邮件，一想，这个邮件一来一回至少又得好几个小时，没有办法只能根据开发文档一一核对，再加上些猜想，终于完成了。为了别的朋友少踩些坑，特此小文，希望对一此朋友有所帮助。
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>　　&nbsp;&nbsp;&nbsp; 最近一个项目要增加微信支付的功能，想来这个东西出来这么久了，按微信提供的应该可以很快搞定的，结果提供的demo（<span class="list_item_exp"> JS API网页支付</span>）中各种坑，咨询他们的客服，态度倒是非常好，就是解决不了问题，最后让我发邮件，一想，这个邮件一来一回至少又得好几个小时，没有办法只能根据开发文档一个一个核对，再加上些猜想，终于完成了。为了别的朋友少踩些坑，特此小文，希望对一此朋友有所帮助。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<div class="cnblogs_code" style="background-color: #c0deed;"><span class="cnblogs_code_collapse">准备工作</span></div>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 当然，要集成微信支付，首先还是要先有一个微网站，熟悉的请飘过，不了解的，可以参考下我之前的一篇小文 <a title="订餐系统之微信点餐" href="http://www.cnblogs.com/jijunjian/p/3246767.html" target="_blank">订餐系统之微信点餐</a> 更多信息可以登录<a href="https://mp.weixin.qq.com/" target="_blank">微信公众平台</a></p>
+<p>　　&nbsp;&nbsp; 目前的情况应该是，只有认证的服务号可以申请微信支付功能。相关认证、申请的操作，登录微信公众平台一看就知道了，在此就不细说了。要特别注意的就是要填写相关请求目录，请求url时，要特别注意，目前微信公众平台是不能自己修改的，只能发邮件给：<span class="email_list_item">weixinpay@tencent.com</span>，让他们修改，邮件格式可以向客服咨询。</p>
+<p>　　&nbsp; 当然，还有一个最重要的准备工作，就是先获取他们的文档和demo.&nbsp; <a href="http://wxpay.weixin.qq.com/doc/index.html" target="_blank">http://wxpay.weixin.qq.com/doc/index.html </a>要注意的就是，他们的demo中有很多坑哦。不过，他们的文档我没有看到问题，细读这些文档还是少不了的。</p>
+<p>　　</p>
+<div class="cnblogs_code" style="background-color: #c0deed;"><span class="cnblogs_code_collapse">测试相关配置<br /></span></div>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 如果你的帐号现在处于支付测试状态下，需要进行相关配置。请根据下图操作。</p>
+<p>　　<img src="https://images0.cnblogs.com/i/88102/201407/171450010995176.png" alt="" /></p>
+<p>　　　　　　　　　　　　　　　　　　　　　　　　　　　　图（1）</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp; <img src="https://images0.cnblogs.com/i/88102/201407/171452259436726.png" alt="" /></p>
+<p>　　　　　　　　　　　　　　　　图（2）</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code" style="background-color: #c0deed;"><span class="cnblogs_code_collapse">demo（<span class="list_item_exp"> JS API网页支付</span>）中可能有问题的地方<br /></span></div>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 下面我就把我在微信提供的demo基础上，说明下要修改的地方。之前一直提示什么订单数据验证失败，当看下图时就知道OK了。</p>
+<p>　　　　<img src="https://images0.cnblogs.com/i/88102/201407/171605191932274.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>　　　jsapi.aspx.cs&nbsp; 第50行，增加参数：&nbsp;packageReqHandler.setParameter("bank_type", "WX");&nbsp;&nbsp; &nbsp;//固定为"WX"；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /tenpayLib/TenpayUtil.cs&nbsp; 中的key 其实是 PartnerKey，一开始我还以为是appkey。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /tenpayLib/RequestHandler.cs 中的 key一定要赋值为 &nbsp;TenpayUtil.key，默认是空的。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /tenpayLib/ResponseHandler.cs 中的 key 和appkey 一定要赋值为 TenpayUtil.key和TenpayUtil.appkey;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 如果你的项目是utf-8的，还要修改以下内容：</p>
+<p>　　 TenpayUtil.cs.getNoncestr 变成</p>
+<p>　　 public static string getNoncestr()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Random random = new Random();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return MD5Util.GetMD5(random.Next(1000).ToString(), charset);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /tenpayLib/ResponseHandler.cs 中的charset</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 所有用到charset的地方修改成utf-8。</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code" style="background-color: #c0deed;"><span class="cnblogs_code_collapse">结语</span></div>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 原本是一个简单的事儿，可由于官方demo的一些问题，用去了我和他们客服的时间，所以希望对在集成或者准备集成的微信支付的朋友有点帮助，做为程序员，我们的时间应该是用在更有意义的地方。为了方便大家，我把自己最后的支付相关代码也做了整理，虽然不能直接用，其实也是稍微修改下里面的逻辑就可以直接用，另外，鄙人能力有限，写得不好，有不对的地方，也请大家海涵哈！</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://files.cnblogs.com/jijunjian/wxpaydemo.rar" target="_blank">wxpaydemo.rar</a></p>
+<p>&nbsp;&nbsp; </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #0000ff;"><span style="color: #000000;">成为一名优秀的程序员！</span></span></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2014-07-17 16:25</span>&nbsp;
+<a href="https://www.cnblogs.com/jijunjian/">2J</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=3850999" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(3850999);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 139716, cb_blogApp = 'jijunjian', cb_blogUserGuid = '3f24f67b-fea0-de11-ba8f-001cf0cd104b';
+    var cb_entryId = 3850999, cb_entryCreatedDate = '2014-07-17 16:25', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 2J
+<br /><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+</body>
+</html>

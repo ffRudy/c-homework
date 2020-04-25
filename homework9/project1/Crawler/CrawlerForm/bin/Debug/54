@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="经过几天漫长的问题分析、处理、测试、验证，定时器Timer终于定时了，于是开始了这篇文章，希望对还在纠结于“定时器Timer不定时”的同学有所帮助，现在的方案，在系统日志中会有警告，如果您有更好的方案" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>订餐系统之定时器Timer不定时 - 2J - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=-oFz8B4m7JhHaZzdTkzPza2oLZNDRR8obnCz6w7OHbU" />
+    <link id="MainCss" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd.min.css?v=gS0FloTY-RBJQcN3GCAKG6fAr6HHKtDMTw60VxjN79c" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/jijunjian/custom.css?v=WI3eRo7midbwNzmh7EMewRylXm0=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd-mobile.min.css?v=VacchHeVg6bp3gCO8NqMH8D8fhA8iyRbb0JgoDUvn4o" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/jijunjian/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/jijunjian/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/jijunjian/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=uk-as-QYRHtjaAbeEigAktvhwf01NRrnle-6exg65Ak"></script>
+    <script>
+        var currentBlogId = 139716;
+        var currentBlogApp = 'jijunjian';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'iMetro_HD';
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/jijunjian/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/jijunjian/">成为一名优秀的程序员</a>
+</h1>
+<h2>
+
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/jijunjian/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/2J">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/jijunjian/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+25&nbsp; </span>
+<span id="stats_article_count">文章 - 
+0&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+424</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/jijunjian/p/3209892.html">订餐系统之定时器Timer不定时</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+    <div id="cnblogs_post_description" style="display: none">
+        经过几天漫长的问题分析、处理、测试、验证，定时器Timer终于定时了，于是开始了这篇文章，希望对还在纠结于“定时器Timer不定时”的同学有所帮助，现在的方案，在系统日志中会有警告，如果您有更好的方案，也请不吝赐教。
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>　　经过几天漫长的问题分析、处理、测试、验证，定时器Timer终于定时了，于是开始了这篇文章，希望对还在纠结于&ldquo;定时器Timer不定时&rdquo;的同学有所帮助，现在的方案，在系统日志中会有警告，如果您有更好的方案，也请不吝赐教。</p>
+<div class="cnblogs_code" style="background-color: #c0deed;"><span class="cnblogs_code_collapse">问题描述</span></div>
+<p>&nbsp;　　先交代下背景吧：&ldquo;订单审核后，商家3分钟内未确认的订单，自动生成催单记录，客服通过催单记录联系商家，于是，我们就用的System.Threading.Timer 来作来定时器&rdquo;。下图为Timer初始化部分代码：</p>
+<p>　　<img src="https://images0.cnblogs.com/blog/88102/201307/27082121-e17b3805d02f4c299dc74b5976310ea9.png" alt="" /></p>
+<p>&nbsp;</p>
+<p>因为是重要客户，我们本地测试服务器都经过自认为严格的测试后，才提交正式服务器。可是，每次提交正式服务器后，每天总有几个时间段不定时生成催单记录，然后我们自己测试又都正常，于是不了了之！反复几次，客户不高兴了，领导怒了，做为程序员的我，才开始冷静了，到底哪里出了问题？</p>
+<div class="cnblogs_code" style="background-color: #c0deed;"><span class="cnblogs_code_collapse">问题分析及处理</span></div>
+<p>&nbsp;　<span style="color: #ff0000;"><strong><span style="background-color: #ffffff;">　1.消失的33分钟</span></strong></span></p>
+<p>　　当然，首先，还是检查网站中程序记录的日志，因为我们定时程序是每分钟执行一次（因为是多个任务，每个任务执行的时间间隔是不一样的，所以每分钟判断哪个任务可以执行），所以日志是比较容易查询的，<span style="color: #000000;">于是，看到了下图：</span></p>
+<p><span style="color: #000000;">　　<img src="https://images0.cnblogs.com/blog/88102/201307/26212407-79ff73d9bf9746dc9d5d77aefc8f1f39.png" alt="" /></span></p>
+<p><span style="color: #000000;">网站在这个时间点上，没任何错误信息，服务器在这个点上也没任何人为操作。当确认程序上基本没有问题，我开始查询系统日志了。</span></p>
+<p><span style="color: #000000;">　　<strong><span style="color: #ff0000;">2.应用程序池工作进程被回收</span></strong></span></p>
+<p><span style="color: #000000;"><strong>　<span style="color: #c0c0c0;">　</span></strong><span style="color: #000000;">知道这个时间点出问题了，在系统日志中我很快找到了此时间的日志，于是看到了下图：</span></span></p>
+<p><span style="color: #000000;"><span style="color: #000000;">　　<img src="https://images0.cnblogs.com/blog/88102/201307/26213916-1817eaf9368a440c9cb4bc611cb2c067.png" alt="" /></span></span></p>
+<p>&nbsp;原来是没有访问，被回收了，直到有人访问时，再创建进程，到这里才明白，为什么我们测试都正常，因为我们测试时，一直在访问，所以一切正常。</p>
+<p>　　<span style="color: #ff0000;"><strong>3.让网站自己访问自己</strong></span></p>
+<p>　　当知道问题后，就开始纠结处理方案了，有人说写服务器程序，创建一个服务，让此服务去生成催单，但因为是正式服务器，我们没办法链接的，所以此方案虽好，但对我们来说不切实际；google了下，找到一个自认为简单、可行的方案，如下图（不记得来源了，见谅）：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://images0.cnblogs.com/blog/88102/201307/26221556-fd139af8ac2a4e1d9668a5268f3f0bda.png" alt="" /></p>
+<p>发布后，测试了几个小时，呀，还真正常了，于是通知客户测试。结果，还是如前几次一样，他们一用就出问题了。只能继续查看系统日志...</p>
+<p>　　<span style="color: #ff0000;"><strong>4.进程在关闭过程中超出时间限制</strong></span></p>
+<p><span style="color: #ff0000;"><span style="color: #000000;">　　虽然结果还是一样，但是我们离真相越来越近了，找到出错时间点前后的网站日志和系统日志，看到了下图的信息：</span></span></p>
+<p><span style="color: #ff0000;"><span style="color: #000000;">　&nbsp; 网站日志：</span></span></p>
+<p><span style="color: #ff0000;"><span style="color: #000000;">&nbsp;&nbsp; <img src="https://images0.cnblogs.com/blog/88102/201307/26221221-dd4e5cad04e442fb96c82f6a0f4898de.png" alt="" /></span></span></p>
+<p><span style="color: #ff0000;"><span style="color: #000000;">&nbsp;&nbsp;&nbsp; 系统日志：</span></span></p>
+<p><span style="color: #ff0000;"><span style="color: #000000;">　　<img src="https://images0.cnblogs.com/blog/88102/201307/26220951-1e9b64ea7876420bb42ebc3cb191efa2.png" alt="" /></span></span></p>
+<p><span style="color: #ff0000;"><strong>　　5.程序池配置</strong></span></p>
+<p><span style="color: #ff0000;"><strong>　　</strong><span style="color: #000000;">看到上图的问题，我最先想到的还是对程序池进行配置，之前对这方便了解也不多，也google了一个比较文明的配置，然后根据情况调整了几个参数：</span></span></p>
+<p><span style="color: #ff0000;"><span style="color: #000000;">　　<img src="https://images0.cnblogs.com/blog/88102/201307/26222255-56255a3932f2478d819bbd711fa741fd.png" alt="" /><img src="https://images0.cnblogs.com/blog/88102/201307/26222430-ffa172c3ffb940688fa4613dccb10ffa.png" alt="" /></span></span></p>
+<p><span style="color: #ff0000;"><span style="color: #000000;">修改配置后，问题依然存在，路在何方？</span></span></p>
+<p><span style="color: #ff0000;"><span style="color: #000000;">　　<span style="color: #ff0000;"><strong>6.失败不可怕，再来一次！</strong></span></span></span></p>
+<p><span style="color: #ff0000;"><span style="color: #000000;"><span style="color: #ff0000;"><strong>　　</strong><span style="color: #000000;">回收时，访问失败，如果过15s再访问呢，是的，失败不可怕，再来一次，于是，有了下面的代码：</span></span></span></span></p>
+<p><span style="color: #ff0000;"><span style="color: #000000;"><span style="color: #ff0000;"><span style="color: #000000;">　　<img src="https://images0.cnblogs.com/blog/88102/201307/26223147-af6a0c501fea4c8cac08ecadebcdf0be.png" alt="" /></span></span></span></span></p>
+<p><span style="color: #ff0000;"><span style="color: #000000;"><span style="color: #ff0000;"><span style="color: #000000;">　　发布、测试，1小时正常，3小时正常，8小时正常，24小时正常，30小时正常，心总算能踏实了，<span style="color: #ff0000;">但是回头想了下，进程都回收了，为什么再访问一次程序会执行，IIS日志中每次回收时，都只有一条访问记录</span>，只有得空时再好好研究下了！</span></span></span></span></p>
+<p>&nbsp;</p>
+<div class="cnblogs_code" style="background-color: #c0deed;"><span class="cnblogs_code_collapse">结语</span></div>
+<p>&nbsp;　　写了几年代码，还是第一次，通过这么多日志，特别是服务器的日志来解决问题，过程虽然漫长，但还是苦并快乐着！！！</p>
+<p>　　30小时正常，也许到80小时，160小时，又会有问题了，持续关注中...</p>
+<p>　　</p>
+<p>　　<span style="color: #0000ff;"><span style="color: #000000;">成为一名优秀的程序员！</span></span></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2013-07-27 09:38</span>&nbsp;
+<a href="https://www.cnblogs.com/jijunjian/">2J</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=3209892" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(3209892);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 139716, cb_blogApp = 'jijunjian', cb_blogUserGuid = '3f24f67b-fea0-de11-ba8f-001cf0cd104b';
+    var cb_entryId = 3209892, cb_entryCreatedDate = '2013-07-27 09:38', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 2J
+<br /><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+</body>
+</html>

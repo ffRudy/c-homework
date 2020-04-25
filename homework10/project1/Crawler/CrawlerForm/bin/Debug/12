@@ -1,0 +1,509 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="坚持了20天，终于还是做了一个艰难的决定--把媳妇和娃送到了丈母娘家。&#xD;&#xA;前些时间，老妈有事儿回了四川，给了我和媳妇独自抚养娃的机会，我知道这将是一个巨大的挑战。&#xD;&#xA;因为一些知道的和不知道的原因，娃的" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>饿了么订单--快到碗里来 - 2J - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=-oFz8B4m7JhHaZzdTkzPza2oLZNDRR8obnCz6w7OHbU" />
+    <link id="MainCss" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd.min.css?v=gS0FloTY-RBJQcN3GCAKG6fAr6HHKtDMTw60VxjN79c" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/jijunjian/custom.css?v=WI3eRo7midbwNzmh7EMewRylXm0=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd-mobile.min.css?v=VacchHeVg6bp3gCO8NqMH8D8fhA8iyRbb0JgoDUvn4o" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/jijunjian/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/jijunjian/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/jijunjian/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=uk-as-QYRHtjaAbeEigAktvhwf01NRrnle-6exg65Ak"></script>
+    <script>
+        var currentBlogId = 139716;
+        var currentBlogApp = 'jijunjian';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'iMetro_HD';
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/jijunjian/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/jijunjian/">成为一名优秀的程序员</a>
+</h1>
+<h2>
+
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/jijunjian/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/2J">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/jijunjian/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+25&nbsp; </span>
+<span id="stats_article_count">文章 - 
+0&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+424</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/jijunjian/p/6884404.html">饿了么订单--快到碗里来</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+    <div id="cnblogs_post_description" style="display: none">
+        坚持了20天，终于还是做了一个艰难的决定--把媳妇和娃送到了丈母娘家。
+前些时间，老妈有事儿回了四川，给了我和媳妇独自抚养娃的机会，我知道这将是一个巨大的挑战。
+因为一些知道的和不知道的原因，娃的湿疹比较严重，晚上老睡不踏实，得整晚拍着，哄着，实在没辙了，就得抱着睡，不然就不停的挠头呀，肚子的。
+白天除非抱着，根本睡不了一会儿，醒了没人看着，也是有事儿没事儿挠自己。根本离不开人...看着娃身上的湿疹，以及来不及好的挠痕，心里真是奔溃的。
+还得到处寻医问诊，泡中药，涂药膏，抹茶油...官方的，民间的... 都是3个字：然并卵。
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <h1 class="postTitle">引子　　　</h1>
+<p>　 &nbsp; &nbsp;坚持了20天，终于还是做了一个艰难的决定--把媳妇和娃送到了丈母娘家。</p>
+<p>　　&nbsp;前些时间，老妈有事儿回了四川，给了我和媳妇独自抚养娃的机会，我知道这将是一个巨大的挑战。</p>
+<p>　　 因为一些知道的和不知道的原因，娃的湿疹比较严重，晚上老睡不踏实，得整晚拍着，哄着，实在没辙了，就得抱着睡，不然就不停的挠头呀，肚子的。。</p>
+<p>　　&nbsp;白天除非抱着，根本睡不了一会儿，醒了没人看着，也是有事儿没事儿挠自己。根本离不开人...看着娃身上的湿疹，以及来不及好的挠痕，心里真是奔溃的。</p>
+<p>　　&nbsp;还得到处寻医问诊，泡中药，涂药膏，抹茶油...官方的，民间的... 都是3个字：然并卵。</p>
+<p>　　 又值搬新家，更是忙得不可开交，与媳妇在杭州奋斗了6-7年，总算是有了自己的家，只是全然没空喜悦一下，反倒时房贷的压力总记在心上。</p>
+<p>　　 媳妇几度落泪，这不是矫情，一则是为自己孕期没管牢嘴，满月又吃了虾而自责；二则吃不好，睡不好，身心都是承受巨大压力，就是上个洗手间都得把娃哄睡了。</p>
+<p>　　 话说回来，也是正是这短短的20天，方才对&ldquo;当家才知柴米贵,养儿方知父母恩&rdquo;，有了切身的感受，对父母的嘘寒问暖不再厌烦，而真正心怀感恩。这个认知与媳妇的意见终于空前的一致了 :）。</p>
+<p>　　 跨出了丈母娘家门，挥手告别妻儿时，心头一紧，眼眶微酸，眼泪几乎夺眶而出...是了，这就是离别。也终于理解了，母亲每次送我出远门时，总是忍不住的哭泣。</p>
+<p>&nbsp;</p>
+<p>　　&nbsp;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; 生活感悟，借此叨叨，回归主题&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</p>
+<p>&nbsp;</p>
+<h1 class="postTitle">背景</h1>
+<p>　　之前写过一篇关于同步饿了么订单的文章<a href="http://www.cnblogs.com/jijunjian/p/5492786.html" target="_blank">《订餐系统之同步饿了么商家订单》</a>，是介绍如何通过&nbsp;饿了么OpenAPI 同步饿了么商家订单。此版本最大的弊端便是每次要绑定商家都需要发邮件给他们，绑定商家是一个频繁的操作，但是他们邮件处理的速度又较为缓慢，有鉴于此对接人的几乎都是望而却步，像早期的淘点点，及新开美团外卖开放平台，都是以商家登录授权方式绑定，完全是开发商与商家自助就可以完成。前些天，饿了么OpenAPI2.0 总算是千呼万唤始出来了。赶紧注册，认证。于是有了这篇文章。</p>
+<h1 class="postTitle">申请</h1>
+<p>　　先上开放平台网址， <a href="https://open.shop.ele.me/openapi" target="_blank">https://open.shop.ele.me/openapi《饿了么开放平台》</a>， &nbsp;首先，你得注册成为开放者，这个过程不用截图了吧。然后&nbsp;开发者资质认证，这个按要求填写相关信息，上传相关资料等他们审核了。<a href="https://open.shop.ele.me/openapi" target="_blank"><br /></a></p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170521131343885-1131968538.jpg" alt="" /></p>
+<p>　　几个工作日审核通过后，你们会看如下信息，就可开始进入下一步操作了。</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170521131724416-1817378858.jpg" alt="" /></p>
+<p>　　</p>
+<h1 class="postTitle">创建应用</h1>
+<p>　　 对接了美团后，才知道可以创建应用是多么方便一个功能，不然来一个客户，又得重新注册账号，走申请的流程，漫长而痛苦。饿了么OpenAPI2.0 可以创建多个应用，每个应用独立运行，减少了很多不必要的麻烦。</p>
+<p>进入开发都中心，即可开始新建应用，输入几个基本信息，应用就创建好了。</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170521154151744-2009333598.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170521154205385-643518465.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>　　接下来可以配置沙箱环境了，点击查看应用，进入&ldquo;沙箱环境&rdquo;选项卡。设置好&nbsp;回调地址URL（商家授权后回调通知地址），推送URL（新订单，订单状态变化等通知地址），推送消息（选择要接收的通知类型）。配置部分到现在就结束了，接下变是上代码了。<br />，</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170521154534322-1896602713.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<h1 class="postTitle">商户授权</h1>
+<p>　　准备写代码之前，还是习惯性的去找下SDK，有SDK肯定会事半功倍的，只是不看不知道，一看真又感觉被默默的鄙视了一下下。提供了5种语言，都没有.net。好吧，别的咱不敢说，写代码还是会的。</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170521184141010-1979473990.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>　　　初略看了文档知道授权流程采用国际通用的OAuth2.0标准协议作为商户身份验证与授权协议，之前对接QQ登录，微信公从平台，流程几乎类似，轻车熟路，已经有代码修改几个配置与json对应的实体，分分钟就完成了前面4个流程，流程图如下，核心代码也贴上来了</p>
+<p>　　　<img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170521185154885-1723924270.png" alt="" /></p>
+<p>&nbsp;</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('d06f3949-f2cd-4706-8ca7-141e72626bb8')"><img id="code_img_closed_d06f3949-f2cd-4706-8ca7-141e72626bb8" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_d06f3949-f2cd-4706-8ca7-141e72626bb8" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('d06f3949-f2cd-4706-8ca7-141e72626bb8',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_d06f3949-f2cd-4706-8ca7-141e72626bb8" class="cnblogs_code_hide">
+<pre><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 授权
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="callbackurl"&gt;&lt;/param&gt;</span>
+        <span style="color: #0000ff;">public</span><span style="color: #000000;"> ELEAuth(HttpContext _context)
+        {
+            context </span>=<span style="color: #000000;"> _context;
+            parameters </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Hashtable();
+            singparameters </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Hashtable();
+        }
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 返回授权url
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="shopid"&gt;&lt;/param&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> GetAuthURL(<span style="color: #0000ff;">int</span><span style="color: #000000;"> shopid)
+        {
+            </span><span style="color: #0000ff;">string</span> callbackurl =<span style="color: #000000;"> appconfig.authcallbackURL;
+            </span><span style="color: #0000ff;">string</span> OAuthurl = appconfig.authurl + <span style="color: #800000;">"</span><span style="color: #800000;">?response_type=code&amp;client_id=</span><span style="color: #800000;">"</span> + Hangjing.EleAPIV2.appconfig.Key + <span style="color: #800000;">"</span><span style="color: #800000;">&amp;redirect_uri=</span><span style="color: #800000;">"</span> + context.Server.UrlEncode(Hangjing.EleAPIV2.appconfig.authcallbackURL) + <span style="color: #800000;">"</span><span style="color: #800000;">&amp;state=</span><span style="color: #800000;">"</span> + shopid + <span style="color: #800000;">"</span><span style="color: #800000;">&amp;scope=all</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> OAuthurl;
+        }
+
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> access_tokenInfo getToken()
+        {
+            access_tokenInfo token </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> access_tokenInfo();
+
+            parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">grant_type</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">authorization_code</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">code</span><span style="color: #800000;">"</span>, context.Request[<span style="color: #800000;">"</span><span style="color: #800000;">code</span><span style="color: #800000;">"</span><span style="color: #000000;">]);
+            parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">redirect_uri</span><span style="color: #800000;">"</span><span style="color: #000000;">, appconfig.authcallbackURL);
+            parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">client_id</span><span style="color: #800000;">"</span><span style="color: #000000;">, appconfig.Key);
+
+            </span><span style="color: #0000ff;">string</span> Authorization = appconfig.Key + <span style="color: #800000;">"</span><span style="color: #800000;">:</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> appconfig.Secret;
+            </span><span style="color: #0000ff;">byte</span>[] bytes =<span style="color: #000000;"> Encoding.UTF8.GetBytes(Authorization);
+
+            HttpItem objHttpItem </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> HttpItem()
+            {
+                Authorization </span>= <span style="color: #800000;">"</span><span style="color: #800000;">Basic </span><span style="color: #800000;">"</span> +<span style="color: #000000;"> Convert.ToBase64String(bytes),
+                URL </span>=<span style="color: #000000;"> appconfig.tokenurl,
+                Encoding </span>= <span style="color: #800000;">"</span><span style="color: #800000;">utf-8</span><span style="color: #800000;">"</span><span style="color: #000000;">,
+                Method </span>= <span style="color: #800000;">"</span><span style="color: #800000;">POST</span><span style="color: #800000;">"</span><span style="color: #000000;">,
+                Postdata </span>=<span style="color: #000000;"> getPostDatan()
+            };
+
+            HttpHelper objhttp </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> HttpHelper();
+            objhttp.isToLower </span>= <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+
+
+            Hangjing.AppLog.AppLog.Info(</span><span style="color: #800000;">"</span><span style="color: #800000;">getToken:</span><span style="color: #800000;">"</span> + getPostDatan() + <span style="color: #800000;">"</span><span style="color: #800000;">\r\nurl=</span><span style="color: #800000;">"</span> + appconfig.tokenurl + <span style="color: #800000;">"</span><span style="color: #800000;">\r\nAuthorization=</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> Convert.ToBase64String(bytes));
+
+            </span><span style="color: #0000ff;">string</span> returnmsg =<span style="color: #000000;"> objhttp.GetHtml(objHttpItem);
+
+            Hangjing.AppLog.AppLog.Info(</span><span style="color: #800000;">"</span><span style="color: #800000;">getToken:</span><span style="color: #800000;">"</span> + getPostDatan() + <span style="color: #800000;">"</span><span style="color: #800000;">\r\nmsg=</span><span style="color: #800000;">"</span> + returnmsg + <span style="color: #800000;">"</span><span style="color: #800000;">\r\nAuthorization=</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> Convert.ToBase64String(bytes));
+
+            token </span>= JsonConvert.DeserializeObject&lt;access_tokenInfo&gt;<span style="color: #000000;">(returnmsg);
+            </span><span style="color: #0000ff;">if</span> (token != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+            {
+                token.shopid </span>= Convert.ToInt32(context.Request[<span style="color: #800000;">"</span><span style="color: #800000;">state</span><span style="color: #800000;">"</span><span style="color: #000000;">]);
+            }
+
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> token;
+        }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">商户授权部分代码</span></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>　　回调地址URL指向的地方 只要如下调用就可以了。</p>
+<p> 　　ELEAuth auth = new EleAPIV2.ELEAuth(Context);<br />            　　access_tokenInfo token = auth.getToken();</p>
+<p>　　</p>
+<p>　　整个过程就一个地方要注意下：HTTP header中需要携带Authorization请求头，Basic值的算法如下(+号表示字符串连接) <code>&nbsp;base64_encode(key + ":" + secret)，具体的写法在上面的代码已经有了。大伙儿稍微留意下就过了。</code></p>
+<p>　　话说回来，为什么是前面4个流程分分钟，独少了第五个呢，是了，第5个里面有一个计算签名的过程，几乎是第一次遇到这样的签名方式，过程较为麻烦，容易出错，之前也有几个园友也问到签名的事儿，所以这里单独拿出来。</p>
+<p>&nbsp;</p>
+<h1 class="postTitle">签名算法</h1>
+<p>　　 对接接口，签名总是较为麻烦的一点，相关文档如下点<a href="https://open.shop.ele.me/openapi/documents/apiprotocol" target="_blank">这里</a>，如果想了解流程，可以自行查看。流程很长，这里就不写了，几个地方要注意的如下：</p>
+<p>　　 1，签名的参数，只包含 JSON对像，metas和params 的属性。当然，params可能没有属性，忽略就可以了。</p>
+<p>　　 2，使用"key=json_encode(value)"方式进行字符串拼接，这就得要求 参数的类型 要与文档里匹配，long与string &nbsp;json_encode后的值是有区别的。比如 &nbsp;json_encode(123) = 123，而&nbsp;json_encode(&ldquo;123&rdquo;) =&ldquo;&nbsp;123&rdquo;，这就直接导致用于加密的内容都不同了。</p>
+<p>　　其他的什么排序，action + token &nbsp;+ secret，md5等等按正常流程走就可以了，没有坑了。</p>
+<p>　　到这里，就只剩代码，签名算法代码如下：</p>
+<p>　　</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('cc9a708a-eb54-40d2-a063-329987c5f25f')"><img id="code_img_closed_cc9a708a-eb54-40d2-a063-329987c5f25f" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_cc9a708a-eb54-40d2-a063-329987c5f25f" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('cc9a708a-eb54-40d2-a063-329987c5f25f',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_cc9a708a-eb54-40d2-a063-329987c5f25f" class="cnblogs_code_hide">
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">构建签名参数，注意 timestamp 类型是 int64</span>
+singparameters.Add(<span style="color: #800000;">"</span><span style="color: #800000;">app_key</span><span style="color: #800000;">"</span><span style="color: #000000;">, appconfig.Key);
+singparameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">timestamp</span><span style="color: #800000;">"</span><span style="color: #000000;">, Convert.ToInt64(Timestamp));
+
+
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+        <span style="color: #808080;">///</span><span style="color: #008000;"> 签名
+        </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+        <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;returns&gt;&lt;/returns&gt;</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> createMD5Sign(<span style="color: #0000ff;">string</span> action, <span style="color: #0000ff;">string</span><span style="color: #000000;"> token)
+        {
+            StringBuilder sb </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> StringBuilder();
+            ArrayList akeys </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> ArrayList();
+
+            </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> item <span style="color: #0000ff;">in</span><span style="color: #000000;"> singparameters.Keys)
+            {
+                akeys.Add(item </span>+ <span style="color: #800000;">"</span><span style="color: #800000;">=</span><span style="color: #800000;">"</span> + JsonConvert.SerializeObject(singparameters[item]) + <span style="color: #800000;">""</span><span style="color: #000000;">);
+            }
+            akeys.Sort();
+
+            </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">string</span> k <span style="color: #0000ff;">in</span><span style="color: #000000;"> akeys)
+            {
+                sb.Append(k);
+            }
+
+            </span><span style="color: #0000ff;">string</span> signstep = action + token + sb.ToString() +<span style="color: #000000;"> appconfig.Secret;
+
+            Hangjing.AppLog.AppLog.Info(</span><span style="color: #800000;">"</span><span style="color: #800000;">createMD5Sign:oldsignstep=</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> signstep);
+
+            signstep </span>=<span style="color: #000000;"> Utils.MD5(signstep).ToUpper();
+
+            Hangjing.AppLog.AppLog.Info(</span><span style="color: #800000;">"</span><span style="color: #800000;">createMD5Sign:signstep=</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> signstep);
+
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> signstep;
+        }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">签名实体，调用代码</span></div>
+<p>&nbsp;</p>
+<p>　　</p>
+<p>　　第5个流程的文档在<a href="https://open.shop.ele.me/openapi/apilist/eleme-user/eleme-user-getUser" target="_blank">这里</a>，主要是获取商户信息，与系统商家对应好，我是通过state参数传系统商家编号，因为state会原样回传回来。</p>
+<p>　　计算好签名，这个流程就完成大半了，剩下注意如下:</p>
+<p>　　1,&nbsp;Content-Type =&nbsp;application/json;charset=utf-8，</p>
+<p>　　2,&nbsp;id 参数值为&nbsp;Guid.NewGuid().ToString()</p>
+<p>　　3，post的参数要是josn 格式。参数在系统里是用&nbsp;Hashtable 保存的，只要一句话就可以转成Json --&nbsp;JsonConvert.SerializeObject(parameters);&nbsp;</p>
+<p>　　做了以上操作，此流程80%的情况就OK了。最后上几个实际流程图</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170521195102666-74141953.jpg" alt="" width="246" height="115" /><img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170521194908150-1838455881.jpg" alt="" width="296" height="276" /><img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170521194917057-1577339822.jpg" alt="" width="289" height="347" /><img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170521194923760-1299373780.jpg" alt="" width="260" height="220" /></p>
+<p>　　</p>
+<p>　　　</p>
+<h1 class="postTitle">接收订单参数，查询订单信息</h1>
+<p>　　设置好接收推送的url，根据通知类型和内容进行相应的逻辑操作，比如收到商家确认订单通知，就把订单加入系统，订单取消通知就把系统中订单相应取消。</p>
+<p>　　完成了签名算法，其他的接口对接就是水到渠成的事儿了，根据json生成实体，替换参数，很快就可以完成其他接口了。</p>
+<p>　　接收通知代码如下，特别注意就是消息体是以流形式推送过来的。另外还有一个情况可能大家都会遇到：创建应用后，会生成测试商家，商家的商品全是1毛的，你测试几单后，饿了么会认为商家在刷单，以后提交订单就直接取消了，无法测试，后来咨询的了客服，说是商品要大于1元才不会自动取消，这样就可以测试新订单推送，商家接单推送，然后再把订单取消，支付的金额就自动退回来了，</p>
+<p>　　</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('1f97101b-dde4-4751-92ad-c0338f76260c')"><img id="code_img_closed_1f97101b-dde4-4751-92ad-c0338f76260c" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_1f97101b-dde4-4751-92ad-c0338f76260c" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('1f97101b-dde4-4751-92ad-c0338f76260c',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_1f97101b-dde4-4751-92ad-c0338f76260c" class="cnblogs_code_hide">
+<pre> HJlog.toLog(<span style="color: #800000;">"</span><span style="color: #800000;">\r\nele2.0推送</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+
+
+        System.IO.Stream stream </span>= Request.InputStream;<span style="color: #008000;">//</span><span style="color: #008000;">这是你获得的流</span>
+        <span style="color: #0000ff;">if</span> (stream != <span style="color: #0000ff;">null</span> &amp;&amp; stream.Length &gt; <span style="color: #800080;">10</span><span style="color: #000000;">)
+        {
+
+            Hangjing.AppLog.AppLog.Info(</span><span style="color: #800000;">"</span><span style="color: #800000;">stream.Length ：</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> stream.Length);
+            </span><span style="color: #0000ff;">string</span> jsondata = <span style="color: #800000;">""</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">using</span> (StreamReader reader = <span style="color: #0000ff;">new</span><span style="color: #000000;"> StreamReader(stream))
+            {
+                jsondata </span>=<span style="color: #000000;"> reader.ReadToEnd(); ;
+            }
+
+            pushMessageInfo notice </span>= JsonConvert.DeserializeObject&lt;pushMessageInfo&gt;<span style="color: #000000;">(jsondata);
+
+            </span><span style="color: #0000ff;">switch</span><span style="color: #000000;"> (notice.type)
+            {
+                </span><span style="color: #0000ff;">case</span> <span style="color: #800080;">14</span><span style="color: #000000;">:
+                </span><span style="color: #0000ff;">case</span> <span style="color: #800080;">15</span><span style="color: #000000;">:
+                </span><span style="color: #0000ff;">case</span> <span style="color: #800080;">17</span><span style="color: #000000;">:
+                </span><span style="color: #0000ff;">case</span> <span style="color: #800080;">23</span><span style="color: #000000;">:
+                </span><span style="color: #0000ff;">case</span> <span style="color: #800080;">25</span><span style="color: #000000;">:
+                </span><span style="color: #0000ff;">case</span> <span style="color: #800080;">35</span><span style="color: #000000;">:
+                    </span><span style="color: #808080;">///</span><span style="color: #008000;">/订单取消</span>
+<span style="color: #000000;">                    {
+                        ordermessageinfo pushorder </span>= JsonConvert.DeserializeObject&lt;ordermessageinfo&gt;<span style="color: #000000;">(notice.message);
+                        </span><span style="color: #0000ff;">string</span> sys_orderid = <span style="color: #800000;">"</span><span style="color: #800000;">e</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> pushorder.orderId;
+                        </span><span style="color: #0000ff;">new</span> Custorder().AddOrderRecord(<span style="color: #800000;">"</span><span style="color: #800000;">e</span><span style="color: #800000;">"</span> + sys_orderid, <span style="color: #800080;">5</span>, <span style="color: #800000;">"</span><span style="color: #800000;">ele</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">饿了么取消了订单</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+
+                        </span><span style="color: #0000ff;">string</span> sql = <span style="color: #800000;">"</span><span style="color: #800000;">update Custorder set OrderStatus=5 where OrderID='</span><span style="color: #800000;">"</span> + sys_orderid + <span style="color: #800000;">"</span><span style="color: #800000;">';update shopeleCustorder set OrderStatus=5 where OrderID='</span><span style="color: #800000;">"</span> + sys_orderid + <span style="color: #800000;">"</span><span style="color: #800000;">'</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+                        WebUtility.excutesql(sql);
+
+                    }
+                    </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">case</span> <span style="color: #800080;">12</span>: <span style="color: #008000;">//</span><span style="color: #008000;">接收订单</span>
+<span style="color: #000000;">
+                    {
+                        ordermessageinfo pushorder </span>= JsonConvert.DeserializeObject&lt;ordermessageinfo&gt;<span style="color: #000000;">(notice.message);
+                        </span><span style="color: #008000;">//</span><span style="color: #008000;">获取token</span>
+                        taobaoAPIAcountInfo token = <span style="color: #0000ff;">new</span> taobaoAPIAcount().GetList(<span style="color: #800080;">1</span>, <span style="color: #800080;">1</span>, <span style="color: #800000;">"</span><span style="color: #800000;">linkurl='</span><span style="color: #800000;">"</span>+notice.shopId+<span style="color: #800000;">"</span><span style="color: #800000;">'</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">id</span><span style="color: #800000;">"</span>, <span style="color: #800080;">1</span><span style="color: #000000;">).FirstOrDefault();
+                        </span><span style="color: #0000ff;">if</span> (token == <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+                        {
+                            Hangjing.AppLog.AppLog.Info(</span><span style="color: #800000;">"</span><span style="color: #800000;">商家：</span><span style="color: #800000;">"</span> + notice.shopId + <span style="color: #800000;">"</span><span style="color: #800000;">未找到授权信息，orderid=</span><span style="color: #800000;">"</span> +<span style="color: #000000;"> pushorder.orderId);
+                        }
+                        </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+                        {
+                            ELEShopV2 eleshop </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> ELEShopV2(Context);
+                            OrderResult rs </span>=<span style="color: #000000;"> eleshop.getOrder(pushorder.orderId,token.pic);
+
+
+
+                        }
+
+                    }
+
+                    </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+
+
+                </span><span style="color: #0000ff;">default</span><span style="color: #000000;">:
+                    </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+            }
+
+
+
+
+
+        }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">接收推送代码</span></div>
+<p>&nbsp;</p>
+<p>　　</p>
+<h1 class="postTitle">上线</h1>
+<p>　　对接完成后，在 设置好&nbsp;正式环境 的相关参数，提交审核，至此对接就基本完成了。订单同步进入系统后，就是我们的调度系统派上用场了。通过自动调度规则，让配送员自己抢单，几乎都不用客服调度了，大家还抢的不亦乐乎。以下是某客户实时效果图。</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170521202334744-1188033577.png" alt="" /></p>
+<p>　　</p>
+<p>　　到此，终于实现了几个平台订单同步，总算是了了一件心事儿，还少百度外卖？直接忽略了，听商家说百度外卖半个月都不来个订单，连业务员都联系不上了。</p>
+<p>　　对接流程就完结了，希望对那些想要对接的人能有些帮助，所有流程都是亲测，绝对童叟无欺。</p>
+<h1 class="postTitle">结语</h1>
+<p>　　又到夏天了，猛然发现大学4年，每天6点起来练出来的腹肌早已紧密的团结在了一块儿，确实做我们一行的，每天上班，加班加起的得坐10几个小时，如疏于锻炼，不出3年，基本都得长肉肉的。于是，趁着媳妇回娘家，我开始了找回腹肌计划，希望她回来时，看到一个不一样的我。【她一直想看我有8块腹肌的样子 ：）】</p>
+<p>　　一，早上6:30起床，做好中午的饭，带去公司（外卖太贵了，也不是特别好吃），顺道在工商大学打30分钟篮球。去上班刚好。</p>
+<p>　　二，晚上22:30-23:00之间 从公司跑回家，全程4公里，绕一下可以有5-6公里。（再晚点，就只能骑车了）</p>
+<p>　　计划之初，内心也会抵触，反倒是执行2个月后，一切都变得自然而然，成了生活的一部分了。顺带还学会炒菜，当然了，我通常只放油盐，最多加点豆油，味道就那样了 :)。</p>
+<p>　　到现在跑5公里基本不费多少力，有时还故意再绕一圈小区。唯一麻烦的就是要背着早上带的两个饭盒，权当负重吧。下面是一张最近的跑步记录，下一步就是挑战10KM了，我的终极目前是全马（哈哈）。另外，如果你也要想跑起来，一定注意跑前热身，跑后拉伸。</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170521212658182-1327318570.jpg" alt="" /></p>
+<p>　　</p>
+<p>　　之前听别人的小密圈挺火，也下载玩了下把，创建了一个同步饿么订单的圈子，设置了付费50元加入（付费圈子最低50），抱着玩玩的心态，分享给了之前咨询饿了么接口微信好友，万万没想到，还真有几个人加入了，说是&ldquo;作为支持你的分享&rdquo;这也算是意外的惊喜吧，钱不多，背信任的感觉满好的。在此，也谢过几位了哈。</p>
+<p>　　<img src="https://images2015.cnblogs.com/blog/88102/201705/88102-20170521222128666-1881078489.jpg" alt="" /></p>
+<p>　　</p>
+<p>&nbsp;</p>
+<p>　　&nbsp;成为一名优秀的程序员！</p>
+<p>&nbsp;</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2017-05-22 08:42</span>&nbsp;
+<a href="https://www.cnblogs.com/jijunjian/">2J</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=6884404" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(6884404);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 139716, cb_blogApp = 'jijunjian', cb_blogUserGuid = '3f24f67b-fea0-de11-ba8f-001cf0cd104b';
+    var cb_entryId = 6884404, cb_entryCreatedDate = '2017-05-22 08:42', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 2J
+<br /><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+</body>
+</html>

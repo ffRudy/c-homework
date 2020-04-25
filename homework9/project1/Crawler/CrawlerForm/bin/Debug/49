@@ -1,0 +1,700 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="在 Visual Studio 2010 的时代，扩展 Visual Studio 的途径有很多，开发者可以选择宏、Add-in、MEF 和 VSPackages进行自定义的扩展。但是宏在 Visua" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>如何扩展 Visual Studio 编辑器 - stg609 - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=-oFz8B4m7JhHaZzdTkzPza2oLZNDRR8obnCz6w7OHbU" />
+    <link id="MainCss" rel="stylesheet" href="/skins/nature/bundle-nature.min.css?v=OGPViv8ygSk1htOgsEILRhpv35ZKyr-flppEtpvHCA0" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/stg609/custom.css?v=VHDGx&#x2B;s15cnUNvOi89/bFTGagQw=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/nature/bundle-nature-mobile.min.css?v=RzYS8QGQmC0gsBHSUxnpybzlR89FFui1fBHmMB-mNoc" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/stg609/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/stg609/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/stg609/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=uk-as-QYRHtjaAbeEigAktvhwf01NRrnle-6exg65Ak"></script>
+    <script>
+        var currentBlogId = 34546;
+        var currentBlogApp = 'stg609';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'nature';
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    
+    <!--done-->
+<div id="banner"><div id="bnr_pic">
+<!--done-->
+<div class="header">
+	<div class="headerText">
+		<a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/stg609/">我不是圣人</a>
+<br>
+	</div><br>
+	<div class="headerDis">
+以客户为中心，业务为导向，服务为基础~
+</div>
+</div>
+
+</div></div>
+<div id="main">
+	<!-- left starts -->
+	<div id="left">
+		<DIV id="mystats">
+			<br/>
+				<!--done-->
+<div class="blogStats">
+随笔 - 
+75&nbsp;
+文章 - 
+73&nbsp;
+评论 - 
+947&nbsp;
+
+110
+</div>
+
+
+			
+		</DIV>
+		<div id="mylinks">
+
+<a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+&nbsp;&nbsp;
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/stg609/">
+首页</a>
+&nbsp;&nbsp;
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+&nbsp;&nbsp;
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/stg609">
+联系</a>&nbsp;&nbsp;
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+&nbsp;&nbsp;
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/stg609/rss/">
+订阅</a>&nbsp;
+<a id="blog_nav_rss_image" href="https://www.cnblogs.com/stg609/rss/">
+    <img src="/skins/nature/images/xml.gif" alt="订阅" />
+</a>
+
+</div>
+		<div id="topics">
+			<div id="post_detail">
+<div class="post">
+	<div class="postTitle">
+		<h1>
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/stg609/p/3711443.html">如何扩展 Visual Studio 编辑器</a>
+</h1>
+	</div>
+	
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>　　在 Visual Studio 2010 的时代，扩展 Visual Studio 的途径有很多，开发者可以选择宏、Add-in、MEF 和 VSPackages&nbsp;进行自定义的扩展。但是宏在 Visual Studio 2012 的时候被阉割了，Add-in 也在 Visual Studio 2013 里被抹杀了，这样的调整对于 Visual Studio 来说是好的，但是对于那些习惯了使用宏和Add-in的团队可能就郁闷了。</p>
+<p>&nbsp;</p>
+<p>　　本文将一步步教你如何实现对 Visual Studio 代码编辑器的扩展，最终将实现一个可以支持如下两个功能的扩展。</p>
+<p><strong>　　1. 自动任务注释（支持后期扩展）</strong></p>
+<p>　　任务注释就是 //TODO、//FIXME 之类可以被 Visual Studio 区别对待的注释，不同的任务注释可能需要不同的格式，比如有些需要先注释掉方法体，有些需要在代码行的前后加上开始、结束标记等，过去在宏还支持的时候，我们可以使用宏来实现此类操作。不同的项目组使用这些标记的方法不同，因此会有不同的要求，本工具支持自定义的扩展。</p>
+<p><strong>　　2. 跳转到方法的头部或尾部</strong></p>
+<p>　　这个功能看似无用，但是当一个方法有几百行，甚至上千行的时候，如何快速跳转到方法的开头或结尾就比较麻烦了。</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://images0.cnblogs.com/i/30991/201405/011441484709435.gif" alt="" /></p>
+<p style="text-align: center;">图1 最终效果动画演示（请点击放大后查看）</p>
+<p>&nbsp;</p>
+<p style="margin-bottom: 1.286em; line-height: 1.5em; white-space: normal; border-style: solid; border-color: #dddaaa; border-width: 1px 0px; padding: 0.75em 15px; background-color: #faf9e2; color: #5d5636; text-indent: 2em;">阅读此文，需要您对如下知识点有一定了解:<br /><br /><span>&nbsp;&nbsp;&nbsp;&nbsp;1. MVVM 与 WPF -&gt;&nbsp;</span><a title="最简单的MVVM示例" href="http://blog.chenxu.me/post/detail?id=773989fc-9404-4186-a627-5dec1d989e43" target="_blank">赶紧去了解一下</a>&nbsp;（此篇文章躺在自己网站上，没有来得及同步到博客园，大家将就一下）<br /><span>&nbsp;&nbsp;&nbsp;&nbsp;2. MEF -&gt;&nbsp;</span><a title="小试 MEF 扩展应用程序" href="http://www.cnblogs.com/stg609/p/3702802.html" target="_blank">赶紧去了解一下</a></p>
+<p>&nbsp;</p>
+<p>　　如果想赶紧体验下这个扩展的话，请猛击<a title="TskComment.vsix" href="http://pan.baidu.com/s/1i3gd6Bj" target="_blank">这里</a>! （仅限 Visual Studio 2012）</p>
+<p>&nbsp;</p>
+<p>　　<span style="font-size: 14pt;"><strong>本文提纲</strong></span></p>
+<p>　　<a href="#MEFnVSPackage">MEF 和 VSPackage</a></p>
+<p>　　<a href="#prepare">准备工作</a></p>
+<p>　　<a href="#editortemplate">各种 Editor 模板的区别</a></p>
+<p>　　<a href="#environment">Visual Studio 实验环境</a></p>
+<p>　　<a href="#viewport">Editor Viewport Adornment 原理解析</a></p>
+<p>　　<a href="#basecode">添加控件和基础代码</a></p>
+<p>　　<a href="#dte">获取DTE对象</a></p>
+<p>　　<a href="#completelogic">完成功能逻辑</a></p>
+<p>　　<a href="#addmef">增加扩展点，让注释支持后期扩展</a></p>
+<p>　　<a href="#why">Why VSPackages or MEF ?</a></p>
+<p>　　<a href="#sourcecontrol">源代码管理</a></p>
+<p>　　<a href="#reference">参考资源</a></p>
+<p>&nbsp;</p>
+<p><span>　　在进入正文前，我们先来快速认识下这仅存的两位英雄~</span></p>
+<h2 style="font-size: 1.5em; font-family: 'Microsoft YaHei UI', 'Microsoft YaHei'; background-color: #dfdfdf; padding: 5px 10px; margin-bottom: 30px; margin-top: 20px; font-weight: bold; background-position: initial initial; background-repeat: initial initial;" data-index="1"><a name="MEFnVSPackage"></a>MEF 和 VSPackage</h2>
+<p>　　从 Visual Studio 2013 开始，对 Visual Studio 的扩展只剩下 MEF 和 VSPackage。来来来，给大家介绍下你们自己~~&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>　　MEF(Managed Extensibility Framework)</strong></p>
+<p>　　这个框架最初是独立于 .Net Framework 发布，后来整合到了 .Net 4.0 中，并伴随着 .Net 4.0 一起发布（包含在 System.ComponentModel.Composition.dll 程序集中）。从名字上看得出这个框架主要就是为编写可扩展的应用程序而生的。随着 .Net 4.0 的推出，还有一项重大的改变就是 Visual Studio IDE中的编辑器，该部分原先和其它组件一样都是采用 COM 方式开发，但现在却被 WPF 技术顶替了。采用了WPF技术搭建的编辑可以完全支持使用 MEF 来进行扩展，这不能不说是一个非常完美的改进。唯一遗憾的是，截止2013的出现，Visual Studio 的其余部分仍然没有从 COM 中脱离出来。</p>
+<blockquote>
+<p>The MEF is a .NET library that lets you add and modify features of an application or component that follows the MEF programming model. The Visual Studio editor can both provide and consume MEF component parts. The MEF is contained in the .NET Framework version 4 System.ComponentModel.Composition.dll assembly.</p>
+<p>&nbsp;</p>
+<p style="text-align: right;">---&nbsp;<a title="Managed Extensibility Framework in the Editor" href="http://msdn.microsoft.com/en-us/library/dd885013.aspx" target="_blank">Managed Extensibility Framework in the Editor</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</blockquote>
+<p>　　因此，如果想要扩展已有的编辑器，就可以基于MEF进行开发<span>（比如修改针对C#代码编辑器的高亮颜色、智能提示、括号补全等）</span>。</p>
+<p>&nbsp;</p>
+<p><strong>　　VSPackage</strong></p>
+<p>　　可以说除了编辑器， Visual Studio 就是多个 VSPackage 的集合，因此使用 VSPackage 可以完美得与 Visual Studio 进行集成，而且能够获得几乎全部的能力。如果想开发对工具栏、菜单栏，甚至是全新的编辑器时（提供对新语言的解析、智能提示等）可以选择VSPackage。</p>
+<p>&nbsp;</p>
+<h2 style="font-size: 1.5em; font-family: 'Microsoft YaHei UI', 'Microsoft YaHei'; background-color: #dfdfdf; padding: 5px 10px; margin-bottom: 30px; margin-top: 20px; font-weight: bold; background-position: initial initial; background-repeat: initial initial;" data-index="2"><a name="prepare"></a>准备工作</h2>
+<p>　　童鞋们，请检查下吃饭的家伙准备好了吗？</p>
+<p>　　1. 英文版的 Visual Studio，中文版的 Visual Studio 无法看到 Editor Text Adornment 等模板。</p>
+<p>　　2. 想要扩展编辑器或整个 Visual Stuio，必须先下载安装 Visual Studio SDK（VS2012版本，请点击<a title="SDK" href="http://go.microsoft.com/fwlink/?LinkId=299070" target="_blank">链接</a>下载），安装完后，就可以在 &ldquo;其它项目类型&rdquo; 的模板上找到想要的模板了。</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://images0.cnblogs.com/i/30991/201405/011443522526485.jpg" alt="" /></p>
+<p style="text-align: center;">图2 SDK安装后的模板</p>
+<p>　　</p>
+<p style="margin-bottom: 1.286em; line-height: 1.5em; white-space: normal; border-style: solid; border-color: #dddaaa; border-width: 1px 0px; padding: 0.75em 15px; background-color: #faf9e2; color: #5d5636; text-indent: 2em;">本文所有代码均基于 Visual Studio 2012 开发，如果您使用的是其它版本，请下载安装适合您版本的 SDK。扩展开发的过程在各个版本间可能会有细小的差距，但不影响整体开发流程。</p>
+<p>&nbsp;</p>
+<h2 style="font-size: 1.5em; font-family: 'Microsoft YaHei UI', 'Microsoft YaHei'; background-color: #dfdfdf; padding: 5px 10px; margin-bottom: 30px; margin-top: 20px; font-weight: bold; background-position: initial initial; background-repeat: initial initial;" data-index="3"><a name="editortemplate"></a>各种 Editor 模板的区别</h2>
+<p>　　安装完 SDK 后，就会拥有如上图中所示的多种扩展模板，其中包含四种和 Editor 相关的模板，它们之间有什么区别吗？</p>
+<p>&nbsp;</p>
+<p><strong>　　Editor Classifier</strong></p>
+<p>　　可以修改编辑器中代码的高亮、添加一些智能的标签（比如当我们修改了某个变量名时，会在变量名下出现一个小短横，当你鼠标移上去后会提示你是否要修改所有引用的地方）等，示例效果如下：</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://images0.cnblogs.com/i/30991/201405/011444406273564.jpg" alt="" /></p>
+<p style="text-align: center;">图3 Editor Classifier 示例</p>
+<p>&nbsp;</p>
+<p><strong>　　Editor Margin</strong></p>
+<p>　　在编辑器的周围添加一些WPF元素，比如当前文件是只读的时候，可以在编辑器下边沿提示文件为只读，示例效果如下：</p>
+<p style="text-align: center;"><img src="https://images0.cnblogs.com/i/30991/201405/011444555022875.jpg" alt="" /></p>
+<p style="text-align: center;">图4 在下边沿添加了一条绿色的信息框</p>
+<p>&nbsp;</p>
+<p><strong>　　Editor Text Adornment</strong></p>
+<p>　　用于对编辑器中的文字进行修饰，添加一些WPF的元素，示例效果如下：</p>
+<p style="text-align: center;"><img src="https://images0.cnblogs.com/i/30991/201405/011445099703128.jpg" alt="" /></p>
+<p style="text-align: center;"><span>图5 用框框包裹</span>所有字符 a&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>　　Editor Viewport Adornment</strong></p>
+<p>　　用于对编辑器本身进行修饰，添加一些WPF元素，示例如下：</p>
+<p style="text-align: center;"><img src="https://images0.cnblogs.com/i/30991/201405/011445244701625.jpg" alt="" /></p>
+<p style="text-align: center;">图6 在编辑器的右上角添加了一个矩形元素</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>　　本工具使用 Editor Viewport Adornment 作为模板。</p>
+<p>&nbsp;</p>
+<h2 style="font-size: 1.5em; font-family: 'Microsoft YaHei UI', 'Microsoft YaHei'; background-color: #dfdfdf; padding: 5px 10px; margin-bottom: 30px; margin-top: 20px; font-weight: bold; background-position: initial initial; background-repeat: initial initial;" data-index="4"><a name="environment"></a>Visual Studio 实验环境</h2>
+<p>　　对于这些扩展的测试，Visual Studio 提供了 Experimental Instance 用于实验环境，该环境和真实的 Visual Studio 完全一样，只不过它和真实版本各自独享一套配置文件，对于实验环境的配置不会影响到真实环境。</p>
+<p>　　第一次启动实验环境，会进入如图7所示的<span>默认环境配置的界面。</span></p>
+<p style="text-align: center;"><img src="https://images0.cnblogs.com/i/30991/201405/011445427208266.jpg" alt="" width="397" height="455" /></p>
+<p style="text-align: center;">图7 默认环境配置</p>
+<p>&nbsp;</p>
+<p><strong>　　实验环境中的数据可以初始化</strong></p>
+<p><span>　　SDK目录中的 Tools提供了 &ldquo;Reset the Visual Studio 2012 Experimental Instance&rdquo; 命令行工具，运行该工具就会初始化实验环境。</span></p>
+<p style="text-align: center;"><img src="https://images0.cnblogs.com/i/30991/201405/011446114701717.jpg" alt="" /></p>
+<p style="text-align: center;"><span>图10 初始化工具</span></p>
+<h2 style="font-size: 1.5em; font-family: 'Microsoft YaHei UI', 'Microsoft YaHei'; background-color: #dfdfdf; padding: 5px 10px; margin-bottom: 30px; margin-top: 20px; font-weight: bold; background-position: initial initial; background-repeat: initial initial;" data-index="5"><span><a name="viewport"></a>Editor Viewport Adornment&nbsp;</span>原理解析</h2>
+<p>　　要想理解它，必先使用它。<span>通过模板创建好的新&nbsp;<span>Editor Viewport Adornment&nbsp;</span>项目时，已经包含了示例代码，该示例代码的功能就是如图6所示在编辑区添加一个紫色的矩形框。</span></p>
+<p style="text-align: center;"><img src="https://images0.cnblogs.com/i/30991/201405/011446279554787.jpg" alt="" /></p>
+<p style="text-align: center;">图11 刚创建完的样子</p>
+<p>&nbsp;</p>
+<p><span>　　在运行示例代码前必须先修改 source.extension.vsixmanifest 文件中的 author 字段，否则运行将报错。</span></p>
+<p style="text-align: center;"><img src="https://images0.cnblogs.com/i/30991/201405/011446450026727.jpg" alt="" /></p>
+<p style="text-align: center;"><span>图12 补全 Author 字段</span></p>
+<p><span>&nbsp;</span></p>
+<p><strong>　　实现原理</strong></p>
+<p>　　在介绍 MEF 和 VSPackage 的时候，我说过整个 Editor 部分都是基于 MEF 思想开发的。简单来说，Visual Studio Editor 向第三方扩展提供了<strong>产物</strong>（Export）、<strong>接受者</strong>（Import）及各种<strong>协议</strong>，第三方扩展根据对应的协议制作生产出符合的产物，然后 VS 会将第三方的产物与自己的接受者进行组合（就好像是把符合形状的积木放入盒子中）。这样，我们就能在下次启动 VS 的时候使用这个扩展了。</p>
+<p style="text-align: center;"><img src="https://images0.cnblogs.com/i/30991/201405/011447088459344.jpg" alt="" /></p>
+<p style="text-align: center;">图13 MEF 思想</p>
+<p>&nbsp;</p>
+<p>　　这个项目中主要的就两个文件：<strong>TskCommentFactory.cs</strong>&nbsp;和&nbsp;<strong>TskComment.cs</strong>。</p>
+<p>　　其中，TskCommentFactory 文件中的 PurpleBoxAdornmentFactory 就是基于 IWpfTextVIewCreationListener 这个协议的<strong>产物</strong>，也是本项目的主要入口。使用该协议可以在编辑器视图创建的时候加入我们想要的操作。其中最重要的就是 TextViewCreated 方法，该方法调用了 TskComment 构造函数，从而在编辑器上增加了一块紫色的区域。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span>     [Export(<span style="color: #0000ff;">typeof</span><span style="color: #000000;">(IWpfTextViewCreationListener))]
+</span><span style="color: #008080;"> 2</span>     [ContentType(<span style="color: #800000;">"</span><span style="color: #800000;">text</span><span style="color: #800000;">"</span><span style="color: #000000;">)]
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">    [TextViewRole(PredefinedTextViewRoles.Document)]
+</span><span style="color: #008080;"> 4</span>     <span style="color: #0000ff;">internal</span> <span style="color: #0000ff;">sealed</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> PurpleBoxAdornmentFactory : IWpfTextViewCreationListener
+</span><span style="color: #008080;"> 5</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;"> 6</span>         <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+<span style="color: #008080;"> 7</span>         <span style="color: #808080;">///</span><span style="color: #008000;"> Defines the adornment layer for the scarlet adornment. This layer is ordered 
+</span><span style="color: #008080;"> 8</span>         <span style="color: #808080;">///</span><span style="color: #008000;"> after the selection layer in the Z-order
+</span><span style="color: #008080;"> 9</span>         <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+<span style="color: #008080;">10</span>         [Export(<span style="color: #0000ff;">typeof</span><span style="color: #000000;">(AdornmentLayerDefinition))]
+</span><span style="color: #008080;">11</span>         [Name(<span style="color: #800000;">"</span><span style="color: #800000;">TskComment</span><span style="color: #800000;">"</span><span style="color: #000000;">)]
+</span><span style="color: #008080;">12</span>         [Order(After =<span style="color: #000000;"> PredefinedAdornmentLayers.Caret)]
+</span><span style="color: #008080;">13</span>         <span style="color: #0000ff;">public</span> AdornmentLayerDefinition editorAdornmentLayer = <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+</span><span style="color: #008080;">14</span>  
+<span style="color: #008080;">15</span>         <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+<span style="color: #008080;">16</span>         <span style="color: #808080;">///</span><span style="color: #008000;"> Instantiates a TskComment manager when a textView is created.
+</span><span style="color: #008080;">17</span>         <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+<span style="color: #008080;">18</span>         <span style="color: #808080;">///</span> <span style="color: #808080;">&lt;param name="textView"&gt;</span><span style="color: #008000;">The </span><span style="color: #808080;">&lt;see cref="IWpfTextView"/&gt;</span><span style="color: #008000;"> upon which the adornment should be placed</span><span style="color: #808080;">&lt;/param&gt;</span>
+<span style="color: #008080;">19</span>         <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> TextViewCreated(IWpfTextView textView)
+</span><span style="color: #008080;">20</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">21</span>             <span style="color: #0000ff;">new</span><span style="color: #000000;"> TskComment(textView);
+</span><span style="color: #008080;">22</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">23</span>     }</pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="line-height: 1.5;">　　TskComment 文件中主要就两个方法：构造函数 和 onSizeChange 方法。在构造函数中，通过 Brush 画出了一个紫色的矩形，并为编辑器视图绑定了 onSizeChange 方法。</span>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span>     Brush brush = <span style="color: #0000ff;">new</span><span style="color: #000000;"> SolidColorBrush(Colors.BlueViolet);
+</span><span style="color: #008080;"> 2</span> <span style="color: #000000;">    brush.Freeze();
+</span><span style="color: #008080;"> 3</span>     Brush penBrush = <span style="color: #0000ff;">new</span><span style="color: #000000;"> SolidColorBrush(Colors.Red);
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;">    penBrush.Freeze();
+</span><span style="color: #008080;"> 5</span>     Pen pen = <span style="color: #0000ff;">new</span> Pen(penBrush, <span style="color: #800080;">0.5</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 6</span> <span style="color: #000000;">    pen.Freeze();
+</span><span style="color: #008080;"> 7</span>  
+<span style="color: #008080;"> 8</span>     <span style="color: #008000;">//</span><span style="color: #008000;">draw a square with the created brush and pen</span>
+<span style="color: #008080;"> 9</span>     System.Windows.Rect r = <span style="color: #0000ff;">new</span> System.Windows.Rect(<span style="color: #800080;">0</span>, <span style="color: #800080;">0</span>, <span style="color: #800080;">30</span>, <span style="color: #800080;">30</span><span style="color: #000000;">);
+</span><span style="color: #008080;">10</span>     Geometry g = <span style="color: #0000ff;">new</span><span style="color: #000000;"> RectangleGeometry(r);
+</span><span style="color: #008080;">11</span>     GeometryDrawing drawing = <span style="color: #0000ff;">new</span><span style="color: #000000;"> GeometryDrawing(brush, pen, g);
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">    drawing.Freeze();
+</span><span style="color: #008080;">13</span>  
+<span style="color: #008080;">14</span>     DrawingImage drawingImage = <span style="color: #0000ff;">new</span><span style="color: #000000;"> DrawingImage(drawing);
+</span><span style="color: #008080;">15</span> <span style="color: #000000;">    drawingImage.Freeze();
+</span><span style="color: #008080;">16</span>  
+<span style="color: #008080;">17</span>     _image = <span style="color: #0000ff;">new</span><span style="color: #000000;"> Image();
+</span><span style="color: #008080;">18</span>     _image.Source = drawingImage;</pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="line-height: 1.5;">　　</span>上面代码创建了一个紫色的矩形。如果看不懂也不要紧，因为这部分代码是要被删除的。</p>
+<p>　　onSizeChange 中调用了 AddAdornment 这个方法，这才把紫色的矩形加到了编辑器上。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span>     <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> onSizeChange()
+</span><span style="color: #008080;"> 2</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;"> 3</span>         <span style="color: #008000;">//</span><span style="color: #008000;">clear the adornment layer of previous adornments</span>
+<span style="color: #008080;"> 4</span> <span style="color: #000000;">        _adornmentLayer.RemoveAllAdornments();
+</span><span style="color: #008080;"> 5</span>  
+<span style="color: #008080;"> 6</span>         <span style="color: #008000;">//</span><span style="color: #008000;">Place the image in the top right hand corner of the Viewport</span>
+<span style="color: #008080;"> 7</span>         Canvas.SetLeft(_image, _view.ViewportRight - <span style="color: #800080;">60</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 8</span>         Canvas.SetTop(_image, _view.ViewportTop + <span style="color: #800080;">30</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 9</span>  
+<span style="color: #008080;">10</span>         <span style="color: #008000;">//</span><span style="color: #008000;">add the image to the adornment layer and make it relative to the viewport</span>
+<span style="color: #008080;">11</span>         _adornmentLayer.AddAdornment(AdornmentPositioningBehavior.ViewportRelative, <span style="color: #0000ff;">null</span>, <span style="color: #0000ff;">null</span>, _image, <span style="color: #0000ff;">null</span><span style="color: #000000;">);
+</span><span style="color: #008080;">12</span>     }</pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="line-height: 1.5;">　　到现在，原理部分已经讲完了，不管你信不信，你已经可以通过修改 TskComment 中这两个方法来实现自己的扩展了。</span>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 style="font-size: 1.5em; font-family: 'Microsoft YaHei UI', 'Microsoft YaHei'; background-color: #dfdfdf; padding: 5px 10px; margin-bottom: 30px; margin-top: 20px; font-weight: bold; background-position: initial initial; background-repeat: initial initial;" data-index="6"><a name="basecode"></a>添加控件和基础代码</h2>
+<p>　　如何实现我要的功能呢？</p>
+<p>　　首先，我们的工具需要一个可以交互的界面，这没办法单纯的用 Brush 绘制。因此需要新建一个 WPF 控件（不能是 Winform 控件，AddAdornment 只能接受 WPF 元素）。</p>
+<p style="text-align: center;"><img src="https://images0.cnblogs.com/i/30991/201405/011448372059539.jpg" alt="" width="532" height="300" /></p>
+<p style="text-align: center;">图14 新建 WPF 用户控件</p>
+<p>&nbsp;</p>
+<p>　　按照 MVVM 的思想，依次添加 DelegateCommand、ViewModelBase、MainViewModel 这几个文件，我们的核心逻辑全部在 MainViewModel 中。</p>
+<p style="text-align: center;"><img src="https://images0.cnblogs.com/i/30991/201405/011449042363432.jpg" alt="" /></p>
+<p style="text-align: center;">图15 新增的文件</p>
+<p>&nbsp;</p>
+<p>　　MainWindow.xaml 中的代码如下（省略了一些与逻辑无关的元素）。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">UserControl </span><span style="color: #ff0000;">x:Class</span><span style="color: #0000ff;">="TskComment.MainControl"</span>
+<span style="color: #008080;"> 2</span> <span style="color: #ff0000;">             ...
+</span><span style="color: #008080;"> 3</span> <span style="color: #ff0000;">             d:DesignHeight</span><span style="color: #0000ff;">="41"</span><span style="color: #ff0000;"> Width</span><span style="color: #0000ff;">="300"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 4</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">UserControl.DataContext</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 5</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">local:MainViewModel</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">local:MainViewModel</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 6</span>     <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">UserControl.DataContext</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 7</span>  
+<span style="color: #008080;"> 8</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Expander</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 9</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Grid </span><span style="color: #ff0000;">Height</span><span style="color: #0000ff;">="41"</span><span style="color: #ff0000;"> VerticalAlignment</span><span style="color: #0000ff;">="Top"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">10</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Button </span><span style="color: #ff0000;">Content</span><span style="color: #0000ff;">="{}{"</span><span style="color: #ff0000;">  Command</span><span style="color: #0000ff;">="{Binding MoveToTopOfBlockCmd}"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">11</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Button </span><span style="color: #ff0000;">Content</span><span style="color: #0000ff;">="}"</span><span style="color: #ff0000;"> Command</span><span style="color: #0000ff;">="{Binding MoveToBottomOfBlockCmd}"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">12</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Button </span><span style="color: #ff0000;">Content</span><span style="color: #0000ff;">="执行"</span><span style="color: #ff0000;"> Command</span><span style="color: #0000ff;">="{Binding ExecuteCmd}"</span><span style="color: #ff0000;"> IsDefault</span><span style="color: #0000ff;">="True"</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">13</span>             <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ComboBox </span><span style="color: #ff0000;">IsEditable</span><span style="color: #0000ff;">="True"</span><span style="color: #ff0000;"> ItemsSource</span><span style="color: #0000ff;">="{Binding CMTCollection}"</span><span style="color: #ff0000;"> SelectedItem</span><span style="color: #0000ff;">="{Binding SelectedItem}"</span><span style="color: #ff0000;"> Name</span><span style="color: #0000ff;">="cmtCol"</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">14</span>         <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">Grid</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">15</span>     <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">Expander</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">16</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">UserControl</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="line-height: 1.5;">　　MainViewModel 中的代码如下（省略部分无关代码），其中的 MoveToTopOrBottomOfBlock 和 Execute 两个方法的代码因为缺少关键元素，暂时为空。</span>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span>     <span style="color: #0000ff;">#region</span> Properties and Fields
+<span style="color: #008080;"> 2</span>      
+<span style="color: #008080;"> 3</span>     <span style="color: #0000ff;">private</span> ObservableCollection&lt;BaseComment&gt; _cmtCollection = <span style="color: #0000ff;">new</span> ObservableCollection&lt;BaseComment&gt;<span style="color: #000000;">();
+</span><span style="color: #008080;"> 4</span>     <span style="color: #0000ff;">public</span> ObservableCollection&lt;BaseComment&gt;<span style="color: #000000;"> CMTCollection
+</span><span style="color: #008080;"> 5</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;"> 6</span>         <span style="color: #0000ff;">get</span> { <span style="color: #0000ff;">return</span><span style="color: #000000;"> _cmtCollection; }
+</span><span style="color: #008080;"> 7</span>         <span style="color: #0000ff;">set</span> { _cmtCollection = value; RaisePropertyChanged(<span style="color: #800000;">"</span><span style="color: #800000;">CMTCollection</span><span style="color: #800000;">"</span><span style="color: #000000;">); }
+</span><span style="color: #008080;"> 8</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;"> 9</span>  
+<span style="color: #008080;">10</span>     <span style="color: #0000ff;">private</span> BaseComment selectedItem = <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+</span><span style="color: #008080;">11</span>     <span style="color: #0000ff;">public</span><span style="color: #000000;"> BaseComment SelectedItem
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;">13</span>         <span style="color: #0000ff;">get</span> { <span style="color: #0000ff;">return</span><span style="color: #000000;"> selectedItem; }
+</span><span style="color: #008080;">14</span>         <span style="color: #0000ff;">set</span> { selectedItem = value; RaisePropertyChanged(<span style="color: #800000;">"</span><span style="color: #800000;">SelectedItem</span><span style="color: #800000;">"</span><span style="color: #000000;">); }
+</span><span style="color: #008080;">15</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">16</span>  
+<span style="color: #008080;">17</span>     <span style="color: #0000ff;">public</span> DelegateCommand MoveToTopOfBlockCmd { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+</span><span style="color: #008080;">18</span>     <span style="color: #0000ff;">public</span> DelegateCommand MoveToBottomOfBlockCmd { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+</span><span style="color: #008080;">19</span>     <span style="color: #0000ff;">public</span> DelegateCommand ExecuteCmd { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+</span><span style="color: #008080;">20</span>      
+<span style="color: #008080;">21</span>     <span style="color: #0000ff;">#endregion</span>
+<span style="color: #008080;">22</span>  
+<span style="color: #008080;">23</span>     <span style="color: #0000ff;">#region</span> ctor
+<span style="color: #008080;">24</span>      
+<span style="color: #008080;">25</span>     <span style="color: #0000ff;">public</span><span style="color: #000000;"> MainViewModel()
+</span><span style="color: #008080;">26</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;">27</span>         MoveToTopOfBlockCmd = <span style="color: #0000ff;">new</span> DelegateCommand((o) =&gt; MoveToTopOrBottomOfBlock(<span style="color: #0000ff;">true</span><span style="color: #000000;">));
+</span><span style="color: #008080;">28</span>         MoveToBottomOfBlockCmd = <span style="color: #0000ff;">new</span> DelegateCommand((o) =&gt; MoveToTopOrBottomOfBlock(<span style="color: #0000ff;">false</span><span style="color: #000000;">));
+</span><span style="color: #008080;">29</span>         ExecuteCmd = <span style="color: #0000ff;">new</span> DelegateCommand((o) =&gt;<span style="color: #000000;"> Comment());
+</span><span style="color: #008080;">30</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">31</span>      
+<span style="color: #008080;">32</span>     <span style="color: #0000ff;">#endregion</span>
+<span style="color: #008080;">33</span>  
+<span style="color: #008080;">34</span>     <span style="color: #0000ff;">#region</span> Methods
+<span style="color: #008080;">35</span>  
+<span style="color: #008080;">36</span>     <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span> MoveToTopOrBottomOfBlock(<span style="color: #0000ff;">bool</span><span style="color: #000000;"> up)
+</span><span style="color: #008080;">37</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;">38</span>         <span style="color: #008000;">//</span><span style="color: #008000;">... 缺少关键元素</span>
+<span style="color: #008080;">39</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">40</span>  
+<span style="color: #008080;">41</span>     <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Comment()
+</span><span style="color: #008080;">42</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;">43</span>         <span style="color: #008000;">//</span><span style="color: #008000;">... 缺少关键元素</span>
+<span style="color: #008080;">44</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">45</span>  
+<span style="color: #008080;">46</span>     <span style="color: #0000ff;">#endregion</span></pre>
+</div>
+<p>&nbsp;</p>
+<p style="font-size: 1.5em; font-family: 'Microsoft YaHei UI', 'Microsoft YaHei'; background-color: #dfdfdf; padding: 5px 10px; margin-bottom: 30px; margin-top: 20px; font-weight: bold; background-position: initial initial; background-repeat: initial initial;"><a name="dte"></a>获取DTE对象</p>
+<p>　　上一节中所缺少的关键元素其实就是DTE，该对象相当于 Visual Studio 的实例，可以通过操作该实例对编辑器中的东东进行控制（如果想要进一步了解，请见<a href="#[1]" target="_blank">参考资源[1]</a>），比如剪切、粘贴、新建行、跳转到方法体等。所以，如果想实现开头我所讲的工具，就要依托这个对象。</p>
+<p>&nbsp;</p>
+<p>　　在宏编辑器中，可以很轻松的获取该对象，但是在这里稍微就有点麻烦了。我们必须借助 Visual Studio 的其中一个产物(Export) --&nbsp;SVsServiceProvider。该产物的&nbsp;GetService 可以获得这个对象。</p>
+<p>　　修改 TskCommentFactory 代码，如下：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">internal</span> <span style="color: #0000ff;">sealed</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> TskCommentFactory : IWpfTextViewCreationListener
+</span><span style="color: #008080;"> 2</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">    [Import]
+</span><span style="color: #008080;"> 4</span>     <span style="color: #0000ff;">internal</span> SVsServiceProvider ServiceProvider = <span style="color: #0000ff;">null</span>;   <span style="color: #008000;">//</span><span style="color: #008000;">&lt;-- 通过这句代码，就可以获取 Visual Studio 的产物
+</span><span style="color: #008080;"> 5</span>          
+<span style="color: #008080;"> 6</span>     <span style="color: #008000;">//</span><span style="color: #008000;">省略无关代码</span>
+<span style="color: #008080;"> 7</span>  
+<span style="color: #008080;"> 8</span>     <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> TextViewCreated(IWpfTextView textView)
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;">10</span>         DTE dte = (DTE)ServiceProvider.GetService(<span style="color: #0000ff;">typeof</span>(DTE)); <span style="color: #008000;">//</span><span style="color: #008000;">&lt;-- 获取DTE对象</span>
+<span style="color: #008080;">11</span>         <span style="color: #0000ff;">new</span> TskComment(textView, dte); <span style="color: #008000;">//</span><span style="color: #008000;">&lt;-- 把dte传给 view</span>
+<span style="color: #008080;">12</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">13</span>  
+<span style="color: #008080;">14</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<p style="margin-bottom: 1.286em; line-height: 1.5em; white-space: normal; border-style: solid; border-color: #dddaaa; border-width: 1px 0px; padding: 0.75em 15px; background-color: #faf9e2; color: #5d5636;"><span style="line-height: 1.5;">注：DTE 存在于 EnvDTE.dll 程序集中，</span><span style="line-height: 1.5;">SVsServiceProvider 存在于&nbsp;</span><span style="line-height: 1.5;">Microsoft.VisualStudio.Shell.Immutable.10.0.dll 程序集中，需要先添加这些程序集到项目中</span>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 style="font-size: 1.5em; font-family: 'Microsoft YaHei UI', 'Microsoft YaHei'; background-color: #dfdfdf; padding: 5px 10px; margin-bottom: 30px; margin-top: 20px; font-weight: bold; background-position: initial initial; background-repeat: initial initial;" data-index="8"><a name="completelogic"></a>完成功能逻辑</h2>
+<p>　　既然已经获取了关键元素，我们就把 MainViewModel 中的代码完善一下吧。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span> MoveToTopOrBottomOfBlock(<span style="color: #0000ff;">bool</span><span style="color: #000000;"> up)
+</span><span style="color: #008080;"> 2</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 3</span>     <span style="color: #0000ff;">if</span> (DTE == <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;"> 5</span>         <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 6</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;"> 7</span>  
+<span style="color: #008080;"> 8</span>     CodeFunction func = Selection.ActivePoint.CodeElement[vsCMElement.vsCMElementFunction] <span style="color: #0000ff;">as</span><span style="color: #000000;"> CodeFunction;
+</span><span style="color: #008080;"> 9</span>  
+<span style="color: #008080;">10</span>     <span style="color: #0000ff;">if</span> (func != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;">12</span>         <span style="color: #0000ff;">if</span><span style="color: #000000;"> (up)
+</span><span style="color: #008080;">13</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">14</span> <span style="color: #000000;">            Selection.MoveToPoint(func.StartPoint);
+</span><span style="color: #008080;">15</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">16</span>         <span style="color: #0000ff;">else</span>
+<span style="color: #008080;">17</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">18</span> <span style="color: #000000;">            Selection.MoveToPoint(func.EndPoint);
+</span><span style="color: #008080;">19</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">20</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">21</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">22</span>  
+<span style="color: #008080;">23</span> <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Comment()
+</span><span style="color: #008080;">24</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">25</span> <span style="color: #000000;">    Selection.StartOfLine();
+</span><span style="color: #008080;">26</span> <span style="color: #000000;">    Selection.NewLine();
+</span><span style="color: #008080;">27</span> <span style="color: #000000;">    Selection.LineUp();
+</span><span style="color: #008080;">28</span>     Selection.Text = <span style="color: #800000;">"</span><span style="color: #800000;">//TODO:</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+</span><span style="color: #008080;">29</span>     DTE.ExecuteCommand(<span style="color: #800000;">"</span><span style="color: #800000;">Edit.FormatSelection</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+</span><span style="color: #008080;">30</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="line-height: 1.5;">　　修改 MainWindow 的代码让它能够接受 DTE。</span>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span>     <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">partial</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> MainWindow : UserControl
+</span><span style="color: #008080;">2</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;">3</span>         <span style="color: #0000ff;">public</span><span style="color: #000000;"> MainWindow(DTE dte)
+</span><span style="color: #008080;">4</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">5</span> <span style="color: #000000;">            InitializeComponent();
+</span><span style="color: #008080;">6</span>             ((MainViewModel)<span style="color: #0000ff;">this</span>.DataContext).DTE =<span style="color: #000000;"> dte;
+</span><span style="color: #008080;">7</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">8</span>     }</pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="line-height: 1.5;">　　修改 TskComment.cs 中对应的部分</span>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">private</span><span style="color: #000000;"> MainWindow _win;
+</span><span style="color: #008080;"> 2</span>  
+<span style="color: #008080;"> 3</span> <span style="color: #008000;">//</span><span style="color: #008000;">... 省略部分代码</span>
+<span style="color: #008080;"> 4</span>  
+<span style="color: #008080;"> 5</span> <span style="color: #0000ff;">public</span><span style="color: #000000;"> TskComment(IWpfTextView view,DTE dte)
+</span><span style="color: #008080;"> 6</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 7</span>     _win = <span style="color: #0000ff;">new</span><span style="color: #000000;"> MainWindow(dte);          
+</span><span style="color: #008080;"> 8</span>  
+<span style="color: #008080;"> 9</span>     <span style="color: #008000;">//</span><span style="color: #008000;">...</span>
+<span style="color: #008080;">10</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">11</span>  
+<span style="color: #008080;">12</span> <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> onSizeChange()
+</span><span style="color: #008080;">13</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">14</span>     <span style="color: #008000;">//</span><span style="color: #008000;">...</span>
+<span style="color: #008080;">15</span>  
+<span style="color: #008080;">16</span>     Canvas.SetLeft(_win, _view.ViewportRight - <span style="color: #800080;">310</span>); <span style="color: #008000;">//</span><span style="color: #008000;">&lt;-- 调整位置</span>
+<span style="color: #008080;">17</span>     Canvas.SetTop(_win, _view.ViewportTop + <span style="color: #800080;">90</span>); <span style="color: #008000;">//</span><span style="color: #008000;">&lt;-- 调整位置</span>
+<span style="color: #008080;">18</span>  
+<span style="color: #008080;">19</span>     _adornmentLayer.AddAdornment(AdornmentPositioningBehavior.ViewportRelative, <span style="color: #0000ff;">null</span>, <span style="color: #0000ff;">null</span>, _win, <span style="color: #0000ff;">null</span>); <span style="color: #008000;">//</span><span style="color: #008000;">&lt;-- 把 win 放到界面上</span>
+<span style="color: #008080;">20</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="line-height: 1.5;">　　哦啦，现在可以运行了！</span>&nbsp;</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://images0.cnblogs.com/i/30991/201405/011451254084994.gif" alt="" /></p>
+<p style="text-align: center;">图16 动画演示</p>
+<p>&nbsp;</p>
+<h2 style="font-size: 1.5em; font-family: 'Microsoft YaHei UI', 'Microsoft YaHei'; background-color: #dfdfdf; padding: 5px 10px; margin-bottom: 30px; margin-top: 20px; font-weight: bold; background-position: initial initial; background-repeat: initial initial;" data-index="9"><a name="addmef"></a>增加扩展点，让注释支持后期扩展</h2>
+<p>　　上面的代码已经完成了，可惜这个注释太不人性化了，要是我想增加一个 Phase0 的注释或者 FixMe 的注释，还得修改代码。因此，这里也按照 MEF 的思想，对代码进行升级。</p>
+<p>　　这里只对关键代码进行解释说明，其它部分，请童鞋们查看源代码。</p>
+<p>&nbsp;</p>
+<p><strong>　　新建 &ldquo;协议&rdquo; 项目</strong></p>
+<p>　　增加一个独立的项目，用于存放协议接口，同时基于此接口提供一个抽象类。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span>     <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">interface</span><span style="color: #000000;"> IComment
+</span><span style="color: #008080;"> 2</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;"> 3</span>         <span style="color: #0000ff;">string</span> Title { <span style="color: #0000ff;">get</span><span style="color: #000000;">; }
+</span><span style="color: #008080;"> 4</span>         <span style="color: #0000ff;">string</span> Description { <span style="color: #0000ff;">get</span><span style="color: #000000;">; }
+</span><span style="color: #008080;"> 5</span>         <span style="color: #0000ff;">void</span> Execute(DTE dte); <span style="color: #008000;">//</span><span style="color: #008000;"> 把DTE提供给第三方，这样就可以利用这个来操纵编辑器了</span>
+<span style="color: #008080;"> 6</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;"> 7</span>      
+<span style="color: #008080;"> 8</span>     <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> BaseComment:IComment
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;">10</span>         <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">string</span> Title{<span style="color: #0000ff;">get</span><span style="color: #000000;">;}
+</span><span style="color: #008080;">11</span>  
+<span style="color: #008080;">12</span>         <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">string</span> Description{<span style="color: #0000ff;">get</span><span style="color: #000000;">;}
+</span><span style="color: #008080;">13</span>  
+<span style="color: #008080;">14</span>         <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Execute(DTE dte);
+</span><span style="color: #008080;">15</span>  
+<span style="color: #008080;">16</span>         <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">string</span><span style="color: #000000;"> ToString()
+</span><span style="color: #008080;">17</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">18</span>             <span style="color: #0000ff;">return</span><span style="color: #000000;"> Title;
+</span><span style="color: #008080;">19</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">20</span>  
+<span style="color: #008080;">21</span>         <span style="color: #0000ff;">protected</span><span style="color: #000000;"> TextSelection Selection(DTE dte)
+</span><span style="color: #008080;">22</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">23</span>             <span style="color: #0000ff;">return</span><span style="color: #000000;"> dte.ActiveDocument.Selection;
+</span><span style="color: #008080;">24</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">25</span>  
+<span style="color: #008080;">26</span>         <span style="color: #0000ff;">protected</span><span style="color: #000000;"> CodeFunction Function(DTE dte)
+</span><span style="color: #008080;">27</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">28</span>             <span style="color: #0000ff;">return</span> Selection(dte).ActivePoint.CodeElement[vsCMElement.vsCMElementFunction] <span style="color: #0000ff;">as</span><span style="color: #000000;"> CodeFunction;
+</span><span style="color: #008080;">29</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">30</span>     }</pre>
+</div>
+<p>&nbsp;</p>
+<p><strong style="line-height: 1.5;">　　新建 &ldquo;接受者&rdquo;&nbsp;</strong>&nbsp;</p>
+<p>　　有了协议，就该在我们的工具上<span>增加一个接收者从而让 MEF 帮我们把第三方的产物和我们的接受者组合在一起</span>。</p>
+<p>　　修改 MainViewModel, 增加接收者，因为可能会有不只一个的注释，所以要使用 ImportMany。</p>
+<div class="cnblogs_code">
+<pre>    [ImportMany(<span style="color: #0000ff;">typeof</span><span style="color: #000000;">(BaseComment))]
+    </span><span style="color: #0000ff;">public</span> IEnumerable&lt;BaseComment&gt; Comments;</pre>
+</div>
+<p>&nbsp;</p>
+<p><strong style="line-height: 1.5;">　　新建 &ldquo;组合引擎&rdquo;</strong>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span>     <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Init()
+</span><span style="color: #008080;"> 2</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;"> 3</span>         <span style="color: #008000;">//</span><span style="color: #008000;">设置目录</span>
+<span style="color: #008080;"> 4</span>         <span style="color: #0000ff;">var</span> catalog = <span style="color: #0000ff;">new</span><span style="color: #000000;"> AggregateCatalog();
+</span><span style="color: #008080;"> 5</span>         catalog.Catalogs.Add(<span style="color: #0000ff;">new</span> DirectoryCatalog(<span style="color: #800000;">"</span><span style="color: #800000;">D:\\plugin\\</span><span style="color: #800000;">"</span><span style="color: #000000;">));
+</span><span style="color: #008080;"> 6</span>  
+<span style="color: #008080;"> 7</span>         _container = <span style="color: #0000ff;">new</span><span style="color: #000000;"> CompositionContainer(catalog);
+</span><span style="color: #008080;"> 8</span>         <span style="color: #0000ff;">try</span>
+<span style="color: #008080;"> 9</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">10</span>             <span style="color: #0000ff;">this</span>._container.ComposeParts(<span style="color: #0000ff;">this</span><span style="color: #000000;">);
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">12</span>         <span style="color: #0000ff;">catch</span><span style="color: #000000;"> (CompositionException compositionException)
+</span><span style="color: #008080;">13</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">14</span> <span style="color: #000000;">            Console.WriteLine(compositionException.ToString());
+</span><span style="color: #008080;">15</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">16</span>  
+<span style="color: #008080;">17</span>         <span style="color: #008000;">//</span><span style="color: #008000;">把新的注释绑定到集合中，让界面上能够显示</span>
+<span style="color: #008080;">18</span>         <span style="color: #0000ff;">foreach</span> (BaseComment itm <span style="color: #0000ff;">in</span><span style="color: #000000;"> Comments)
+</span><span style="color: #008080;">19</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">20</span> <span style="color: #000000;">            CMTCollection.Add(itm);
+</span><span style="color: #008080;">21</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">22</span>  
+<span style="color: #008080;">23</span>         <span style="color: #0000ff;">if</span> (Comments != <span style="color: #0000ff;">null</span> &amp;&amp; Comments.Count() &gt; <span style="color: #800080;">0</span><span style="color: #000000;">)
+</span><span style="color: #008080;">24</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">25</span>             SelectedItem = CMTCollection[<span style="color: #800080;">0</span><span style="color: #000000;">];
+</span><span style="color: #008080;">26</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">27</span>     }</pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="line-height: 1.5;">　　大功告成，如果您还能跟住我的节奏，那可喜可贺，您已经基本掌握了 MEF 的思想和扩展 Editor 的能力了。</span>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 style="font-size: 1.5em; font-family: 'Microsoft YaHei UI', 'Microsoft YaHei'; background-color: #dfdfdf; padding: 5px 10px; margin-bottom: 30px; margin-top: 20px; font-weight: bold; background-position: initial initial; background-repeat: initial initial;" data-index="10"><a name="why"></a>Why VSPackages or MEF ?</h2>
+<p>　　换个问法就是 &ldquo;为什么宏和Add-in不支持了？&rdquo; 这答案谷歌一下肯定很多，但是考虑到文章的完整性，还是打算来做一下搬运工。</p>
+<blockquote>
+<p>根据Microsoft所做的使用率跟踪数据，Visual Studio中宏的使用人数不到开发人员总数的1%。这还不足以让Microsoft放弃这个功能，Visual Studio中的宏功能维护成本过高，是另外一个原因，与其他功能不同，对宏的支持，必须要随着Visual Studio每个新版本更新，并做大量令人疲倦的测试。理论上，用户应该可以在宏IDE中录制并播放任何功能，这给微软的维护增加了巨大负担。 Matt Kaufman说：宏IDE已经好几个版本都没有更新了。用户把它启动之后，很快就能看出来它像一个老版本的Visual Studio。更麻烦的是：它还是只支持Visual Basic。用户不能使用C#或是其他新的.NET语言来创建宏。</p>
+<p>&nbsp;</p>
+<p>&nbsp;---&nbsp;<a title="Visual Studio 11抛弃宏" href="http://www.infoq.com/cn/news/2011/10/VS-Macros" target="_blank">Visual Studio 11抛弃宏</a></p>
+</blockquote>
+<blockquote>
+<p>微软已经弃用Visual Studio加载项这一基础结构。根据MSDN上的说法，&ldquo;Visual Studio 2013弃用了加载项。开发人员应该将加载项升级为VSPackage扩展。&rdquo;稍后的文档指出，&ldquo;VSPackage是Visual Studio的主要架构单位，也是部署、许可和安全的单位。Visual Studio本身的大部分就写成了VSPackage集合。&rdquo;</p>
+<p>---&nbsp;<a title="Visual Studio 2013弃用加载项" href="http://www.infoq.com/cn/news/2013/11/VS-2013-Extensions" target="_blank">Visual Studio 2013弃用加载项</a></p>
+</blockquote>
+<p>&nbsp;</p>
+<h2 style="font-size: 1.5em; font-family: 'Microsoft YaHei UI', 'Microsoft YaHei'; background-color: #dfdfdf; padding: 5px 10px; margin-bottom: 30px; margin-top: 20px; font-weight: bold; background-position: initial initial; background-repeat: initial initial;" data-index="11"><a name="sourcecontrol"></a>源代码管理</h2>
+<p>　　CodePlex:&nbsp;<a title="Visual Studio Editor Extension -- TaskComment" href="https://taskcomment.codeplex.com/" target="_blank">Visual Studio Editor Extension -- TaskComment</a></p>
+<p>&nbsp;&nbsp;　TskComment.vsix: 您也可以直接点击<a title="TskComment" href="http://pan.baidu.com/s/1i3gd6Bj" target="_blank">这里</a>获取此扩展，并安装到您的 Visual Studio 当中。</p>
+<p>&nbsp;</p>
+<h2 style="font-size: 1.5em; font-family: 'Microsoft YaHei UI', 'Microsoft YaHei'; background-color: #dfdfdf; padding: 5px 10px; margin-bottom: 30px; margin-top: 20px; font-weight: bold; background-position: initial initial; background-repeat: initial initial;" data-index="12"><a name="reference"></a>参考资源</h2>
+<p><span>　　[1]&nbsp;</span><a title="Visual Studio 宏的高级用法" href="http://blog.chenxu.me/post/detail?id=2c393950-acbe-4367-8039-a326449c8d22" target="_blank"><span>《</span><span>Visual Studio 宏的高级用法</span><span>》</span></a></p>
+<p>　　[2]&nbsp;<a title="Managed Extensibility Framework (MEF)" href="http://msdn.microsoft.com/zh-cn/library/dd460648(v=vs.110).aspx" target="_blank">Managed Extensibility Framework (MEF)</a></p>
+<p>　　[3]&nbsp;<a title="Extending the Editor" href="http://msdn.microsoft.com/en-us/library/dd885242.aspx" target="_blank">Extending the Editor</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>　　本文来源于 <a title="如何扩展 Visual Studio 编辑器" href="http://blog.chenxu.me/post/detail?id=84bce8b9-c04f-4864-9372-ef596420833b" target="_blank">《如何扩展 Visual Studio 编辑器》</a></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+	<div class="postDesc">posted on 
+<span id="post-date">2014-05-06 14:17</span>&nbsp;
+<a href="https://www.cnblogs.com/stg609/">stg609</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=3711443" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(3711443);return false;">收藏</a></div>
+</div>
+
+
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 34546, cb_blogApp = 'stg609', cb_blogUserGuid = '7c30420b-63cf-dd11-9e4d-001cf0cd104b';
+    var cb_entryId = 3711443, cb_entryCreatedDate = '2014-05-06 14:17', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div></div>
+
+
+		</div>
+	</div>
+	<!-- left ends -->
+	<!-- right starts -->
+	<div id="right">
+		<!-- 右侧工具部分 -->
+		<div id="right_content">
+	
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+	
+			<div id="calendar"><div id="calendar"><div id="blog-calendar" style="display:none"></div></div>                
+                    <script>loadBlogDefaultCalendar();</script></div>
+			
+				<DIV id="leftcontentcontainer">
+					<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+				</DIV>
+			
+		</div>
+		<!-- //右侧工具部分 -->
+		<div id="footer">
+			<!--done-->
+Copyright &copy; 2020 stg609
+<br /><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+		</div>
+	</div>
+	<!-- right ends -->
+	<div class="clear"></div>
+	
+</div>
+
+
+    <div id="page_end_html">
+        <div style="margin-left:135px"><script language="javascript" type="text/javascript" src="http://js.users.noscript.cnitblog.com/2035157.js"></script><noscript><a href="http://www.noscript.cnitblog.com/?2035157" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;"src="http://img.users.noscript.cnitblog.com/2035157.asp"style="border:none" /></a></noscript></div>
+
+<a class="bshareDiv" href="http://www.bshare.cn/share">分享按钮</a><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#uuid=84c99111-10cc-4c8d-bf0f-a9e8030d5c37&amp;style=3&amp;fs=4&amp;textcolor=#fff&amp;bgcolor=#06C&amp;text=分享到"></script>
+    </div>
+</body>
+</html>

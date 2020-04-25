@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta property="og:description" content="本文引用了一个DynamicDataDisplay和DynamicControl两个类库，本来使用的时候都时正常的，愉快的运行着。 DynamicDataDisplay：这是一个用于动态数据可视化的W" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>由于Microsoft\VisualStudio\14.0\Designer\ShadowCache导致的一个异常问题 - 芝麻麻雀 - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=-oFz8B4m7JhHaZzdTkzPza2oLZNDRR8obnCz6w7OHbU" />
+    <link id="MainCss" rel="stylesheet" href="/skins/codinglife/bundle-codinglife.min.css?v=hlpQ1CJDwwJXDxv2HNauUmW3NjyWzoMaw1uER19SLT0" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/sesametech-netcore/custom.css?v=SVGv436/oUjUJTyvRqT8JMX7nWY=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/codinglife/bundle-codinglife-mobile.min.css?v=XjHfryC9ctsatIZz1dHn7TsRIqmwz9c3aj_6SCfHSDM" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/sesametech-netcore/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/sesametech-netcore/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/sesametech-netcore/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=uk-as-QYRHtjaAbeEigAktvhwf01NRrnle-6exg65Ak"></script>
+    <script>
+        var currentBlogId = 528580;
+        var currentBlogApp = 'sesametech-netcore';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'CodingLife';
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/mzy666888"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_red_aa0000.png?resize=149%2C149" class="attachment-full size-full"  style="position: absolute; top: 0; right:0px; border: 0;" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/sesametech-netcore/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/sesametech-netcore/">芝麻麻雀</a>
+</h1>
+<h2>
+专注于 .NET Core 技术开发、推广。建设 .NET Core生态圈
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/sesametech-netcore/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E8%8A%9D%E9%BA%BB%E9%BA%BB%E9%9B%80">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/sesametech-netcore/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+22&nbsp; </span>
+<span id="stats_article_count">文章 - 
+0&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+63</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/11381040.html">由于Microsoft\VisualStudio\14.0\Designer\ShadowCache导致的一个异常问题</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>本文引用了一个<strong>DynamicDataDisplay</strong>和<strong>DynamicControl</strong>两个类库，本来使用的时候都时正常的，愉快的运行着。</p>
+<p><strong><a href="https://archive.codeplex.com/?p=dynamicdatadisplay" data-cke-saved-href="https://archive.codeplex.com/?p=dynamicdatadisplay">DynamicDataDisplay</a>：</strong>这是一个用于动态数据可视化的WPF和Silverlight控件库。它具有高效的绑定机制和实时交互能力，能够绘制数百万个数据点。当前版本允许灵活绘制线/标记图。</p>
+<p><strong><a href="https://github.com/hanzhw/DynamicDataDisplay---MVVM" data-cke-saved-href="https://github.com/hanzhw/DynamicDataDisplay---MVVM">DynamicControl</a>：</strong>对<strong>DynamicDataDisplay</strong>的扩展，可以使用MVVM模式。</p>
+<p>最近要更新一些功能需求，重新编译了项目，在使用 Automatic Versions可以自动更新软件的版本，这次编译后，运行软件发现一个巨大的问题，就是：软件只要点击曲线界面就会崩溃，查找了一天的原因也没有找到具体的解决方案。</p>
+<p>打开wpf界面时出现如下错误：不同引用情况出现以下两个错误问题之一</p>
+<div class="cnblogs_code">
+<pre>  在 System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark&amp;<span style="color: #000000;"> stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark</span>&amp;<span style="color: #000000;"> stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark</span>&amp;<span style="color: #000000;"> stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   在 System.Reflection.Assembly.Load(AssemblyName assemblyRef)
+   在 System.Windows.Navigation.BaseUriHelper.GetLoadedAssembly(String assemblyName, String assemblyVersion, String assemblyKey)
+   在 MS.Internal.AppModel.ResourceContainer.GetResourceManagerWrapper(Uri uri, String</span>&amp; partName, Boolean&amp;<span style="color: #000000;"> isContentFile)
+   在 MS.Internal.AppModel.ResourceContainer.GetPartCore(Uri uri)
+   在 System.IO.Packaging.Package.GetPartHelper(Uri partUri)
+   在 System.IO.Packaging.Package.GetPart(Uri partUri)
+   在 System.Windows.Application.GetResourceOrContentPart(Uri uri)
+   在 System.Windows.Application.LoadComponent(Object component, Uri resourceLocator)
+   在 Microsoft.Research.DynamicDataDisplay.Legend.InitializeComponent()
+   在 Microsoft.Research.DynamicDataDisplay.Legend..ctor()
+   在 Microsoft.Research.DynamicDataDisplay.ChartPlotter..ctor()
+   在 Dynamic.Control.DynamicChart..ctor()</span></pre>
+</div>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">XamlParseException: 对类型&ldquo;Dynamic.Control.DynamicChart&rdquo;的构造函数执行符合指定的绑定约束的调用时引发了异常。
+StackTrace:
+在 System.Windows.FrameworkTemplate.LoadTemplateXaml(XamlReader templateReader, XamlObjectWriter currentWriter)
+   在 System.Windows.FrameworkTemplate.LoadTemplateXaml(XamlObjectWriter objectWriter)
+   在 System.Windows.FrameworkTemplate.LoadOptimizedTemplateContent(DependencyObject container, IComponentConnector componentConnector, IStyleConnector styleConnector, List`</span><span style="color: #800080;">1</span> affectedChildren, UncommonField`<span style="color: #800080;">1</span><span style="color: #000000;"> templatedNonFeChildrenField)
+   在 System.Windows.FrameworkTemplate.LoadContent(DependencyObject container, List`</span><span style="color: #800080;">1</span><span style="color: #000000;"> affectedChildren)
+   在 System.Windows.StyleHelper.ApplyTemplateContent(UncommonField`</span><span style="color: #800080;">1</span><span style="color: #000000;"> dataField, DependencyObject container, FrameworkElementFactory templateRoot, Int32 lastChildIndex, HybridDictionary childIndexFromChildID, FrameworkTemplate frameworkTemplate)
+   在 System.Windows.FrameworkTemplate.ApplyTemplateContent(UncommonField`</span><span style="color: #800080;">1</span><span style="color: #000000;"> templateDataField, FrameworkElement container)
+   在 System.Windows.FrameworkElement.ApplyTemplate()
+   在 System.Windows.FrameworkElement.MeasureCore(Size availableSize)
+   在 System.Windows.UIElement.Measure(Size availableSize)
+   在 System.Windows.Controls.StackPanel.StackMeasureHelper(IStackMeasure measureElement, IStackMeasureScrollData scrollData, Size constraint)
+   在 System.Windows.Controls.StackPanel.MeasureOverride(Size constraint)
+   在 System.Windows.FrameworkElement.MeasureCore(Size availableSize)
+   在 System.Windows.UIElement.Measure(Size availableSize)
+   在 System.Windows.ContextLayoutManager.UpdateLayout()
+   在 System.Windows.UIElement.UpdateLayout()
+
+InvalidCastException: [A]Microsoft.Research.DynamicDataDisplay.Charts.StackCanvas cannot be cast to [B]Microsoft.Research.DynamicDataDisplay.Charts.StackCanvas. Type A originates </span><span style="color: #0000ff;">from</span> <span style="color: #800000;">'</span><span style="color: #800000;">DynamicDataDisplay, Version=2019.3.613.0, Culture=neutral, PublicKeyToken=5b7d744a7263923f</span><span style="color: #800000;">'</span> <span style="color: #0000ff;">in</span> the context <span style="color: #800000;">'</span><span style="color: #800000;">LoadNeither</span><span style="color: #800000;">'</span> at location <span style="color: #800000;">'</span><span style="color: #800000;">C:\Users\Administrator\AppData\Local\Microsoft\VisualStudio\14.0\Designer\ShadowCache\feehbzhp.joh\1uhu1oiz.a1d\DynamicDataDisplay.dll</span><span style="color: #800000;">'</span>. Type B originates <span style="color: #0000ff;">from</span> <span style="color: #800000;">'</span><span style="color: #800000;">DynamicDataDisplay, Version=1908.232.13.0, Culture=neutral, PublicKeyToken=5b7d744a7263923f</span><span style="color: #800000;">'</span> <span style="color: #0000ff;">in</span> the context <span style="color: #800000;">'</span><span style="color: #800000;">LoadNeither</span><span style="color: #800000;">'</span> at location <span style="color: #800000;">'</span><span style="color: #800000;">C:\Users\Administrator\AppData\Local\Microsoft\VisualStudio\14.0\Designer\ShadowCache\kaq53nrp.yhz\dwylm05j.yyi\DynamicDataDisplay.dll</span><span style="color: #800000;">'</span><span style="color: #000000;">.
+
+在 Microsoft.Research.DynamicDataDisplay.Charts.AxisControl`</span><span style="color: #800080;">1</span><span style="color: #000000;">.UpdateUIResources()
+   在 Microsoft.Research.DynamicDataDisplay.Charts.AxisControl`</span><span style="color: #800080;">1</span><span style="color: #000000;">..ctor()
+   在 Microsoft.Research.DynamicDataDisplay.Charts.NumericAxisControl..ctor()
+   在 Microsoft.Research.DynamicDataDisplay.Charts.NumericAxis..ctor()
+   在 Microsoft.Research.DynamicDataDisplay.ChartPlotter..ctor()
+   在 Dynamic.Control.DynamicChart..ctor()</span></pre>
+</div>
+<p>在目录：C:\Users\Administrator\AppData\Local\Microsoft\VisualStudio\14.0\Designer\ShadowCache中发现有缓存，直接将其删除，用其他项目编译一个可用的DynamicDataDisplay类库，直接在本项目中引用类库，重新打开解决方案即可解决问题</p>
+<p><span class="cke_widget_wrapper cke_widget_inline cke_widget_image cke_image_nocaption cke_widget_selected" data-cke-widget-wrapper="1" data-cke-filter="off" data-cke-display-name="图像" data-cke-widget-id="1"><img class="has cke_widget_element" src="https://img-blog.csdnimg.cn/20190820091021602.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjkzMDkyOA==,size_16,color_FFFFFF,t_70" alt="" width="1122" height="880" data-cke-saved-src="https://img-blog.csdnimg.cn/20190820091021602.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjkzMDkyOA==,size_16,color_FFFFFF,t_70" data-cke-widget-data="{&amp;quot;hasCaption&amp;quot;:false,&amp;quot;src&amp;quot;:&amp;quot;https://img-blog.csdnimg.cn/20190820091021602.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjkzMDkyOA==,size_16,color_FFFFFF,t_70&amp;quot;,&amp;quot;alt&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;width&amp;quot;:&amp;quot;1122&amp;quot;,&amp;quot;height&amp;quot;:&amp;quot;880&amp;quot;,&amp;quot;lock&amp;quot;:true,&amp;quot;align&amp;quot;:&amp;quot;none&amp;quot;,&amp;quot;classes&amp;quot;:{&amp;quot;has&amp;quot;:1}}" data-cke-widget-upcasted="1" data-cke-widget-keep-attr="0" data-widget="image" /><span class="cke_reset cke_widget_drag_handler_container"><img class="cke_reset cke_widget_drag_handler" title="点击并拖拽以移动" src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="" width="15" height="15" data-cke-widget-drag-handler="1" /><span class="cke_image_resizer" title="点击并拖拽以改变尺寸">​</span></span></span></p>
+<p>此时，出现了久违的设计界面如下：</p>
+<p><span class="cke_widget_wrapper cke_widget_inline cke_widget_image cke_image_nocaption cke_widget_selected" data-cke-widget-wrapper="1" data-cke-filter="off" data-cke-display-name="图像" data-cke-widget-id="0"><img class="has cke_widget_element" src="https://img-blog.csdnimg.cn/2019082008585899.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjkzMDkyOA==,size_16,color_FFFFFF,t_70" alt="" width="621" height="630" data-cke-saved-src="https://img-blog.csdnimg.cn/2019082008585899.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjkzMDkyOA==,size_16,color_FFFFFF,t_70" data-cke-widget-data="{&amp;quot;hasCaption&amp;quot;:false,&amp;quot;src&amp;quot;:&amp;quot;https://img-blog.csdnimg.cn/2019082008585899.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjkzMDkyOA==,size_16,color_FFFFFF,t_70&amp;quot;,&amp;quot;alt&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;width&amp;quot;:&amp;quot;621&amp;quot;,&amp;quot;height&amp;quot;:&amp;quot;630&amp;quot;,&amp;quot;lock&amp;quot;:true,&amp;quot;align&amp;quot;:&amp;quot;none&amp;quot;,&amp;quot;classes&amp;quot;:{&amp;quot;has&amp;quot;:1}}" data-cke-widget-upcasted="1" data-cke-widget-keep-attr="0" data-widget="image" /><span class="cke_reset cke_widget_drag_handler_container"><img class="cke_reset cke_widget_drag_handler" title="点击并拖拽以移动" src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="" width="15" height="15" data-cke-widget-drag-handler="1" /><span class="cke_image_resizer" title="点击并拖拽以改变尺寸">​</span></span></span></p>
+<p>到此，问题完美解决！</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2019-08-20 09:23</span>&nbsp;
+<a href="https://www.cnblogs.com/sesametech-netcore/">芝麻麻雀</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11381040" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(11381040);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 528580, cb_blogApp = 'sesametech-netcore', cb_blogUserGuid = '244d6a44-cf35-495d-2f12-08d70b1ff0f7';
+    var cb_entryId = 11381040, cb_entryCreatedDate = '2019-08-20 09:23', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 芝麻麻雀
+<br /><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <div>
+SesameTech
+</div>
+    </div>
+</body>
+</html>

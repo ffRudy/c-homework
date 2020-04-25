@@ -1,0 +1,390 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="最近淘点点好像做了一个重大调整，一个企业帐号只能开10家店，个人帐号只能开5个店，这个对于第三方配送的就有些麻烦了，如果您店多了，您得用多个帐号，如果您要把订单导入自己的平台，统一操作，这个又麻烦了。" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>订餐系统之自动确认淘点点订单 - 2J - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=-oFz8B4m7JhHaZzdTkzPza2oLZNDRR8obnCz6w7OHbU" />
+    <link id="MainCss" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd.min.css?v=gS0FloTY-RBJQcN3GCAKG6fAr6HHKtDMTw60VxjN79c" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/jijunjian/custom.css?v=WI3eRo7midbwNzmh7EMewRylXm0=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd-mobile.min.css?v=VacchHeVg6bp3gCO8NqMH8D8fhA8iyRbb0JgoDUvn4o" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/jijunjian/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/jijunjian/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/jijunjian/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=uk-as-QYRHtjaAbeEigAktvhwf01NRrnle-6exg65Ak"></script>
+    <script>
+        var currentBlogId = 139716;
+        var currentBlogApp = 'jijunjian';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'iMetro_HD';
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/jijunjian/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/jijunjian/">成为一名优秀的程序员</a>
+</h1>
+<h2>
+
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/jijunjian/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/2J">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/jijunjian/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+25&nbsp; </span>
+<span id="stats_article_count">文章 - 
+0&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+424</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/jijunjian/p/3667608.html">订餐系统之自动确认淘点点订单</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+    <div id="cnblogs_post_description" style="display: none">
+        最近淘点点好像做了一个重大调整，一个企业帐号只能开10家店，个人帐号只能开5个店，这个对于第三方配送的就有些麻烦了，如果您店多了，您得用多个帐号，如果您要把订单导入自己的平台，统一操作，这个又麻烦了。经常几天开发，测试终于实现多帐号自动确认，导入自己的平台了，自动推送配送员，再让配送员抢单，配送。
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>　　最近淘点点好像做了一个重大调整，一个企业帐号只能开10家店，个人帐号只能开5家店，这个对于第三方配送的就有些麻烦了，如果您开的店多了，您就得用多个帐号，如果您要把订单导入自己的平台，统一操作，这个又麻烦了。经过这几天的开发、测试，终于实现多帐号自动确认，导入订单到自己的平台了，自动推送给配送员，再让配送员抢单、配送。之前写过一篇叫<a href="http://www.cnblogs.com/jijunjian/p/3405111.html" target="_blank">订餐系统之获取淘宝外卖订单</a>的文章介绍获取未确认的淘宝外卖订单及确认订单，有兴趣的朋友也可以看下，本文算是那篇文章的一个升级吧。支持多帐号，及自动确认功能。</p>
+<p>　　点击<a href="http://open.taobao.com/index.htm" target="_blank">这里</a>进入淘宝开放平台，添加应用，其他操作基本就是按提示傻瓜操作了。有兴趣的自己点点哦，这里就不细说了。</p>
+<p>　　背景交代完毕，开始进入今天的主题。</p>
+<div class="cnblogs_code" style="background-color: #008000;"><span class="cnblogs_code_collapse">第一步，维护开放平台相关信息<br /></span></div>
+<p>　　在开放平台申请应用后会生成两个信息App Key和App Secret。我先把这些信息维护到数据库中，如下图，其中的shopid为此帐号下任意一个商家编号即可。session key在下一步中作介绍</p>
+<p>　　<img src="https://images0.cnblogs.com/i/88102/201404/162256115724174.jpg" alt="" width="1076" height="277" /></p>
+<p>&nbsp;</p>
+<div class="cnblogs_code" style="background-color: #008000;"><span class="cnblogs_code_collapse">第二步，获取Session key <br /></span></div>
+<p>　　Session Key获取网址为：<a href="http://api.taobao.com/apitools/sessionPage.htm?qq-pf-to=pcqq.c2c" target="_blank">http://api.taobao.com/apitools/sessionPage.htm?qq-pf-to=pcqq.c2c</a>，应用上线后，session key的默认过期时间为一个月（也可以申请一年的），也就是过期了，你要重新到这个地址生成，并更新到第一步中的数据表中。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 操作步骤如下（第二张图中session对应的内容就是Session Key了）：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://images0.cnblogs.com/i/88102/201404/162306103537342.png" alt="" /></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://images0.cnblogs.com/i/88102/201404/162306187919365.png" alt="" /></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<p>　　</p>
+<div class="cnblogs_code" style="background-color: #008000;"><span class="cnblogs_code_collapse">第三步，具体实现 <br /></span></div>
+<p>　　大部分代码和<a href="http://www.cnblogs.com/jijunjian/p/3405111.html" target="_blank">订餐系统之获取淘宝外卖订单</a>中的相同，主要就是换了个思路，把其中变化的参数都保存在数据表中，通常循环获取订单，并确认订单。大概代码如下，写得不好，希望大家拍砖哈。</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('9c72a770-b7bf-4372-ad49-5eb91921d2bf')"><img id="code_img_closed_9c72a770-b7bf-4372-ad49-5eb91921d2bf" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_9c72a770-b7bf-4372-ad49-5eb91921d2bf" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('9c72a770-b7bf-4372-ad49-5eb91921d2bf',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_9c72a770-b7bf-4372-ad49-5eb91921d2bf" class="cnblogs_code_hide">
+<pre>    <span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">void</span> Page_Load(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, EventArgs e)
+    {
+        </span><span style="color: #0000ff;">if</span> (!<span style="color: #000000;">Page.IsPostBack)
+        {
+            TBShoplist </span>=<span style="color: #000000;"> SectionProxyData.GetTaoBaoShopList();
+            </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> account <span style="color: #0000ff;">in</span><span style="color: #000000;"> SectionProxyData.GettaobaoAPIAcountList())
+            {
+                </span><span style="color: #0000ff;">string</span> shopid =<span style="color: #000000;"> account.Priority.ToString();
+                </span><span style="color: #0000ff;">string</span> appkey =<span style="color: #000000;"> account.classname;
+                </span><span style="color: #0000ff;">string</span> appsecret =<span style="color: #000000;"> account.pic;
+                </span><span style="color: #0000ff;">string</span> top_session =<span style="color: #000000;"> account.hovepic;
+
+                </span><span style="color: #008000;">//</span><span style="color: #008000;">参数集合</span>
+                SortedList&lt;<span style="color: #0000ff;">string</span>, <span style="color: #0000ff;">string</span>&gt; parameters = <span style="color: #0000ff;">new</span> SortedList&lt;<span style="color: #0000ff;">string</span>, <span style="color: #0000ff;">string</span>&gt;<span style="color: #000000;">();
+                </span><span style="color: #008000;">//</span><span style="color: #008000;">2.1 应用级输入参数</span>
+                parameters.Add(<span style="color: #800000;">"</span><span style="color: #800000;">is_all</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">true</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">store_id</span><span style="color: #800000;">"</span><span style="color: #000000;">, shopid);
+                parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">max_size</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">20</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                </span><span style="color: #008000;">//</span><span style="color: #008000;">2.2 系统级参数</span>
+                parameters.Add(<span style="color: #800000;">"</span><span style="color: #800000;">method</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">taobao.trade.waimai.get</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">session</span><span style="color: #800000;">"</span><span style="color: #000000;">, top_session);
+                parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">timestamp</span><span style="color: #800000;">"</span>, DateTime.Now.ToString(<span style="color: #800000;">"</span><span style="color: #800000;">yyyy-MM-dd HH:mm:ss</span><span style="color: #800000;">"</span><span style="color: #000000;">));
+                parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">format</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">json</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">app_key</span><span style="color: #800000;">"</span><span style="color: #000000;">, appkey);
+                parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">v</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">2.0</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">partner_id</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">top-apitools</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+
+                </span><span style="color: #008000;">//</span><span style="color: #008000;">2.3 生成sign,格式: app_secret参数1值1参数2值2,生成md5后转为大写</span>
+                StringBuilder sb = <span style="color: #0000ff;">new</span><span style="color: #000000;"> StringBuilder();
+                sb.Append(appsecret);
+                </span><span style="color: #0000ff;">foreach</span> (KeyValuePair&lt;<span style="color: #0000ff;">string</span>, <span style="color: #0000ff;">string</span>&gt; item <span style="color: #0000ff;">in</span><span style="color: #000000;"> parameters)
+                {
+                    sb.Append(item.Key </span>+<span style="color: #000000;"> item.Value);
+                }
+
+                parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">sign</span><span style="color: #800000;">"</span><span style="color: #000000;">, WebUtility.GetMd5(sb.ToString()).ToUpper());
+
+                </span><span style="color: #008000;">//</span><span style="color: #008000;">3.生成url</span>
+                <span style="color: #0000ff;">string</span> url = <span style="color: #800000;">"</span><span style="color: #800000;">http://gw.api.taobao.com/router/rest?</span><span style="color: #800000;">"</span>;<span style="color: #008000;">//</span><span style="color: #008000;">线上环境: </span><span style="color: #008000; text-decoration: underline;">http://gw.api.taobao.com/router/rest</span><span style="color: #008000;">  测试环境: </span><span style="color: #008000; text-decoration: underline;">http://gw.sandbox.taobao.com/router/rest</span>
+                StringBuilder query = <span style="color: #0000ff;">new</span><span style="color: #000000;"> StringBuilder();
+                </span><span style="color: #0000ff;">foreach</span> (KeyValuePair&lt;<span style="color: #0000ff;">string</span>, <span style="color: #0000ff;">string</span>&gt; item <span style="color: #0000ff;">in</span><span style="color: #000000;"> parameters)
+                {
+                    query.Append(item.Key </span>+ <span style="color: #800000;">"</span><span style="color: #800000;">=</span><span style="color: #800000;">"</span> + System.Web.HttpUtility.UrlEncode(item.Value, System.Text.Encoding.UTF8) + <span style="color: #800000;">"</span><span style="color: #800000;">&amp;</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                }
+                url </span>+= query.ToString().TrimEnd(<span style="color: #0000ff;">new</span> <span style="color: #0000ff;">char</span>[] { <span style="color: #800000;">'</span><span style="color: #800000;">&amp;</span><span style="color: #800000;">'</span><span style="color: #000000;"> });
+
+                ITopClient client </span>= <span style="color: #0000ff;">new</span> DefaultTopClient(url, appkey, appsecret, <span style="color: #800000;">"</span><span style="color: #800000;">json</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                TradeWaimaiGetRequest req </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> TradeWaimaiGetRequest();
+                req.StoreId </span>=<span style="color: #000000;"> Convert.ToInt32(shopid);
+                req.IsAll </span>= <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+                req.MaxSize </span>= <span style="color: #800080;">20L</span><span style="color: #000000;">;
+
+                TradeWaimaiGetResponse response </span>=<span style="color: #000000;"> client.Execute(req,top_session);
+                </span><span style="color: #0000ff;">if</span> (response.Result != <span style="color: #0000ff;">null</span> &amp;&amp; response.Result.ResultList != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+                {
+                    ttOrderlist </span>=<span style="color: #000000;"> response.Result.ResultList;
+
+                    </span><span style="color: #0000ff;">string</span> cbautoconfirm = WebUtility.FixgetCookie(<span style="color: #800000;">"</span><span style="color: #800000;">cbautoconfirm</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                    </span><span style="color: #0000ff;">if</span> (cbautoconfirm == <span style="color: #800000;">"</span><span style="color: #800000;">true</span><span style="color: #800000;">"</span> || cbautoconfirm == <span style="color: #800000;">"</span><span style="color: #800000;">checked</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+                    {
+                        </span><span style="color: #008000;">//</span><span style="color: #008000;">自动确认;</span>
+                        <span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">var</span> model <span style="color: #0000ff;">in</span><span style="color: #000000;"> ttOrderlist)
+                        {
+                            confirmOrder(model, appkey, appsecret, top_session);
+                        }
+                    }
+                }
+            }
+           
+        }
+    }
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+    <span style="color: #808080;">///</span><span style="color: #008000;"> 确认订单
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+    <span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">void</span> confirmOrder(TakeoutThirdOrder model, <span style="color: #0000ff;">string</span> appkey, <span style="color: #0000ff;">string</span> appsecret, <span style="color: #0000ff;">string</span><span style="color: #000000;"> top_session)
+    {
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">1.加到系统，</span>
+<span style="color: #000000;">        ...
+        </span><span style="color: #0000ff;">int</span> rs =<span style="color: #000000;"> bll.AddTBOrder(ordermodel, foodlist);
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">2.确认订单</span>
+        <span style="color: #0000ff;">if</span> (rs &gt; <span style="color: #800080;">0</span><span style="color: #000000;">)
+        {
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">参数集合</span>
+            SortedList&lt;<span style="color: #0000ff;">string</span>, <span style="color: #0000ff;">string</span>&gt; parameters = <span style="color: #0000ff;">new</span> SortedList&lt;<span style="color: #0000ff;">string</span>, <span style="color: #0000ff;">string</span>&gt;<span style="color: #000000;">();
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">2.1 应用级输入参数</span>
+            parameters.Add(<span style="color: #800000;">"</span><span style="color: #800000;">order_id</span><span style="color: #800000;">"</span><span style="color: #000000;">, model.Id.ToString());
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">2.2 系统级参数</span>
+            parameters.Add(<span style="color: #800000;">"</span><span style="color: #800000;">method</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">taobao.trade.waimai.confirm</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">session</span><span style="color: #800000;">"</span><span style="color: #000000;">, top_session);
+            parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">timestamp</span><span style="color: #800000;">"</span>, DateTime.Now.ToString(<span style="color: #800000;">"</span><span style="color: #800000;">yyyy-MM-dd HH:mm:ss</span><span style="color: #800000;">"</span><span style="color: #000000;">));
+            parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">format</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">json</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">app_key</span><span style="color: #800000;">"</span><span style="color: #000000;">, appkey);
+            parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">v</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">2.0</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">partner_id</span><span style="color: #800000;">"</span>, <span style="color: #800000;">"</span><span style="color: #800000;">top-apitools</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">2.3 生成sign,格式: app_secret参数1值1参数2值2,生成md5后转为大写</span>
+            StringBuilder sb = <span style="color: #0000ff;">new</span><span style="color: #000000;"> StringBuilder();
+            sb.Append(appsecret);
+            </span><span style="color: #0000ff;">foreach</span> (KeyValuePair&lt;<span style="color: #0000ff;">string</span>, <span style="color: #0000ff;">string</span>&gt; item <span style="color: #0000ff;">in</span><span style="color: #000000;"> parameters)
+            {
+                sb.Append(item.Key </span>+<span style="color: #000000;"> item.Value);
+            }
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">sb.Append(appsecret);</span>
+<span style="color: #000000;">
+            parameters.Add(</span><span style="color: #800000;">"</span><span style="color: #800000;">sign</span><span style="color: #800000;">"</span><span style="color: #000000;">, WebUtility.GetMd5(sb.ToString()).ToUpper());
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">3.生成url</span>
+            <span style="color: #0000ff;">string</span> url = <span style="color: #800000;">"</span><span style="color: #800000;">http://gw.api.taobao.com/router/rest?</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+            StringBuilder query </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> StringBuilder();
+            </span><span style="color: #0000ff;">foreach</span> (KeyValuePair&lt;<span style="color: #0000ff;">string</span>, <span style="color: #0000ff;">string</span>&gt; item <span style="color: #0000ff;">in</span><span style="color: #000000;"> parameters)
+            {
+                query.Append(item.Key </span>+ <span style="color: #800000;">"</span><span style="color: #800000;">=</span><span style="color: #800000;">"</span> + System.Web.HttpUtility.UrlEncode(item.Value, System.Text.Encoding.UTF8) + <span style="color: #800000;">"</span><span style="color: #800000;">&amp;</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            }
+            url </span>+= query.ToString().TrimEnd(<span style="color: #0000ff;">new</span> <span style="color: #0000ff;">char</span>[] { <span style="color: #800000;">'</span><span style="color: #800000;">&amp;</span><span style="color: #800000;">'</span><span style="color: #000000;"> });
+
+            ITopClient client </span>= <span style="color: #0000ff;">new</span> DefaultTopClient(url, appkey, appsecret, <span style="color: #800000;">"</span><span style="color: #800000;">json</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            TradeWaimaiConfirmRequest req </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> TradeWaimaiConfirmRequest();
+            req.OrderId </span>=<span style="color: #000000;"> Convert.ToInt64(model.Id);
+            TradeWaimaiConfirmResponse response </span>=<span style="color: #000000;"> client.Execute(req, top_session);
+        }
+    }</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 界面效果如下图，默认30秒访问一次，自动确认（淘宝掌柜确认后，这里就不能再获取了）。</p>
+<p>　　<img src="https://images0.cnblogs.com/i/88102/201404/162323204633206.jpg" alt="" /></p>
+<div class="cnblogs_code" style="background-color: #008000;"><span class="cnblogs_code_collapse">第四步，让订单跑起来<br /></span></div>
+<p>　　如果在第三步，增加部分代码，把订单推送到我们配送员的Android客户端，让大家去抢单，然后配送。整个流程就变得相当easy了。</p>
+<p>　　</p>
+<div class="cnblogs_code" style="background-color: #008000;"><span class="cnblogs_code_collapse">结语<br /></span></div>
+<p>　　此文与之前的文章描述的内容相关，并没有增加多少技术含量，只是增加了一些思路，如多帐号问题、自动确认等，当然推送客户端，让大家抢单，这只是对接了下我们原有的系统。希望对有需要的同学有点帮助，鄙人技术有限，写得不好地方也请大家拍砖哈！</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <span style="color: #0000ff;"><span style="color: #000000;">成为一名优秀的程序员！</span></span></p>
+<p>&nbsp;</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2014-04-17 10:03</span>&nbsp;
+<a href="https://www.cnblogs.com/jijunjian/">2J</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=3667608" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(3667608);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 139716, cb_blogApp = 'jijunjian', cb_blogUserGuid = '3f24f67b-fea0-de11-ba8f-001cf0cd104b';
+    var cb_entryId = 3667608, cb_entryCreatedDate = '2014-04-17 10:03', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 2J
+<br /><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+</body>
+</html>

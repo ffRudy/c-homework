@@ -1,0 +1,522 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>随笔列表第2页 - 芝麻麻雀 - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=-oFz8B4m7JhHaZzdTkzPza2oLZNDRR8obnCz6w7OHbU" />
+    <link id="MainCss" rel="stylesheet" href="/skins/codinglife/bundle-codinglife.min.css?v=hlpQ1CJDwwJXDxv2HNauUmW3NjyWzoMaw1uER19SLT0" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/sesametech-netcore/custom.css?v=SVGv436/oUjUJTyvRqT8JMX7nWY=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/codinglife/bundle-codinglife-mobile.min.css?v=XjHfryC9ctsatIZz1dHn7TsRIqmwz9c3aj_6SCfHSDM" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/sesametech-netcore/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/sesametech-netcore/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/sesametech-netcore/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=uk-as-QYRHtjaAbeEigAktvhwf01NRrnle-6exg65Ak"></script>
+    <script>
+        var currentBlogId = 528580;
+        var currentBlogApp = 'sesametech-netcore';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'CodingLife';
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <a href="https://github.com/mzy666888"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_red_aa0000.png?resize=149%2C149" class="attachment-full size-full"  style="position: absolute; top: 0; right:0px; border: 0;" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/sesametech-netcore/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/sesametech-netcore/">芝麻麻雀</a>
+</h1>
+<h2>
+专注于 .NET Core 技术开发、推广。建设 .NET Core生态圈
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/sesametech-netcore/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E8%8A%9D%E9%BA%BB%E9%BA%BB%E9%9B%80">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/sesametech-netcore/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+22&nbsp; </span>
+<span id="stats_article_count">文章 - 
+0&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+63</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<!--done-->
+
+
+<div id="homepage_top_pager" class="topicListFooter">
+    
+
+<div class="pager">
+    <a href="https://www.cnblogs.com/sesametech-netcore/default.html?page=1">上一页</a>
+    
+    
+        <a href="https://www.cnblogs.com/sesametech-netcore/default.html?page=1">1</a>
+    2
+        <a href="https://www.cnblogs.com/sesametech-netcore/default.html?page=3">3</a>
+    
+    
+    <a href="https://www.cnblogs.com/sesametech-netcore/default.html?page=3">下一页</a>
+</div>
+</div>
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/sesametech-netcore/archive/2019/11/21.html">2019年11月21日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/11903491.html">
+    前端小白在asp.net core mvc中使用ECharts
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：对于在浏览器中绘制图形图表，目前有较多的js类库可以使用，如：ChartJS，Flot，canvasjs等，但是今天介绍的主角为国产图表库，并在apache孵化，就是大名鼎鼎的echarts。 前方高能【官方介绍】 特性 Apache ECharts (incubating) ECharts，一个使            <a href="https://www.cnblogs.com/sesametech-netcore/p/11903491.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2019-11-21 08:56 芝麻麻雀 阅读 (991) 评论 (1)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11903491" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/sesametech-netcore/archive/2019/11/11.html">2019年11月11日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/11832872.html">
+    GitHub中文社区
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：今天在打开GitHub的时候，使用了bing.com搜索，输入GitHub进行搜索链接，排名第一的为GitHub中文社区，点击去发现这个社区还可以，我们看看GitHub中文社区有哪些好的地方 GitHub中文社区菜单 &quot;热门趋势&quot; &quot;排行榜&quot; &quot;GitHub精选&quot; &quot;随机浏览&quot; &quot;分类浏览&quot; &quot;开发            <a href="https://www.cnblogs.com/sesametech-netcore/p/11832872.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2019-11-11 09:13 芝麻麻雀 阅读 (1148) 评论 (0)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11832872" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/sesametech-netcore/archive/2019/11/04.html">2019年11月4日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/11790297.html">
+    AdminLTE 3.0发布了
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：在11月2日，作者正式发布了AdminLTE 3.0版本。该版本基于Bootstrap 4.x。使用Bootstrap 4.x的小伙伴可以愉快的使用AdminLTE。 &quot;Github&quot; AdminLTE是一个完全响应的管理模板。基于Bootstrap 4框架。高度可定制且易于使用。适合从小型移动设备            <a href="https://www.cnblogs.com/sesametech-netcore/p/11790297.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2019-11-04 08:46 芝麻麻雀 阅读 (7539) 评论 (0)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11790297" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/sesametech-netcore/archive/2019/10/23.html">2019年10月23日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/11726779.html">
+    .NET Core ORM 类库Petapoco中对分页Page添加Order By对查询的影响
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：介绍 最近一直在使用Petapoco+Entity Framework Core结合开发一套系统。 使用EFCore进行Code First编码，使用PMC命令生成数据库表的信息。 使用Petapoco进行数据库的常规操作。并且结合PetaPoco.SqlKata的使用，减少了编写SQL语句的工作量            <a href="https://www.cnblogs.com/sesametech-netcore/p/11726779.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2019-10-23 15:59 芝麻麻雀 阅读 (174) 评论 (0)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11726779" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/11723840.html">
+    【译】ASP.NET Core在 .NET Core 3.1 Preview 1中的更新
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：.NET Core 3.1 Preview 1现在可用。此版本主要侧重于错误修复，但同时也包含一些新功能。 这是此版本的ASP.NET Core的新增功能： 对Razor components的部分类支持 将参数传递给顶级组件 在HttpSysServer中支持共享队列 在SameSite cook            <a href="https://www.cnblogs.com/sesametech-netcore/p/11723840.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2019-10-23 08:11 芝麻麻雀 阅读 (2387) 评论 (7)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11723840" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/sesametech-netcore/archive/2019/10/15.html">2019年10月15日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/11677325.html">
+    物品编码中心所说的包装指示符
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：全球贸易项目代码（Global Trade Item Number） 这种编码叫EAN/UCC 14代码结构，对应ITF 14条码。它的编码规则是单品的EAN/UCC 13代码加包装指示符。 具体解释如下： 产品的UPC码是8 12751 00850 7要先变成EAN 13代码，方法是直接在前面加一            <a href="https://www.cnblogs.com/sesametech-netcore/p/11677325.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2019-10-15 14:01 芝麻麻雀 阅读 (524) 评论 (0)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11677325" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/sesametech-netcore/archive/2019/09/30.html">2019年9月30日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/11611512.html">
+    Entity Framework Core生成的存储过程在MySQL中需要进行处理及PMC中的常用命令
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：在使用Entity Framework Core生成MySQL数据库脚本，对于生成的存储过程，在执行的过程中出现错误，需要在存储过程前面添加 附：可以使用Visual Studio中的程序包管理器控制台执行Entity Framework Core中的迁移命令。 PMC Command | Usag            <a href="https://www.cnblogs.com/sesametech-netcore/p/11611512.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2019-09-30 10:50 芝麻麻雀 阅读 (91) 评论 (0)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11611512" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/sesametech-netcore/archive/2019/09/25.html">2019年9月25日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/11586095.html">
+    Asp.Net Core Mvc Razor之RazorPage
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：在AspNetCore.Mvc.Razor命名空间中的RazorPage继承RazorPageBase，并定义的属性为： HttpContext Context 表示当前请求执行的HttpContext RazorPageBase定义为抽象类，并继承了接口：IRazorPage IRazorPage            <a href="https://www.cnblogs.com/sesametech-netcore/p/11586095.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2019-09-25 17:17 芝麻麻雀 阅读 (325) 评论 (0)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11586095" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/sesametech-netcore/archive/2019/09/24.html">2019年9月24日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/11578745.html">
+    基于Asp.Net Core MVC和AdminLTE的响应式管理后台之侧边栏处理
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：说明： .NET Core版本为:2.2 AdminLTE版本为:2.4.18 Bootstrap版本为:3.4.1 font awesome版本为:4.7.0 1、使用VS 2017新建项目：AdminLteDemo，完成后添加区域Admin 在Areas/Admin/Views文件夹添加文件并分            <a href="https://www.cnblogs.com/sesametech-netcore/p/11578745.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2019-09-24 17:33 芝麻麻雀 阅读 (761) 评论 (1)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11578745" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/sesametech-netcore/archive/2019/08/24.html">2019年8月24日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2" href="https://www.cnblogs.com/sesametech-netcore/p/11404563.html">
+    Qt的下载地址
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：Qt网站改动太大了，找了好久找不到以前版本的下载地址，从百度上搜索到下面这个下载地址。 Qt的下载地址：http://download.qt.io/archive/qt/ 还发现了一下这个地址可以下载一些离线版本： https://www.qt.io/offline-installers 包含当前版            <a href="https://www.cnblogs.com/sesametech-netcore/p/11404563.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">
+
+posted @ 2019-08-24 14:25 芝麻麻雀 阅读 (58) 评论 (0)
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11404563" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+
+<div class="topicListFooter">
+    <div id="nav_next_page">
+        
+
+    </div>    
+</div>
+
+
+<div id="homepage_bottom_pager" class="topicListFooter">
+    
+
+<div class="pager">
+    <a href="https://www.cnblogs.com/sesametech-netcore/default.html?page=1">上一页</a>
+    
+    
+        <a href="https://www.cnblogs.com/sesametech-netcore/default.html?page=1">1</a>
+    2
+        <a href="https://www.cnblogs.com/sesametech-netcore/default.html?page=3">3</a>
+    
+    
+    <a href="https://www.cnblogs.com/sesametech-netcore/default.html?page=3">下一页</a>
+</div>
+</div>
+
+
+
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 芝麻麻雀
+<br /><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <div>
+SesameTech
+</div>
+    </div>
+</body>
+</html>
